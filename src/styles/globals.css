@@ -1,0 +1,703 @@
+/*
+ * TANYA CHISEPO - Portfolio Theme
+ * 
+ * Light Mode Color Palette (Warm Khaki/Beige):
+ * - Background: #f0ead6 (soft khaki - easy on eyes)
+ * - Cards: #faf8f2 (light cream)
+ * - Accent: #a8d500 (darker olive-lime green - better contrast)
+ * - Text Primary: #1a1a1a (dark gray)
+ * - Text Secondary: #4a4a4a (medium gray)
+ * - Text Muted: #6a6a6a (light gray)
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+  scroll-behavior: smooth;
+}
+
+/* Custom Portfolio Styles */
+body {
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode (Default) */
+body {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+}
+
+/* Light Mode - Soft Khaki/Beige */
+.light body {
+  background: #f0ead6;
+}
+
+/* Main app background */
+.theme-main-bg {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+}
+
+.light .theme-main-bg {
+  background: #f0ead6;
+}
+
+/* Glassmorphism Utility Classes - Dark Mode */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .glass {
+  background: #faf8f2;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.glass-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(196, 255, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(196, 255, 0, 0.1);
+}
+
+.light .glass-hover:hover {
+  background: #faf8f2;
+  border-color: #a8d500;
+  box-shadow: 0 4px 20px rgba(168, 213, 0, 0.15);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.light .glass-strong {
+  background: #faf8f2;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.glass-accent {
+  background: rgba(196, 255, 0, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(196, 255, 0, 0.2);
+  box-shadow: 0 8px 32px rgba(196, 255, 0, 0.15);
+}
+
+.light .glass-accent {
+  background: #a8d500;
+  border: 1px solid #a8d500;
+  box-shadow: 0 4px 16px rgba(168, 213, 0, 0.25);
+}
+
+/* Custom scrollbar - Dark Mode */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(13, 13, 13, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #e8e4d4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(196, 255, 0, 0.8);
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #a8d500;
+  border: none;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8d500;
+  box-shadow: 0 0 10px rgba(168, 213, 0, 0.5);
+}
+
+/* Selection color - Dark Mode */
+::selection {
+  background: rgba(196, 255, 0, 0.3);
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: rgba(196, 255, 0, 0.3);
+  color: #ffffff;
+}
+
+/* Selection color - Light Mode */
+.light ::selection {
+  background: rgba(196, 255, 0, 0.4);
+  color: #000000;
+}
+
+.light ::-moz-selection {
+  background: rgba(196, 255, 0, 0.4);
+  color: #000000;
+}
+
+/* 3D Card Flip Styles for Memory Game */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle-bg {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.light .theme-toggle-bg {
+  background: #faf8f2;
+}
+
+.theme-toggle-border {
+  border-color: rgba(196, 255, 0, 0.3);
+}
+
+.light .theme-toggle-border {
+  border-color: rgba(196, 255, 0, 0.4);
+}
+
+.theme-toggle-circle {
+  background: #a8d500;
+  box-shadow: 0 2px 8px rgba(168, 213, 0, 0.4);
+}
+
+/* Theme-aware navigation background */
+.theme-nav-bg {
+  background: #1a1a1a;
+}
+
+.light .theme-nav-bg {
+  background: #f0ead6;
+}
+
+/* Theme-aware navigation border */
+.theme-nav-border {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.light .theme-nav-border {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Theme-aware text colors */
+.theme-text {
+  color: #ffffff;
+}
+
+.light .theme-text {
+  color: #000000;
+}
+
+.theme-text-secondary {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.light .theme-text-secondary {
+  color: #4a4a4a;
+}
+
+.theme-text-muted {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.light .theme-text-muted {
+  color: #6a6a6a;
+}
+
+/* Theme-aware background colors for sections */
+.theme-bg-gradient-1 {
+  background: linear-gradient(135deg, #0d0d0d 0%, #1a1a1a 100%);
+}
+
+.light .theme-bg-gradient-1 {
+  background: #f0ead6;
+}
+
+.theme-bg-gradient-2 {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+}
+
+.light .theme-bg-gradient-2 {
+  background: #f0ead6;
+}
+
+/* Glow effects */
+.theme-glow-accent {
+  background: rgba(196, 255, 0, 0.05);
+}
+
+.light .theme-glow-accent {
+  background: rgba(196, 255, 0, 0.12);
+}
+
+/* Additional light mode color overrides for specific backgrounds */
+.light .bg-\[\#a8d500\]\/10 {
+  background-color: rgba(168, 213, 0, 0.1) !important;
+}
+
+.light .bg-\[\#a8d500\]\/20 {
+  background-color: rgba(168, 213, 0, 0.2) !important;
+}
+
+.light .bg-\[\#a8d500\]\/30 {
+  background-color: rgba(168, 213, 0, 0.3) !important;
+}
+
+/* Hover states for lime backgrounds */
+.light .hover\:bg-\[\#a8d500\]\/10:hover {
+  background-color: rgba(168, 213, 0, 0.15) !important;
+}
+
+.light .hover\:bg-\[\#a8d500\]\/20:hover {
+  background-color: rgba(168, 213, 0, 0.25) !important;
+}
+
+.light .hover\:bg-\[\#a8d500\]\/30:hover {
+  background-color: rgba(168, 213, 0, 0.35) !important;
+}
+
+/* Light mode adjustments for text in components */
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6 {
+  color: #1a1a1a;
+  font-weight: 700;
+}
+
+.light p {
+  color: #3a3a3a;
+  font-weight: 400;
+}
+
+/* Light mode - keep text-white elements dark in light mode */
+.light .text-white {
+  color: #1a1a1a !important;
+}
+
+.light .text-white\/90 {
+  color: #2a2a2a !important;
+}
+
+.light .text-white\/80 {
+  color: #3a3a3a !important;
+}
+
+.light .text-white\/70 {
+  color: #4a4a4a !important;
+}
+
+.light .text-white\/60 {
+  color: #5a5a5a !important;
+}
+
+.light .text-white\/50 {
+  color: #6a6a6a !important;
+}
+
+/* Light mode backgrounds - Soft khaki/beige */
+.light .bg-\[\'0d0d0d\'\],
+.light .bg-\[\#0d0d0d\] {
+  background-color: #f0ead6 !important;
+}
+
+.light .bg-\[\'1a1a1a\'\],
+.light .bg-\[\#1a1a1a\] {
+  background-color: #f0ead6 !important;
+}
+
+.light .bg-black {
+  background-color: #f0ead6 !important;
+}
+
+.light .bg-gray-100 {
+  background-color: #f0ead6 !important;
+}
+
+/* Override all gradient backgrounds in light mode */
+.light .bg-gradient-to-br,
+.light .bg-gradient-to-r,
+.light .bg-gradient-to-l,
+.light .bg-gradient-to-t,
+.light .bg-gradient-to-b,
+.light .bg-gradient-to-tr,
+.light .bg-gradient-to-tl,
+.light .bg-gradient-to-bl {
+  background: transparent !important;
+}
+
+/* Hide all section background overlays in light mode */
+.light section > .absolute.inset-0.bg-gradient-to-br,
+.light section > .absolute.inset-0.bg-gradient-to-r,
+.light section > .absolute.inset-0.bg-gradient-to-l,
+.light section > .absolute.inset-0.bg-gradient-to-t,
+.light section > .absolute.inset-0.bg-gradient-to-b,
+.light section > .absolute.inset-0.bg-gradient-to-tr,
+.light section > .absolute.inset-0.bg-gradient-to-tl,
+.light section > .absolute.inset-0.bg-gradient-to-bl {
+  display: none !important;
+}
+
+/* Hide all footer background overlays in light mode */
+.light footer > .absolute.inset-0.bg-gradient-to-t,
+.light footer > .absolute.inset-0.bg-gradient-to-b {
+  display: none !important;
+}
+
+/* Hide dark glow effects in light mode - they're not visible on white */
+.light .absolute.bg-\[\#a8d500\]\/5,
+.light .absolute.bg-\[\#a8d500\]\/10 {
+  opacity: 0.3 !important;
+}
+
+/* TechMarquee and other inline background gradients */
+.light section.bg-gradient-to-b,
+.light section.bg-gradient-to-t,
+.light section.bg-gradient-to-r,
+.light section.bg-gradient-to-l {
+  background: #f0ead6 !important;
+}
+
+/* Hide gradient fade overlays in light mode */
+.light .absolute.inset-y-0.bg-gradient-to-r,
+.light .absolute.inset-y-0.bg-gradient-to-l {
+  background: linear-gradient(to right, #f0ead6, transparent) !important;
+}
+
+.light .absolute.inset-y-0.left-0.bg-gradient-to-r {
+  background: linear-gradient(to right, #f0ead6, transparent) !important;
+}
+
+.light .absolute.inset-y-0.right-0.bg-gradient-to-l {
+  background: linear-gradient(to left, #f0ead6, transparent) !important;
+}
+
+/* Light mode borders */
+.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .border-white\/20 {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.light .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Hover states in light mode */
+.light .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.light .hover\:text-white:hover {
+  color: #000000 !important;
+}
+
+/* Light mode - Ensure all text elements are visible */
+.light span,
+.light div,
+.light a,
+.light button,
+.light li {
+  color: inherit;
+}
+
+.light .text-gray-300,
+.light .text-gray-400,
+.light .text-gray-500 {
+  color: #666666 !important;
+}
+
+.light .text-gray-600 {
+  color: #4a4a4a !important;
+}
+
+.light .text-gray-700 {
+  color: #2a2a2a !important;
+}
+
+.light .text-gray-800 {
+  color: #1a1a1a !important;
+}
+
+/* Ensure all section backgrounds are transparent/white in light mode */
+.light section {
+  background-color: transparent !important;
+}
+
+.light footer {
+  background-color: transparent !important;
+}
+
+/* Light mode hover effects with lime green */
+.light .hover\:text-\[\#a8d500\]:hover {
+  color: #a8d500 !important;
+}
+
+.light .text-\[\#a8d500\] {
+  color: #a8d500 !important;
+}
+
+/* Ensure buttons are visible */
+.light button {
+  color: inherit;
+}
+
+.light button:not(.bg-\[\#a8d500\]) {
+  color: #000000;
+}
+
+/* Cards and containers on white */
+.light .bg-opacity-5,
+.light .bg-opacity-10 {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Light mode shadows for depth on white */
+.light .shadow-sm {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.light .shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.light .shadow-md {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+.light .shadow-lg {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.light .shadow-xl {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18) !important;
+}
+
+/* Timeline dots in Experience section */
+.light .bg-\[\#a8d500\] {
+  background-color: #a8d500 !important;
+}
+
+/* Make sure icons are visible */
+.light svg {
+  color: inherit;
+}
+
+/* Navigation link colors */
+.light .text-\[\#a8d500\] {
+  color: #a8d500 !important;
+}
+
+.light .hover\:text-white:hover {
+  color: #a8d500 !important;
+}
