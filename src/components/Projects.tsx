@@ -1,41 +1,70 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
-import { Rocket, Calendar, ExternalLink, Github } from "lucide-react";
+import { Rocket, Calendar, ExternalLink, Github, Sparkles, Brain, Briefcase, Mic, Code2 } from "lucide-react";
 import { Button } from "./ui/button";
 
 export function Projects() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const projects = [
     {
-      title: "Virtual Makeup Application",
-      period: "Feb 2025 - Present",
+      title: "Flux",
+      period: "2025 - Present",
+      icon: Code2,
       description:
-        "An AI-driven virtual makeup application utilizing Mediapipe landmarking and image style transfer, enabling users to experiment with makeup styles.",
+        "A locally hosted, offline-first developer collaboration tool inspired by Phabricator, designed for visual code review, structured change tracking, and lightweight project discussions.",
       achievements: [
-        "Designed an AI-driven virtual makeup application utilizing Mediapipe landmarking and image style transfer, enabling users to experiment with 20+ different makeup styles.",
-        "Curated a dataset of 1,000+ images of diverse skin tones with professional makeup, addressing a gap in existing datasets, and improved makeup application accuracy by 30%.",
+        "Built with TypeScript and JavaScript using Node.js, the VS Code Extension API, and local file system storage.",
+        "Integrated Git support with a desktop-style UI via Electron and WebViews for seamless developer workflow.",
+        "Designed for visual code review and structured change tracking inside a VS Code-integrated workflow.",
       ],
-      tech: [
-        "Mediapipe",
-        "TensorFlow",
-        "Computer Vision",
-        "Image Style Transfer",
-      ],
+      tech: ["TypeScript", "JavaScript", "Node.js", "VS Code API", "Electron", "Git"],
       github: "#",
       demo: "#",
     },
     {
-      title: "TutorVerse",
-      period: "Aug 2023 - May 2024",
+      title: "Basafy",
+      period: "Oct 2025 - Present",
+      icon: Briefcase,
       description:
-        "A full-stack tutor finding web application connecting students with on-campus tutors.",
+        "An AI-powered job search assistant that automatically parses Gmail interview emails, tracks application stages, manages deadlines, and surfaces insights through a centralized dashboard.",
       achievements: [
-        "Developed a full-stack tutor finding web application utilizing React.js, Node.js, and SQLite, with 100+ connections between students and readily available on-campus tutors within the application's first semester launch period.",
+        "Building a React Native app that scrapes Gmail and parses interview emails using Python and Google APIs to auto-update a dashboard of applications and interview stages.",
+        "Added an assistant that uses calendar APIs and custom logic to set reminders, track deadlines, and send simple insights based on new emails.",
+        "Designed a clean workflow in React Native, Node, and Supabase that keeps all job search data in one place.",
       ],
-      tech: ["React.js", "Node.js", "SQLite", "Full-Stack Development"],
+      tech: ["React Native", "Node.js", "Python", "Supabase", "Google APIs", "Gmail API"],
+      github: "#",
+      demo: "#",
+    },
+    {
+      title: "InterPace",
+      period: "Nov 2025 - Present",
+      icon: Mic,
+      description:
+        "A gamified interview preparation platform that provides real-time feedback on communication skills while offering structured DSA practice with progress tracking across web and mobile.",
+      achievements: [
+        "Built a web app using OpenAI Whisper, speech analysis, and custom scoring to give feedback on pacing, filler words, tone, and clarity.",
+        "Added gamified DSA and pattern practice with timed rounds, streaks, and progress tracking using React, Node, and Python.",
+        "Expanding the platform into a React Native mobile app with the same coaching tools for practice anywhere.",
+      ],
+      tech: ["React", "React Native", "Node.js", "Python", "OpenAI Whisper", "Speech Analysis"],
+      github: "#",
+      demo: "#",
+    },
+    {
+      title: "Virtual Makeup Application",
+      period: "Feb 2025 - Present",
+      icon: Sparkles,
+      description:
+        "An AI-driven virtual makeup application allowing users to experiment with 20+ makeup styles while improving realism and inclusivity through a custom dataset of diverse skin tones.",
+      achievements: [
+        "Designed an AI-driven virtual makeup application utilizing Mediapipe landmarking and image style transfer, enabling users to experiment with 20+ different makeup styles.",
+        "Curated a dataset of 1,000+ images of diverse skin tones with professional makeup, addressing a gap in existing datasets, and improved makeup application accuracy by 30%.",
+      ],
+      tech: ["Python", "Mediapipe", "OpenCV", "TensorFlow", "CycleGAN", "Deep Learning"],
       github: "#",
       demo: "#",
     },
@@ -84,16 +113,16 @@ export function Projects() {
                 ref={cardRef}
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 style={{ scale, opacity }}
                 className="glass-strong glass-hover p-8 rounded-2xl group flex flex-col"
               >
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div className="flex items-center gap-3 flex-1">
                     <div className="glass-accent p-3 rounded-xl group-hover:bg-[#c4ff00]/20 transition-all duration-300">
-                      <Rocket className="text-[#c4ff00]" size={24} />
+                      <project.icon className="text-[#c4ff00]" size={24} />
                     </div>
-                    <h3 className="text-white text-xl lg:text-2xl">{project.title}</h3>
+                    <h3 className="text-white text-xl lg:text-2xl font-semibold">{project.title}</h3>
                   </div>
                 </div>
 
