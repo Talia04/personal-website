@@ -1,218 +1,390 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
-import { Calendar } from "lucide-react";
+import { motion, useScroll, useTransform, useInView } from "motion/react";
+import { useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 // @ts-ignore: allow importing image asset without a type declaration
 import bcuLogo from "../assets/bcu-logo.png";
 // @ts-ignore: allow importing image asset without a type declaration
 import metaLogo from "../assets/meta-color.svg";
 
+const experiences = [
+  {
+    company: "Meta",
+    logo: metaLogo,
+    role: "Software Engineer Intern",
+    team: "Mobile, Cross-Platform (iOS/Android)",
+    period: "May 2025 - Aug 2025",
+    year: "2025",
+    highlights: [
+      "Built Facebook feature for bulk-adding saved content to collections",
+      "Created 15+ reusable UI components for cross-platform framework",
+      "Increased test coverage by 15% through comprehensive testing",
+      "Reduced development-to-launch timeline by 30%",
+    ],
+    impact: "40% increase in content saves",
+  },
+  {
+    company: "Meta",
+    logo: metaLogo,
+    role: "Software Engineer Intern",
+    team: "Backend Infrastructure",
+    period: "May 2024 - Aug 2024",
+    year: "2024",
+    highlights: [
+      "Led automation feature migration to new infrastructure",
+      "Built multi-tier FAQ system for chatbot interactions",
+      "Engineered tree-based GraphQL schema for FAQ management",
+      "Delivered 30% boost in test coverage",
+    ],
+    impact: "10% increase in leads retention",
+  },
+  {
+    company: "Meta",
+    logo: metaLogo,
+    role: "Meta University Intern",
+    team: "Full-stack Web Development",
+    period: "Jun 2023 - Aug 2023",
+    year: "2023",
+    highlights: [
+      "Delivered fully functional web app prototype in 5 weeks",
+      "Implemented advanced search features and responsive design",
+      "Self-taught JavaScript during the internship",
+    ],
+    impact: "First engineering internship",
+  },
+  {
+    company: "Bethune-Cookman University",
+    logo: bcuLogo,
+    role: "CS Teaching Assistant",
+    team: "Computer Science Department",
+    period: "Feb 2024 - Present",
+    year: "Current",
+    highlights: [
+      "Mentoring students on programming fundamentals",
+      "Guiding 15+ students through weekly coding challenges",
+      "Clarifying complex CS concepts one-on-one",
+    ],
+    impact: "15+ students mentored",
+  },
+];
+
 export function Experience() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const experiences = [
-    {
-      company: "Meta",
-      logo: metaLogo,
-      role: "Software Engineering Intern – Mobile, Cross-Platform (iOS/Android)",
-      period: "May 2025 - Aug 2025",
-      achievements: [
-        "Engineered E2E a Facebook mobile app feature enabling users to search and bulk-add saved content to collections, incorporating global search functionality, resulting in a 40% increase in content saves.",
-        "Designed and deployed 15+ reusable UI components for the relatively new framework, accelerating development and ensuring consistent UI/UX across mobile platforms, saving 300+ hours for development.",
-        "Increased test coverage by 15% through unit and end-to-end testing, supporting faster iteration.",
-        "Recommended and implemented a streamlined feature QA testing process in parallel with development, decreasing the feature development-to-launch timeline by 30%, resulting in two weeks faster releases.",
-      ],
-    },
-    {
-      company: "Meta",
-      logo: metaLogo,
-      role: "Software Engineering Intern – Backend Infrastructure",
-      period: "May 2024 - Aug 2024",
-      achievements: [
-        "Led the migration of an automation feature to a new infrastructure platform, completing the project within 3 weeks and ensuring seamless functionality while maintaining key product metrics.",
-        "Conceptualized and constructed a novel infrastructure system for multi-tier FAQs, which streamlined chatbot interactions and increased leads retention by 10%.",
-        "Engineered a tree-based graph schema utilizing GraphQL endpoints to streamline the creation and retrieval of FAQ objects, estimating a 40% improvement in business page message response time.",
-        "Delivered 30% boost in test coverage through writing comprehensive unit testing and refactoring code.",
-      ],
-    },
-    {
-      company: "Meta",
-      logo: metaLogo,
-      role: "Meta University Engineering Intern – Full-stack Web",
-      period: "Jun 2023 - Aug 2023",
-      achievements: [
-        "Initiated and delivered a fully functional web app prototype within 5 weeks—despite no prior JavaScript experience—by implementing advanced search features, responsive design, and maintaining consistent communication to exceed project goals.",
-      ],
-    },
-    {
-      company: "Bethune-Cookman University",
-      logo: bcuLogo,
-      role: "Computer Science Teaching Assistant",
-      period: "Feb 2024 - Present",
-      achievements: [
-        "Offered personalized guidance to students struggling with programming assignments, clarifying confusing concepts and improving coding skills, providing hands-on coding support, resulting in 15+ students completing 5+ practice coding challenges weekly.",
-      ],
-    },
-  ];
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const lineHeight = useTransform(scrollYProgress, [0, 0.8], ["0%", "100%"]);
 
   return (
     <section
       id="experience"
       ref={ref}
-      className="min-h-screen relative py-24 px-6 lg:px-12 overflow-hidden"
+      className="relative min-h-screen bg-[#050505] overflow-hidden py-32"
     >
-      <div className="absolute inset-0 bg-[#111111]" />
-      <div className="absolute top-20 left-1/2 w-[500px] h-[500px] bg-[#a8d500]/[0.03] rounded-full blur-[120px]" />
-      <div className="max-w-6xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+      {/* Large backdrop text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <motion.span
+          style={{
+            y: y1,
+            fontSize: 'clamp(100px, 20vw, 300px)',
+            letterSpacing: '-0.02em'
+          }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.03 }}
+          transition={{ duration: 1.5 }}
+          className="font-black leading-none whitespace-nowrap text-white"
         >
-          <h2
-            className="text-[#c4ff00] mb-16 text-center lg:text-left"
-            style={{
-              fontFamily: "'Arial Black', sans-serif",
-              fontWeight: 900,
-              fontSize: "clamp(2.5rem, 8vw, 5rem)",
-              lineHeight: 0.9,
-            }}
+          EXPERIENCE
+        </motion.span>
+      </div>
+
+      <div className="relative z-10 px-6 md:px-12 lg:px-20">
+        {/* Section header */}
+        <div className="max-w-7xl mx-auto mb-20">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500] block mb-6"
           >
-            EXPERIENCE
-          </h2>
-        </motion.div>
+            003 — Experience
+          </motion.span>
 
-        {/* Timeline Container */}
-        <div className="relative">
-          {/* Vertical Timeline Line - Hidden on mobile, shown on desktop */}
-          <div className="hidden lg:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#c4ff00]/20 via-[#c4ff00]/50 to-[#c4ff00]/20" />
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="text-white font-black leading-[0.95] tracking-tight"
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
+            >
+              Where I've
+              <br />
+              <span className="text-[#a8d500]">made impact.</span>
+            </motion.h2>
 
-          <div className="space-y-12 lg:space-y-16">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-white/40 text-sm max-w-sm lg:text-right"
+            >
+              Three years of building at scale — from mobile apps serving millions
+              to backend systems powering real-time features.
+            </motion.p>
+          </div>
+        </div>
+
+        {/* Timeline - Staggered zigzag layout */}
+        <div className="max-w-6xl mx-auto relative">
+
+          {/* Central timeline path */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 hidden lg:block">
+            {/* Main line */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-white/5">
+              <motion.div
+                style={{ height: lineHeight }}
+                className="w-full bg-gradient-to-b from-[#a8d500] via-[#a8d500]/60 to-transparent"
+              />
+            </div>
+          </div>
+
+          {/* Experience cards - staggered */}
+          <div className="space-y-16 lg:space-y-0">
             {experiences.map((exp, index) => {
-              const cardRef = useRef(null);
-              const { scrollYProgress } = useScroll({
-                target: cardRef,
-                offset: ["start end", "end start"],
-              });
-              const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.85, 1, 1, 0.9]);
-              const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.7]);
+              const isEven = index % 2 === 0;
 
               return (
                 <motion.div
                   key={index}
-                  ref={cardRef}
-                  initial={{ opacity: 0, x: -50 }}
+                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.6, delay: index * 0.15 }}
-                  style={{ scale, opacity }}
-                  className="relative"
+                  transition={{ duration: 0.7, delay: 0.2 + index * 0.15 }}
+                  onHoverStart={() => setHoveredIndex(index)}
+                  onHoverEnd={() => setHoveredIndex(null)}
+                  className={`
+                    relative lg:w-[45%] 
+                    ${isEven ? 'lg:mr-auto lg:pr-16' : 'lg:ml-auto lg:pl-16'}
+                    ${index > 0 ? 'lg:-mt-8' : ''}
+                  `}
                 >
-                  {/* Timeline Dot - Desktop */}
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={isInView ? { scale: 1 } : {}}
-                    transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                    className="hidden lg:block absolute left-8 top-8 -translate-x-1/2 z-20"
-                  >
-                    <div className="relative">
-                      {/* Glowing pulse effect */}
+                  {/* Timeline connector - Desktop */}
+                  <div className={`
+                    hidden lg:block absolute top-8
+                    ${isEven ? 'right-0 translate-x-full' : 'left-0 -translate-x-full'}
+                  `}>
+                    {/* Horizontal line */}
+                    <motion.div
+                      initial={{ scaleX: 0 }}
+                      animate={isInView ? { scaleX: 1 } : {}}
+                      transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
+                      className={`
+                        w-16 h-[1px] bg-gradient-to-r 
+                        ${isEven
+                          ? 'from-[#a8d500]/50 to-[#a8d500] origin-left'
+                          : 'from-[#a8d500] to-[#a8d500]/50 origin-right'}
+                      `}
+                    />
+
+                    {/* Center node */}
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={isInView ? { scale: 1 } : {}}
+                      transition={{ duration: 0.4, delay: 0.5 + index * 0.15, type: "spring" }}
+                      className={`
+                        absolute top-1/2 -translate-y-1/2
+                        ${isEven ? 'right-0 translate-x-[calc(100%+64px-6px)]' : 'left-0 -translate-x-[calc(100%+64px-6px)]'}
+                      `}
+                    >
                       <motion.div
-                        className="absolute inset-0 bg-[#c4ff00] rounded-full blur-md"
                         animate={{
-                          scale: [1, 1.5, 1],
-                          opacity: [0.7, 0.3, 0.7],
+                          scale: hoveredIndex === index ? 1.3 : 1,
+                          boxShadow: hoveredIndex === index
+                            ? '0 0 20px rgba(168, 213, 0, 0.5)'
+                            : '0 0 0px rgba(168, 213, 0, 0)'
                         }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
+                        className="w-3 h-3 rounded-full bg-[#a8d500] border-2 border-[#050505]"
                       />
-                      {/* Solid dot */}
-                      <div className="relative w-4 h-4 bg-[#c4ff00] rounded-full border-4 border-[#1a1a1a] shadow-lg shadow-[#c4ff00]/50" />
+                    </motion.div>
+                  </div>
+
+                  {/* Year badge - positioned differently based on side */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.3 + index * 0.15 }}
+                    className={`
+                      mb-4 flex items-center gap-3
+                      ${isEven ? 'lg:justify-end' : 'lg:justify-start'}
+                    `}
+                  >
+                    <div className={`flex items-center gap-2 ${isEven ? 'lg:flex-row-reverse' : ''}`}>
+                      <motion.span
+                        animate={{
+                          color: hoveredIndex === index ? '#a8d500' : 'rgba(255,255,255,0.3)'
+                        }}
+                        className="text-3xl md:text-4xl font-black tracking-tight"
+                      >
+                        {exp.year}
+                      </motion.span>
+                      <div className={`hidden sm:block w-12 h-[1px] ${hoveredIndex === index ? 'bg-[#a8d500]' : 'bg-white/10'
+                        } transition-colors duration-300`} />
                     </div>
                   </motion.div>
 
-                  {/* Experience Card */}
-                  <div className="lg:ml-24">
-                    <div className="glass-strong glass-hover p-6 lg:p-8 rounded-2xl">
-                      {/* Header with Logo */}
-                      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
-                        <div className="flex items-start gap-4 flex-1">
-                          {/* Timeline Dot - Mobile (inside card) */}
-                          <div className="lg:hidden">
-                            <motion.div
-                              initial={{ scale: 0 }}
-                              animate={isInView ? { scale: 1 } : {}}
-                              transition={{ duration: 0.5, delay: index * 0.15 + 0.3 }}
-                              className="relative"
-                            >
-                              <motion.div
-                                className="absolute inset-0 bg-[#c4ff00] rounded-full blur-md"
-                                animate={{
-                                  scale: [1, 1.5, 1],
-                                  opacity: [0.7, 0.3, 0.7],
-                                }}
-                                transition={{
-                                  duration: 2,
-                                  repeat: Infinity,
-                                  ease: "easeInOut",
-                                }}
-                              />
-                              <div className="relative w-3 h-3 bg-[#c4ff00] rounded-full border-2 border-[#1a1a1a] shadow-lg shadow-[#c4ff00]/50 mt-2" />
-                            </motion.div>
-                          </div>
+                  {/* Card */}
+                  <motion.div
+                    whileHover={{ y: -5 }}
+                    className={`
+                      relative p-6 md:p-8 rounded-2xl border transition-all duration-500
+                      ${hoveredIndex === index
+                        ? 'bg-white/[0.04] border-[#a8d500]/30'
+                        : 'bg-white/[0.02] border-white/5 hover:border-white/10'}
+                    `}
+                  >
+                    {/* Corner accent */}
+                    <div className={`
+                      absolute top-0 w-16 h-16 pointer-events-none
+                      ${isEven ? 'right-0' : 'left-0'}
+                    `}>
+                      <div className={`
+                        absolute top-4 w-8 h-[1px] bg-gradient-to-r 
+                        ${isEven
+                          ? 'right-4 from-transparent to-[#a8d500]/30'
+                          : 'left-4 from-[#a8d500]/30 to-transparent'}
+                      `} />
+                      <div className={`
+                        absolute top-4 h-8 w-[1px] bg-gradient-to-b from-[#a8d500]/30 to-transparent
+                        ${isEven ? 'right-4' : 'left-4'}
+                      `} />
+                    </div>
 
-                          {exp.logo && (
-                            <div className="glass-strong p-2 rounded-xl w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center overflow-hidden shrink-0">
-                              <img
-                                src={exp.logo}
-                                alt={`${exp.company} logo`}
-                                className="w-full h-full object-contain"
-                              />
-                            </div>
-                          )}
-                          <div className="flex-1 min-w-0">
-                            <h3 className="text-white text-base sm:text-lg lg:text-xl mb-1 break-words">
-                              {exp.role}
-                            </h3>
-                            <p className="text-[#c4ff00] text-sm sm:text-base">{exp.company}</p>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-2 text-white/60 text-sm sm:text-base shrink-0">
-                          <Calendar size={16} />
-                          <span>{exp.period}</span>
+                    {/* Glow effect */}
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                      className="absolute inset-0 rounded-2xl pointer-events-none"
+                      style={{
+                        background: isEven
+                          ? 'radial-gradient(circle at 100% 0%, rgba(168, 213, 0, 0.1) 0%, transparent 50%)'
+                          : 'radial-gradient(circle at 0% 0%, rgba(168, 213, 0, 0.1) 0%, transparent 50%)',
+                      }}
+                    />
+
+                    {/* Header */}
+                    <div className="relative flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
+                      <div className="flex items-start gap-4">
+                        {/* Logo */}
+                        <motion.div
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 p-2 flex-shrink-0 overflow-hidden"
+                        >
+                          <img
+                            src={exp.logo}
+                            alt={exp.company}
+                            className="w-full h-full object-contain"
+                          />
+                        </motion.div>
+
+                        <div>
+                          <h3 className="text-white font-bold text-lg md:text-xl mb-1">
+                            {exp.role}
+                          </h3>
+                          <p className="text-[#a8d500] text-sm font-medium">{exp.company}</p>
+                          <p className="text-white/40 text-xs mt-1">{exp.team}</p>
                         </div>
                       </div>
 
-                      {/* Achievements */}
-                      <ul className="space-y-3 sm:space-y-4">
-                        {exp.achievements.map((achievement, achIndex) => (
-                          <motion.li
-                            key={achIndex}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={isInView ? { opacity: 1, x: 0 } : {}}
-                            transition={{
-                              duration: 0.4,
-                              delay: index * 0.15 + achIndex * 0.05,
-                            }}
-                            className="text-white/70 flex gap-3 text-sm sm:text-base"
-                          >
-                            <span className="text-[#c4ff00] mt-1 shrink-0">•</span>
-                            <span className="break-words">{achievement}</span>
-                          </motion.li>
-                        ))}
-                      </ul>
+                      <span className="text-white/30 text-xs whitespace-nowrap bg-white/5 px-3 py-1 rounded-full">
+                        {exp.period}
+                      </span>
                     </div>
-                  </div>
+
+                    {/* Highlights */}
+                    <div className="relative space-y-3 mb-6">
+                      {exp.highlights.map((highlight, hIndex) => (
+                        <motion.div
+                          key={hIndex}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={isInView ? { opacity: 1, x: 0 } : {}}
+                          transition={{ duration: 0.4, delay: 0.3 + index * 0.1 + hIndex * 0.05 }}
+                          className="flex items-start gap-3 group"
+                        >
+                          <span className="text-[#a8d500] mt-1.5 text-xs">▸</span>
+                          <span className="text-white/60 text-sm leading-relaxed group-hover:text-white/80 transition-colors">
+                            {highlight}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    {/* Impact badge */}
+                    <div className="relative flex items-center justify-between pt-4 border-t border-white/5">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">Impact</span>
+                        <span className="text-sm font-semibold text-[#a8d500]">{exp.impact}</span>
+                      </div>
+
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: hoveredIndex === index ? 1 : 0 }}
+                        className="text-[#a8d500]"
+                      >
+                        <ArrowUpRight size={16} />
+                      </motion.div>
+                    </div>
+                  </motion.div>
                 </motion.div>
               );
             })}
           </div>
         </div>
+
+        {/* Summary stats */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5"
+        >
+          <div className="flex flex-wrap justify-center md:justify-start gap-12 md:gap-20">
+            {[
+              { value: "3×", label: "Meta Internships" },
+              { value: "2+", label: "Years Experience" },
+              { value: "100%", label: "Return Offer Rate" },
+            ].map((stat, idx) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.9 + idx * 0.1 }}
+                className="text-center md:text-left"
+              >
+                <span className="block text-3xl md:text-4xl font-black text-white">
+                  {stat.value}
+                </span>
+                <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">
+                  {stat.label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
+
+      {/* Bottom gradient line */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={isInView ? { scaleX: 1 } : {}}
+        transition={{ duration: 1.5, delay: 1 }}
+        className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#a8d500] via-[#a8d500]/50 to-transparent origin-left"
+      />
     </section>
   );
 }
