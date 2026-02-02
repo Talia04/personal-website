@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
-import { 
-  Code2, 
-  Database, 
-  Brain, 
+import {
+  Code2,
+  Database,
+  Brain,
   Wrench,
   Coffee,
   FileCode,
@@ -88,8 +88,8 @@ export function Skills() {
       ref={ref}
       className="min-h-screen relative py-24 px-6 lg:px-12 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-tr from-[#0d0d0d] via-[#1a1a1a] to-[#0d0d0d]" />
-      <div className="absolute bottom-40 left-20 w-96 h-96 bg-[#c4ff00]/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-[#111111]" />
+      <div className="absolute bottom-40 left-20 w-[400px] h-[400px] bg-[#a8d500]/[0.03] rounded-full blur-[120px]" />
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -152,8 +152,8 @@ export function Skills() {
                         whileHover={{ scale: 1.05 }}
                         className="glass px-4 py-2 rounded-full border-[#c4ff00]/30 text-white hover:bg-[#c4ff00]/10 transition-all duration-300 cursor-default flex items-center gap-2 group"
                       >
-                        <SkillIcon 
-                          size={18} 
+                        <SkillIcon
+                          size={18}
                           className="text-[#c4ff00] group-hover:scale-110 transition-transform duration-300"
                         />
                         <span className="text-[#c4ff00]">{skill.name}</span>

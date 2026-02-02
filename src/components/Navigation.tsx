@@ -34,14 +34,9 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-[#a8d500] hover:text-white transition-colors cursor-pointer"
-            style={{
-              fontFamily: "'Courier New', monospace",
-              fontWeight: 700,
-              fontSize: "1.25rem",
-            }}
+            className="text-[#a8d500] hover:text-white transition-colors cursor-pointer font-mono"
           >
-            {"{"}TC{"}"}
+            &lt;nav&gt;
           </motion.button>
 
           {/* Desktop Navigation */}

@@ -76,8 +76,8 @@ export function Projects() {
       ref={ref}
       className="min-h-screen relative py-24 px-6 lg:px-12 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-tl from-[#0d0d0d] via-[#1a1a1a] to-[#0d0d0d]" />
-      <div className="absolute top-1/2 right-10 w-96 h-96 bg-[#c4ff00]/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-[#111111]" />
+      <div className="absolute top-1/2 right-10 w-[400px] h-[400px] bg-[#a8d500]/[0.03] rounded-full blur-[120px]" />
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}

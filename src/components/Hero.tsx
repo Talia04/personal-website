@@ -1,186 +1,170 @@
 import { motion } from "motion/react";
-import { ChevronDown, Home } from "lucide-react";
+import { ArrowDownRight, Github, Linkedin, Mail } from "lucide-react";
 import { ResumeDownload } from "./ResumeDownload";
-import { TypewriterText } from "./TypewriterText";
-import { useState } from "react";
-
-// Toggle to show/hide profile photo
-const SHOW_PROFILE_PHOTO = false;
-
-const profileImage = "/assets/profile_photo.jpg";
-const helloWorldImage = "/assets/hello_world.png";
 
 export function Hero() {
-  const [isFlipped, setIsFlipped] = useState(false);
-
   const scrollToAbout = () => {
-    document
-      .querySelector("#about")
-      ?.scrollIntoView({ behavior: "smooth" });
+    document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="min-h-screen relative flex items-center justify-center px-6 lg:px-12 pt-20 overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#0d0d0d] to-[#1a1a1a]" />
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-[#a8d500]/10 rounded-full blur-3xl animate-pulse" />
-        <div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-[#a8d500]/10 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        />
-      </div>
-      <div className="max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10">
-        {/* Left Side - Name */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+    <section className="min-h-screen relative bg-[#0a0a0a] overflow-hidden">
+      {/* Large background text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.02 }}
+          transition={{ duration: 2 }}
+          className="text-white whitespace-nowrap"
+          style={{
+            fontSize: "clamp(200px, 30vw, 500px)",
+            fontWeight: 900,
+            letterSpacing: "-0.05em",
+          }}
         >
-          <motion.h1
-            className="text-[#a8d500] mb-6 whitespace-nowrap"
-            style={{
-              fontFamily: "'Arial Black', sans-serif",
-              fontWeight: 900,
-              fontSize: "clamp(2.5rem, 10vw, 6rem)",
-              lineHeight: 1,
-              letterSpacing: "-0.05em",
-            }}
-          >
-            TANYA CHISEPO
-          </motion.h1>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="max-w-2xl"
-          >
-            <p className="text-white text-base sm:text-lg mb-8">
-              <span className="text-white">
-                A Zimbabwean computer science student with a
-                passion for building from scratch.
-              </span>{" "}
-              <span className="text-[#a8d500]">
-                I'm on a mission to become a software wizard,
-                crafting Android and web projects while adding a
-                touch of creativity to everything I do.
-              </span>
-            </p>
-            <ResumeDownload />
-          </motion.div>
+          TANYA
+        </motion.span>
+      </div>
+
+      {/* Main content container */}
+      <div className="relative z-10 min-h-screen flex flex-col">
+        {/* Top section with location */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="pt-32 px-8 md:px-16 lg:px-24"
+        >
+          <div className="flex items-center gap-3 text-white/40 text-sm">
+            <span className="w-2 h-2 rounded-full bg-[#a8d500] animate-pulse" />
+            <span>Based in Florida, USA</span>
+          </div>
         </motion.div>
 
-        {/* Right Side - Profile Image */}
-        {SHOW_PROFILE_PHOTO && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div
-              className="relative"
-              style={{ perspective: "1000px" }}
-            >
-              <motion.div
-                animate={{
-                  scale: [1, 1.05, 1],
-                  rotate: [0, 2, 0, -2, 0],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative"
-                style={{ transformStyle: "preserve-3d" }}
-                onMouseEnter={() => setIsFlipped(true)}
-                onMouseLeave={() => setIsFlipped(false)}
+        {/* Center content */}
+        <div className="flex-1 flex items-center px-8 md:px-16 lg:px-24 py-16">
+          <div className="w-full max-w-6xl">
+            {/* Name and title row */}
+            <div className="space-y-4 mb-16">
+              <motion.h1
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-white font-bold tracking-tight leading-[1.1]"
+                style={{ fontSize: "clamp(2.5rem, 7vw, 6rem)" }}
               >
-                <div className="absolute inset-0 bg-[#a8d500]/20 blur-3xl rounded-full" />
+                Tanya Chisepo
+              </motion.h1>
 
-                {/* Card container for flip effect */}
-                <motion.div
-                  animate={{ rotateY: isFlipped ? 180 : 0 }}
-                  transition={{
-                    duration: 0.6,
-                    ease: "easeInOut",
-                  }}
-                  className="relative w-64 h-64 lg:w-96 lg:h-96"
-                  style={{ transformStyle: "preserve-3d" }}
-                >
-                  {/* Front side - Profile */}
-                  <div
-                    className="absolute inset-0 flex items-center justify-center"
-                    style={{
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden",
-                    }}
-                  >
-                    <img
-                      src={profileImage}
-                      alt="Tanya Chisepo"
-                      className="rounded-full object-cover border-4 border-[#a8d500]/50 shadow-2xl cursor-pointer"
-                      style={{
-                        objectPosition: "center 40%",
-                        width: "85%",
-                        height: "85%",
-                      }}
-                    />
-                  </div>
-
-                  {/* Back side - Hello World */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      backfaceVisibility: "hidden",
-                      WebkitBackfaceVisibility: "hidden",
-                      transform: "rotateY(180deg)",
-                    }}
-                  >
-                    <img
-                      src={helloWorldImage}
-                      alt="Hello World"
-                      className="w-full h-full rounded-full object-cover border-4 border-[#a8d500]/50 shadow-2xl cursor-pointer"
-                    />
-                  </div>
-                </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-wrap items-center gap-4 text-lg md:text-xl"
+              >
+                <span className="text-[#a8d500] font-medium">Software Engineer</span>
+                <span className="text-white/20">•</span>
+                <span className="text-white/60">3× Meta Intern</span>
+                <span className="text-white/20">•</span>
+                <span className="text-white/60">BCU '26</span>
               </motion.div>
             </div>
-          </motion.div>
-        )}
+
+            {/* Description and CTA grid */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-end">
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="text-white/50 text-lg leading-relaxed max-w-md"
+              >
+                I build products that matter. Currently studying Computer Science
+                and crafting experiences across mobile and web platforms.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex flex-col gap-6"
+              >
+                <div className="flex flex-wrap gap-4">
+                  <ResumeDownload />
+                  <motion.button
+                    onClick={scrollToAbout}
+                    whileHover={{ gap: "12px" }}
+                    className="group flex items-center gap-2 text-white/70 hover:text-[#a8d500] transition-colors duration-300"
+                  >
+                    <span>Explore my work</span>
+                    <ArrowDownRight size={18} className="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+                  </motion.button>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="px-8 md:px-16 lg:px-24 pb-12"
+        >
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pt-8 border-t border-white/5">
+            {/* Social links */}
+            <div className="flex items-center gap-6">
+              {[
+                { icon: Github, href: "https://github.com/tanyachisepo", label: "GitHub" },
+                { icon: Linkedin, href: "https://linkedin.com/in/tanyachisepo", label: "LinkedIn" },
+                { icon: Mail, href: "mailto:tanyachisepo04@gmail.com", label: "Email" },
+              ].map((social) => (
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -2 }}
+                  className="text-white/30 hover:text-[#a8d500] transition-colors duration-300"
+                  aria-label={social.label}
+                >
+                  <social.icon size={20} strokeWidth={1.5} />
+                </motion.a>
+              ))}
+            </div>
+
+            {/* Email */}
+            <a
+              href="mailto:tanyachisepo04@gmail.com"
+              className="text-white/30 hover:text-white/60 text-sm transition-colors duration-300"
+            >
+              tanyachisepo04@gmail.com
+            </a>
+
+            {/* Scroll indicator */}
+            <motion.button
+              onClick={scrollToAbout}
+              className="hidden md:flex items-center gap-3 text-white/30 hover:text-[#a8d500] transition-colors duration-300"
+            >
+              <span className="text-xs uppercase tracking-widest">Scroll</span>
+              <motion.div
+                animate={{ y: [0, 4, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowDownRight size={14} />
+              </motion.div>
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
 
-      {/* Scroll Indicators */}
+      {/* Accent line */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-12 right-12 flex gap-6"
-      >
-        <motion.button
-          onClick={scrollToAbout}
-          animate={{
-            y: [0, 10, 0],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="text-[#a8d500] hover:text-white transition-colors"
-        >
-          <ChevronDown size={48} strokeWidth={3} />
-        </motion.button>
-        <motion.button
-          onClick={() =>
-            window.scrollTo({ top: 0, behavior: "smooth" })
-          }
-          className="text-[#a8d500] hover:text-white transition-colors"
-        >
-          <Home size={48} strokeWidth={3} />
-        </motion.button>
-      </motion.div>
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#a8d500]/30 to-transparent origin-left"
+      />
     </section>
   );
 }

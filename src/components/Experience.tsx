@@ -63,8 +63,8 @@ export function Experience() {
       ref={ref}
       className="min-h-screen relative py-24 px-6 lg:px-12 overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-bl from-[#1a1a1a] via-[#0d0d0d] to-[#1a1a1a]" />
-      <div className="absolute top-20 left-1/2 w-96 h-96 bg-[#c4ff00]/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-[#111111]" />
+      <div className="absolute top-20 left-1/2 w-[500px] h-[500px] bg-[#a8d500]/[0.03] rounded-full blur-[120px]" />
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
