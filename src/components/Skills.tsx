@@ -1,171 +1,238 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useInView } from "motion/react";
-import { useRef } from "react";
-import {
-  Code2,
-  Database,
-  Brain,
-  Wrench,
-  Coffee,
-  FileCode,
-  GitBranch,
-  Network,
-  Smartphone,
-  Cpu,
-  Eye,
-  Target,
-  RefreshCw,
-  Palette,
-  Camera,
-  Globe,
-  Sparkles,
-  Bot,
-  Box,
-  Zap
-} from "lucide-react";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
+import { useRef, useState } from "react";
+
+const skills = [
+  {
+    category: "Languages",
+    items: ["Python", "TypeScript", "Go", "Java", "Kotlin", "SQL"],
+    color: "#a8d500"
+  },
+  {
+    category: "Frontend",
+    items: ["React", "React Native", "Next.js", "Tailwind", "Framer Motion"],
+    color: "#61DAFB"
+  },
+  {
+    category: "Backend",
+    items: ["Node.js", "GraphQL", "PostgreSQL", "MongoDB", "Redis"],
+    color: "#68A063"
+  },
+  {
+    category: "AI/ML",
+    items: ["TensorFlow", "PyTorch", "OpenCV", "Computer Vision", "LLMs"],
+    color: "#FF6F61"
+  },
+  {
+    category: "Tools",
+    items: ["Git", "Docker", "AWS", "Figma", "Linux"],
+    color: "#F05032"
+  },
+];
 
 export function Skills() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const skillCategories = [
-    {
-      icon: Code2,
-      title: "Languages & Tools",
-      skills: [
-        { name: "Python", icon: FileCode },
-        { name: "Java", icon: Coffee },
-        { name: "JavaScript", icon: Zap },
-        { name: "PHP", icon: Code2 },
-        { name: "OCaml", icon: FileCode },
-        { name: "SQL", icon: Database },
-        { name: "GraphQL", icon: Network },
-        { name: "Git", icon: GitBranch },
-        { name: "VS Code", icon: Code2 },
-      ],
-    },
-    {
-      icon: Database,
-      title: "Frameworks & Platforms",
-      skills: [
-        { name: "React.js", icon: Zap },
-        { name: "Android", icon: Smartphone },
-        { name: "PostgreSQL", icon: Database },
-        { name: "MongoDB", icon: Database },
-        { name: "Arduino", icon: Cpu },
-        { name: ".NET", icon: Box },
-        { name: "VB.NET", icon: Box },
-      ],
-    },
-    {
-      icon: Brain,
-      title: "AI/ML & Libraries",
-      skills: [
-        { name: "TensorFlow", icon: Brain },
-        { name: "OpenCV", icon: Eye },
-        { name: "Mediapipe", icon: Target },
-        { name: "CycleGAN", icon: RefreshCw },
-        { name: "GANs", icon: Palette },
-        { name: "Computer Vision", icon: Camera },
-        { name: "Deep Learning", icon: Brain },
-      ],
-    },
-    {
-      icon: Wrench,
-      title: "Concepts",
-      skills: [
-        { name: "Full-Stack Web Development", icon: Globe },
-        { name: "Cross-Platform Mobile Devevelopment", icon: Smartphone },
-        { name: "UI/UX Design", icon: Sparkles },
-        { name: "UiPath RPA Development", icon: Bot },
-      ],
-    },
-  ];
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
   return (
     <section
       id="skills"
       ref={ref}
-      className="min-h-screen relative py-24 px-6 lg:px-12 overflow-hidden"
+      className="relative min-h-screen bg-[#050505] overflow-hidden py-32"
     >
-      <div className="absolute inset-0 bg-[#111111]" />
-      <div className="absolute bottom-40 left-20 w-[400px] h-[400px] bg-[#a8d500]/[0.03] rounded-full blur-[120px]" />
-      <div className="max-w-7xl mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+      {/* Large backdrop text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <motion.span
+          style={{ y: y1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.03 }}
+          transition={{ duration: 1.5 }}
+          className="font-black leading-none whitespace-nowrap text-white"
+          style={{
+            fontSize: 'clamp(150px, 25vw, 400px)',
+            letterSpacing: '-0.02em'
+          }}
         >
-          <h2
-            className="text-[#c4ff00] mb-12"
-            style={{
-              fontFamily: "'Arial Black', sans-serif",
-              fontWeight: 900,
-              fontSize: "clamp(2.5rem, 8vw, 5rem)",
-              lineHeight: 0.9,
-            }}
+          SKILLS
+        </motion.span>
+      </div>
+
+      {/* Floating elements */}
+      <motion.div
+        style={{ y: useTransform(scrollYProgress, [0, 1], [50, -50]) }}
+        className="absolute top-20 right-[15%] w-32 h-32 border border-[#a8d500]/10 rounded-full pointer-events-none"
+      />
+      <motion.div
+        style={{ y: useTransform(scrollYProgress, [0, 1], [-30, 30]) }}
+        className="absolute bottom-40 left-[10%] w-20 h-20 border border-white/5 rotate-45 pointer-events-none"
+      />
+
+      <div className="relative z-10 px-6 md:px-12 lg:px-20">
+        {/* Section header */}
+        <div className="max-w-7xl mx-auto mb-20">
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500] block mb-6"
           >
-            SKILLS
-          </h2>
-        </motion.div>
+            002 — Skills
+          </motion.span>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {skillCategories.map((category, categoryIndex) => {
-            const Icon = category.icon;
-            const cardRef = useRef(null);
-            const { scrollYProgress } = useScroll({
-              target: cardRef,
-              offset: ["start end", "end start"],
-            });
-            const scale = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.9, 1, 1, 0.95]);
-            const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0.8]);
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="text-white font-black leading-[0.95] tracking-tight"
+            style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
+          >
+            Tools of the
+            <br />
+            <span className="text-[#a8d500]">trade.</span>
+          </motion.h2>
+        </div>
 
-            return (
+        {/* Skills grid - Bento style */}
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {skills.map((skillGroup, i) => (
               <motion.div
-                key={category.title}
-                ref={cardRef}
-                initial={{ opacity: 0, y: 50 }}
+                key={skillGroup.category}
+                initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-                style={{ scale, opacity }}
-                className="glass-strong glass-hover p-8 rounded-2xl"
+                transition={{ duration: 0.6, delay: 0.1 + i * 0.1 }}
+                onHoverStart={() => setActiveCategory(skillGroup.category)}
+                onHoverEnd={() => setActiveCategory(null)}
+                className={`
+                  group relative p-8 rounded-2xl border border-white/5 
+                  bg-white/[0.02] backdrop-blur-sm cursor-default
+                  transition-all duration-500 overflow-hidden
+                  ${i === 0 ? 'lg:col-span-2 lg:row-span-2' : ''}
+                  ${activeCategory === skillGroup.category ? 'border-[#a8d500]/30 bg-white/[0.04]' : 'hover:border-white/10'}
+                `}
               >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="glass-accent p-3 rounded-xl">
-                    <Icon className="text-[#c4ff00]" size={28} />
-                  </div>
-                  <h3 className="text-white text-xl">{category.title}</h3>
+                {/* Glow effect on hover */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: activeCategory === skillGroup.category ? 1 : 0 }}
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: `radial-gradient(circle at 50% 50%, ${skillGroup.color}10 0%, transparent 70%)`,
+                  }}
+                />
+
+                {/* Category header */}
+                <div className="relative mb-6">
+                  <motion.span
+                    className="text-[10px] uppercase tracking-[0.3em] text-white/30 block mb-2"
+                  >
+                    0{i + 1}
+                  </motion.span>
+                  <h3
+                    className="text-xl md:text-2xl font-bold text-white group-hover:text-[#a8d500] transition-colors duration-300"
+                  >
+                    {skillGroup.category}
+                  </h3>
+
+                  {/* Accent line */}
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: activeCategory === skillGroup.category ? '40px' : '20px' }}
+                    transition={{ duration: 0.3 }}
+                    className="h-[2px] mt-3"
+                    style={{ backgroundColor: skillGroup.color }}
+                  />
                 </div>
 
-                <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, skillIndex) => {
-                    const SkillIcon = skill.icon;
-                    return (
-                      <motion.div
-                        key={skill.name}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{
-                          duration: 0.4,
-                          delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                        }}
-                        whileHover={{ scale: 1.05 }}
-                        className="glass px-4 py-2 rounded-full border-[#c4ff00]/30 text-white hover:bg-[#c4ff00]/10 transition-all duration-300 cursor-default flex items-center gap-2 group"
-                      >
-                        <SkillIcon
-                          size={18}
-                          className="text-[#c4ff00] group-hover:scale-110 transition-transform duration-300"
-                        />
-                        <span className="text-[#c4ff00]">{skill.name}</span>
-                      </motion.div>
-                    );
-                  })}
+                {/* Skills list */}
+                <div className="relative flex flex-wrap gap-2">
+                  {skillGroup.items.map((skill, idx) => (
+                    <motion.span
+                      key={skill}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ duration: 0.4, delay: 0.2 + i * 0.1 + idx * 0.05 }}
+                      whileHover={{
+                        scale: 1.05,
+                        backgroundColor: `${skillGroup.color}20`,
+                        borderColor: skillGroup.color,
+                      }}
+                      className="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-white/70 text-sm font-medium transition-all duration-300"
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
                 </div>
+
+                {/* Large category initial - decorative */}
+                {i === 0 && (
+                  <div className="absolute bottom-4 right-4 pointer-events-none select-none hidden lg:block">
+                    <span
+                      className="text-[120px] font-black leading-none"
+                      style={{ color: `${skillGroup.color}08` }}
+                    >
+                      {skillGroup.category[0]}
+                    </span>
+                  </div>
+                )}
               </motion.div>
-            );
-          })}
+            ))}
+          </div>
+
+          {/* Bottom stats row */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-16 pt-8 border-t border-white/5"
+          >
+            <div className="flex flex-wrap justify-between items-center gap-8">
+              <p className="text-white/40 text-sm max-w-md">
+                Constantly learning and adapting to new technologies.
+                Currently exploring Rust and advanced system design patterns.
+              </p>
+
+              <div className="flex gap-12">
+                {[
+                  { value: "5+", label: "Languages" },
+                  { value: "20+", label: "Technologies" },
+                  { value: "3+", label: "Years" },
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={stat.label}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.4, delay: 0.9 + idx * 0.1 }}
+                    className="text-center"
+                  >
+                    <span className="block text-2xl md:text-3xl font-black text-[#a8d500]">
+                      {stat.value}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">
+                      {stat.label}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
+
+      {/* Bottom gradient line */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={isInView ? { scaleX: 1 } : {}}
+        transition={{ duration: 1.5, delay: 1 }}
+        className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-[#a8d500] via-[#a8d500]/50 to-transparent origin-left"
+      />
     </section>
   );
 }
