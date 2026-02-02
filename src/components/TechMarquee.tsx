@@ -66,7 +66,7 @@ const categoryColors = {
 export function TechMarquee() {
   const ref = useRef<HTMLElement>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -79,13 +79,13 @@ export function TechMarquee() {
   const duplicatedTech = [...techStack, ...techStack];
 
   return (
-    <section 
+    <section
       ref={ref}
       className="relative py-24 md:py-32 overflow-hidden bg-[#050505]"
     >
       {/* Large backdrop text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <motion.span 
+        <motion.span
           style={{ x: x1 }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.02 }}
@@ -136,7 +136,7 @@ export function TechMarquee() {
               const Icon = tech.icon;
               const color = categoryColors[tech.category];
               const isHovered = hoveredIndex === index;
-              
+
               return (
                 <motion.div
                   key={`top-${index}`}
@@ -145,8 +145,8 @@ export function TechMarquee() {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="relative px-5 py-3 rounded-full border border-white/10 flex items-center gap-3 min-w-fit cursor-default group"
                   style={{
-                    background: isHovered 
-                      ? `linear-gradient(135deg, ${color}15 0%, transparent 50%)` 
+                    background: isHovered
+                      ? `linear-gradient(135deg, ${color}15 0%, transparent 50%)`
                       : 'rgba(255,255,255,0.02)',
                     borderColor: isHovered ? `${color}50` : 'rgba(255,255,255,0.1)',
                   }}
@@ -160,21 +160,21 @@ export function TechMarquee() {
                       boxShadow: `0 0 30px ${color}30`,
                     }}
                   />
-                  
-                  <Icon 
+
+                  <Icon
                     size={20}
                     style={{ color: isHovered ? color : 'rgba(255,255,255,0.4)' }}
                     className="transition-colors duration-300"
                   />
-                  <span 
+                  <span
                     className="text-sm font-medium whitespace-nowrap transition-colors duration-300"
                     style={{ color: isHovered ? color : 'rgba(255,255,255,0.6)' }}
                   >
                     {tech.name}
                   </span>
-                  
+
                   {/* Category dot */}
-                  <div 
+                  <div
                     className="w-1.5 h-1.5 rounded-full opacity-60"
                     style={{ backgroundColor: color }}
                   />
@@ -205,7 +205,7 @@ export function TechMarquee() {
               const color = categoryColors[tech.category];
               const actualIndex = index + 1000; // Offset to avoid collision with top row
               const isHovered = hoveredIndex === actualIndex;
-              
+
               return (
                 <motion.div
                   key={`bottom-${index}`}
@@ -214,8 +214,8 @@ export function TechMarquee() {
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="relative px-5 py-3 rounded-full border border-white/10 flex items-center gap-3 min-w-fit cursor-default group"
                   style={{
-                    background: isHovered 
-                      ? `linear-gradient(135deg, ${color}15 0%, transparent 50%)` 
+                    background: isHovered
+                      ? `linear-gradient(135deg, ${color}15 0%, transparent 50%)`
                       : 'rgba(255,255,255,0.02)',
                     borderColor: isHovered ? `${color}50` : 'rgba(255,255,255,0.1)',
                   }}
@@ -229,21 +229,21 @@ export function TechMarquee() {
                       boxShadow: `0 0 30px ${color}30`,
                     }}
                   />
-                  
-                  <Icon 
+
+                  <Icon
                     size={20}
                     style={{ color: isHovered ? color : 'rgba(255,255,255,0.4)' }}
                     className="transition-colors duration-300"
                   />
-                  <span 
+                  <span
                     className="text-sm font-medium whitespace-nowrap transition-colors duration-300"
                     style={{ color: isHovered ? color : 'rgba(255,255,255,0.6)' }}
                   >
                     {tech.name}
                   </span>
-                  
+
                   {/* Category dot */}
-                  <div 
+                  <div
                     className="w-1.5 h-1.5 rounded-full opacity-60"
                     style={{ backgroundColor: color }}
                   />
@@ -263,7 +263,7 @@ export function TechMarquee() {
         >
           {Object.entries(categoryColors).map(([category, color]) => (
             <div key={category} className="flex items-center gap-2">
-              <div 
+              <div
                 className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: color }}
               />
