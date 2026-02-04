@@ -24,17 +24,24 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
       <motion.div
         className="min-h-screen theme-main-bg"
-        initial={{ filter: "blur(10px)", scale: 1.02 }}
+        initial={{ opacity: 0, filter: "blur(20px)", scale: 1.02 }}
         animate={{
-          filter: isLoading ? "blur(10px)" : "blur(0px)",
+          opacity: isLoading ? 0 : 1,
+          filter: isLoading ? "blur(20px)" : "blur(0px)",
           scale: isLoading ? 1.02 : 1
         }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ 
+          duration: 1.2, 
+          ease: [0.16, 1, 0.3, 1],
+          opacity: { duration: 0.8, delay: isLoading ? 0 : 0.3 },
+          filter: { duration: 1.4, ease: "easeOut" },
+          scale: { duration: 1.2 }
+        }}
       >
         <Navigation />
         <Hero />
