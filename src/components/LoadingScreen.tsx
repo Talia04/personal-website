@@ -6,36 +6,27 @@ interface LoadingScreenProps {
 }
 
 export function LoadingScreen({ onComplete }: LoadingScreenProps) {
-  const [currentLine, setCurrentLine] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
-  const lines = [
-    "> Initializing portfolio...",
-    "> Loading components...",
-    "> Compiling experiences...",
-    "> Rendering projects...",
-    "> Portfolio ready!",
-  ];
-
-  const symbols = ["{", "}", "<", ">", "[", "]", "(", ")"];
+  const name = "TANYA";
 
   useEffect(() => {
-    const lineInterval = setInterval(() => {
-      setCurrentLine((prev) => {
-        if (prev < lines.length - 1) {
-          return prev + 1;
-        } else {
-          clearInterval(lineInterval);
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
           setTimeout(() => {
             setIsComplete(true);
-            setTimeout(onComplete, 500);
-          }, 800);
-          return prev;
+            setTimeout(onComplete, 400);
+          }, 300);
+          return 100;
         }
+        return prev + 2;
       });
-    }, 600);
+    }, 30);
 
-    return () => clearInterval(lineInterval);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -43,128 +34,73 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
       {!isComplete && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-50 bg-[#0d0d0d] flex items-center justify-center"
+          exit={{
+            opacity: 0,
+            scale: 1.1,
+          }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed inset-0 z-50 bg-[#050505] flex items-center justify-center"
         >
-          {/* Animated background symbols */}
-          <div className="absolute inset-0 overflow-hidden">
-            {symbols.map((symbol, index) => (
+          {/* Grid lines */}
+          <div className="absolute inset-0 pointer-events-none">
+            {[25, 50, 75].map((pos) => (
               <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  x: Math.random() * window.innerWidth,
-                  y: -50,
-                }}
-                animate={{
-                  opacity: [0, 0.3, 0],
-                  y: window.innerHeight + 50,
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                  ease: "linear",
-                }}
-                className="absolute text-[#a8d500]/20 text-4xl"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                }}
-              >
-                {symbol}
-              </motion.div>
+                key={pos}
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ duration: 1, delay: pos * 0.005 }}
+                className="absolute top-0 bottom-0 w-[1px] origin-top bg-white/[0.03]"
+                style={{ left: `${pos}%` }}
+              />
             ))}
           </div>
 
           {/* Main content */}
-          <div className="relative z-10 max-w-2xl w-full px-6">
-            {/* Terminal-style container */}
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.3 }}
-              className="bg-[#1a1a1a]/80 backdrop-blur-xl rounded-2xl border border-[#a8d500]/20 p-8 shadow-2xl"
-            >
-              {/* Terminal header */}
-              <div className="flex items-center gap-2 mb-6 pb-4 border-b border-[#a8d500]/10">
-                <div className="flex gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                </div>
-                <span className="text-white/40 text-sm ml-4">terminal</span>
-              </div>
-
-              {/* Command lines */}
-              <div className="space-y-3 font-mono text-sm">
-                {lines.slice(0, currentLine + 1).map((line, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="flex items-center gap-2"
-                  >
-                    <span className="text-[#a8d500]">{line}</span>
-                    {index === currentLine && (
-                      <motion.span
-                        animate={{ opacity: [1, 0, 1] }}
-                        transition={{
-                          duration: 0.8,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                        className="inline-block w-2 h-4 bg-[#a8d500]"
-                      />
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Progress bar */}
-              <div className="mt-8 h-2 bg-[#1a1a1a] rounded-full overflow-hidden border border-[#a8d500]/20">
-                <motion.div
-                  initial={{ width: "0%" }}
-                  animate={{
-                    width: `${((currentLine + 1) / lines.length) * 100}%`,
-                  }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-[#a8d500] to-[#c4ff00]"
-                />
-              </div>
-            </motion.div>
-
-            {/* Floating programming symbols */}
-            <div className="absolute inset-0 pointer-events-none">
-              {["{}", "<>", "[]", "()"].map((pair, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{
-                    opacity: [0, 1, 0],
-                    scale: [0, 1.2, 1],
-                    y: [-20, -60],
-                  }}
+          <div className="relative z-10 flex flex-col items-center justify-center">
+            {/* Animated name letters */}
+            <div className="flex overflow-hidden mb-12">
+              {name.split("").map((letter, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ y: 100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
                   transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    delay: index * 0.5,
-                    ease: "easeOut",
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    ease: [0.16, 1, 0.3, 1]
                   }}
-                  className="absolute text-[#a8d500] text-6xl"
-                  style={{
-                    left: `${20 + index * 20}%`,
-                    top: "50%",
-                  }}
+                  className="text-6xl md:text-8xl font-black text-white"
+                  style={{ letterSpacing: '0.15em' }}
                 >
-                  <div className="bg-[#1a1a1a] border-2 border-[#a8d500]/30 rounded-2xl w-20 h-20 flex items-center justify-center shadow-lg">
-                    {pair}
-                  </div>
-                </motion.div>
+                  {letter}
+                </motion.span>
               ))}
             </div>
+
+            {/* Progress bar */}
+            <div className="w-48 md:w-64">
+              <div className="h-[2px] bg-white/10 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-[#a8d500]"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                  transition={{ ease: "linear" }}
+                />
+              </div>
+              <div className="flex justify-between mt-3">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-white/30">
+                  Loading
+                </span>
+                <span className="text-[10px] font-mono text-[#a8d500]">
+                  {progress}%
+                </span>
+              </div>
+            </div>
           </div>
+
+          {/* Corner accents */}
+          <div className="absolute top-8 left-8 w-16 h-16 border-l border-t border-white/5" />
+          <div className="absolute bottom-8 right-8 w-16 h-16 border-r border-b border-[#a8d500]/20" />
         </motion.div>
       )}
     </AnimatePresence>
