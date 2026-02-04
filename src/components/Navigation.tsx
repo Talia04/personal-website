@@ -46,15 +46,21 @@ export function Navigation() {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 theme-nav-bg theme-nav-border"
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#050505]/70 border-b border-white/[0.05]"
     >
       {/* Scroll Progress Bar */}
       <motion.div
         style={{ scaleX }}
-        className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#a8d500] origin-left z-10"
+        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#a8d500] to-[#c4ff00] origin-left z-10"
+      />
+      
+      {/* Subtle glow on scroll */}
+      <motion.div 
+        style={{ opacity: scrollYProgress }}
+        className="absolute inset-0 bg-gradient-to-b from-[#a8d500]/[0.02] to-transparent pointer-events-none"
       />
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
@@ -77,19 +83,23 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.href)}
-                className={`relative text-sm tracking-wide transition-colors duration-300 ${activeSection === item.href
+                whileHover={{ y: -2 }}
+                className={`relative text-sm tracking-wide transition-colors duration-300 py-2 px-1 ${activeSection === item.href
                     ? 'text-white'
-                    : 'text-[#a8d500] hover:text-white'
+                    : 'text-white/50 hover:text-white'
                   }`}
               >
                 {item.label}
                 {activeSection === item.href && (
                   <motion.span
                     layoutId="activeSection"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#a8d500]"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-[#a8d500] to-[#a8d500]/50 rounded-full"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
+                <motion.span 
+                  className="absolute inset-0 bg-[#a8d500]/0 hover:bg-[#a8d500]/5 rounded-lg transition-colors duration-300"
+                />
               </motion.button>
             ))}
           </div>
@@ -108,30 +118,36 @@ export function Navigation() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
               onClick={openLinkedIn}
-              className="text-[#a8d500] hover:text-white transition-colors duration-300"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-white/40 hover:text-[#a8d500] transition-colors duration-300 p-2 hover:bg-[#a8d500]/10 rounded-lg"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <Linkedin size={18} />
             </motion.button>
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
               onClick={openEmail}
-              className="text-[#a8d500] hover:text-white transition-colors duration-300"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-white/40 hover:text-[#a8d500] transition-colors duration-300 p-2 hover:bg-[#a8d500]/10 rounded-lg"
               aria-label="Email"
             >
-              <Mail size={20} />
+              <Mail size={18} />
             </motion.button>
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
               onClick={openPhone}
-              className="text-[#a8d500] hover:text-white transition-colors duration-300"
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-white/40 hover:text-[#a8d500] transition-colors duration-300 p-2 hover:bg-[#a8d500]/10 rounded-lg"
               aria-label="Phone"
             >
-              <Phone size={20} />
+              <Phone size={18} />
             </motion.button>
           </div>
 
