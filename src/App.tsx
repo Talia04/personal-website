@@ -7,6 +7,7 @@ import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Additional } from "./components/Additional";
 import { Games } from "./components/Games";
+import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { ThemeProvider } from "./utils/theme";
@@ -33,6 +34,7 @@ export default function App() {
         <Projects />
         <Additional />
         <Games />
+        <Contact />
         <Footer />
       </div>
     </ThemeProvider>

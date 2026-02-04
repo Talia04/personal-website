@@ -32,15 +32,11 @@ export function About() {
       {/* Large "ABOUT" text backdrop */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <motion.span
-          style={{ y: y1 }}
+          style={{ y: y1, fontSize: 'clamp(180px, 30vw, 500px)', letterSpacing: '-0.02em' }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.03 }}
           transition={{ duration: 1.5 }}
           className="font-black leading-none whitespace-nowrap text-white"
-          style={{
-            fontSize: 'clamp(180px, 30vw, 500px)',
-            letterSpacing: '-0.02em'
-          }}
         >
           ABOUT
         </motion.span>
