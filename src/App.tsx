@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { ThemeProvider } from "./utils/theme";
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,8 +24,18 @@ export default function App() {
 
   return (
     <ThemeProvider>
-      {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      <div className="min-h-screen theme-main-bg">
+      <AnimatePresence>
+        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
+      <motion.div
+        className="min-h-screen theme-main-bg"
+        initial={{ filter: "blur(10px)", scale: 1.02 }}
+        animate={{
+          filter: isLoading ? "blur(10px)" : "blur(0px)",
+          scale: isLoading ? 1.02 : 1
+        }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      >
         <Navigation />
         <Hero />
         <About />
@@ -36,7 +47,7 @@ export default function App() {
         <Games />
         <Contact />
         <Footer />
-      </div>
+      </motion.div>
     </ThemeProvider>
   );
 }
