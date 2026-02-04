@@ -201,6 +201,43 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a8d500;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b8e510;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #f0ead6;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #8fb300;
+}
+
+/* Custom Selection */
+::selection {
+  background: #a8d500;
+  color: #050505;
+}
+
+::-moz-selection {
+  background: #a8d500;
+  color: #050505;
+}
+
 /* Import Kensington-style compressed font */
 @font-face {
   font-family: 'Kensington';
