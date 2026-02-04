@@ -58,7 +58,15 @@ export function Footer() {
             >
               Let's build
               <br />
-              <span className="text-[#a8d500]">something great.</span>
+              <motion.span 
+                className="text-[#a8d500] inline-block"
+                whileHover={{ 
+                  textShadow: "0 0 30px rgba(168, 213, 0, 0.5)",
+                  scale: 1.02 
+                }}
+              >
+                something great.
+              </motion.span>
             </motion.h3>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -76,7 +84,12 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.02, backgroundColor: "#a8d500" }}
+              whileHover={{ 
+                scale: 1.05, 
+                backgroundColor: "#a8d500",
+                boxShadow: "0 0 40px rgba(168, 213, 0, 0.3)"
+              }}
+              whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 px-6 py-3 bg-[#a8d500]/10 border border-[#a8d500]/30 rounded-full text-[#a8d500] hover:text-black transition-all duration-300"
             >
               <Mail size={16} />
@@ -135,8 +148,14 @@ export function Footer() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.05 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.1, backgroundColor: "rgba(168, 213, 0, 0.1)" }}
-                  className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white/40 hover:text-[#a8d500] hover:border-[#a8d500]/30 transition-all duration-300"
+                  whileHover={{ 
+                    scale: 1.15, 
+                    y: -3,
+                    backgroundColor: "rgba(168, 213, 0, 0.15)",
+                    borderColor: "rgba(168, 213, 0, 0.4)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center justify-center w-11 h-11 rounded-full border border-white/10 text-white/40 hover:text-[#a8d500] transition-all duration-300"
                   aria-label={social.label}
                 >
                   <social.icon size={18} />
@@ -172,11 +191,17 @@ export function Footer() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              className="flex items-center gap-2 text-white/30 hover:text-[#a8d500] transition-colors duration-300 text-xs"
+              whileHover={{ scale: 1.1, y: -3, color: "#a8d500" }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center gap-2 text-white/30 hover:text-[#a8d500] transition-all duration-300 text-xs px-3 py-2 rounded-full hover:bg-[#a8d500]/10"
             >
               Back to top
-              <ArrowUp size={14} />
+              <motion.span
+                animate={{ y: [0, -3, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                <ArrowUp size={14} />
+              </motion.span>
             </motion.button>
           </div>
         </div>
