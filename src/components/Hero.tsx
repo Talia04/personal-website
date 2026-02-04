@@ -115,6 +115,17 @@ export function Hero() {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
+      {/* Mouse-following glow */}
+      <motion.div
+        style={{ x: glowX, y: glowY }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isHovering ? 0.15 : 0.08 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="w-full h-full bg-[#a8d500] blur-[150px]" />
+      </motion.div>
+
       {/* Vertical lines - editorial grid */}
       <div className="absolute inset-0 pointer-events-none">
         {[20, 40, 60, 80].map((pos) => (
