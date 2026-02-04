@@ -35,8 +35,8 @@ export default function App() {
           filter: isLoading ? "blur(20px)" : "blur(0px)",
           scale: isLoading ? 1.02 : 1
         }}
-        transition={{ 
-          duration: 1.2, 
+        transition={{
+          duration: 1.2,
           ease: [0.16, 1, 0.3, 1],
           opacity: { duration: 0.8, delay: isLoading ? 0 : 0.3 },
           filter: { duration: 1.4, ease: "easeOut" },

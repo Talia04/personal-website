@@ -56,9 +56,9 @@ export function Navigation() {
         style={{ scaleX }}
         className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#a8d500] to-[#c4ff00] origin-left z-10"
       />
-      
+
       {/* Subtle glow on scroll */}
-      <motion.div 
+      <motion.div
         style={{ opacity: scrollYProgress }}
         className="absolute inset-0 bg-gradient-to-b from-[#a8d500]/[0.02] to-transparent pointer-events-none"
       />
@@ -85,8 +85,8 @@ export function Navigation() {
                 onClick={() => scrollToSection(item.href)}
                 whileHover={{ y: -2 }}
                 className={`relative text-sm tracking-wide transition-colors duration-300 py-2 px-1 ${activeSection === item.href
-                    ? 'text-white'
-                    : 'text-white/50 hover:text-white'
+                  ? 'text-white'
+                  : 'text-white/50 hover:text-white'
                   }`}
               >
                 {item.label}
@@ -97,7 +97,7 @@ export function Navigation() {
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-                <motion.span 
+                <motion.span
                   className="absolute inset-0 bg-[#a8d500]/0 hover:bg-[#a8d500]/5 rounded-lg transition-colors duration-300"
                 />
               </motion.button>

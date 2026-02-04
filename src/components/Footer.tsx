@@ -58,11 +58,11 @@ export function Footer() {
             >
               Let's build
               <br />
-              <motion.span 
+              <motion.span
                 className="text-[#a8d500] inline-block"
-                whileHover={{ 
+                whileHover={{
                   textShadow: "0 0 30px rgba(168, 213, 0, 0.5)",
-                  scale: 1.02 
+                  scale: 1.02
                 }}
               >
                 something great.
@@ -84,8 +84,8 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              whileHover={{ 
-                scale: 1.05, 
+              whileHover={{
+                scale: 1.05,
                 backgroundColor: "#a8d500",
                 boxShadow: "0 0 40px rgba(168, 213, 0, 0.3)"
               }}
@@ -148,8 +148,8 @@ export function Footer() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.05 }}
                   viewport={{ once: true }}
-                  whileHover={{ 
-                    scale: 1.15, 
+                  whileHover={{
+                    scale: 1.15,
                     y: -3,
                     backgroundColor: "rgba(168, 213, 0, 0.15)",
                     borderColor: "rgba(168, 213, 0, 0.4)"

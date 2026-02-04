@@ -93,9 +93,8 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
                       delay: i * 0.08,
                       ease: [0.16, 1, 0.3, 1]
                     }}
-                    className={`text-6xl md:text-8xl font-bold inline-block ${
-                      letter === 'a' && i === 1 ? 'text-[#a8d500]' : 'text-white'
-                    }`}
+                    className={`text-6xl md:text-8xl font-bold inline-block ${letter === 'a' && i === 1 ? 'text-[#a8d500]' : 'text-white'
+                      }`}
                     style={{
                       fontFamily: 'system-ui, -apple-system, sans-serif',
                       letterSpacing: '-0.02em',

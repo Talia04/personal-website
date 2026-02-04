@@ -116,8 +116,8 @@ export function Skills() {
                   backdrop-blur-sm overflow-hidden
                   transition-all duration-500
                   ${i === 0 ? 'lg:col-span-2 lg:row-span-2' : ''}
-                  ${activeCategory === skillGroup.category 
-                    ? 'border-[#a8d500]/40 bg-white/[0.04] shadow-[0_0_50px_rgba(168,213,0,0.08)]' 
+                  ${activeCategory === skillGroup.category
+                    ? 'border-[#a8d500]/40 bg-white/[0.04] shadow-[0_0_50px_rgba(168,213,0,0.08)]'
                     : 'border-white/[0.06] bg-white/[0.02] hover:border-white/10'}
                 `}
               >

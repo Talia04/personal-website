@@ -156,7 +156,7 @@ export function Projects() {
               const Icon = project.icon;
 
               return (
-                  <motion.div
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -378,8 +378,8 @@ export function Projects() {
                             </motion.a>
                             <motion.a
                               href={project.demo}
-                              whileHover={{ 
-                                scale: 1.08, 
+                              whileHover={{
+                                scale: 1.08,
                                 backgroundColor: `${project.color}15`,
                                 borderColor: project.color
                               }}

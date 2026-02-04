@@ -357,8 +357,8 @@ export function Hero() {
                 <ResumeDownload />
                 <motion.a
                   href="mailto:tanyachisepo04@gmail.com"
-                  whileHover={{ 
-                    scale: 1.05, 
+                  whileHover={{
+                    scale: 1.05,
                     borderColor: "rgba(168, 213, 0, 0.6)",
                     boxShadow: "0 0 30px rgba(168, 213, 0, 0.15)"
                   }}
