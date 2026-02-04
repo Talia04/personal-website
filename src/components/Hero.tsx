@@ -357,9 +357,13 @@ export function Hero() {
                 <ResumeDownload />
                 <motion.a
                   href="mailto:tanyachisepo04@gmail.com"
-                  whileHover={{ scale: 1.02, borderColor: "rgba(168, 213, 0, 0.5)" }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    borderColor: "rgba(168, 213, 0, 0.6)",
+                    boxShadow: "0 0 30px rgba(168, 213, 0, 0.15)"
+                  }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-5 py-2.5 text-sm text-white/60 hover:text-white border border-white/10 rounded-full transition-colors duration-300"
+                  className="px-6 py-3 text-sm text-white/60 hover:text-[#a8d500] border border-white/10 rounded-full transition-all duration-300 backdrop-blur-sm"
                 >
                   Let's talk →
                 </motion.a>
@@ -383,13 +387,16 @@ export function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 2.2 + i * 0.1 }}
                     whileHover={{
-                      scale: 1.1,
-                      backgroundColor: "rgba(168, 213, 0, 0.1)",
+                      scale: 1.15,
+                      backgroundColor: "rgba(168, 213, 0, 0.15)",
+                      borderColor: "rgba(168, 213, 0, 0.3)",
+                      y: -3
                     }}
-                    className="flex items-center justify-center w-10 h-10 text-white/40 hover:text-[#a8d500] rounded-full border border-white/5 transition-colors duration-300"
+                    whileTap={{ scale: 0.95 }}
+                    className="flex items-center justify-center w-11 h-11 text-white/40 hover:text-[#a8d500] rounded-full border border-white/10 transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <social.icon size={16} strokeWidth={1.5} />
+                    <social.icon size={17} strokeWidth={1.5} />
                   </motion.a>
                 ))}
               </div>
@@ -401,15 +408,23 @@ export function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.4 }}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.1, x: 5 }}
                 className="group flex items-center gap-3 text-white/30 hover:text-[#a8d500] transition-colors duration-500"
               >
                 <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
                 <motion.div
-                  animate={{ y: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ y: [0, 6, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative"
                 >
                   <ArrowDown size={14} />
+                  <motion.div
+                    animate={{ opacity: [0, 0.5, 0], y: [0, 8, 16] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+                    className="absolute inset-0"
+                  >
+                    <ArrowDown size={14} className="text-[#a8d500]/50" />
+                  </motion.div>
                 </motion.div>
               </motion.button>
             </div>

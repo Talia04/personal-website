@@ -122,15 +122,15 @@ export function About() {
               I build things
               <br />
               <motion.span
-                className="text-[#a8d500] inline-block cursor-default"
+                className="text-[#a8d500] inline-block cursor-default relative"
                 whileHover={{
-                  textShadow: "0 0 30px rgba(168, 213, 0, 0.5), 0 0 60px rgba(168, 213, 0, 0.3)",
+                  textShadow: "0 0 40px rgba(168, 213, 0, 0.6), 0 0 80px rgba(168, 213, 0, 0.3)",
                   scale: 1.02
                 }}
                 animate={{
                   textShadow: [
                     "0 0 20px rgba(168, 213, 0, 0)",
-                    "0 0 30px rgba(168, 213, 0, 0.2)",
+                    "0 0 40px rgba(168, 213, 0, 0.25)",
                     "0 0 20px rgba(168, 213, 0, 0)"
                   ]
                 }}
@@ -140,6 +140,13 @@ export function About() {
                 }}
               >
                 at scale.
+                <motion.span
+                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#a8d500] to-transparent rounded-full"
+                  initial={{ scaleX: 0 }}
+                  animate={isInView ? { scaleX: 1 } : {}}
+                  transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ originX: 0 }}
+                />
               </motion.span>
             </motion.h2>
           </div>
@@ -206,14 +213,14 @@ export function About() {
               >
                 {/* Stat row */}
                 <motion.div
-                  whileHover={{ x: 10 }}
-                  className="py-8 border-b border-white/5 cursor-default"
+                  whileHover={{ x: 10, backgroundColor: "rgba(168, 213, 0, 0.02)" }}
+                  className="py-8 border-b border-white/5 cursor-default rounded-xl transition-colors duration-300"
                 >
                   <div className="flex items-baseline gap-6">
                     {/* Big number */}
                     <motion.span
-                      className="text-6xl md:text-7xl lg:text-8xl font-black text-white group-hover:text-[#a8d500] transition-colors duration-500"
-                      whileHover={{ scale: 1.05 }}
+                      className="text-6xl md:text-7xl lg:text-8xl font-black text-white group-hover:text-[#a8d500] transition-all duration-500"
+                      whileHover={{ scale: 1.08, textShadow: "0 0 40px rgba(168, 213, 0, 0.3)" }}
                     >
                       {stat.value}
                     </motion.span>
