@@ -157,253 +157,202 @@ export function BugSmasher() {
   };
 
   return (
-    <div className="glass-strong p-4 sm:p-6 lg:p-8 rounded-2xl">
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="text-center space-y-2">
-          <div className="flex items-center justify-center gap-3">
-            <Bug className="text-[#c4ff00]" size={32} />
-            <h3 className="text-white text-xl sm:text-2xl">Bug Smasher</h3>
-          </div>
-          <p className="text-white/60 text-sm">
-            Click the bugs before they escape! Faster bugs = more points!
-          </p>
-        </div>
-
-        {/* Stats Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3">
-          <div className="glass p-3 rounded-xl border border-[#c4ff00]/20 text-center">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Trophy className="text-[#c4ff00]" size={14} />
-              <p className="text-white/60 text-xs">Score</p>
-            </div>
-            <p className="text-white text-lg sm:text-xl">{score}</p>
-          </div>
-          <div className="glass p-3 rounded-xl border border-blue-500/20 text-center">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Clock className="text-blue-500" size={14} />
-              <p className="text-white/60 text-xs">Time</p>
-            </div>
-            <p className="text-white text-lg sm:text-xl">{timeLeft}s</p>
-          </div>
-          <div className="glass p-3 rounded-xl border border-pink-500/20 text-center">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Zap className="text-pink-500" size={14} />
-              <p className="text-white/60 text-xs">Combo</p>
-            </div>
-            <p className="text-white text-lg sm:text-xl">
-              {combo > 0 ? `${combo}x` : "-"}
-            </p>
-          </div>
-          <div className="glass p-3 rounded-xl border border-purple-500/20 text-center">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Target className="text-purple-500" size={14} />
-              <p className="text-white/60 text-xs">Clicks</p>
-            </div>
-            <p className="text-white text-lg sm:text-xl">{clicks}</p>
-          </div>
-          <div className="glass p-3 rounded-xl border border-orange-500/20 text-center col-span-2 sm:col-span-1">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Trophy className="text-orange-500" size={14} />
-              <p className="text-white/60 text-xs">Best</p>
-            </div>
-            <p className="text-white text-lg sm:text-xl">
-              {highScore ?? "-"}
-            </p>
-          </div>
-        </div>
-
-        {/* Combo Indicator */}
-        <AnimatePresence>
-          {combo > 2 && isPlaying && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="glass-strong p-3 rounded-xl border-2 border-[#c4ff00] text-center"
-            >
-              <p className="text-[#c4ff00] font-bold">
-                🔥 COMBO x{combo}! +{combo * 5} Bonus Points!
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Game Board */}
-        <div className="max-w-2xl mx-auto">
-          {!isPlaying && !isGameOver ? (
-            // Start Screen
-            <div className="glass-strong p-12 sm:p-16 rounded-2xl border-2 border-[#c4ff00]/30 text-center space-y-6">
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                <Bug className="text-[#c4ff00] mx-auto" size={80} />
-              </motion.div>
-              <div>
-                <h4 className="text-white text-xl sm:text-2xl mb-2">
-                  Ready to Smash Bugs?
-                </h4>
-                <p className="text-white/60 text-sm">
-                  Click bugs before they disappear! Faster bugs = more points!
-                </p>
-              </div>
-              <div className="glass p-4 rounded-xl space-y-2 text-left max-w-md mx-auto">
-                <p className="text-white/80 text-sm">
-                  <span className="text-2xl mr-2">🐛</span> Regular Bug - 10 pts
-                </p>
-                <p className="text-white/80 text-sm">
-                  <span className="text-2xl mr-2">🐞</span> Ladybug - 15 pts
-                </p>
-                <p className="text-white/80 text-sm">
-                  <span className="text-2xl mr-2">🦗</span> Cricket - 20 pts
-                </p>
-                <p className="text-white/80 text-sm">
-                  <span className="text-2xl mr-2">🕷️</span> Spider - 25 pts
-                </p>
-                <p className="text-white/80 text-sm">
-                  <span className="text-2xl mr-2">🦟</span> Mosquito - 30 pts
-                </p>
-              </div>
-              <Button
-                onClick={startGame}
-                className="bg-[#c4ff00] text-black hover:bg-[#b3e600] px-8 py-6 text-base"
-              >
-                <Play size={20} className="mr-2" />
-                Start Game
-              </Button>
-            </div>
-          ) : isGameOver ? (
-            // Game Over Screen
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="glass-strong p-8 sm:p-12 rounded-2xl border-2 border-[#c4ff00] text-center space-y-6"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1, rotate: 360 }}
-                transition={{ type: "spring", duration: 0.6 }}
-              >
-                <Trophy className="text-[#c4ff00] mx-auto" size={80} />
-              </motion.div>
-              <h3 className="text-white text-2xl sm:text-3xl">Game Over! 🎉</h3>
-              <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
-                <div className="glass p-4 rounded-xl">
-                  <p className="text-white/60 text-sm mb-1">Final Score</p>
-                  <p className="text-[#c4ff00] text-3xl sm:text-4xl">{score}</p>
-                  {highScore !== null && score >= highScore && (
-                    <p className="text-[#c4ff00] text-xs mt-1">🏆 New Record!</p>
-                  )}
-                </div>
-                <div className="glass p-4 rounded-xl">
-                  <p className="text-white/60 text-sm mb-1">Max Combo</p>
-                  <p className="text-pink-500 text-3xl sm:text-4xl">{maxCombo}x</p>
-                </div>
-                <div className="glass p-4 rounded-xl">
-                  <p className="text-white/60 text-sm mb-1">Total Clicks</p>
-                  <p className="text-blue-500 text-2xl sm:text-3xl">{clicks}</p>
-                </div>
-                <div className="glass p-4 rounded-xl">
-                  <p className="text-white/60 text-sm mb-1">Hit Rate</p>
-                  <p className="text-purple-500 text-2xl sm:text-3xl">
-                    {clicks > 0 ? Math.round((score / clicks)) : 0}%
-                  </p>
-                </div>
-              </div>
-              <div className="glass p-4 rounded-xl max-w-md mx-auto">
-                <p className="text-white/60 text-sm mb-2">Performance Rating</p>
-                <p className="text-white text-lg">
-                  {score >= 500
-                    ? "🔥 Bug Exterminator!"
-                    : score >= 350
-                    ? "⚡ Debug Master!"
-                    : score >= 200
-                    ? "💪 Bug Hunter!"
-                    : "🎯 Keep Practicing!"}
-                </p>
-              </div>
-              {highScore !== null && (
-                <div className="glass p-3 rounded-xl border border-[#c4ff00]/20">
-                  <p className="text-white/60 text-xs mb-1">Your High Score</p>
-                  <p className="text-[#c4ff00] text-xl">{highScore}</p>
-                </div>
-              )}
-              <Button
-                onClick={startGame}
-                className="bg-[#c4ff00] text-black hover:bg-[#b3e600] px-8 py-6 text-base"
-              >
-                <RefreshCw size={20} className="mr-2" />
-                Play Again
-              </Button>
-            </motion.div>
-          ) : (
-            // Active Game Board
-            <div
-              className="glass-strong p-4 rounded-2xl border-2 border-[#c4ff00]/30"
-              onClick={handleMissClick}
-            >
-              <div className="grid grid-cols-3 gap-3 sm:gap-4 aspect-square max-w-lg mx-auto">
-                {Array.from({ length: GRID_SIZE }).map((_, index) => {
-                  const bug = bugs.find(
-                    (b) => b.position === index && b.isVisible
-                  );
-                  return (
-                    <div
-                      key={index}
-                      className="relative aspect-square glass rounded-xl border border-white/10 flex items-center justify-center cursor-crosshair"
-                    >
-                      <AnimatePresence>
-                        {bug && (
-                          <motion.button
-                            key={bug.id}
-                            initial={{ scale: 0, rotate: -180 }}
-                            animate={{ scale: 1, rotate: 0 }}
-                            exit={{ scale: 0, rotate: 180 }}
-                            transition={{ duration: 0.2 }}
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleBugClick(bug.id);
-                            }}
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
-                            className="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl hover:drop-shadow-lg"
-                          >
-                            {bug.emoji}
-                          </motion.button>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-        </div>
-
-        {/* Instructions */}
-        {isPlaying && (
-          <div className="glass p-3 rounded-xl border-[#c4ff00]/20 text-center">
-            <p className="text-white/60 text-xs sm:text-sm">
-              💡 <strong>Tip:</strong> Build combos by hitting bugs consecutively! Each combo
-              adds +5 bonus points per hit!
-            </p>
-          </div>
-        )}
-
-        {/* Quick Stats During Game */}
-        {isPlaying && !isGameOver && timeLeft <= 10 && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="glass-strong p-4 rounded-xl border-2 border-red-500/50 text-center"
+    <div className="space-y-8">
+      {/* Stats Bar */}
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+        {[
+          { icon: Trophy, label: "Score", value: score, color: "#ff6b6b" },
+          { icon: Clock, label: "Time", value: `${timeLeft}s`, color: "#00d4ff" },
+          { icon: Zap, label: "Combo", value: combo > 0 ? `${combo}x` : "-", color: "#c084fc" },
+          { icon: Target, label: "Clicks", value: clicks, color: "#a8d500" },
+          { icon: Trophy, label: "Best", value: highScore ?? "-", color: "#ff9f43", span: true },
+        ].map((stat) => (
+          <div
+            key={stat.label}
+            className={`relative p-4 rounded-2xl border border-white/5 bg-white/[0.02] text-center overflow-hidden ${stat.span ? 'col-span-2 sm:col-span-1' : ''}`}
           >
-            <p className="text-red-400 font-bold text-lg">
-              ⏰ Only {timeLeft} seconds left!
+            <div
+              className="absolute top-0 left-0 right-0 h-[2px]"
+              style={{ backgroundColor: stat.color + '40' }}
+            />
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <stat.icon size={14} style={{ color: stat.color }} />
+              <p className="text-white/40 text-[10px] uppercase tracking-wider">{stat.label}</p>
+            </div>
+            <p className="text-white text-xl font-bold">{stat.value}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Combo Indicator */}
+      <AnimatePresence>
+        {combo > 2 && isPlaying && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="p-3 rounded-xl border border-[#c084fc]/30 bg-[#c084fc]/10 text-center"
+          >
+            <p className="text-[#c084fc] font-bold text-sm">
+              🔥 COMBO x{combo}! +{combo * 5} Bonus Points!
             </p>
           </motion.div>
         )}
+      </AnimatePresence>
+
+      {/* Game Board */}
+      <div className="max-w-lg mx-auto">
+        {!isPlaying && !isGameOver ? (
+          // Start Screen
+          <div className="p-10 rounded-2xl border border-[#ff6b6b]/20 bg-[#ff6b6b]/5 text-center space-y-6">
+            <motion.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-20 h-20 rounded-full bg-[#ff6b6b]/10 flex items-center justify-center mx-auto"
+            >
+              <Bug className="text-[#ff6b6b]" size={40} />
+            </motion.div>
+
+            <div>
+              <h4 className="text-white text-xl font-bold mb-2">Ready to Smash Bugs?</h4>
+              <p className="text-white/40 text-sm">
+                Click bugs before they escape! Faster bugs = more points!
+              </p>
+            </div>
+
+            <div className="grid grid-cols-5 gap-2 max-w-xs mx-auto">
+              {BUG_EMOJIS.map((bug, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-2xl mb-1">{bug.emoji}</div>
+                  <div className="text-[10px] text-white/30">{bug.points}pt</div>
+                </div>
+              ))}
+            </div>
+
+            <button
+              onClick={startGame}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#ff6b6b] text-white font-semibold hover:bg-[#ff7b7b] transition-colors"
+            >
+              <Play size={18} />
+              Start Game
+            </button>
+          </div>
+        ) : isGameOver ? (
+          // Game Over Screen
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="p-8 rounded-2xl border border-[#ff6b6b]/30 bg-[#ff6b6b]/5 text-center space-y-6"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", duration: 0.6 }}
+              className="w-20 h-20 rounded-full bg-[#ff6b6b]/10 flex items-center justify-center mx-auto"
+            >
+              <Trophy className="text-[#ff6b6b]" size={40} />
+            </motion.div>
+
+            <div>
+              <h3 className="text-white text-2xl font-bold mb-2">Game Over!</h3>
+              <p className="text-white/40 text-sm">
+                {score >= 500
+                  ? "Incredible! You're a bug exterminator! 🔥"
+                  : score >= 350
+                    ? "Great reflexes, debug master! ⚡"
+                    : score >= 200
+                      ? "Nice hunting skills! 💪"
+                      : "Keep practicing, you'll get better! 🎯"}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto">
+              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <p className="text-[#ff6b6b] text-3xl font-black">{score}</p>
+                <p className="text-white/30 text-xs uppercase tracking-wider">Score</p>
+                {highScore !== null && score >= highScore && (
+                  <p className="text-[#a8d500] text-[10px] mt-1">New Record!</p>
+                )}
+              </div>
+              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <p className="text-[#c084fc] text-3xl font-black">{maxCombo}x</p>
+                <p className="text-white/30 text-xs uppercase tracking-wider">Max Combo</p>
+              </div>
+            </div>
+
+            <button
+              onClick={startGame}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#ff6b6b] text-white font-semibold hover:bg-[#ff7b7b] transition-colors"
+            >
+              <RefreshCw size={18} />
+              Play Again
+            </button>
+          </motion.div>
+        ) : (
+          // Active Game Board
+          <div
+            className="p-4 rounded-2xl border border-[#ff6b6b]/20 bg-black/30"
+            onClick={handleMissClick}
+          >
+            <div className="grid grid-cols-3 gap-3 aspect-square">
+              {Array.from({ length: GRID_SIZE }).map((_, index) => {
+                const bug = bugs.find(
+                  (b) => b.position === index && b.isVisible
+                );
+                return (
+                  <div
+                    key={index}
+                    className="relative aspect-square rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center cursor-crosshair"
+                  >
+                    <AnimatePresence>
+                      {bug && (
+                        <motion.button
+                          key={bug.id}
+                          initial={{ scale: 0, rotate: -180 }}
+                          animate={{ scale: 1, rotate: 0 }}
+                          exit={{ scale: 0, rotate: 180 }}
+                          transition={{ duration: 0.2 }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleBugClick(bug.id);
+                          }}
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          className="absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl"
+                        >
+                          {bug.emoji}
+                        </motion.button>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
+
+      {/* Time Warning */}
+      {isPlaying && !isGameOver && timeLeft <= 10 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="p-3 rounded-xl border border-red-500/30 bg-red-500/10 text-center"
+        >
+          <p className="text-red-400 font-bold text-sm">
+            ⏰ Only {timeLeft} seconds left!
+          </p>
+        </motion.div>
+      )}
+
+      {/* Instructions / Reset */}
+      {!isGameOver && (
+        <div className="flex items-center justify-between">
+          <p className="text-white/30 text-xs">
+            {!isPlaying ? "Click Start to begin" : "Build combos for bonus points!"}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

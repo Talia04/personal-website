@@ -100,156 +100,143 @@ export function TypingSpeedTest() {
   const progress = (userInput.length / currentSnippet.length) * 100;
 
   return (
-    <div className="glass-strong p-4 sm:p-6 lg:p-8 rounded-2xl">
-      <div className="space-y-6">
-        {/* Header */}
-        <div className="text-center space-y-2">
-          <div className="flex items-center justify-center gap-3">
-            <Keyboard className="text-[#c4ff00]" size={32} />
-            <h3 className="text-white text-xl sm:text-2xl">Typing Speed Test</h3>
-          </div>
-          <p className="text-white/60 text-sm">
-            Type the code snippet as fast and accurately as you can!
-          </p>
-        </div>
-
-        {/* Stats Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-          <div className="glass p-3 sm:p-4 rounded-xl border border-[#c4ff00]/20 text-center">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Zap className="text-[#c4ff00]" size={16} />
-              <p className="text-white/60 text-xs">WPM</p>
-            </div>
-            <p className="text-white text-xl sm:text-2xl">{wpm}</p>
-          </div>
-          <div className="glass p-3 sm:p-4 rounded-xl border border-pink-500/20 text-center">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Target className="text-pink-500" size={16} />
-              <p className="text-white/60 text-xs">Accuracy</p>
-            </div>
-            <p className="text-white text-xl sm:text-2xl">{accuracy}%</p>
-          </div>
-          <div className="glass p-3 sm:p-4 rounded-xl border border-blue-500/20 text-center">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Clock className="text-blue-500" size={16} />
-              <p className="text-white/60 text-xs">Time</p>
-            </div>
-            <p className="text-white text-xl sm:text-2xl">{timeElapsed}s</p>
-          </div>
-          <div className="glass p-3 sm:p-4 rounded-xl border border-purple-500/20 text-center">
-            <div className="flex items-center justify-center gap-2 mb-1">
-              <Trophy className="text-purple-500" size={16} />
-              <p className="text-white/60 text-xs">Progress</p>
-            </div>
-            <p className="text-white text-xl sm:text-2xl">{Math.round(progress)}%</p>
-          </div>
-        </div>
-
-        {/* Progress Bar */}
-        <div className="space-y-2">
-          <Progress value={progress} className="h-2" />
-        </div>
-
-        {/* Code Display */}
-        <div className="glass-strong p-4 sm:p-6 rounded-xl border-2 border-[#c4ff00]/30 min-h-[120px] sm:min-h-[150px] flex items-center">
-          <div className="font-mono text-base sm:text-lg leading-relaxed break-all">
-            {currentSnippet.split("").map((char, index) => (
-              <span key={index} className={getCharacterColor(index)}>
-                {char}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Input Field */}
-        <div className="space-y-3">
-          <input
-            ref={inputRef}
-            type="text"
-            value={userInput}
-            onChange={handleInputChange}
-            disabled={isFinished}
-            placeholder={isStarted ? "Keep typing..." : "Click here or start typing to begin..."}
-            className="w-full px-4 py-3 sm:py-4 rounded-xl glass border-2 border-[#c4ff00]/30 text-white placeholder:text-white/40 text-base sm:text-lg font-mono focus:outline-none focus:border-[#c4ff00] transition-all disabled:opacity-50"
-            autoComplete="off"
-            spellCheck="false"
-          />
-        </div>
-
-        {/* Results Modal */}
-        <AnimatePresence>
-          {isFinished && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              className="glass-strong p-6 sm:p-8 rounded-2xl border-2 border-[#c4ff00] text-center space-y-4"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1, rotate: 360 }}
-                transition={{ type: "spring", duration: 0.6, delay: 0.2 }}
-              >
-                <Trophy className="text-[#c4ff00] mx-auto" size={64} />
-              </motion.div>
-              <h3 className="text-white text-2xl sm:text-3xl">Test Complete! 🎉</h3>
-              <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
-                <div className="glass p-4 rounded-xl">
-                  <p className="text-white/60 text-sm mb-1">Speed</p>
-                  <p className="text-[#c4ff00] text-3xl">{wpm}</p>
-                  <p className="text-white/60 text-xs">WPM</p>
-                </div>
-                <div className="glass p-4 rounded-xl">
-                  <p className="text-white/60 text-sm mb-1">Accuracy</p>
-                  <p className="text-pink-500 text-3xl">{accuracy}%</p>
-                  <p className="text-white/60 text-xs">Correct</p>
-                </div>
-              </div>
-              <div className="glass p-4 rounded-xl max-w-md mx-auto">
-                <p className="text-white/60 text-sm mb-2">Performance Rating</p>
-                <p className="text-white text-lg">
-                  {wpm >= 80 && accuracy >= 95
-                    ? "🔥 Lightning Fast!"
-                    : wpm >= 60 && accuracy >= 90
-                    ? "⚡ Great Job!"
-                    : wpm >= 40 && accuracy >= 85
-                    ? "💪 Good Work!"
-                    : "🎯 Keep Practicing!"}
-                </p>
-              </div>
-              <Button
-                onClick={resetGame}
-                className="bg-[#c4ff00] text-black hover:bg-[#b3e600] px-8 py-6 text-base"
-              >
-                <RefreshCw size={20} className="mr-2" />
-                Try Again
-              </Button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Instructions */}
-        {!isStarted && !isFinished && (
-          <div className="glass p-4 rounded-xl border-[#c4ff00]/20">
-            <p className="text-white/60 text-sm text-center">
-              💡 <strong>Tip:</strong> Focus on accuracy first, then speed. The snippet
-              includes real code with proper syntax!
-            </p>
-          </div>
-        )}
-
-        {/* Reset Button (when started) */}
-        {(isStarted || isFinished) && !isFinished && (
-          <Button
-            onClick={resetGame}
-            variant="outline"
-            className="w-full border-[#c4ff00]/30 text-[#c4ff00] hover:bg-[#c4ff00]/10"
+    <div className="space-y-8">
+      {/* Stats Bar */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {[
+          { icon: Zap, label: "WPM", value: wpm, color: "#a8d500" },
+          { icon: Target, label: "Accuracy", value: `${accuracy}%`, color: "#ff6b6b" },
+          { icon: Clock, label: "Time", value: `${timeElapsed}s`, color: "#00d4ff" },
+          { icon: Trophy, label: "Progress", value: `${Math.round(progress)}%`, color: "#c084fc" },
+        ].map((stat) => (
+          <div
+            key={stat.label}
+            className="relative p-4 rounded-2xl border border-white/5 bg-white/[0.02] text-center overflow-hidden"
           >
-            <RefreshCw size={20} className="mr-2" />
-            New Snippet
-          </Button>
-        )}
+            <div
+              className="absolute top-0 left-0 right-0 h-[2px]"
+              style={{ backgroundColor: stat.color + '40' }}
+            />
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <stat.icon size={14} style={{ color: stat.color }} />
+              <p className="text-white/40 text-[10px] uppercase tracking-wider">{stat.label}</p>
+            </div>
+            <p className="text-white text-2xl font-bold">{stat.value}</p>
+          </div>
+        ))}
       </div>
+
+      {/* Progress Bar */}
+      <div className="relative h-2 rounded-full bg-white/5 overflow-hidden">
+        <motion.div
+          className="absolute inset-y-0 left-0 bg-gradient-to-r from-[#a8d500] to-[#c4ff00] rounded-full"
+          initial={{ width: 0 }}
+          animate={{ width: `${progress}%` }}
+          transition={{ duration: 0.2 }}
+        />
+      </div>
+
+      {/* Code Display */}
+      <div className="relative p-6 rounded-2xl border border-[#a8d500]/20 bg-black/30 min-h-[120px] flex items-center">
+        <div className="absolute top-3 left-4 flex items-center gap-1.5">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+        </div>
+        <div className="font-mono text-base sm:text-lg leading-relaxed break-all mt-4">
+          {currentSnippet.split("").map((char, index) => (
+            <span key={index} className={getCharacterColor(index)}>
+              {char}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Input Field */}
+      <div>
+        <input
+          ref={inputRef}
+          type="text"
+          value={userInput}
+          onChange={handleInputChange}
+          disabled={isFinished}
+          placeholder={isStarted ? "Keep typing..." : "Click here to start typing..."}
+          className="w-full px-5 py-4 rounded-2xl bg-white/[0.03] border border-white/10 text-white placeholder:text-white/30 text-base font-mono focus:outline-none focus:border-[#a8d500]/50 focus:bg-white/[0.05] transition-all disabled:opacity-50"
+          autoComplete="off"
+          spellCheck="false"
+        />
+      </div>
+
+      {/* Results Modal */}
+      <AnimatePresence>
+        {isFinished && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="p-8 rounded-2xl border border-[#a8d500]/30 bg-[#a8d500]/5 text-center space-y-6"
+          >
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ type: "spring", duration: 0.6, delay: 0.2 }}
+              className="w-20 h-20 rounded-full bg-[#a8d500]/10 flex items-center justify-center mx-auto"
+            >
+              <Trophy className="text-[#a8d500]" size={40} />
+            </motion.div>
+
+            <div>
+              <h3 className="text-white text-2xl font-bold mb-2">Test Complete!</h3>
+              <p className="text-white/40 text-sm">
+                {wpm >= 80 && accuracy >= 95
+                  ? "Lightning fast! You're a coding machine 🔥"
+                  : wpm >= 60 && accuracy >= 90
+                    ? "Great job! Keep up the momentum ⚡"
+                    : wpm >= 40 && accuracy >= 85
+                      ? "Good work! Practice makes perfect 💪"
+                      : "Keep practicing, you've got this! 🎯"}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 max-w-xs mx-auto">
+              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <p className="text-[#a8d500] text-3xl font-black">{wpm}</p>
+                <p className="text-white/30 text-xs uppercase tracking-wider">WPM</p>
+              </div>
+              <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+                <p className="text-[#ff6b6b] text-3xl font-black">{accuracy}%</p>
+                <p className="text-white/30 text-xs uppercase tracking-wider">Accuracy</p>
+              </div>
+            </div>
+
+            <button
+              onClick={resetGame}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#a8d500] text-[#050505] font-semibold hover:bg-[#b8e500] transition-colors"
+            >
+              <RefreshCw size={18} />
+              Try Again
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Instructions / Reset */}
+      {!isFinished && (
+        <div className="flex items-center justify-between">
+          <p className="text-white/30 text-xs">
+            {!isStarted ? "Start typing to begin the test" : "Type the code exactly as shown above"}
+          </p>
+          {isStarted && (
+            <button
+              onClick={resetGame}
+              className="flex items-center gap-2 text-white/40 hover:text-white text-xs transition-colors"
+            >
+              <RefreshCw size={14} />
+              Reset
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 }
