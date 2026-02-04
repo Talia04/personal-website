@@ -156,7 +156,7 @@ export function Projects() {
               const Icon = project.icon;
 
               return (
-                <motion.div
+                  <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 50 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -170,6 +170,7 @@ export function Projects() {
                     setExpandedIndex(null);
                   }}
                   onClick={() => setExpandedIndex(isExpanded ? null : index)}
+                  whileHover={{ y: -8 }}
                   className={`
                     relative cursor-pointer overflow-hidden
                     rounded-[60px] lg:rounded-[80px]
@@ -180,8 +181,11 @@ export function Projects() {
                   `}
                   style={{
                     background: isExpanded || isHovered
-                      ? `linear-gradient(135deg, ${project.color}08 0%, transparent 60%)`
+                      ? `linear-gradient(135deg, ${project.color}10 0%, transparent 60%)`
                       : 'rgba(255,255,255,0.02)',
+                    boxShadow: isExpanded || isHovered
+                      ? `0 25px 60px ${project.color}12, 0 0 0 1px ${project.color}20`
+                      : 'none'
                   }}
                 >
                   {/* Glassy border effect */}
@@ -358,9 +362,11 @@ export function Projects() {
                             transition={{ duration: 0.4, delay: 0.35 }}
                             className="flex gap-3 mt-auto"
                           >
-                            <a
+                            <motion.a
                               href={project.github}
-                              className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
+                              whileHover={{ scale: 1.08, boxShadow: `0 8px 25px ${project.color}30` }}
+                              whileTap={{ scale: 0.95 }}
+                              className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
                               style={{
                                 backgroundColor: project.color,
                                 color: '#050505'
@@ -369,10 +375,16 @@ export function Projects() {
                             >
                               <Github size={14} />
                               Code
-                            </a>
-                            <a
+                            </motion.a>
+                            <motion.a
                               href={project.demo}
-                              className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 hover:scale-105"
+                              whileHover={{ 
+                                scale: 1.08, 
+                                backgroundColor: `${project.color}15`,
+                                borderColor: project.color
+                              }}
+                              whileTap={{ scale: 0.95 }}
+                              className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border transition-all duration-300"
                               style={{
                                 borderColor: project.color + '40',
                                 color: project.color,
@@ -381,7 +393,7 @@ export function Projects() {
                             >
                               <ExternalLink size={14} />
                               View
-                            </a>
+                            </motion.a>
                           </motion.div>
                         </motion.div>
                       )}

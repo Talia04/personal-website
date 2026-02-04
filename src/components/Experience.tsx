@@ -240,12 +240,12 @@ export function Experience() {
 
                   {/* Card */}
                   <motion.div
-                    whileHover={{ y: -5 }}
+                    whileHover={{ y: -8, transition: { duration: 0.3 } }}
                     className={`
-                      relative p-6 md:p-8 rounded-2xl border transition-all duration-500
+                      relative p-6 md:p-8 rounded-3xl border transition-all duration-500
                       ${hoveredIndex === index
-                        ? 'bg-white/[0.04] border-[#a8d500]/30'
-                        : 'bg-white/[0.02] border-white/5 hover:border-white/10'}
+                        ? 'bg-white/[0.04] border-[#a8d500]/40 shadow-[0_20px_50px_rgba(168,213,0,0.08)]'
+                        : 'bg-white/[0.02] border-white/[0.06] hover:border-white/10'}
                     `}
                   >
                     {/* Corner accent */}
@@ -282,8 +282,9 @@ export function Experience() {
                       <div className="flex items-start gap-4">
                         {/* Logo */}
                         <motion.div
-                          whileHover={{ scale: 1.1, rotate: 5 }}
-                          className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 p-2 flex-shrink-0 overflow-hidden"
+                          whileHover={{ scale: 1.15, rotate: 5 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 p-2.5 flex-shrink-0 overflow-hidden cursor-pointer hover:border-[#a8d500]/30 transition-colors duration-300"
                         >
                           <img
                             src={exp.logo}
@@ -364,12 +365,13 @@ export function Experience() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.9 + idx * 0.1 }}
-                className="text-center md:text-left"
+                whileHover={{ y: -3, scale: 1.05 }}
+                className="text-center md:text-left cursor-default group"
               >
-                <span className="block text-3xl md:text-4xl font-black text-white">
+                <span className="block text-3xl md:text-4xl font-black text-white group-hover:text-[#a8d500] transition-colors duration-300">
                   {stat.value}
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-white/30 group-hover:text-white/50 transition-colors duration-300">
                   {stat.label}
                 </span>
               </motion.div>
