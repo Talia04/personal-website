@@ -50,12 +50,12 @@ export function Skills() {
       {/* Large backdrop text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <motion.span
-          style={{ y: y1 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.03 }}
           transition={{ duration: 1.5 }}
           className="font-black leading-none whitespace-nowrap text-white"
           style={{
+            y: y1,
             fontSize: 'clamp(150px, 25vw, 400px)',
             letterSpacing: '-0.02em'
           }}

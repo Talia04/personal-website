@@ -86,13 +86,16 @@ export function TechMarquee() {
       {/* Large backdrop text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <motion.span
-          style={{ x: x1 }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.02 }}
           viewport={{ once: true }}
           transition={{ duration: 1.5 }}
           className="font-black text-white whitespace-nowrap"
-          style={{ fontSize: 'clamp(150px, 25vw, 400px)', letterSpacing: '-0.02em' }}
+          style={{
+            x: x1,
+            fontSize: 'clamp(150px, 25vw, 400px)',
+            letterSpacing: '-0.02em',
+          }}
         >
           TECHNOLOGIES
         </motion.span>

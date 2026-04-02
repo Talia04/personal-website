@@ -69,9 +69,13 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-[#a8d500] hover:text-white transition-colors cursor-pointer font-mono"
+            className="cursor-pointer"
           >
-            &lt;nav&gt;
+            <img
+              src="/tc-logo.png"
+              alt="TC"
+              className="h-12 w-auto object-contain transition-transform duration-300 hover:scale-110"
+            />
           </motion.button>
 
           {/* Desktop Navigation */}
