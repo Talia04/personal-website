@@ -1,13 +1,17 @@
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "motion/react";
-import { useRef, useState } from "react";
-import { ExternalLink, Github, Sparkles, Brain, Briefcase, Mic, Code2, ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
+import { Briefcase, Mic, Code2, Sparkles, Brain, Mail, Regex, Database, Smartphone, Calendar, BarChart3, Shield, GitBranch, MessageSquare } from "lucide-react";
+import { SiTypescript, SiPython, SiPostgresql, SiDeno, SiReact, SiExpo, SiNextdotjs, SiCloudflare, SiOpenai, SiSupabase, SiGmail, SiGooglecloud, SiGithubactions } from "react-icons/si";
+import {
+  FeaturedProjectCard,
+  ProjectCard,
+  ProjectData,
+} from "./ui/progressive-blur-modal";
 
 export function Projects() {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -16,7 +20,69 @@ export function Projects() {
 
   const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
-  const projects = [
+  const featuredProject: ProjectData = {
+    title: "Basafy",
+    subtitle: "AI Job Search Assistant",
+    period: "2025",
+    icon: Briefcase,
+    color: "#00d4ff",
+    description:
+      "Born from my own frustration tracking job applications across scattered emails. Conceptualized, designed, and built the entire product solo from scratch — mobile app, web dashboard, AI backend, and cloud infrastructure. Engineered an LLM + regex pipeline to auto-parse Gmail, eliminating manual tracking entirely. Shipped to the App Store and deployed live at basafy.com.",
+    highlights: [
+      "Solo full-stack build — idea to App Store",
+      "OpenAI + regex hybrid parsing pipeline",
+      "Gmail API real-time auto-sync",
+      "Live product with real users",
+    ],
+    tech: ["React Native", "Python", "Supabase", "OpenAI", "Google APIs", "Regex"],
+    demo: "https://basafy.com",
+    techDetails: [
+      // Languages & Runtime
+      { name: "TypeScript", icon: SiTypescript, desc: "End-to-end type safety", color: "#3178c6", category: "Languages" },
+      { name: "Python", icon: SiPython, desc: "AI orchestration", color: "#ffd43b", category: "Languages" },
+      { name: "SQL", icon: SiPostgresql, desc: "PostgreSQL + RLS policies", color: "#336791", category: "Languages" },
+      { name: "Deno", icon: SiDeno, desc: "Edge Functions runtime", color: "#70ffaf", category: "Languages" },
+      // Mobile
+      { name: "React Native 0.81", icon: SiReact, desc: "Cross-platform mobile", color: "#61dafb", category: "Mobile" },
+      { name: "Expo SDK 54", icon: SiExpo, desc: "Managed workflow", color: "#4630eb", category: "Mobile" },
+      { name: "EAS Build", icon: SiExpo, desc: "Cloud builds & OTA", color: "#4630eb", category: "Mobile" },
+      // Web
+      { name: "Next.js 14", icon: SiNextdotjs, desc: "Dashboard & landing", color: "#ffffff", category: "Web" },
+      { name: "Cloudflare Pages", icon: SiCloudflare, desc: "Edge deployment", color: "#f38020", category: "Web" },
+      // Backend & AI
+      { name: "OpenAI GPT-4o-mini", icon: SiOpenai, desc: "LLM email parsing", color: "#10b981", category: "Backend & AI" },
+      { name: "Regex Engine", icon: Regex, desc: "Pattern extraction", color: "#f59e0b", category: "Backend & AI" },
+      { name: "Supabase", icon: SiSupabase, desc: "Auth + DB + Edge Functions", color: "#3ecf8e", category: "Backend & AI" },
+      { name: "PostgreSQL RLS", icon: Shield, desc: "Row-level security", color: "#336791", category: "Backend & AI" },
+      // APIs & Services
+      { name: "Gmail API", icon: SiGmail, desc: "Auto-sync job emails", color: "#ea4335", category: "APIs & Services" },
+      { name: "Google Pub/Sub", icon: SiGooglecloud, desc: "Real-time push notifications", color: "#4285f4", category: "APIs & Services" },
+      { name: "Calendar API", icon: Calendar, desc: "Interview scheduling", color: "#8b5cf6", category: "APIs & Services" },
+      // DevOps
+      { name: "GitHub Actions", icon: SiGithubactions, desc: "CI/CD pipelines", color: "#2088ff", category: "DevOps" },
+    ],
+    appStore: "https://apps.apple.com/us/app/basafy/id6757215169",
+    status: "live",
+    featured: true,
+    walkthrough: [
+      { src: "/basafy/14-splash.png", label: "Welcome to Basafy" },
+      { src: "/basafy/16-onboarding-gmail.png", label: "Connect Gmail" },
+      { src: "/basafy/17-onboarding-apps.png", label: "Auto-import applications" },
+      { src: "/basafy/18-onboarding-pipeline.png", label: "Organized pipeline" },
+      { src: "/basafy/19-onboarding-insights.png", label: "Smart insights" },
+      { src: "/basafy/01-home-dashboard.png", label: "Dashboard overview" },
+      { src: "/basafy/05-applications-all.png", label: "Application tracker" },
+      { src: "/basafy/09-applications-saved.png", label: "Saved applications" },
+      { src: "/basafy/08-pipeline-applied.png", label: "Pipeline board" },
+      { src: "/basafy/03-calendar.png", label: "Interview calendar" },
+      { src: "/basafy/04-calendar-history.png", label: "Event history" },
+      { src: "/basafy/11-insights.png", label: "Job search analytics" },
+      { src: "/basafy/12-weekly-charts.png", label: "Weekly trends" },
+      { src: "/basafy/13-ghosted-apps.png", label: "Ghosted applications" },
+    ],
+  };
+
+  const projects: ProjectData[] = [
     {
       title: "Flux",
       subtitle: "Developer Collaboration",
@@ -31,25 +97,7 @@ export function Projects() {
         "Git-powered visual code review",
       ],
       tech: ["TypeScript", "Node.js", "Electron", "Git"],
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Basafy",
-      subtitle: "AI Job Search Assistant",
-      period: "2025",
-      icon: Briefcase,
-      color: "#00d4ff",
-      description:
-        "An AI-powered job search assistant that parses Gmail interview emails, tracks applications, and surfaces insights through a centralized dashboard.",
-      highlights: [
-        "Gmail scraping & parsing",
-        "Calendar API integration",
-        "Real-time application tracking",
-      ],
-      tech: ["React Native", "Python", "Supabase", "Google APIs"],
-      github: "#",
-      demo: "#",
+      status: "in-progress",
     },
     {
       title: "InterPace",
@@ -65,8 +113,7 @@ export function Projects() {
         "Cross-platform mobile app",
       ],
       tech: ["React Native", "Python", "OpenAI Whisper"],
-      github: "#",
-      demo: "#",
+      status: "in-progress",
     },
     {
       title: "Virtual Makeup",
@@ -82,8 +129,7 @@ export function Projects() {
         "1,000+ diverse skin tone dataset",
       ],
       tech: ["Python", "Mediapipe", "TensorFlow", "CycleGAN"],
-      github: "#",
-      demo: "#",
+      status: "completed",
     },
   ];
 
@@ -96,14 +142,14 @@ export function Projects() {
       {/* Large backdrop text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <motion.span
-          style={{ y: y1 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.02 }}
           transition={{ duration: 1.5 }}
           className="font-black leading-none whitespace-nowrap text-white"
           style={{
-            fontSize: 'clamp(120px, 22vw, 350px)',
-            letterSpacing: '-0.02em'
+            y: y1,
+            fontSize: "clamp(120px, 22vw, 350px)",
+            letterSpacing: "-0.02em",
           }}
         >
           WORK
@@ -128,7 +174,7 @@ export function Projects() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="text-white font-black leading-[0.95] tracking-tight"
-              style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
+              style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
             >
               Selected
               <br />
@@ -141,281 +187,38 @@ export function Projects() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-white/40 text-sm max-w-sm lg:text-right"
             >
-              A collection of projects where I've pushed boundaries
-              in AI, developer tools, and user experience.
+              A collection of projects where I've pushed boundaries in AI,
+              developer tools, and user experience.
             </motion.p>
           </div>
         </div>
 
-        {/* Oval project cards - horizontal row */}
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-4 lg:gap-3 lg:h-[500px]">
-            {projects.map((project, index) => {
-              const isExpanded = expandedIndex === index;
-              const isHovered = hoveredIndex === index;
-              const Icon = project.icon;
-
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.7, delay: 0.1 + index * 0.1 }}
-                  onHoverStart={() => {
-                    setHoveredIndex(index);
-                    setExpandedIndex(index);
-                  }}
-                  onHoverEnd={() => {
-                    setHoveredIndex(null);
-                    setExpandedIndex(null);
-                  }}
-                  onClick={() => setExpandedIndex(isExpanded ? null : index)}
-                  whileHover={{ y: -8 }}
-                  className={`
-                    relative cursor-pointer overflow-hidden
-                    rounded-[60px] lg:rounded-[80px]
-                    transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-                    ${isExpanded
-                      ? 'lg:flex-[3] h-auto lg:h-full'
-                      : 'lg:flex-1 h-[120px] lg:h-full'}
-                  `}
-                  style={{
-                    background: isExpanded || isHovered
-                      ? `linear-gradient(135deg, ${project.color}10 0%, transparent 60%)`
-                      : 'rgba(255,255,255,0.02)',
-                    boxShadow: isExpanded || isHovered
-                      ? `0 25px 60px ${project.color}12, 0 0 0 1px ${project.color}20`
-                      : 'none'
-                  }}
-                >
-                  {/* Glassy border effect */}
-                  <div
-                    className="absolute inset-0 rounded-[60px] lg:rounded-[80px] pointer-events-none transition-all duration-500"
-                    style={{
-                      border: `1px solid ${isExpanded || isHovered ? project.color + '40' : 'rgba(255,255,255,0.08)'}`,
-                      boxShadow: isExpanded || isHovered
-                        ? `inset 0 1px 0 ${project.color}20, 0 0 60px ${project.color}15`
-                        : 'inset 0 1px 0 rgba(255,255,255,0.05)',
-                    }}
-                  />
-
-                  {/* Reflective shine */}
-                  <div
-                    className="absolute top-0 left-0 right-0 h-1/3 rounded-t-[60px] lg:rounded-t-[80px] pointer-events-none opacity-50"
-                    style={{
-                      background: 'linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%)',
-                    }}
-                  />
-
-                  {/* Content wrapper */}
-                  <div className="relative h-full p-6 lg:p-8 flex flex-col">
-                    {/* Collapsed state - vertical text */}
-                    <AnimatePresence>
-                      {!isExpanded && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="hidden lg:flex flex-col items-center justify-center h-full"
-                        >
-                          <div
-                            className="writing-mode-vertical text-center"
-                            style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-                          >
-                            <span
-                              className="text-2xl font-black tracking-tight transition-colors duration-300"
-                              style={{ color: isHovered ? project.color : 'rgba(255,255,255,0.6)' }}
-                            >
-                              {project.title}
-                            </span>
-                          </div>
-
-                          {/* Year badge at bottom */}
-                          <div className="absolute bottom-8">
-                            <span
-                              className="text-xs font-medium transition-colors duration-300"
-                              style={{ color: isHovered ? project.color : 'rgba(255,255,255,0.3)' }}
-                            >
-                              {project.period}
-                            </span>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-
-                    {/* Mobile collapsed state */}
-                    <div className={`lg:hidden flex items-center justify-between ${isExpanded ? 'mb-6' : ''}`}>
-                      <div className="flex items-center gap-4">
-                        <div
-                          className="w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-300"
-                          style={{ backgroundColor: project.color + '15' }}
-                        >
-                          <Icon size={20} style={{ color: project.color }} />
-                        </div>
-                        <div>
-                          <h3 className="text-white font-bold text-lg">{project.title}</h3>
-                          <p className="text-white/40 text-xs">{project.subtitle}</p>
-                        </div>
-                      </div>
-                      <motion.div
-                        animate={{ rotate: isExpanded ? 45 : 0 }}
-                        className="text-white/40"
-                      >
-                        <ArrowUpRight size={20} />
-                      </motion.div>
-                    </div>
-
-                    {/* Expanded content */}
-                    <AnimatePresence>
-                      {isExpanded && (
-                        <motion.div
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.4, delay: 0.1 }}
-                          className="flex flex-col h-full"
-                        >
-                          {/* Desktop header */}
-                          <div className="hidden lg:flex items-start justify-between mb-6">
-                            <div className="flex items-center gap-4">
-                              <motion.div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ duration: 0.4, type: "spring" }}
-                                className="w-14 h-14 rounded-2xl flex items-center justify-center"
-                                style={{ backgroundColor: project.color + '15' }}
-                              >
-                                <Icon size={24} style={{ color: project.color }} />
-                              </motion.div>
-                              <div>
-                                <h3 className="text-white font-black text-2xl">{project.title}</h3>
-                                <p className="text-white/40 text-sm">{project.subtitle}</p>
-                              </div>
-                            </div>
-                            <span
-                              className="text-sm font-medium px-3 py-1 rounded-full"
-                              style={{
-                                color: project.color,
-                                backgroundColor: project.color + '15'
-                              }}
-                            >
-                              {project.period}
-                            </span>
-                          </div>
-
-                          {/* Description */}
-                          <motion.p
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.15 }}
-                            className="text-white/60 text-sm leading-relaxed mb-6"
-                          >
-                            {project.description}
-                          </motion.p>
-
-                          {/* Highlights */}
-                          <div className="space-y-2 mb-6 flex-1">
-                            {project.highlights.map((highlight, hIndex) => (
-                              <motion.div
-                                key={hIndex}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.3, delay: 0.2 + hIndex * 0.05 }}
-                                className="flex items-center gap-3"
-                              >
-                                <div
-                                  className="w-1.5 h-1.5 rounded-full"
-                                  style={{ backgroundColor: project.color }}
-                                />
-                                <span className="text-white/50 text-sm">{highlight}</span>
-                              </motion.div>
-                            ))}
-                          </div>
-
-                          {/* Tech tags */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.3 }}
-                            className="flex flex-wrap gap-2 mb-6"
-                          >
-                            {project.tech.map((tech, tIndex) => (
-                              <span
-                                key={tIndex}
-                                className="px-3 py-1 rounded-full text-xs border transition-colors duration-300"
-                                style={{
-                                  borderColor: project.color + '30',
-                                  color: project.color,
-                                  backgroundColor: project.color + '08'
-                                }}
-                              >
-                                {tech}
-                              </span>
-                            ))}
-                          </motion.div>
-
-                          {/* Action buttons */}
-                          <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, delay: 0.35 }}
-                            className="flex gap-3 mt-auto"
-                          >
-                            <motion.a
-                              href={project.github}
-                              whileHover={{ scale: 1.08, boxShadow: `0 8px 25px ${project.color}30` }}
-                              whileTap={{ scale: 0.95 }}
-                              className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300"
-                              style={{
-                                backgroundColor: project.color,
-                                color: '#050505'
-                              }}
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <Github size={14} />
-                              Code
-                            </motion.a>
-                            <motion.a
-                              href={project.demo}
-                              whileHover={{
-                                scale: 1.08,
-                                backgroundColor: `${project.color}15`,
-                                borderColor: project.color
-                              }}
-                              whileTap={{ scale: 0.95 }}
-                              className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium border transition-all duration-300"
-                              style={{
-                                borderColor: project.color + '40',
-                                color: project.color,
-                              }}
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <ExternalLink size={14} />
-                              View
-                            </motion.a>
-                          </motion.div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Number indicator */}
-                  <div className="absolute top-6 right-6 lg:top-8 lg:right-8">
-                    <span
-                      className="text-xs font-mono transition-colors duration-300"
-                      style={{ color: isExpanded || isHovered ? project.color : 'rgba(255,255,255,0.2)' }}
-                    >
-                      0{index + 1}
-                    </span>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+        {/* Featured project (Basafy) */}
+        <div className="max-w-7xl mx-auto mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <FeaturedProjectCard project={featuredProject} />
+          </motion.div>
         </div>
 
-        {/* Bottom info */}
+        {/* Other projects grid */}
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+            >
+              <ProjectCard project={project} index={index} />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -423,18 +226,22 @@ export function Projects() {
           className="max-w-7xl mx-auto mt-16 flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-white/5"
         >
           <p className="text-white/30 text-sm">
-            Hover to explore each project
+            Click any card to explore the full project
           </p>
 
           <div className="flex items-center gap-8">
             {[
               { label: "Projects", value: "4+" },
               { label: "Technologies", value: "20+" },
-              { label: "In Progress", value: "3" },
-            ].map((stat, idx) => (
+              { label: "Live", value: "1" },
+            ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <span className="block text-white font-bold text-lg">{stat.value}</span>
-                <span className="text-white/30 text-[10px] uppercase tracking-wider">{stat.label}</span>
+                <span className="block text-white font-bold text-lg">
+                  {stat.value}
+                </span>
+                <span className="text-white/30 text-[10px] uppercase tracking-wider">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
