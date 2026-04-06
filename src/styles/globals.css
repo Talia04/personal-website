@@ -207,7 +207,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: #0f0b16;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -262,7 +262,7 @@ body {
 
 /* Dark Mode (Default) - Modern dark */
 body {
-  background: #111111;
+  background: #0f0b16;
 }
 
 /* Light Mode - Warm cream with subtle gradient */
@@ -272,7 +272,7 @@ body {
 
 /* Main app background */
 .theme-main-bg {
-  background: #111111;
+  background: #0f0b16;
 }
 
 .light .theme-main-bg {

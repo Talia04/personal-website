@@ -17,7 +17,7 @@ export function Hero() {
         background: "#0f0b16",
         color: "#eae6f6",
         fontFamily: "Inter, sans-serif",
-        overflowX: "hidden",
+        overflow: "hidden",
       }}
     >
       {/* Orb 1 — purple top-left */}
@@ -97,7 +97,7 @@ export function Hero() {
               style={{
                 fontStyle: "italic",
                 fontWeight: 400,
-                color: "#6ee7b7",
+                color: "#a8d500",
                 paddingLeft: "80px",
               }}
             >

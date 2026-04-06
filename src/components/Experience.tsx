@@ -85,7 +85,8 @@ export function Experience() {
     <section
       id="experience"
       ref={ref}
-      className="relative min-h-screen bg-[#050505] overflow-hidden py-32"
+      className="relative min-h-screen overflow-hidden py-32"
+      style={{ backgroundColor: "#0f0b16" }}
     >
       {/* Large backdrop text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">

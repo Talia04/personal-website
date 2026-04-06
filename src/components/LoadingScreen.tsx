@@ -63,7 +63,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
             animate={{ backdropFilter: "blur(40px)" }}
             exit={{ backdropFilter: "blur(0px)" }}
             transition={{ duration: 0.5 }}
-            className="absolute inset-0 bg-[#050505]/99"
+            className="absolute inset-0 bg-[#0f0b16]/99"
           />
 
           {/* Single subtle gradient orb */}

@@ -31,7 +31,7 @@ export function Footer() {
   ];
 
   return (
-    <footer ref={footerRef} className="relative bg-[#050505] overflow-hidden">
+    <footer ref={footerRef} className="relative overflow-hidden" style={{ backgroundColor: "#0f0b16" }}>
       {/* Top gradient line */}
       <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#a8d500]/40 to-transparent" />
 

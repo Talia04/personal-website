@@ -15,14 +15,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     // Get theme from localStorage or system preference
-    const stored = localStorage.getItem('portfolio-theme') as Theme | null;
-    const systemPreference = window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'dark'
-      : 'light';
-    
-    const initialTheme = stored || systemPreference;
+    const initialTheme: Theme = 'dark';
     setTheme(initialTheme);
-    document.documentElement.classList.add(initialTheme);
+    document.documentElement.classList.remove('light');
+    document.documentElement.classList.add('dark');
+    localStorage.removeItem('portfolio-theme');
     setMounted(true);
   }, []);
 

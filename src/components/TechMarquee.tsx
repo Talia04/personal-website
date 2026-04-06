@@ -81,7 +81,8 @@ export function TechMarquee() {
   return (
     <section
       ref={ref}
-      className="relative py-24 md:py-32 overflow-hidden bg-[#050505]"
+      className="relative py-24 md:py-32 overflow-hidden"
+      style={{ backgroundColor: "#0f0b16" }}
     >
       {/* Large backdrop text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
@@ -102,8 +103,8 @@ export function TechMarquee() {
       </div>
 
       {/* Gradient overlays for fade effect */}
-      <div className="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 left-0 w-32 md:w-64 bg-gradient-to-r from-[#0f0b16] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-32 md:w-64 bg-gradient-to-l from-[#0f0b16] to-transparent z-10 pointer-events-none" />
 
       <div className="relative z-0">
         {/* Section label */}
