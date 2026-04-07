@@ -1,4 +1,4 @@
-import { ArrowDownRight, Sparkles } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
 
 export function Hero() {
   const scrollToProjects = () => {
@@ -6,280 +6,133 @@ export function Hero() {
   };
 
   return (
-    <section
-      style={{
-        position: "relative",
-        zIndex: 10,
-        display: "flex",
-        alignItems: "center",
-        height: "100vh",
-        padding: "80px 80px 80px",
-        background: "#0f0b16",
-        color: "#eae6f6",
-        fontFamily: "Inter, sans-serif",
-        overflow: "hidden",
-      }}
-    >
-      {/* Orb 1 — purple top-left */}
+    <section className="relative min-h-[100svh] overflow-hidden bg-[#0f0b16] px-5 pb-16 pt-40 text-[#eae6f6] sm:px-8 sm:pt-36 md:px-10 md:pt-36 lg:px-16 lg:pt-40 xl:px-24">
       <div
+        className="pointer-events-none absolute rounded-full"
         style={{
-          position: "absolute",
-          top: "-200px",
-          left: "-150px",
-          width: "500px",
-          height: "500px",
-          borderRadius: "50%",
+          top: "-14%",
+          left: "-10%",
+          width: "clamp(18rem, 36vw, 31rem)",
+          height: "clamp(18rem, 36vw, 31rem)",
           background: "#8b5cf6",
           filter: "blur(120px)",
-          opacity: 0.4,
-          pointerEvents: "none",
+          opacity: 0.38,
         }}
       />
-      {/* Orb 2 — mint right */}
       <div
+        className="pointer-events-none absolute rounded-full"
         style={{
-          position: "absolute",
-          top: "30%",
-          right: "-200px",
-          width: "600px",
-          height: "600px",
-          borderRadius: "50%",
+          top: "18%",
+          right: "-12%",
+          width: "clamp(20rem, 42vw, 37rem)",
+          height: "clamp(20rem, 42vw, 37rem)",
           background: "#6ee7b7",
           filter: "blur(120px)",
-          opacity: 0.16,
-          pointerEvents: "none",
+          opacity: 0.14,
         }}
       />
-      {/* Orb 3 — dark bottom */}
       <div
+        className="pointer-events-none absolute rounded-full"
         style={{
-          position: "absolute",
           bottom: "-10%",
-          left: "20%",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
+          left: "18%",
+          width: "clamp(16rem, 28vw, 25rem)",
+          height: "clamp(16rem, 28vw, 25rem)",
           background: "#2b2636",
           filter: "blur(120px)",
-          opacity: 0.4,
-          pointerEvents: "none",
+          opacity: 0.36,
         }}
       />
 
-      {/* Hero Content */}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          width: "100%",
-          // margin: "0 auto",
-          position: "relative",
-          padding: "0 180px",
-          zIndex: 10,
-        }}
-      >
-        {/* Text Container */}
-        <div style={{ flex: 1, width: "20%", paddingLeft: "100px" }}>
+      <div className="relative z-10 mx-auto flex min-h-[calc(100svh-10rem)] w-full max-w-[1440px] flex-col-reverse items-center justify-center gap-10 sm:gap-12 lg:min-h-[calc(100svh-9rem)] lg:flex-row lg:items-center lg:justify-between lg:gap-16"
+        style={{ padding: "50px 50px 50px" }}>
+        <div className="w-full max-w-[42rem] text-center lg:text-left">
           <h1
+            className="font-black leading-[0.88] text-[#eae6f6]"
             style={{
-              fontSize: "140px",
-              fontWeight: 800,
+              fontSize: "clamp(3.10rem, 9vw, 8.7rem)",
+              letterSpacing: "clamp(-1.5px, -0.28vw, -4px)",
               lineHeight: 0.9,
-              letterSpacing: "-4px",
-              marginBottom: "40px",
-              color: "#eae6f6",
+              justifyItems: "left",
             }}
           >
             Tanya
-            <br />
             <span
+              className="block font-normal italic text-[#a8d500]"
               style={{
+                paddingLeft: "60px",
+                fontSize: "clamp(2.8rem, 7vw, 6rem)",
                 fontStyle: "italic",
-                fontWeight: 400,
-                color: "#a8d500",
-                paddingLeft: "80px",
               }}
             >
               Chisepo
             </span>
           </h1>
-
-          <p
+          {/* <p className="mx-auto max-w-[34rem] font-normal text-[#a99bd6] lg:mx-0"
             style={{
-              fontSize: "24px",
-              lineHeight: 1.5,
-              color: "#a99bd6",
-              marginBottom: "56px",
-              maxWidth: "500px",
-              fontWeight: 400,
+              fontSize: "clamp(0.98rem, 2.2vw, 1.5rem)",
+              color: "#a8d500",
+              marginLeft: "20px",
+
             }}
           >
-            Creative Developer crafting digital experiences with motion, liquid
-            precision, and immersive textures.
+            Hi.
+          </p> */}
+          <p
+            className="mx-auto max-w-[34rem] font-normal text-[#a99bd6] lg:mx-0"
+            style={{
+              fontSize: "clamp(0.98rem, 2.2vw, 1.5rem)",
+              lineHeight: 1.55,
+              marginTop: "50px",
+              marginBottom: "50px",
+              marginLeft: "20px",
+              width: "50%",
+
+            }}
+          >
+            I’m a Software Engineer who loves solving everyday problems with technology.
           </p>
 
           <button
+            type="button"
             onClick={scrollToProjects}
+            className="inline-flex items-center rounded-full border border-[#a8d500]/35 bg-[#a8d500] text-[#0f0b16] shadow-[0_14px_38px_rgba(168,213,0,0.22)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#b8e510]"
             style={{
-              display: "inline-flex",
-              alignItems: "center",
-              background: "#8b5cf6",
-              color: "#0f0b16",
-              padding: "16px 32px",
-              borderRadius: "100px",
-              fontSize: "16px",
-              fontWeight: 500,
-              border: "none",
-              cursor: "pointer",
+              padding: "clamp(0.9rem, 2vw, 1rem) clamp(1.4rem, 3vw, 2rem)",
+              fontSize: "clamp(0.95rem, 1.6vw, 1rem)",
+              fontWeight: 600,
             }}
           >
             View Projects
-            <span
-              style={{
-                width: "20px",
-                height: "20px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginLeft: "8px",
-              }}
-            >
-              <ArrowDownRight style={{ width: 20, height: 20 }} />
+            <span className="ml-2 flex h-5 w-5 items-center justify-center sm:h-6 sm:w-6">
+              <ArrowDownRight className="h-5 w-5 sm:h-6 sm:w-6" />
             </span>
           </button>
         </div>
 
-        {/* Visuals */}
         <div
+          className="relative flex w-full max-w-[21rem] shrink-0 items-center justify-center sm:max-w-[24rem] lg:max-w-none"
           style={{
-            position: "relative",
-            width: "450px",
-            height: "600px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexShrink: 0,
+            width: "clamp(15.5rem, 36vw, 28rem)",
+            height: "clamp(20rem, 48vw, 37.5rem)",
           }}
         >
-          {/* Liquid Frame */}
           <div
+            className="h-full w-full overflow-hidden border border-white/[0.08] bg-[#191419] shadow-[0_40px_80px_rgba(0,0,0,0.4)]"
             style={{
-              width: "100%",
-              height: "100%",
               borderRadius: "40% 60% 70% 30% / 40% 50% 60% 50%",
-              overflow: "hidden",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
-              boxShadow: "0 40px 80px rgba(0, 0, 0, 0.4)",
-              background: "#191419",
             }}
           >
             <img
               src="/tanya-portrait.jpg"
               alt="Tanya Chisepo"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center top",
-              }}
+              className="h-full w-full object-cover object-center"
+              style={{ objectPosition: "center top" }}
             />
           </div>
 
-          {/* Floating Badge */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: "80px",
-              left: "-60px",
-              display: "flex",
-              alignItems: "center",
-              gap: "16px",
-              padding: "16px 24px",
-              borderRadius: "12px",
-              background: "rgba(20, 16, 24, 0.4)",
-              backdropFilter: "blur(16px)",
-              WebkitBackdropFilter: "blur(16px)",
-              border: "1px solid rgba(255, 255, 255, 0.08)",
-            }}
-          >
-            <div
-              style={{
-                width: "24px",
-                height: "24px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Sparkles style={{ width: 24, height: 24, color: "#6ee7b7" }} />
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <div
-                style={{
-                  fontSize: "14px",
-                  fontWeight: 600,
-                  color: "#eae6f6",
-                }}
-              >
-                Software
-              </div>
-              <div style={{ fontSize: "12px", color: "#a99bd6" }}>
-                Engineer
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-
-      {/* Responsive overrides */}
-      <style>{`
-        @media (max-width: 1023px) {
-          section > div:last-of-type {
-            flex-direction: column !important;
-            gap: 48px;
-          }
-          section > div:last-of-type h1 {
-            font-size: 92px !important;
-            letter-spacing: -3px !important;
-          }
-          section > div:last-of-type h1 span {
-            padding-left: 40px !important;
-          }
-          section > div:last-of-type p {
-            font-size: 18px !important;
-          }
-          section > div:last-of-type > div:last-child {
-            width: 360px !important;
-            height: 480px !important;
-          }
-        }
-
-        @media (max-width: 639px) {
-          section {
-            padding: 60px 24px 80px !important;
-          }
-          section > div:last-of-type h1 {
-            font-size: 56px !important;
-            letter-spacing: -2px !important;
-          }
-          section > div:last-of-type h1 span {
-            padding-left: 16px !important;
-          }
-          section > div:last-of-type p {
-            font-size: 16px !important;
-            max-width: 320px !important;
-          }
-          section > div:last-of-type > div:last-child {
-            width: 280px !important;
-            height: 370px !important;
-          }
-          section > div:last-of-type > div:last-child > div:last-child {
-            left: -20px !important;
-            bottom: 40px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

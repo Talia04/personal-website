@@ -179,7 +179,7 @@ export function Projects() {
             >
               Selected
               <br />
-              <span className="text-[#a8d500]">works.</span>
+              <span className="text-[#a8d500]">projects.</span>
             </motion.h2>
 
             <motion.p
