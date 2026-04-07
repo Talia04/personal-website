@@ -1,67 +1,139 @@
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "Work", href: "#projects" },
+  { label: "Projects", href: "#projects" },
   { label: "Expertise", href: "#skills" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [activeItem, setActiveItem] = useState<string | null>(null);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const updateActiveItem = () => {
+      const targetLine = window.innerHeight * 0.28;
+      let nextActive: string | null = null;
+
+      for (const item of navItems) {
+        const section = document.querySelector<HTMLElement>(item.href);
+        if (!section) {
+          continue;
+        }
+
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= targetLine && rect.bottom >= targetLine) {
+          nextActive = item.href;
+          break;
+        }
+      }
+
+      setActiveItem(nextActive);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+      window.requestAnimationFrame(updateActiveItem);
+    };
+
+    updateActiveItem();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
 
   const scrollToSection = (href: string) => {
+    setActiveItem(href);
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
-    setIsOpen(false);
   };
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50">
-      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-6 py-6 md:px-10 md:py-7 lg:px-16 lg:py-8">
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-2xl font-extrabold tracking-[-0.04em] text-[#eae6f6]"
-          style={{ letterSpacing: "-1px" }}
+    <>
+      <nav
+        className="fixed left-1/2 z-[100] -translate-x-1/2"
+        style={{
+          top: "clamp(1rem, 3vw, 3rem)",
+          width: "min(27.8rem, calc(100vw - 1.25rem))",
+        }}
+      >
+        <div
+          className="relative flex w-full items-center justify-center overflow-hidden rounded-full border"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(52,52,56,0.78) 0%, rgba(33,33,37,0.84) 100%)",
+            borderColor: "rgba(255,255,255,0.1)",
+            boxShadow:
+              "inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(255,255,255,0.04), 0 12px 30px rgba(0,0,0,0.24), 0 0 0 1px rgba(255,255,255,0.04)",
+            backdropFilter: "blur(28px) saturate(155%)",
+            WebkitBackdropFilter: "blur(28px) saturate(155%)",
+            gap: "clamp(0.09rem, 0.36vw, 0.45rem)",
+            padding: "clamp(0.18rem, 0.45vw, 0.4rem)",
+          }}
         >
-          TC.
-        </button>
+          <div
+            className="pointer-events-none absolute inset-0 rounded-full"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03) 42%, rgba(255,255,255,0.01) 100%)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute left-8 top-[4px] h-[4px] w-14 rounded-full"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.95), rgba(255,255,255,0.08))",
+              filter: "blur(0.6px)",
+            }}
+          />
 
-        <div className="hidden items-center gap-8 rounded-full border border-white/[0.08] bg-[#141018]/88 px-8 py-3 backdrop-blur-[12px] md:flex">
-          {navItems.map((item, index) => (
-            <button
-              key={item.href}
-              onClick={() => scrollToSection(item.href)}
-              className={`text-sm font-medium ${index === 0 ? "text-[#eae6f6]" : "text-[#a99bd6]"
-                }`}
-            >
-              {item.label}
-            </button>
-          ))}
+          {navItems.map((item) => {
+            const isActive = hoveredItem === item.href || activeItem === item.href;
+
+            return (
+              <button
+                key={item.href}
+                type="button"
+                onClick={() => scrollToSection(item.href)}
+                onMouseEnter={() => setHoveredItem(item.href)}
+                onMouseLeave={() => setHoveredItem(null)}
+                onFocus={() => setHoveredItem(item.href)}
+                onBlur={() => setHoveredItem(null)}
+                className="relative z-10 min-w-0 flex-1 cursor-pointer rounded-full border font-medium tracking-[-0.02em] whitespace-nowrap"
+                style={{
+                  borderColor: isActive ? "rgba(255, 255, 255, 0.08)" : "transparent",
+                  background: isActive
+                    ? "linear-gradient(180deg, rgba(96,96,102,0.96) 0%, rgba(76,76,82,0.92) 100%)"
+                    : "transparent",
+                  color: isActive ? "#f5f4f7" : "rgba(245,244,247,0.78)",
+                  boxShadow: isActive
+                    ? "inset 0 1px 0 rgba(255,255,255,0.16), 0 8px 18px rgba(0,0,0,0.18)"
+                    : "none",
+                  transform: isActive ? "translateY(-1px)" : "translateY(0)",
+                  fontSize: "clamp(0.76rem, 0.15vw, 0.15rem)",
+                  padding: "clamp(0.32rem, 0.45vw, 0.45rem) clamp(0.29rem, 0.8vw, 0.9rem)",
+                  transition:
+                    "transform 220ms ease, background 220ms ease, color 220ms ease, box-shadow 220ms ease, border-color 220ms ease",
+                }}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </div>
-
-        <button
-          onClick={() => setIsOpen((open) => !open)}
-          className="rounded-full border border-white/[0.08] bg-[#141018]/88 p-3 text-[#eae6f6] backdrop-blur-[12px] md:hidden"
-          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-        >
-          {isOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className="mx-6 mt-2 rounded-[1.5rem] border border-white/[0.08] bg-[#141018]/94 p-4 backdrop-blur-[12px] md:hidden">
-          {navItems.map((item) => (
-            <button
-              key={item.href}
-              onClick={() => scrollToSection(item.href)}
-              className="block w-full rounded-xl px-3 py-3 text-left text-[15px] font-medium text-[#a99bd6] hover:bg-white/[0.03] hover:text-[#eae6f6]"
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-      )}
-    </nav>
+      </nav>
+    </>
   );
 }

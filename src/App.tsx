@@ -27,6 +27,7 @@ export default function App() {
       <AnimatePresence mode="wait">
         {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
+      {!isLoading && <Navigation />}
       <motion.div
         className="min-h-screen theme-main-bg"
         initial={{ opacity: 0, filter: "blur(20px)", scale: 1.02 }}
@@ -43,7 +44,6 @@ export default function App() {
           scale: { duration: 1.2 }
         }}
       >
-        <Navigation />
         <Hero />
         <About />
         <Skills />
