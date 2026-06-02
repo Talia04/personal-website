@@ -1,0 +1,211 @@
+.portfolio-fork {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #0f0b16;
+  color: #f3effd;
+}
+
+.fork-brand {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  z-index: 5;
+  width: min(90vw, 76rem);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.fork-panel {
+  position: relative;
+  display: flex;
+  min-height: 50svh;
+  cursor: pointer;
+  align-items: flex-end;
+  overflow: hidden;
+  padding: 5.5rem 1.5rem 2rem;
+  text-align: left;
+}
+
+.fork-panel::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.fork-panel:hover::after,
+.fork-panel:focus-visible::after {
+  opacity: 1;
+}
+
+.fork-panel-tech {
+  background: #0a1013;
+}
+
+.fork-panel-tech::after {
+  background: radial-gradient(circle at 72% 22%, rgba(168, 213, 0, 0.23), transparent 44%);
+}
+
+.fork-panel-impact {
+  background: #1b1020;
+}
+
+.fork-panel-impact::after {
+  background: radial-gradient(circle at 30% 20%, rgba(229, 137, 255, 0.22), transparent 42%);
+}
+
+.fork-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.28;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.fork-orb {
+  position: absolute;
+  width: 19rem;
+  height: 19rem;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: 0.22;
+}
+
+.fork-panel-tech .fork-orb {
+  top: 5%;
+  right: -6rem;
+  background: #a8d500;
+}
+
+.fork-panel-impact .fork-orb {
+  top: 5%;
+  left: -6rem;
+  background: #e589ff;
+}
+
+.fork-panel-number {
+  position: absolute;
+  top: 22%;
+  right: 1.5rem;
+  color: rgba(255, 255, 255, 0.045);
+  font-size: clamp(8rem, 30vw, 20rem);
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  line-height: 0.72;
+}
+
+.fork-content {
+  position: relative;
+  z-index: 2;
+  max-width: 33rem;
+}
+
+.fork-title {
+  margin-top: 0.75rem;
+  color: #fff;
+  font-size: clamp(3.25rem, 9vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.82;
+}
+
+.fork-panel-impact .fork-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.08em;
+}
+
+.fork-description {
+  max-width: 27rem;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.84rem;
+  line-height: 1.65;
+}
+
+.fork-enter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.3rem;
+  color: #a8d500;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.fork-panel-impact .fork-enter {
+  color: #e589ff;
+}
+
+.fork-impact-accent {
+  color: #e589ff;
+}
+
+.fork-divider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 6;
+  display: flex;
+  width: 3.5rem;
+  height: 3.5rem;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(15, 11, 22, 0.72);
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  backdrop-filter: blur(18px);
+}
+
+@media (min-width: 768px) {
+  .portfolio-fork {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fork-brand {
+    top: 2.2rem;
+  }
+
+  .fork-panel {
+    min-height: 100svh;
+    padding: 8rem 4rem 4rem;
+  }
+
+  .fork-panel-tech {
+    justify-content: flex-end;
+    padding-right: 5rem;
+  }
+
+  .fork-panel-impact {
+    padding-left: 5rem;
+  }
+
+  .fork-panel-number {
+    top: 18%;
+    right: 8%;
+  }
+
+  .fork-panel-impact .fork-panel-number {
+    right: auto;
+    left: 8%;
+  }
+
+  .fork-divider {
+    top: 50%;
+  }
+}
