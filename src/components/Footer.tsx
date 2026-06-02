@@ -1,8 +1,13 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { Linkedin, Mail, Github, ArrowUp, Phone } from "lucide-react";
 import { useRef } from "react";
+import type { PortfolioPath } from "./PortfolioFork";
 
-export function Footer() {
+interface FooterProps {
+  path: PortfolioPath;
+}
+
+export function Footer({ path }: FooterProps) {
   const footerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: footerRef,
@@ -16,12 +21,19 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const links = [
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-  ];
+  const links = path === "tech"
+    ? [
+        { label: "About", href: "#about" },
+        { label: "Projects", href: "#projects" },
+        { label: "Skills", href: "#skills" },
+        { label: "Experience", href: "#experience" },
+      ]
+    : [
+        { label: "Gallery", href: "#gallery" },
+        { label: "My Journey", href: "#journey" },
+        { label: "Impact", href: "#impact" },
+        { label: "Recognition", href: "#achievements" },
+      ];
 
   const socials = [
     { icon: Github, href: "https://github.com/tanyachisepo", label: "GitHub" },

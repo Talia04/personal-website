@@ -1,15 +1,31 @@
 import { useEffect, useState } from "react";
+import { ArrowLeftRight } from "lucide-react";
+import type { PortfolioPath } from "./PortfolioFork";
 
-const navItems = [
-  { label: "Projects", href: "#projects" },
-  { label: "Expertise", href: "#skills" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
+const navItems: Record<PortfolioPath, { label: string; href: string }[]> = {
+  tech: [
+    { label: "Projects", href: "#projects" },
+    { label: "Expertise", href: "#skills" },
+    { label: "Experience", href: "#experience" },
+    { label: "Contact", href: "#contact" },
+  ],
+  impact: [
+    { label: "Gallery", href: "#gallery" },
+    { label: "Journey", href: "#journey" },
+    { label: "Impact", href: "#impact" },
+    { label: "Contact", href: "#contact" },
+  ],
+};
 
-export function Navigation() {
+interface NavigationProps {
+  path: PortfolioPath;
+  onSwitch: () => void;
+}
+
+export function Navigation({ path, onSwitch }: NavigationProps) {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [activeItem, setActiveItem] = useState<string | null>(null);
+  const currentItems = navItems[path];
 
   useEffect(() => {
     let ticking = false;
@@ -18,7 +34,7 @@ export function Navigation() {
       const targetLine = window.innerHeight * 0.28;
       let nextActive: string | null = null;
 
-      for (const item of navItems) {
+      for (const item of currentItems) {
         const section = document.querySelector<HTMLElement>(item.href);
         if (!section) {
           continue;
@@ -53,7 +69,7 @@ export function Navigation() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, []);
+  }, [currentItems]);
 
   const scrollToSection = (href: string) => {
     setActiveItem(href);
@@ -99,7 +115,7 @@ export function Navigation() {
             }}
           />
 
-          {navItems.map((item) => {
+          {currentItems.map((item) => {
             const isActive = hoveredItem === item.href || activeItem === item.href;
 
             return (
@@ -134,6 +150,14 @@ export function Navigation() {
           })}
         </div>
       </nav>
+      <button
+        type="button"
+        onClick={onSwitch}
+        className="fixed right-4 top-20 z-[100] inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#211b27]/80 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 shadow-[0_12px_26px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all hover:border-[#a8d500]/35 hover:text-[#a8d500] md:right-8 md:top-8"
+      >
+        <ArrowLeftRight size={12} />
+        Switch to {path === "tech" ? "story" : "tech"}
+      </button>
     </>
   );
 }

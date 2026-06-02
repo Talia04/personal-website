@@ -1,9 +1,31 @@
-import { ArrowDownRight } from "lucide-react";
+import { ArrowDownRight, BookOpen } from "lucide-react";
 
-export function Hero() {
+interface HeroProps {
+  onReadStory?: () => void;
+}
+
+export function Hero({ onReadStory }: HeroProps) {
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const scrollToJourney = () => {
+    if (onReadStory) {
+      onReadStory();
+      return;
+    }
+
+    document.querySelector("#journey")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const stats = [
+    "Zimbabwean",
+    "Summa Cum Laude",
+    "3× Meta Intern",
+    "Generation Google Scholar",
+    "Educator & Mentor",
+    "Founder of Basafy",
+  ];
 
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-[#0f0b16] px-5 pb-16 pt-40 text-[#eae6f6] sm:px-8 sm:pt-36 md:px-10 md:pt-36 lg:px-16 lg:pt-40 xl:px-24">
@@ -78,36 +100,60 @@ export function Hero() {
           >
             Hi.
           </p> */}
+          <p className="max-w-[39rem] text-left text-xl font-semibold leading-tight text-[#eae6f6] sm:text-2xl lg:text-3xl" style={{ marginTop: "2.5rem" }}>
+            Building technology that expands access to education, careers, and opportunity.
+          </p>
           <p
-            className="mx-auto max-w-[34rem] font-normal text-[#a99bd6] lg:mx-0"
+            className="max-w-[36rem] text-left font-normal text-[#a99bd6]"
             style={{
-              fontSize: "clamp(0.98rem, 2.2vw, 1.5rem)",
+              marginTop: "1.25rem",
+              fontSize: "clamp(0.9rem, 1.8vw, 1.05rem)",
               lineHeight: 1.55,
-              marginTop: "50px",
-              marginBottom: "50px",
-              marginLeft: "20px",
-              width: "50%",
-
             }}
           >
-            I’m a Software Engineer who loves solving everyday problems with technology.
+            Zimbabwean software engineer, educator, mentor, and three-time Meta intern building practical tools for everyday problems.
           </p>
 
-          <button
-            type="button"
-            onClick={scrollToProjects}
-            className="inline-flex items-center rounded-full border border-[#a8d500]/35 bg-[#a8d500] text-[#0f0b16] shadow-[0_14px_38px_rgba(168,213,0,0.22)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#b8e510]"
-            style={{
-              padding: "clamp(0.9rem, 2vw, 1rem) clamp(1.4rem, 3vw, 2rem)",
-              fontSize: "clamp(0.95rem, 1.6vw, 1rem)",
-              fontWeight: 600,
-            }}
-          >
-            View Projects
-            <span className="ml-2 flex h-5 w-5 items-center justify-center sm:h-6 sm:w-6">
-              <ArrowDownRight className="h-5 w-5 sm:h-6 sm:w-6" />
-            </span>
-          </button>
+          <div className="flex max-w-[42rem] flex-wrap gap-2" style={{ marginTop: "1.75rem" }}>
+            {stats.map((stat) => (
+              <span
+                key={stat}
+                className="rounded-full border border-white/10 bg-white/[0.035] px-3 text-[10px] font-medium uppercase text-white/55"
+                style={{ paddingTop: "0.375rem", paddingBottom: "0.375rem", letterSpacing: "0.14em" }}
+              >
+                {stat}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap gap-3" style={{ marginTop: "2.25rem" }}>
+            <button
+              type="button"
+              onClick={scrollToProjects}
+              className="inline-flex items-center rounded-full border border-[#a8d500]/35 bg-[#a8d500] text-[#0f0b16] shadow-[0_14px_38px_rgba(168,213,0,0.22)] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-[#b8e510]"
+              style={{
+                padding: "clamp(0.85rem, 2vw, 1rem) clamp(1.3rem, 3vw, 1.8rem)",
+                fontSize: "clamp(0.88rem, 1.6vw, 1rem)",
+                fontWeight: 600,
+              }}
+            >
+              View Projects
+              <ArrowDownRight className="ml-2 h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={scrollToJourney}
+              className="inline-flex items-center rounded-full border border-white/15 bg-white/[0.035] text-white/80 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#a8d500]/40 hover:text-[#a8d500]"
+              style={{
+                padding: "clamp(0.85rem, 2vw, 1rem) clamp(1.3rem, 3vw, 1.8rem)",
+                fontSize: "clamp(0.88rem, 1.6vw, 1rem)",
+                fontWeight: 600,
+              }}
+            >
+              Read My Story
+              <BookOpen className="ml-2 h-4 w-4" />
+            </button>
+          </div>
         </div>
 
         <div
