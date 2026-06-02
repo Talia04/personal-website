@@ -95,7 +95,7 @@ export function Additional() {
             transition={{ duration: 0.6 }}
             className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500] block mb-6"
           >
-            006 — Recognition
+            Honors — Recognition
           </motion.span>
 
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">

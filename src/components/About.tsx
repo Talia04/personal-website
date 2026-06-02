@@ -107,7 +107,7 @@ export function About() {
             className="mb-8"
           >
             <span className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500]">
-              001 — About
+              Profile — About
             </span>
           </motion.div>
 

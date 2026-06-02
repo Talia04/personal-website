@@ -84,7 +84,7 @@ export function Skills() {
             transition={{ duration: 0.6 }}
             className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500] block mb-6"
           >
-            002 — Skills
+            Toolbox — Skills
           </motion.span>
 
           <motion.h2

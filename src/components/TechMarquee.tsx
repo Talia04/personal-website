@@ -116,7 +116,7 @@ export function TechMarquee() {
             transition={{ duration: 0.6 }}
             className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500]"
           >
-            004 — Tech Stack
+            Toolkit — Tech Stack
           </motion.span>
         </div>
 

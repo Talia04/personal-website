@@ -101,7 +101,7 @@ export function Contact() {
           className="mb-16"
         >
           <span className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500]">
-            008 — Contact
+            Connect — Contact
           </span>
         </motion.div>
 
