@@ -1,13 +1,13 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef } from "react";
-import { Briefcase, Mic, Code2, Sparkles, Brain, Mail, Regex, Database, Smartphone, Calendar, BarChart3, Shield, GitBranch, MessageSquare } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Briefcase, Mic, Code2, Sparkles, Regex, Calendar, Shield } from "lucide-react";
 import { SiTypescript, SiPython, SiPostgresql, SiDeno, SiReact, SiExpo, SiNextdotjs, SiCloudflare, SiOpenai, SiSupabase, SiGmail, SiGooglecloud, SiGithubactions } from "react-icons/si";
 import {
-  FeaturedProjectCard,
   ProjectCard,
   ProjectData,
 } from "./ui/progressive-blur-modal";
+import "./Projects.css";
 
 export function Projects() {
   const ref = useRef<HTMLElement>(null);
@@ -134,12 +134,7 @@ export function Projects() {
   ];
 
   return (
-    <section
-      id="projects"
-      ref={ref}
-      className="relative min-h-screen overflow-hidden py-32"
-      style={{ backgroundColor: "#0f0b16" }}
-    >
+    <section id="projects" ref={ref} className="tech-work">
       {/* Large backdrop text */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
         <motion.span
@@ -157,9 +152,9 @@ export function Projects() {
         </motion.span>
       </div>
 
-      <div className="relative z-10 px-6 md:px-12 lg:px-20">
+      <div className="tech-work-inner">
         {/* Section header */}
-        <div className="max-w-7xl mx-auto mb-20">
+        <div className="mb-20">
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -194,19 +189,126 @@ export function Projects() {
           </div>
         </div>
 
-        {/* Featured project (Basafy) */}
-        <div className="max-w-7xl mx-auto mb-12">
+        {/* Featured case study (Basafy) */}
+        <div>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <FeaturedProjectCard project={featuredProject} />
+            <article className="tech-case">
+              <div className="tech-case-layout">
+                <div className="tech-case-copy">
+                  <p className="editorial-eyebrow">Featured build / 01</p>
+                  <h3 className="tech-case-title">Basafy</h3>
+                  <p className="mt-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#a8d500]">
+                    AI job search assistant
+                  </p>
+                  <p className="tech-case-description">
+                    I built Basafy after experiencing the problem firsthand:
+                    job applications were scattered across inboxes, calendars,
+                    and spreadsheets. The result is a live mobile and web product
+                    that turns Gmail activity into an organized application pipeline.
+                  </p>
+
+                  <div className="tech-case-proof">
+                    {[
+                      { value: "Solo", label: "Product ownership" },
+                      { value: "2", label: "Client platforms" },
+                      { value: "Live", label: "App Store product" },
+                    ].map((proof) => (
+                      <div key={proof.label} className="tech-proof-item">
+                        <p className="tech-proof-value">{proof.value}</p>
+                        <p className="tech-proof-label">{proof.label}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="tech-system">
+                    <p className="editorial-eyebrow">System flow</p>
+                    <div className="tech-system-flow">
+                      {["Gmail API", "LLM + regex parser", "Supabase", "Mobile + web"].map((node, index) => (
+                        <span key={node} className="tech-system-segment">
+                          <span className="tech-system-node">{node}</span>
+                          {index < 3 && <ArrowRight className="tech-system-arrow" size={13} />}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="tech-case-actions">
+                    <a
+                      href={featuredProject.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="tech-case-link"
+                    >
+                      Visit live product <ArrowUpRight size={14} />
+                    </a>
+                    <a
+                      href={featuredProject.appStore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="tech-case-link tech-case-link-secondary"
+                    >
+                      View App Store <ArrowUpRight size={14} />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="tech-screen-stage">
+                  <div className="tech-screen-stack">
+                    {[
+                      "/basafy/16-onboarding-gmail.png",
+                      "/basafy/01-home-dashboard.png",
+                      "/basafy/08-pipeline-applied.png",
+                    ].map((src, index) => (
+                      <motion.figure
+                        key={src}
+                        initial={{ opacity: 0, y: 28 }}
+                        animate={isInView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.7, delay: 0.35 + index * 0.12 }}
+                        className="tech-screen"
+                      >
+                        <img src={src} alt={`Basafy product screen ${index + 1}`} />
+                      </motion.figure>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </article>
           </motion.div>
         </div>
 
+        <div className="tech-index-heading">
+          <div>
+            <p className="editorial-eyebrow">Case study index / 02</p>
+            <h3 className="mt-3 text-3xl font-black tracking-tight text-white md:text-4xl">
+              Smaller builds, same engineering lens.
+            </h3>
+          </div>
+          <p className="max-w-sm text-sm leading-relaxed text-white/35">
+            Each one explores a different system boundary: developer workflows,
+            communication feedback, applied AI, and user-facing polish.
+          </p>
+        </div>
+
+        <div className="tech-project-rail" aria-label="Project focus areas">
+          {[
+            { number: "01", label: "Developer tools", value: "Flux" },
+            { number: "02", label: "AI communication", value: "InterPace" },
+            { number: "03", label: "Applied ML", value: "Virtual Makeup" },
+          ].map((item) => (
+            <div key={item.value} className="tech-project-rail-item">
+              <span>{item.number}</span>
+              <p>{item.label}</p>
+              <strong>{item.value}</strong>
+            </div>
+          ))}
+        </div>
+
         {/* Other projects grid */}
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="tech-project-index grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}

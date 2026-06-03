@@ -1,0 +1,267 @@
+.tech-experience {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 1.5rem;
+  background:
+    radial-gradient(circle at 88% 22%, rgba(168, 213, 0, 0.075), transparent 24rem),
+    var(--portfolio-bg);
+}
+
+.tech-experience-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.tech-experience-header {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.tech-experience-title {
+  max-width: 49rem;
+  margin-top: 1rem;
+  color: var(--portfolio-text);
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.88;
+}
+
+.tech-experience-title span {
+  color: var(--portfolio-accent);
+}
+
+.tech-experience-copy {
+  max-width: 33rem;
+  color: var(--portfolio-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.tech-experience-layout {
+  display: grid;
+  gap: 0.9rem;
+  margin-top: 2.7rem;
+}
+
+.tech-meta-panel,
+.tech-mentor-panel {
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-md);
+  background: var(--portfolio-panel);
+}
+
+.tech-meta-panel {
+  overflow: hidden;
+}
+
+.tech-meta-panel-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--portfolio-border);
+}
+
+.tech-company {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.tech-company-logo {
+  display: flex;
+  width: 2.7rem;
+  height: 2.7rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.tech-company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tech-meta-roles {
+  display: grid;
+}
+
+.tech-meta-role {
+  position: relative;
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--portfolio-border);
+  transition: background 280ms ease;
+}
+
+.tech-meta-role:last-child {
+  border-bottom: 0;
+}
+
+.tech-meta-role:hover {
+  background: rgba(168, 213, 0, 0.035);
+}
+
+.tech-meta-year {
+  color: var(--portfolio-accent);
+  font-size: 1.55rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.tech-meta-scope {
+  color: var(--portfolio-dim);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.tech-meta-role h3 {
+  color: var(--portfolio-text);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.tech-meta-role ul {
+  display: grid;
+  gap: 0.42rem;
+  margin-top: 0.65rem;
+}
+
+.tech-meta-role li {
+  display: flex;
+  gap: 0.55rem;
+  color: var(--portfolio-muted);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.tech-meta-role li::before {
+  margin-top: 0.48rem;
+  width: 0.32rem;
+  height: 0.32rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: var(--portfolio-accent);
+  content: "";
+}
+
+.tech-impact-badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  color: rgba(209, 245, 77, 0.75);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.tech-mentor-panel {
+  padding: 1.2rem;
+}
+
+.tech-mentor-panel h3 {
+  margin-top: 1.1rem;
+  color: var(--portfolio-text);
+  font-size: 1.28rem;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+.tech-mentor-panel p {
+  margin-top: 0.65rem;
+  color: var(--portfolio-muted);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.tech-mentor-list {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+.tech-mentor-list li {
+  color: rgba(243, 239, 253, 0.62);
+  font-size: 0.74rem;
+  line-height: 1.5;
+}
+
+.tech-experience-summary {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 0.9rem;
+}
+
+.tech-experience-stat {
+  padding: 1rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-sm);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.tech-experience-stat strong {
+  display: block;
+  color: var(--portfolio-text);
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.tech-experience-stat span {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--portfolio-dim);
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .tech-meta-role {
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 1.1rem;
+  }
+
+  .tech-experience-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .tech-experience {
+    padding: 8rem 4rem;
+  }
+
+  .tech-experience-header {
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    align-items: end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-experience {
+    padding: 9rem 5rem;
+  }
+
+  .tech-experience-layout {
+    grid-template-columns: minmax(0, 1.45fr) minmax(19rem, 0.55fr);
+  }
+}

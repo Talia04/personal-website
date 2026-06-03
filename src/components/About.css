@@ -1,0 +1,193 @@
+.tech-profile {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 1.5rem;
+  background:
+    radial-gradient(circle at 88% 42%, rgba(168, 213, 0, 0.08), transparent 24rem),
+    var(--portfolio-bg);
+}
+
+.tech-profile-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.tech-profile-intro {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.tech-profile-title {
+  max-width: 48rem;
+  margin-top: 1rem;
+  color: var(--portfolio-text);
+  font-size: clamp(2.7rem, 6vw, 5.2rem);
+  font-weight: 900;
+  letter-spacing: -0.085em;
+  line-height: 0.9;
+}
+
+.tech-profile-title span {
+  color: var(--portfolio-accent);
+}
+
+.tech-profile-copy {
+  max-width: 34rem;
+  color: var(--portfolio-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.tech-profile-grid {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 2.7rem;
+}
+
+.tech-profile-card {
+  padding: 1.2rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-sm);
+  background: var(--portfolio-panel);
+  transition: transform 320ms var(--portfolio-ease), border-color 320ms ease, background 320ms ease;
+}
+
+.tech-profile-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 213, 0, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tech-profile-icon {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(168, 213, 0, 0.2);
+  border-radius: 0.8rem;
+  background: rgba(168, 213, 0, 0.07);
+  color: var(--portfolio-accent);
+}
+
+.tech-profile-card h3 {
+  margin-top: 1.5rem;
+  color: var(--portfolio-text);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.tech-profile-card p {
+  margin-top: 0.6rem;
+  color: var(--portfolio-muted);
+  font-size: 0.79rem;
+  line-height: 1.7;
+}
+
+.tech-profile-footer {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.3rem;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+.tech-profile-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+}
+
+.tech-profile-stat-value {
+  color: var(--portfolio-text);
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.tech-profile-stat-label {
+  color: var(--portfolio-dim);
+  font-size: 0.57rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.tech-profile-education {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.tech-profile-education-logo {
+  display: flex;
+  width: 2.9rem;
+  height: 2.9rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 0.75rem;
+  background: var(--portfolio-panel);
+}
+
+.tech-profile-education-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tech-profile-education-copy {
+  min-width: 0;
+}
+
+.tech-profile-course-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+  color: var(--portfolio-accent);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 220ms ease, gap 220ms ease;
+}
+
+.tech-profile-course-link:hover {
+  gap: 0.55rem;
+  color: var(--portfolio-text);
+}
+
+@media (min-width: 768px) {
+  .tech-profile {
+    padding: 8rem 4rem;
+  }
+
+  .tech-profile-intro {
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    align-items: end;
+  }
+
+  .tech-profile-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .tech-profile-card {
+    min-height: 15rem;
+    padding: 1.5rem;
+  }
+
+  .tech-profile-footer {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-profile {
+    padding: 9rem 5rem;
+  }
+}

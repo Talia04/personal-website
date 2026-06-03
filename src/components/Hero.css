@@ -1,0 +1,296 @@
+.tech-hero {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 9rem 1.5rem 4rem;
+  background:
+    radial-gradient(circle at 12% 16%, rgba(168, 213, 0, 0.12), transparent 24rem),
+    radial-gradient(circle at 88% 24%, rgba(110, 231, 183, 0.09), transparent 25rem),
+    var(--portfolio-bg);
+  color: var(--portfolio-text);
+}
+
+.tech-hero-grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.46;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+.tech-hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  max-width: 80rem;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.tech-hero-intro {
+  max-width: 48rem;
+}
+
+.tech-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid rgba(168, 213, 0, 0.2);
+  border-radius: 999px;
+  background: rgba(168, 213, 0, 0.055);
+  color: rgba(216, 255, 78, 0.78);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.tech-availability-dot {
+  position: relative;
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  background: var(--portfolio-accent);
+  box-shadow: 0 0 18px rgba(168, 213, 0, 0.7);
+}
+
+.tech-hero-name {
+  margin-top: 1.5rem;
+  color: var(--portfolio-text);
+  font-size: clamp(4.2rem, 11vw, 10rem);
+  font-weight: 900;
+  letter-spacing: -0.12em;
+  line-height: 0.78;
+}
+
+.tech-hero-name span {
+  display: block;
+  margin-left: clamp(1.7rem, 7vw, 5.2rem);
+  color: var(--portfolio-accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.62em;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.095em;
+}
+
+.tech-hero-position {
+  max-width: 43rem;
+  margin-top: 2rem;
+  color: var(--portfolio-text);
+  font-size: clamp(1.35rem, 3.2vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.06;
+}
+
+.tech-hero-description {
+  max-width: 39rem;
+  margin-top: 1rem;
+  color: var(--portfolio-muted);
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.tech-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.8rem;
+}
+
+.tech-hero-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.86rem 1.1rem;
+  border: 1px solid rgba(168, 213, 0, 0.4);
+  border-radius: 999px;
+  background: var(--portfolio-accent);
+  color: #11150a;
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.tech-hero-action:hover {
+  transform: translateY(-3px);
+  background: #bee920;
+  box-shadow: 0 16px 34px rgba(168, 213, 0, 0.2);
+}
+
+.tech-hero-action-secondary {
+  border-color: var(--portfolio-border-strong);
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(243, 239, 253, 0.78);
+}
+
+.tech-hero-action-secondary:hover {
+  background: rgba(255, 255, 255, 0.075);
+  box-shadow: none;
+}
+
+.tech-hero-proof {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 2.4rem;
+}
+
+.tech-hero-proof-item {
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+.tech-hero-proof-value {
+  color: var(--portfolio-text);
+  font-size: 1.65rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.tech-hero-proof-label {
+  margin-top: 0.18rem;
+  color: var(--portfolio-dim);
+  font-size: 0.58rem;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.tech-hero-signals {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+}
+
+.tech-hero-signal-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.85rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.025);
+  transition: transform 260ms var(--portfolio-ease), border-color 260ms ease, background 260ms ease;
+}
+
+.tech-hero-signal-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(168, 213, 0, 0.28);
+  background: rgba(168, 213, 0, 0.045);
+}
+
+.tech-hero-signal-card svg {
+  flex: 0 0 auto;
+  margin-top: 0.12rem;
+  color: var(--portfolio-accent);
+}
+
+.tech-hero-signal-card h2 {
+  color: var(--portfolio-text);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.tech-hero-signal-card p {
+  margin-top: 0.28rem;
+  color: var(--portfolio-muted);
+  font-size: 0.68rem;
+  line-height: 1.55;
+}
+
+.tech-hero-visual {
+  position: relative;
+  display: flex;
+  min-height: 29rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-hero-portrait {
+  position: relative;
+  width: min(82vw, 21rem);
+  height: 29rem;
+  overflow: hidden;
+  border: 1px solid var(--portfolio-border-strong);
+  border-radius: 11rem 11rem 1.5rem 1.5rem;
+  background: #18131c;
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.35);
+}
+
+.tech-hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.tech-hero-console {
+  position: absolute;
+  right: 0;
+  bottom: 0.75rem;
+  width: min(86vw, 20rem);
+  padding: 1rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1rem;
+  background: rgba(12, 11, 16, 0.82);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+}
+
+.tech-hero-console-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(243, 239, 253, 0.53);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.66rem;
+  line-height: 1.7;
+}
+
+.tech-hero-console-key {
+  color: var(--portfolio-accent);
+}
+
+@media (min-width: 640px) {
+  .tech-hero-proof {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 41rem;
+  }
+
+  .tech-hero-signals {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 41rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tech-hero {
+    display: flex;
+    align-items: center;
+    padding: 10rem 5rem 5rem;
+  }
+
+  .tech-hero-inner {
+    width: 100%;
+    grid-template-columns: minmax(0, 1.28fr) minmax(22rem, 0.72fr);
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .tech-hero-visual {
+    min-height: 38rem;
+  }
+
+  .tech-hero-portrait {
+    width: 24rem;
+    height: 36rem;
+  }
+
+  .tech-hero-console {
+    right: -0.5rem;
+    bottom: 1rem;
+  }
+}
