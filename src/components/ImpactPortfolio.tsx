@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, Image, Sparkles } from "lucide-react";
+import { ArrowDown, Image, Sparkles, Stars } from "lucide-react";
 import { useRef } from "react";
 import "./ImpactPortfolio.css";
 
@@ -16,11 +16,11 @@ const galleryItems = [
   },
   {
     eyebrow: "Archive 03",
-    title: "Add a USAP community photograph",
+    title: "USAP community",
   },
   {
     eyebrow: "Archive 04",
-    title: "Add a robotics or EcoCAR moment",
+    title: "Robotics and EcoCAR",
   },
   {
     src: "/basafy/01-home-dashboard.png",
@@ -29,7 +29,7 @@ const galleryItems = [
   },
   {
     eyebrow: "Archive 06",
-    title: "Add a graduation or Meta photograph",
+    title: "Graduation and Meta",
   },
 ];
 
@@ -115,10 +115,15 @@ export function ImpactPortfolio() {
                 Fragments of a story still being written.
               </h2>
             </div>
-            <p className="impact-copy-muted max-w-xs text-xs leading-relaxed">
-              This gallery is intentionally ready for your real archive. Add
-              photographs over time without changing the layout.
-            </p>
+            <div className="max-w-xs">
+              <p className="impact-copy-muted text-xs leading-relaxed">
+                A living collection of the places, products, and people that
+                shaped the work, ready to grow as more images are added.
+              </p>
+              <p className="impact-gallery-note mt-4">
+                <Image size={13} /> Gallery-first story archive
+              </p>
+            </div>
           </div>
 
           <div className="impact-gallery-grid">
@@ -163,6 +168,33 @@ export function ImpactPortfolio() {
               <p className="mt-5">Build things. Open doors. Leave the path wider.</p>
             </motion.article>
           </div>
+        </div>
+      </section>
+
+      <section className="impact-interlude">
+        <div className="impact-grain" />
+        <div className="impact-interlude-inner">
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.75 }}
+            className="impact-interlude-quote"
+          >
+            The résumé shows the milestones. <span>The story shows what they changed.</span>
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.65, delay: 0.12 }}
+          >
+            <Stars size={19} className="impact-accent mb-4" />
+            <p className="impact-interlude-copy">
+              Every chapter added another layer: exposure became curiosity,
+              curiosity became service, and service became the reason to build.
+            </p>
+          </motion.div>
         </div>
       </section>
     </>

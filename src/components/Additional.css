@@ -1,0 +1,222 @@
+.recognition {
+  position: relative;
+  overflow: hidden;
+  padding: 7rem 1.5rem;
+  background:
+    radial-gradient(circle at 92% 18%, color-mix(in srgb, var(--portfolio-accent) 10%, transparent), transparent 24rem),
+    var(--portfolio-bg);
+}
+
+.recognition-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.recognition-header {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.recognition-title {
+  max-width: 48rem;
+  margin-top: 1rem;
+  color: var(--portfolio-text);
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  font-weight: 900;
+  letter-spacing: -0.09em;
+  line-height: 0.89;
+}
+
+.portfolio-shell-impact .recognition-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.recognition-title span {
+  color: var(--portfolio-accent);
+}
+
+.recognition-copy {
+  max-width: 32rem;
+  color: var(--portfolio-muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.recognition-layout {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 2.7rem;
+}
+
+.recognition-feature {
+  position: relative;
+  overflow: hidden;
+  min-height: 19rem;
+  padding: 1.5rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-md);
+  background:
+    radial-gradient(circle at 85% 20%, rgba(192, 132, 252, 0.18), transparent 18rem),
+    var(--portfolio-panel);
+}
+
+.recognition-feature::after {
+  position: absolute;
+  right: -0.8rem;
+  bottom: -3.4rem;
+  color: rgba(255, 255, 255, 0.045);
+  content: "G";
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18rem;
+  font-style: italic;
+  line-height: 0.7;
+}
+
+.recognition-feature h3 {
+  position: relative;
+  z-index: 2;
+  max-width: 33rem;
+  margin-top: 3.3rem;
+  color: var(--portfolio-text);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.075em;
+  line-height: 0.93;
+}
+
+.portfolio-shell-impact .recognition-feature h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.recognition-feature p {
+  position: relative;
+  z-index: 2;
+  max-width: 34rem;
+  margin-top: 1rem;
+  color: var(--portfolio-muted);
+  font-size: 0.82rem;
+  line-height: 1.7;
+}
+
+.recognition-feature-badge {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #c084fc;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.recognition-list {
+  display: grid;
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-md);
+  background: var(--portfolio-panel);
+}
+
+.recognition-item {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.1rem;
+  border-bottom: 1px solid var(--portfolio-border);
+  transition: background 260ms ease;
+}
+
+.recognition-item:last-child {
+  border-bottom: 0;
+}
+
+.recognition-item:hover {
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.recognition-place {
+  color: var(--portfolio-accent);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+}
+
+.recognition-item h3 {
+  color: var(--portfolio-text);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.recognition-item p {
+  margin-top: 0.28rem;
+  color: var(--portfolio-muted);
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+.recognition-year {
+  color: var(--portfolio-dim);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.recognition-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin-top: 1.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+.recognition-stat strong {
+  display: block;
+  color: var(--portfolio-text);
+  font-size: 1.7rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.recognition-stat span {
+  color: var(--portfolio-dim);
+  font-size: 0.57rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 640px) {
+  .recognition-item {
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .recognition {
+    padding: 8rem 4rem;
+  }
+
+  .recognition-header {
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    align-items: end;
+  }
+}
+
+@media (min-width: 1024px) {
+  .recognition {
+    padding: 9rem 5rem;
+  }
+
+  .recognition-layout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+}

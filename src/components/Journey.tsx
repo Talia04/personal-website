@@ -61,8 +61,7 @@ export function Journey() {
     <section
       id="journey"
       ref={ref}
-      className="relative overflow-hidden py-32"
-      style={{ backgroundColor: "#0f0b16" }}
+      className="journey-section"
     >
       <div className="pointer-events-none absolute inset-0 flex select-none items-center justify-center overflow-hidden">
         <motion.span
@@ -77,11 +76,11 @@ export function Journey() {
       </div>
 
       <div className="journey-container relative z-10">
-        <div className="mb-20 max-w-3xl">
+        <div className="journey-intro">
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            className="mb-6 block text-[10px] uppercase tracking-[0.3em] text-[#a8d500]"
+            className="journey-eyebrow"
           >
             Timeline — My Journey
           </motion.span>
@@ -89,18 +88,15 @@ export function Journey() {
             initial={{ opacity: 0, y: 35 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="font-black leading-[0.95] tracking-tight text-white"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
+            className="journey-title"
           >
-            A story shaped by
-            <br />
-            <span className="text-[#a8d500]">access and opportunity.</span>
+            A story shaped by <span>access and opportunity.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.18 }}
-            className="mt-7 max-w-2xl text-sm leading-relaxed text-white/45 md:text-base"
+            className="journey-copy"
           >
             My path into engineering has never been only about code. It is a
             record of the people, communities, and problems that taught me what
@@ -151,11 +147,8 @@ export function Journey() {
                       </p>
                       <div className="mt-6 space-y-2.5 border-t border-white/[0.06] pt-5">
                         {event.achievements.map((achievement) => (
-                          <div
-                            key={achievement}
-                            className="flex items-start gap-3 text-xs leading-relaxed text-white/55"
-                          >
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#a8d500]" />
+                          <div key={achievement} className="flex items-start gap-3 text-xs leading-relaxed text-white/55">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#e589ff]" />
                             {achievement}
                           </div>
                         ))}
@@ -181,16 +174,14 @@ export function Journey() {
         <div id="impact" className="journey-impact">
           <div className="mb-10 flex flex-col justify-between gap-5 md:flex-row md:items-end">
             <div>
-              <span className="mb-4 block text-[10px] uppercase tracking-[0.3em] text-[#a8d500]">
+              <span className="journey-eyebrow mb-4 block">
                 Impact — Beyond the résumé
               </span>
-              <h3 className="text-3xl font-black leading-tight text-white md:text-4xl">
-                The work matters when it
-                <br />
-                <span className="text-[#a8d500]">creates a path for someone else.</span>
+              <h3 className="journey-impact-title">
+                The work matters when it <span>creates a path for someone else.</span>
               </h3>
             </div>
-            <Sparkles className="hidden text-[#a8d500]/60 md:block" size={28} />
+            <Sparkles className="impact-accent hidden md:block" size={28} />
           </div>
 
           <div className="journey-impact-grid">
@@ -206,13 +197,13 @@ export function Journey() {
                   className="journey-impact-card"
                 >
                   <div className="mb-8 flex items-center justify-between">
-                    <Icon className="text-[#a8d500]" size={20} />
+                    <Icon className="impact-accent" size={20} />
                     <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">
                       {area.title}
                     </span>
                   </div>
                   <p className="text-4xl font-black text-white">{area.metric}</p>
-                  <p className="mt-1 text-xs uppercase tracking-[0.2em] text-[#a8d500]">
+                  <p className="impact-accent mt-1 text-xs uppercase tracking-[0.2em]">
                     {area.label}
                   </p>
                   <p className="mt-5 text-sm leading-relaxed text-white/45">

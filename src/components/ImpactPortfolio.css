@@ -7,7 +7,7 @@
     radial-gradient(circle at 84% 18%, rgba(229, 137, 255, 0.18), transparent 26rem),
     radial-gradient(circle at 5% 70%, rgba(168, 213, 0, 0.14), transparent 23rem),
     #120d19;
-  color: #f3effd;
+  color: var(--portfolio-text);
 }
 
 .impact-grain {
@@ -41,11 +41,11 @@
 }
 
 .impact-display span {
-  color: #e589ff;
+  color: var(--portfolio-story-accent);
 }
 
 .impact-accent {
-  color: #e589ff;
+  color: var(--portfolio-story-accent);
 }
 
 .impact-copy-muted {
@@ -71,7 +71,7 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--portfolio-border-strong);
   border-radius: 12rem 12rem 1rem 1rem;
   background: rgba(255, 255, 255, 0.04);
   box-shadow: 0 35px 80px rgba(0, 0, 0, 0.28);
@@ -87,7 +87,7 @@
 .impact-gallery {
   position: relative;
   overflow: hidden;
-  padding: 7rem 1.5rem;
+  padding: 7rem 1.5rem 4rem;
   background: #120d19;
   color: #f3effd;
 }
@@ -102,9 +102,9 @@
   position: relative;
   min-height: 14rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-sm);
+  background: var(--portfolio-panel);
 }
 
 .impact-gallery-tile img {
@@ -137,6 +137,56 @@
     rgba(255, 255, 255, 0.025);
 }
 
+.impact-gallery-note {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: rgba(243, 239, 253, 0.42);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.impact-interlude {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 1.5rem;
+  background:
+    radial-gradient(circle at 75% 32%, rgba(229, 137, 255, 0.16), transparent 25rem),
+    #120d19;
+  color: var(--portfolio-text);
+}
+
+.impact-interlude-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  max-width: 80rem;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+.impact-interlude-quote {
+  max-width: 58rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.8rem, 7vw, 6.4rem);
+  font-style: italic;
+  letter-spacing: -0.09em;
+  line-height: 0.9;
+}
+
+.impact-interlude-quote span {
+  color: var(--portfolio-story-accent);
+}
+
+.impact-interlude-copy {
+  max-width: 30rem;
+  color: rgba(243, 239, 253, 0.45);
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
 .impact-statement {
   min-height: 17rem;
   padding: 1.3rem;
@@ -163,7 +213,16 @@
   }
 
   .impact-gallery {
-    padding: 8rem 4rem;
+    padding: 8rem 4rem 5rem;
+  }
+
+  .impact-interlude {
+    padding: 7rem 4rem;
+  }
+
+  .impact-interlude-inner {
+    grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+    align-items: end;
   }
 
   .impact-gallery-grid {
