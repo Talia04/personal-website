@@ -125,9 +125,9 @@ export function Contact() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-white/40 text-base leading-relaxed mb-12 max-w-md"
             >
-              I'm always interested in hearing about new opportunities,
-              collaborations, or just connecting with fellow creators.
-              Don't hesitate to reach out!
+              I'm interested in software engineering roles, research-aligned
+              collaborations, mentorship conversations, and projects that use
+              technology to expand access.
             </motion.p>
 
             {/* Contact cards */}
@@ -229,6 +229,7 @@ export function Contact() {
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                   placeholder="Tell me about your project or opportunity..."
+                  aria-label="Message"
                   className="w-full px-4 py-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-white/20 text-sm focus:outline-none focus:border-[#a8d500]/50 transition-colors resize-none"
                 />
               </div>

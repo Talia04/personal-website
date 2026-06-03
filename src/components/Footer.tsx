@@ -24,15 +24,15 @@ export function Footer({ path }: FooterProps) {
   const links = path === "tech"
     ? [
         { label: "About", href: "#about" },
-        { label: "Projects", href: "#projects" },
-        { label: "Skills", href: "#skills" },
+        { label: "Education", href: "#coursework" },
+        { label: "Work", href: "#projects" },
         { label: "Experience", href: "#experience" },
       ]
     : [
         { label: "Gallery", href: "#gallery" },
         { label: "My Journey", href: "#journey" },
+        { label: "Research", href: "#research" },
         { label: "Impact", href: "#impact" },
-        { label: "Recognition", href: "#achievements" },
       ];
 
   const socials = [
