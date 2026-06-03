@@ -5,8 +5,8 @@
   display: grid;
   min-height: 100svh;
   overflow: hidden;
-  background: #0f0b16;
-  color: #f3effd;
+  background: var(--portfolio-bg);
+  color: var(--portfolio-text);
 }
 
 .fork-brand {
@@ -35,7 +35,7 @@
   inset: 0;
   content: "";
   opacity: 0;
-  transition: opacity 500ms ease;
+  transition: opacity 500ms var(--portfolio-ease);
 }
 
 .fork-panel:hover::after,
@@ -163,7 +163,7 @@
   transform: translate(-50%, -50%);
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--portfolio-border-strong);
   border-radius: 999px;
   background: rgba(15, 11, 22, 0.72);
   color: rgba(255, 255, 255, 0.64);

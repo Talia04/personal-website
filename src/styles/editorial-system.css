@@ -1,0 +1,51 @@
+:root {
+  --portfolio-bg: #0f0b16;
+  --portfolio-bg-deep: #0a0810;
+  --portfolio-panel: rgba(255, 255, 255, 0.035);
+  --portfolio-panel-strong: rgba(255, 255, 255, 0.06);
+  --portfolio-border: rgba(255, 255, 255, 0.09);
+  --portfolio-border-strong: rgba(255, 255, 255, 0.16);
+  --portfolio-text: #f3effd;
+  --portfolio-muted: rgba(243, 239, 253, 0.52);
+  --portfolio-dim: rgba(243, 239, 253, 0.3);
+  --portfolio-accent: #a8d500;
+  --portfolio-story-accent: #e589ff;
+  --portfolio-radius-sm: 1rem;
+  --portfolio-radius-md: 1.5rem;
+  --portfolio-radius-lg: 2rem;
+  --portfolio-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-shell {
+  background: var(--portfolio-bg);
+  color: var(--portfolio-text);
+}
+
+.portfolio-shell-tech {
+  --portfolio-accent: #a8d500;
+}
+
+.portfolio-shell-impact {
+  --portfolio-accent: #e589ff;
+}
+
+.editorial-eyebrow {
+  color: var(--portfolio-accent);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.editorial-surface {
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-md);
+  background: var(--portfolio-panel);
+}
+
+.editorial-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 64px 64px;
+}

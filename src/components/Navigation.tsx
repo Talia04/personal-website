@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import { ArrowLeftRight } from "lucide-react";
 import type { PortfolioPath } from "./PortfolioFork";
+import "./Navigation.css";
 
 const navItems: Record<PortfolioPath, { label: string; href: string }[]> = {
   tech: [
-    { label: "Projects", href: "#projects" },
+    { label: "Profile", href: "#about" },
+    { label: "Education", href: "#coursework" },
+    { label: "Work", href: "#projects" },
     { label: "Expertise", href: "#skills" },
     { label: "Experience", href: "#experience" },
-    { label: "Contact", href: "#contact" },
   ],
   impact: [
     { label: "Gallery", href: "#gallery" },
     { label: "Journey", href: "#journey" },
+    { label: "Research", href: "#research" },
     { label: "Impact", href: "#impact" },
-    { label: "Contact", href: "#contact" },
+    { label: "Honors", href: "#achievements" },
   ],
 };
 
@@ -82,8 +85,9 @@ export function Navigation({ path, onSwitch }: NavigationProps) {
         className="fixed left-1/2 z-[100] -translate-x-1/2"
         style={{
           top: "clamp(1rem, 3vw, 3rem)",
-          width: "min(27.8rem, calc(100vw - 1.25rem))",
+          width: "min(37rem, calc(100vw - 1.25rem))",
         }}
+        aria-label={`${path === "tech" ? "Tech" : "Story"} portfolio navigation`}
       >
         <div
           className="relative flex w-full items-center justify-center overflow-hidden rounded-full border"
@@ -138,7 +142,7 @@ export function Navigation({ path, onSwitch }: NavigationProps) {
                     ? "inset 0 1px 0 rgba(255,255,255,0.16), 0 8px 18px rgba(0,0,0,0.18)"
                     : "none",
                   transform: isActive ? "translateY(-1px)" : "translateY(0)",
-                  fontSize: "clamp(0.76rem, 0.15vw, 0.15rem)",
+                  fontSize: "clamp(0.58rem, 1.15vw, 0.74rem)",
                   padding: "clamp(0.32rem, 0.45vw, 0.45rem) clamp(0.29rem, 0.8vw, 0.9rem)",
                   transition:
                     "transform 220ms ease, background 220ms ease, color 220ms ease, box-shadow 220ms ease, border-color 220ms ease",
@@ -153,10 +157,11 @@ export function Navigation({ path, onSwitch }: NavigationProps) {
       <button
         type="button"
         onClick={onSwitch}
-        className="fixed right-4 top-20 z-[100] inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#211b27]/80 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/60 shadow-[0_12px_26px_rgba(0,0,0,0.22)] backdrop-blur-xl transition-all hover:border-[#a8d500]/35 hover:text-[#a8d500] md:right-8 md:top-8"
+        className="mode-switch"
+        aria-label={`Switch to ${path === "tech" ? "story" : "tech"} portfolio path`}
       >
         <ArrowLeftRight size={12} />
-        Switch to {path === "tech" ? "story" : "tech"}
+        {path === "tech" ? "Story path" : "Tech path"}
       </button>
     </>
   );
