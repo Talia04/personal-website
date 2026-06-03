@@ -1,0 +1,394 @@
+.coursework {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 1.5rem 7rem;
+  background: var(--portfolio-bg);
+}
+
+.coursework-glow {
+  position: absolute;
+  top: 6rem;
+  left: -10rem;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 999px;
+  background: rgba(168, 213, 0, 0.07);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.coursework-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.coursework-header {
+  display: grid;
+  gap: 1.2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+.coursework-title {
+  max-width: 43rem;
+  margin-top: 0.95rem;
+  color: var(--portfolio-text);
+  font-size: clamp(2.45rem, 5.4vw, 4.8rem);
+  font-weight: 900;
+  letter-spacing: -0.085em;
+  line-height: 0.92;
+}
+
+.coursework-title span {
+  color: var(--portfolio-accent);
+}
+
+.coursework-intro {
+  max-width: 34rem;
+  color: var(--portfolio-muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.coursework-degree {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 2.4rem;
+  padding: 1rem;
+  border: 1px solid rgba(168, 213, 0, 0.18);
+  border-radius: var(--portfolio-radius-sm);
+  background: linear-gradient(135deg, rgba(168, 213, 0, 0.075), rgba(255, 255, 255, 0.025));
+}
+
+.coursework-degree-logo {
+  display: flex;
+  width: 2.7rem;
+  height: 2.7rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 0.7rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.coursework-degree-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.coursework-degree-label {
+  color: var(--portfolio-text);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.coursework-degree-detail,
+.coursework-degree-mark {
+  color: var(--portfolio-dim);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.coursework-degree-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--portfolio-accent);
+}
+
+.coursework-diploma {
+  position: relative;
+}
+
+.coursework-diploma-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.58rem 0.72rem;
+  border: 1px solid rgba(168, 213, 0, 0.26);
+  border-radius: 999px;
+  background: rgba(168, 213, 0, 0.07);
+  color: var(--portfolio-accent);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, color 220ms ease;
+}
+
+.coursework-diploma-trigger:hover,
+.coursework-diploma-trigger:focus-visible,
+.coursework-diploma.is-open .coursework-diploma-trigger {
+  transform: translateY(-2px);
+  border-color: rgba(168, 213, 0, 0.62);
+  background: rgba(168, 213, 0, 0.13);
+  color: var(--portfolio-text);
+}
+
+.coursework-diploma-popover {
+  position: absolute;
+  top: calc(100% + 0.9rem);
+  left: 0;
+  z-index: 12;
+  width: min(34rem, calc(100vw - 3rem));
+  padding: 0.75rem;
+  border: 1px solid rgba(168, 213, 0, 0.28);
+  border-radius: 1rem;
+  background: rgba(18, 14, 25, 0.97);
+  box-shadow: 0 24px 75px rgba(0, 0, 0, 0.55), 0 0 45px rgba(168, 213, 0, 0.08);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.4rem) scale(0.97);
+  transform-origin: top left;
+  transition: opacity 240ms ease, transform 280ms var(--portfolio-ease);
+  backdrop-filter: blur(26px);
+}
+
+.coursework-diploma:hover .coursework-diploma-popover,
+.coursework-diploma:focus-within .coursework-diploma-popover,
+.coursework-diploma.is-open .coursework-diploma-popover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.coursework-diploma-topline {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 0.25rem 0.7rem;
+}
+
+.coursework-diploma-kicker,
+.coursework-diploma-note {
+  color: var(--portfolio-accent);
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.coursework-diploma-title {
+  margin-top: 0.3rem;
+  color: var(--portfolio-text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.coursework-diploma-close {
+  display: flex;
+  width: 1.8rem;
+  height: 1.8rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 999px;
+  color: var(--portfolio-muted);
+  transition: border-color 220ms ease, color 220ms ease;
+}
+
+.coursework-diploma-close:hover,
+.coursework-diploma-close:focus-visible {
+  border-color: rgba(168, 213, 0, 0.46);
+  color: var(--portfolio-accent);
+}
+
+.coursework-diploma-frame {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.coursework-diploma-frame::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: rgba(76, 20, 35, 0.32);
+  content: "PORTFOLIO PREVIEW";
+  font-size: clamp(0.82rem, 3vw, 1.45rem);
+  font-weight: 900;
+  letter-spacing: 0.24em;
+  pointer-events: none;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.34);
+  transform: translate(-50%, -50%) rotate(-16deg);
+  white-space: nowrap;
+}
+
+.coursework-diploma-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.coursework-diploma-frame span {
+  position: absolute;
+  right: 0.65rem;
+  bottom: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.48rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(15, 11, 22, 0.82);
+  color: var(--portfolio-text);
+  font-size: 0.53rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  backdrop-filter: blur(16px);
+}
+
+.coursework-diploma-note {
+  padding: 0.7rem 0.25rem 0.15rem;
+  color: var(--portfolio-dim);
+  line-height: 1.6;
+}
+
+.coursework-grid {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.coursework-card {
+  padding: 1.2rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-sm);
+  background: var(--portfolio-panel);
+  transition: transform 320ms var(--portfolio-ease), border-color 320ms ease, background 320ms ease;
+}
+
+.coursework-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(168, 213, 0, 0.34);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.coursework-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coursework-card-topline > p {
+  color: var(--portfolio-dim);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.coursework-card-icon {
+  display: flex;
+  width: 2.4rem;
+  height: 2.4rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(168, 213, 0, 0.18);
+  border-radius: 0.75rem;
+  background: rgba(168, 213, 0, 0.065);
+  color: var(--portfolio-accent);
+}
+
+.coursework-card h3 {
+  margin-top: 1.25rem;
+  color: var(--portfolio-text);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+.coursework-card-description {
+  min-height: 4rem;
+  margin-top: 0.55rem;
+  color: var(--portfolio-muted);
+  font-size: 0.75rem;
+  line-height: 1.65;
+}
+
+.coursework-card ul {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+.coursework-card li {
+  position: relative;
+  padding-left: 0.75rem;
+  color: rgba(243, 239, 253, 0.7);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.coursework-card li::before {
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 0.2rem;
+  height: 0.2rem;
+  border-radius: 999px;
+  background: var(--portfolio-accent);
+  content: "";
+}
+
+@media (min-width: 640px) {
+  .coursework-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .coursework {
+    padding: 1rem 4rem 8rem;
+  }
+
+  .coursework-header {
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    align-items: end;
+  }
+
+  .coursework-degree-mark {
+    margin-left: auto;
+  }
+
+  .coursework-diploma-popover {
+    right: 0;
+    left: auto;
+    transform-origin: top right;
+  }
+
+  .coursework-card {
+    padding: 1.35rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .coursework {
+    padding: 1rem 5rem 9rem;
+  }
+
+  .coursework-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

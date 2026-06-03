@@ -1,11 +1,12 @@
 import { Navigation } from "./components/Navigation";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
+import { Coursework } from "./components/Coursework";
+import { ResearchSpotlight } from "./components/SeniorDesign";
 import { Journey } from "./components/Journey";
 import { ImpactPortfolio } from "./components/ImpactPortfolio";
 import { PortfolioFork, type PortfolioPath } from "./components/PortfolioFork";
 import { Skills } from "./components/Skills";
-import { TechMarquee } from "./components/TechMarquee";
 import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Additional } from "./components/Additional";
@@ -15,6 +16,7 @@ import { LoadingScreen } from "./components/LoadingScreen";
 import { ThemeProvider } from "./utils/theme";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import "./styles/editorial-system.css";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,7 +47,7 @@ export default function App() {
           <AnimatePresence mode="wait">
             <motion.div
               key={portfolioPath}
-              className="min-h-screen theme-main-bg"
+              className={`portfolio-shell portfolio-shell-${portfolioPath} min-h-screen theme-main-bg`}
               initial={{ opacity: 0, filter: "blur(18px)", scale: 1.015 }}
               animate={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
               exit={{ opacity: 0, filter: "blur(14px)", scale: 0.99 }}
@@ -55,9 +57,9 @@ export default function App() {
                 <>
                   <Hero onReadStory={() => setPortfolioPath("impact")} />
                   <About />
+                  <Coursework />
                   <Projects />
                   <Skills />
-                  <TechMarquee />
                   <Experience />
                   <Additional />
                   <Contact />
@@ -66,6 +68,7 @@ export default function App() {
                 <>
                   <ImpactPortfolio />
                   <Journey />
+                  <ResearchSpotlight />
                   <Additional />
                   <Contact />
                 </>

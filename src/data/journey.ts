@@ -127,6 +127,7 @@ export const journeyEvents: TimelineEvent[] = [
     achievements: [
       "Earned a Presidential Scholarship",
       "Graduated Summa Cum Laude in Computer Science",
+      "Completed senior design research in reinforcement learning and robotic navigation",
       "Contributed through robotics, EcoCAR, math tutoring, and CS teaching",
     ],
     media: [
