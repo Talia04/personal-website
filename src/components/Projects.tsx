@@ -257,7 +257,11 @@ export function Projects() {
                 </div>
 
                 <div className="tech-screen-stage">
-                  <div className="tech-screen-stack">
+                  <div className="tech-screen-stage-copy">
+                    <p>Mobile companion for turning scattered job-search activity into an organized pipeline.</p>
+                    <span>Hover to spread the screens</span>
+                  </div>
+                  <div className="tech-screen-stack" tabIndex={0} aria-label="Basafy product screens">
                     {[
                       "/basafy/16-onboarding-gmail.png",
                       "/basafy/01-home-dashboard.png",
