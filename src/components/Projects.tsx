@@ -1,16 +1,20 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { ArrowRight, ArrowUpRight, Briefcase, Mic, Code2, Sparkles, Regex, Calendar, Shield } from "lucide-react";
 import { SiTypescript, SiPython, SiPostgresql, SiDeno, SiReact, SiExpo, SiNextdotjs, SiCloudflare, SiOpenai, SiSupabase, SiGmail, SiGooglecloud, SiGithubactions } from "react-icons/si";
-import {
-  ProjectCard,
-  ProjectData,
-} from "./ui/progressive-blur-modal";
+import { ProjectData } from "./ui/progressive-blur-modal";
 import "./Projects.css";
+
+type ProjectShowcaseItem = ProjectData & {
+  visualNote: string;
+  visualImages?: string[];
+};
 
 export function Projects() {
   const ref = useRef<HTMLElement>(null);
+  const showcaseRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
 
   const { scrollYProgress } = useScroll({
@@ -132,6 +136,62 @@ export function Projects() {
       status: "completed",
     },
   ];
+
+  const projectShowcase: ProjectShowcaseItem[] = [
+    {
+      ...featuredProject,
+      visualNote: "Live mobile + web product",
+      visualImages: [
+        "/basafy/16-onboarding-gmail.png",
+        "/basafy/01-home-dashboard.png",
+        "/basafy/08-pipeline-applied.png",
+      ],
+    },
+    {
+      ...projects[0],
+      visualNote: "Local-first code review workspace",
+    },
+    {
+      ...projects[1],
+      visualNote: "Voice feedback meets interview practice",
+    },
+    {
+      ...projects[2],
+      visualNote: "Applied computer vision and style transfer",
+    },
+  ];
+
+  const activeProject = projectShowcase[activeProjectIndex];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visibleEntry) return;
+
+        const index = Number((visibleEntry.target as HTMLElement).dataset.projectIndex);
+        if (!Number.isNaN(index)) {
+          setActiveProjectIndex(index);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-35% 0px -35% 0px",
+        threshold: [0.25, 0.45, 0.65],
+      }
+    );
+
+    showcaseRefs.current.forEach((node) => {
+      if (node) observer.observe(node);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const ActiveIcon = activeProject.icon;
 
   return (
     <section id="projects" ref={ref} className="tech-work">
@@ -267,15 +327,16 @@ export function Projects() {
                       "/basafy/01-home-dashboard.png",
                       "/basafy/08-pipeline-applied.png",
                     ].map((src, index) => (
-                      <motion.figure
-                        key={src}
-                        initial={{ opacity: 0, y: 28 }}
-                        animate={isInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.7, delay: 0.35 + index * 0.12 }}
-                        className="tech-screen"
-                      >
-                        <img src={src} alt={`Basafy product screen ${index + 1}`} />
-                      </motion.figure>
+                      <div key={src} className="tech-screen-slot">
+                        <motion.figure
+                          initial={{ opacity: 0, y: 28 }}
+                          animate={isInView ? { opacity: 1, y: 0 } : {}}
+                          transition={{ duration: 0.7, delay: 0.35 + index * 0.12 }}
+                          className="tech-screen"
+                        >
+                          <img src={src} alt={`Basafy product screen ${index + 1}`} />
+                        </motion.figure>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -286,73 +347,151 @@ export function Projects() {
 
         <div className="tech-index-heading">
           <div>
-            <p className="editorial-eyebrow">Case study index / 02</p>
+            <p className="editorial-eyebrow">Project overview / 02</p>
             <h3 className="mt-3 text-3xl font-black tracking-tight text-white md:text-4xl">
-              Smaller builds, same engineering lens.
+              Scroll the builds. Keep the context.
             </h3>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-white/35">
-            Each one explores a different system boundary: developer workflows,
-            communication feedback, applied AI, and user-facing polish.
+            The left side becomes the visual portfolio. The right side stays fixed
+            long enough to explain the engineering decisions, impact, and stack.
           </p>
         </div>
 
-        <div className="tech-project-rail" aria-label="Project focus areas">
-          {[
-            { number: "01", label: "Developer tools", value: "Flux" },
-            { number: "02", label: "AI communication", value: "InterPace" },
-            { number: "03", label: "Applied ML", value: "Virtual Makeup" },
-          ].map((item) => (
-            <div key={item.value} className="tech-project-rail-item">
-              <span>{item.number}</span>
-              <p>{item.label}</p>
-              <strong>{item.value}</strong>
-            </div>
-          ))}
-        </div>
+        <div className="tech-scroll-showcase">
+          <div className="tech-scroll-visuals" aria-label="Project visuals">
+            {projectShowcase.map((project, index) => {
+              const Icon = project.icon;
+              const isActive = index === activeProjectIndex;
 
-        {/* Other projects grid */}
-        <div className="tech-project-index grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-            >
-              <ProjectCard project={project} index={index} />
-            </motion.div>
-          ))}
-        </div>
+              return (
+                <motion.article
+                  key={project.title}
+                  ref={(node) => {
+                    showcaseRefs.current[index] = node;
+                  }}
+                  data-project-index={index}
+                  className={`tech-scroll-card ${isActive ? "is-active" : ""}`}
+                  initial={{ opacity: 0, y: 44 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.65, delay: 0.12 * index }}
+                  style={{ "--project-color": project.color } as CSSProperties}
+                >
+                  <div className="tech-scroll-card-header">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <p>{project.visualNote}</p>
+                  </div>
 
-        {/* Bottom stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="max-w-7xl mx-auto mt-16 flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-white/5"
-        >
-          <p className="text-white/30 text-sm">
-            Click any card to explore the full project
-          </p>
+                  <div className="tech-scroll-media">
+                    {project.visualImages ? (
+                      <div className="tech-scroll-phone-row" aria-hidden="true">
+                        {project.visualImages.map((src, imageIndex) => (
+                          <figure key={src} className="tech-scroll-phone">
+                            <img src={src} alt="" />
+                            <span>{imageIndex + 1}</span>
+                          </figure>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="tech-scroll-abstract" aria-hidden="true">
+                        <div className="tech-scroll-orbit" />
+                        <div className="tech-scroll-window">
+                          <span />
+                          <span />
+                          <span />
+                        </div>
+                        <div className="tech-scroll-lines">
+                          <i />
+                          <i />
+                          <i />
+                          <i />
+                        </div>
+                        {Icon && (
+                          <div className="tech-scroll-icon">
+                            <Icon size={34} />
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
 
-          <div className="flex items-center gap-8">
-            {[
-              { label: "Projects", value: "4+" },
-              { label: "Technologies", value: "20+" },
-              { label: "Live", value: "1" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
-                <span className="block text-white font-bold text-lg">
-                  {stat.value}
-                </span>
-                <span className="text-white/30 text-[10px] uppercase tracking-wider">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
+                  <div className="tech-scroll-card-footer">
+                    <div>
+                      <h4>{project.title}</h4>
+                      <p>{project.subtitle}</p>
+                    </div>
+                    <span>{project.period}</span>
+                  </div>
+                </motion.article>
+              );
+            })}
           </div>
-        </motion.div>
+
+          <aside className="tech-scroll-copy" aria-live="polite">
+            <AnimatePresence mode="popLayout">
+              <motion.div
+                key={activeProject.title}
+                initial={{ opacity: 0, y: 10, clipPath: "inset(0 0 12% 0)" }}
+                animate={{ opacity: 1, y: 0, clipPath: "inset(0 0 0% 0)" }}
+                exit={{ opacity: 0, y: -8, clipPath: "inset(10% 0 0 0)" }}
+                transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                className="tech-scroll-copy-panel tech-scroll-copy-transition"
+                style={{ "--project-color": activeProject.color } as CSSProperties}
+              >
+                <div className="tech-scroll-copy-topline">
+                  <span>{String(activeProjectIndex + 1).padStart(2, "0")}</span>
+                  <p>{activeProject.period}</p>
+                </div>
+
+                <div className="tech-scroll-copy-title" data-ripple>
+                  {ActiveIcon && (
+                    <span>
+                      <ActiveIcon size={24} />
+                    </span>
+                  )}
+                  <div>
+                    <h4>{activeProject.title}</h4>
+                    <p>{activeProject.subtitle}</p>
+                  </div>
+                </div>
+
+                <p className="tech-scroll-copy-description" data-ripple>
+                  {activeProject.description}
+                </p>
+
+                <div className="tech-scroll-copy-highlights" data-ripple>
+                  {activeProject.highlights.map((highlight) => (
+                    <span key={highlight}>{highlight}</span>
+                  ))}
+                </div>
+
+                <div className="tech-scroll-copy-stack" data-ripple>
+                  {activeProject.tech.map((tech) => (
+                    <span key={tech}>{tech}</span>
+                  ))}
+                </div>
+
+                <div className="tech-scroll-copy-actions" data-ripple>
+                  {activeProject.demo && (
+                    <a href={activeProject.demo} target="_blank" rel="noopener noreferrer">
+                      Live demo <ArrowUpRight size={14} />
+                    </a>
+                  )}
+                  {activeProject.appStore && (
+                    <a href={activeProject.appStore} target="_blank" rel="noopener noreferrer">
+                      App Store <ArrowUpRight size={14} />
+                    </a>
+                  )}
+                  {activeProject.github && activeProject.github !== "#" && (
+                    <a href={activeProject.github} target="_blank" rel="noopener noreferrer">
+                      GitHub <ArrowUpRight size={14} />
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </aside>
+        </div>
       </div>
 
       {/* Bottom gradient line */}
