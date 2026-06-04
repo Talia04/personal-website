@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, Image, Sparkles, Stars } from "lucide-react";
+import { ArrowDown, Image, Images, Sparkles, Stars } from "lucide-react";
 import { useRef } from "react";
 import "./ImpactPortfolio.css";
 
@@ -8,28 +8,68 @@ const galleryItems = [
     src: "/tanya-portrait.jpg",
     eyebrow: "Portrait 01",
     title: "Rooted in Zimbabwe",
+    type: "photo",
   },
   {
     src: "/basafy/14-splash.png",
     eyebrow: "Building 02",
     title: "Basafy in motion",
+    type: "product",
   },
   {
     eyebrow: "Archive 03",
     title: "USAP community",
+    type: "archive",
   },
   {
     eyebrow: "Archive 04",
     title: "Robotics and EcoCAR",
+    type: "archive",
   },
   {
     src: "/basafy/01-home-dashboard.png",
     eyebrow: "Product 05",
     title: "Technology for opportunity",
+    type: "product",
   },
   {
     eyebrow: "Archive 06",
     title: "Graduation and Meta",
+    type: "archive",
+  },
+  {
+    src: "/basafy/16-onboarding-gmail.png",
+    eyebrow: "Product 07",
+    title: "Turning inbox chaos into signal",
+    type: "product",
+  },
+  {
+    src: "/tanya-portrait-cutout-cropped.png",
+    eyebrow: "Portrait 08",
+    title: "Engineer with a story",
+    type: "photo",
+  },
+  {
+    eyebrow: "Archive 09",
+    title: "Zimbabwe beginnings",
+    type: "archive",
+  },
+  {
+    src: "/basafy/11-insights.png",
+    eyebrow: "Product 10",
+    title: "Patterns, progress, reflection",
+    type: "product",
+  },
+  {
+    eyebrow: "Archive 11",
+    title: "Conferences and community",
+    type: "archive",
+  },
+  {
+    src: "/basafy/08-pipeline-applied.png",
+    eyebrow: "Product 12",
+    title: "Building for career access",
+    type: "product",
   },
 ];
 
@@ -41,6 +81,7 @@ export function ImpactPortfolio() {
   });
   const portraitY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const titleY = useTransform(scrollYProgress, [0, 1], [0, 75]);
+  const galleryFloatY = useTransform(scrollYProgress, [0, 1], [35, -35]);
 
   const scrollToGallery = () => {
     document.querySelector("#gallery")?.scrollIntoView({ behavior: "smooth" });
@@ -126,18 +167,23 @@ export function ImpactPortfolio() {
             </div>
           </div>
 
-          <div className="impact-gallery-grid">
+          <motion.div style={{ y: galleryFloatY }} className="impact-gallery-grid">
             {galleryItems.map((item, index) => (
               <motion.article
                 key={`${item.eyebrow}-${item.title}`}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.18 }}
-                transition={{ duration: 0.65, delay: index * 0.06 }}
-                className={`impact-gallery-tile ${item.src ? "" : "impact-gallery-placeholder"}`}
+                transition={{ duration: 0.65, delay: index * 0.045 }}
+                whileHover={{ y: -8, rotate: index % 2 === 0 ? -1.4 : 1.4 }}
+                className={`impact-gallery-tile impact-gallery-${item.type} ${item.src ? "" : "impact-gallery-placeholder"}`}
               >
                 {item.src ? (
                   <>
+                    <div className="impact-photo-layers" aria-hidden="true">
+                      <span />
+                      <span />
+                    </div>
                     <img src={item.src} alt={item.title} />
                     <div className="impact-gallery-caption">
                       <p className="impact-accent text-[9px] uppercase tracking-[0.24em]">
@@ -148,11 +194,12 @@ export function ImpactPortfolio() {
                   </>
                 ) : (
                   <div>
-                    <Image size={18} className="impact-accent mb-3" />
+                    <Images size={18} className="impact-accent mb-3" />
                     <p className="impact-accent text-[9px] uppercase tracking-[0.24em]">
                       {item.eyebrow}
                     </p>
                     <h3 className="mt-1 max-w-xs text-base font-bold text-white/75">{item.title}</h3>
+                    <p className="impact-placeholder-copy">Drop a real photo here later.</p>
                   </div>
                 )}
               </motion.article>
@@ -167,7 +214,7 @@ export function ImpactPortfolio() {
               <Sparkles size={20} />
               <p className="mt-5">Build things. Open doors. Leave the path wider.</p>
             </motion.article>
-          </div>
+          </motion.div>
         </div>
       </section>
 
