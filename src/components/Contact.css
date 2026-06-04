@@ -1,0 +1,400 @@
+.contact-section {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: 7rem 1.5rem;
+  background:
+    radial-gradient(circle at 10% 24%, color-mix(in srgb, var(--portfolio-accent) 12%, transparent), transparent 25rem),
+    radial-gradient(circle at 90% 70%, rgba(255, 255, 255, 0.045), transparent 23rem),
+    var(--portfolio-bg);
+  color: var(--portfolio-text);
+}
+
+.contact-section-impact {
+  background:
+    radial-gradient(circle at 12% 28%, rgba(229, 137, 255, 0.16), transparent 25rem),
+    radial-gradient(circle at 86% 72%, rgba(168, 213, 0, 0.1), transparent 24rem),
+    #120d19;
+}
+
+.contact-backdrop {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.contact-backdrop span {
+  color: #fff;
+  font-size: clamp(8rem, 24vw, 26rem);
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  line-height: 0.8;
+  white-space: nowrap;
+}
+
+.contact-section-impact .contact-backdrop span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.contact-grid-lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.contact-grid-lines div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.contact-layout {
+  display: grid;
+  gap: 2rem;
+}
+
+.contact-eyebrow {
+  color: var(--portfolio-accent);
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.contact-title {
+  max-width: 50rem;
+  margin-top: 1rem;
+  color: var(--portfolio-text);
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 950;
+  letter-spacing: -0.095em;
+  line-height: 0.88;
+}
+
+.contact-section-impact .contact-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.contact-title span {
+  display: block;
+  color: var(--portfolio-accent);
+}
+
+.contact-description {
+  max-width: 38rem;
+  margin-top: 1.3rem;
+  color: var(--portfolio-muted);
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.contact-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.35rem;
+}
+
+.contact-chip-row span {
+  padding: 0.4rem 0.58rem;
+  border: 1px solid color-mix(in srgb, var(--portfolio-accent) 24%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--portfolio-accent) 7%, transparent);
+  color: var(--portfolio-accent);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.contact-link-grid {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 2rem;
+}
+
+.contact-link-card {
+  display: grid;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.026);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  transition: border-color 240ms ease, background 240ms ease, transform 240ms var(--portfolio-ease);
+}
+
+.contact-link-card:hover {
+  border-color: color-mix(in srgb, var(--portfolio-accent) 34%, transparent);
+  background: rgba(255, 255, 255, 0.052);
+}
+
+.contact-link-icon {
+  display: flex;
+  width: 2.55rem;
+  height: 2.55rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--portfolio-accent) 20%, transparent);
+  border-radius: 0.8rem;
+  background: color-mix(in srgb, var(--portfolio-accent) 8%, transparent);
+  color: var(--portfolio-accent);
+}
+
+.contact-link-card p {
+  color: var(--portfolio-text);
+  font-size: 0.74rem;
+  font-weight: 800;
+}
+
+.contact-link-card span {
+  display: block;
+  margin-top: 0.15rem;
+  overflow: hidden;
+  color: var(--portfolio-muted);
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.contact-link-card > svg {
+  color: var(--portfolio-dim);
+}
+
+.contact-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
+  color: var(--portfolio-dim);
+  font-size: 0.72rem;
+}
+
+.contact-card-shell {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-art-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 10rem;
+  padding: 1.3rem;
+  border: 1px solid color-mix(in srgb, var(--portfolio-accent) 28%, transparent);
+  border-radius: var(--portfolio-radius-md);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--portfolio-accent) 12%, transparent), transparent 60%),
+    rgba(255, 255, 255, 0.035);
+  transform-origin: center;
+}
+
+.contact-art-card::after {
+  position: absolute;
+  right: -1rem;
+  bottom: -3rem;
+  color: rgba(255, 255, 255, 0.045);
+  content: "@";
+  font-size: 12rem;
+  font-weight: 950;
+  line-height: 0.8;
+}
+
+.contact-section-impact .contact-art-card::after {
+  content: "*";
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.contact-art-orbit {
+  display: flex;
+  width: 2.6rem;
+  height: 2.6rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--portfolio-accent) 24%, transparent);
+  border-radius: 999px;
+  color: var(--portfolio-accent);
+}
+
+.contact-art-card p {
+  position: relative;
+  z-index: 2;
+  max-width: 24rem;
+  margin-top: 2rem;
+  color: var(--portfolio-text);
+  font-size: clamp(1.55rem, 3vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.contact-section-impact .contact-art-card p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.contact-art-card span {
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin-top: 0.8rem;
+  color: var(--portfolio-accent);
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: var(--portfolio-radius-md);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(20px);
+}
+
+.contact-form-heading {
+  display: flex;
+  gap: 0.65rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--portfolio-border);
+  color: var(--portfolio-accent);
+}
+
+.contact-form-heading svg {
+  flex: 0 0 auto;
+  margin-top: 0.1rem;
+}
+
+.contact-form-heading p {
+  color: var(--portfolio-text);
+  font-size: 0.92rem;
+  font-weight: 850;
+}
+
+.contact-form-heading span {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--portfolio-muted);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--portfolio-dim);
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.95rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 0.85rem;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--portfolio-text);
+  font-size: 0.82rem;
+  outline: none;
+  transition: border-color 220ms ease, background 220ms ease;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(243, 239, 253, 0.22);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: color-mix(in srgb, var(--portfolio-accent) 48%, transparent);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.contact-submit {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  background: var(--portfolio-accent);
+  color: #11150a;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  transition: opacity 220ms ease, background 220ms ease;
+}
+
+.contact-submit:hover {
+  background: #bee920;
+}
+
+.contact-section-impact .contact-submit:hover {
+  background: #f0a7ff;
+}
+
+.contact-submit:disabled {
+  opacity: 0.55;
+}
+
+.contact-form-note {
+  color: var(--portfolio-dim);
+  font-size: 0.68rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .contact-link-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .contact-section {
+    padding: 8rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-section {
+    padding: 9rem 5rem;
+  }
+
+  .contact-layout {
+    grid-template-columns: minmax(0, 1.08fr) minmax(25rem, 0.92fr);
+    align-items: center;
+  }
+}

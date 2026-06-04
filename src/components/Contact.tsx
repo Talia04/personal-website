@@ -1,12 +1,60 @@
 import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { Mail, Linkedin, Github, Phone, MapPin, Send, ArrowUpRight } from "lucide-react";
+import {
+  ArrowUpRight,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Send,
+  Sparkles,
+} from "lucide-react";
+import type { PortfolioPath } from "./PortfolioFork";
+import "./Contact.css";
 
-export function Contact() {
+interface ContactProps {
+  path: PortfolioPath;
+}
+
+const contactModes = {
+  tech: {
+    eyebrow: "Connect / Next build",
+    backdrop: "BUILD",
+    title: "Let's talk about the work.",
+    accent: "the work.",
+    description:
+      "Reach out for software engineering roles, product-minded teams, research-aligned work, or collaborations where thoughtful systems matter.",
+    formTitle: "Start with context",
+    formPrompt: "What are you building, hiring for, or exploring?",
+    button: "Open email draft",
+    note: "Best for SWE roles, internships, product engineering, research, and technical collaboration.",
+    signal: "Open to full-time software engineering opportunities",
+    chips: ["SWE roles", "Product engineering", "Research", "Mentorship"],
+  },
+  impact: {
+    eyebrow: "Connect / Open doors",
+    backdrop: "REACH OUT",
+    title: "Send a note from wherever the story meets yours.",
+    accent: "meets yours.",
+    description:
+      "I like conversations with people building access, education, community, research, and opportunity. A good note can become a collaboration, a mentorship thread, or a new chapter.",
+    formTitle: "Leave a thoughtful note",
+    formPrompt: "What part of the story connected, and what should we explore?",
+    button: "Send the note",
+    note: "Best for mentorship, scholarships, graduate school conversations, education work, and community ideas.",
+    signal: "Interested in access-focused collaborations",
+    chips: ["Mentorship", "Education", "Scholarships", "Community"],
+  },
+};
+
+export function Contact({ path }: ContactProps) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const mode = contactModes[path];
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -14,35 +62,32 @@ export function Contact() {
   });
 
   const y1 = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [-5, 5]);
 
   const contacts = [
     {
       icon: Mail,
-      label: "Email",
+      label: "Inbox",
       value: "tanyachisepo04@gmail.com",
       href: "mailto:tanyachisepo04@gmail.com",
-      color: "#a8d500",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
       value: "/in/tanyaradzwa-chisepo",
       href: "https://www.linkedin.com/in/tanyaradzwa-chisepo/",
-      color: "#00d4ff",
     },
     {
       icon: Github,
       label: "GitHub",
       value: "@tanyachisepo",
       href: "https://github.com/tanyachisepo",
-      color: "#c084fc",
     },
     {
       icon: Phone,
       label: "Phone",
       value: "+1 (386) 404-4609",
       href: "tel:+13864044609",
-      color: "#ff6b6b",
     },
   ];
 
@@ -65,134 +110,130 @@ export function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="relative min-h-screen overflow-hidden py-32"
-      style={{ backgroundColor: "#0f0b16" }}
+      className={`contact-section contact-section-${path}`}
     >
-      {/* Large backdrop text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+      <div className="contact-backdrop">
         <motion.span
-          style={{ y: y1, fontSize: 'clamp(120px, 25vw, 400px)', letterSpacing: '-0.02em' }}
+          style={{ y: y1 }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.02 }}
           transition={{ duration: 1.5 }}
-          className="font-black text-white whitespace-nowrap"
         >
-          CONNECT
+          {mode.backdrop}
         </motion.span>
       </div>
 
-      {/* Grid lines */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="contact-grid-lines">
         {[25, 50, 75].map((pos) => (
           <div
             key={pos}
-            className="absolute top-0 bottom-0 w-[1px] bg-white/[0.03]"
             style={{ left: `${pos}%` }}
           />
         ))}
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-16">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-16"
-        >
-          <span className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500]">
-            Connect — Contact
-          </span>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left - Contact info */}
-          <div>
+      <div className="contact-inner">
+        <div className="contact-layout">
+          <div className="contact-copy">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="contact-eyebrow"
+            >
+              {mode.eyebrow}
+            </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-[1.1]"
+              className="contact-title"
             >
-              Let's create
-              <br />
-              <span className="text-[#a8d500]">together.</span>
+              {mode.title.replace(mode.accent, "")}
+              <span>{mode.accent}</span>
             </motion.h2>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/40 text-base leading-relaxed mb-12 max-w-md"
+              className="contact-description"
             >
-              I'm interested in software engineering roles, research-aligned
-              collaborations, mentorship conversations, and projects that use
-              technology to expand access.
+              {mode.description}
             </motion.p>
 
-            {/* Contact cards */}
-            <div className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.28 }}
+              className="contact-chip-row"
+            >
+              {mode.chips.map((chip) => (
+                <span key={chip}>{chip}</span>
+              ))}
+            </motion.div>
+
+            <div className="contact-link-grid">
               {contacts.map((contact, i) => (
                 <motion.a
                   key={contact.label}
                   href={contact.href}
-                  target={contact.href.startsWith('http') ? "_blank" : undefined}
-                  rel={contact.href.startsWith('http') ? "noopener noreferrer" : undefined}
+                  target={contact.href.startsWith("http") ? "_blank" : undefined}
+                  rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   initial={{ opacity: 0, x: -30 }}
                   animate={isInView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                  whileHover={{ x: 10 }}
-                  className="group flex items-center gap-4 p-4 rounded-2xl border border-white/5 hover:border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-300"
+                  whileHover={{ x: 8 }}
+                  className="contact-link-card"
                 >
-                  <div
-                    className="flex items-center justify-center w-12 h-12 rounded-xl transition-all duration-300"
-                    style={{
-                      backgroundColor: `${contact.color}10`,
-                      borderColor: `${contact.color}20`,
-                    }}
-                  >
-                    <contact.icon
-                      size={20}
-                      style={{ color: contact.color }}
-                    />
+                  <div className="contact-link-icon">
+                    <contact.icon size={18} />
                   </div>
-                  <div className="flex-1">
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-1">
-                      {contact.label}
-                    </p>
-                    <p className="text-white/80 text-sm group-hover:text-white transition-colors">
-                      {contact.value}
-                    </p>
+                  <div>
+                    <p>{contact.label}</p>
+                    <span>{contact.value}</span>
                   </div>
-                  <ArrowUpRight
-                    size={16}
-                    className="text-white/20 group-hover:text-white/60 transition-colors"
-                  />
+                  <ArrowUpRight size={15} />
                 </motion.a>
               ))}
             </div>
 
-            {/* Location */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}
-              className="mt-8 flex items-center gap-2 text-white/30"
+              className="contact-location"
             >
               <MapPin size={14} />
-              <span className="text-xs">Florida, USA • Open to remote</span>
+              <span>Florida, USA / Open to remote</span>
             </motion.div>
           </div>
 
-          {/* Right - Contact form */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.3 }}
+            className="contact-card-shell"
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <motion.div style={{ rotate }} className="contact-art-card">
+              <div className="contact-art-orbit">
+                <Sparkles size={18} />
+              </div>
+              <p>{mode.signal}</p>
+              <span>{path === "tech" ? "Recruiter-friendly route" : "Story-forward route"}</span>
+            </motion.div>
+
+            <form onSubmit={handleSubmit} className="contact-form">
+              <div className="contact-form-heading">
+                <MessageCircle size={18} />
+                <div>
+                  <p>{mode.formTitle}</p>
+                  <span>{mode.formPrompt}</span>
+                </div>
+              </div>
+
               <div>
-                <label className="text-[10px] uppercase tracking-[0.3em] text-white/30 block mb-2">
+                <label>
                   Your Name
                 </label>
                 <input
@@ -200,13 +241,12 @@ export function Contact() {
                   required
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                  placeholder="John Doe"
-                  className="w-full px-4 py-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-white/20 text-sm focus:outline-none focus:border-[#a8d500]/50 transition-colors"
+                  placeholder="Your name"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] uppercase tracking-[0.3em] text-white/30 block mb-2">
+                <label>
                   Email Address
                 </label>
                 <input
@@ -214,13 +254,12 @@ export function Contact() {
                   required
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                  placeholder="john@example.com"
-                  className="w-full px-4 py-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-white/20 text-sm focus:outline-none focus:border-[#a8d500]/50 transition-colors"
+                  placeholder="you@example.com"
                 />
               </div>
 
               <div>
-                <label className="text-[10px] uppercase tracking-[0.3em] text-white/30 block mb-2">
+                <label>
                   Message
                 </label>
                 <textarea
@@ -228,9 +267,8 @@ export function Contact() {
                   rows={5}
                   value={formState.message}
                   onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                  placeholder="Tell me about your project or opportunity..."
+                  placeholder={mode.formPrompt}
                   aria-label="Message"
-                  className="w-full px-4 py-4 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder:text-white/20 text-sm focus:outline-none focus:border-[#a8d500]/50 transition-colors resize-none"
                 />
               </div>
 
@@ -239,29 +277,25 @@ export function Contact() {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 rounded-xl bg-[#a8d500] hover:bg-[#b8e510] text-black font-semibold flex items-center justify-center gap-2 transition-colors disabled:opacity-50"
+                className="contact-submit"
               >
                 {isSubmitting ? (
                   "Opening email..."
                 ) : (
                   <>
                     <Send size={18} />
-                    Send Message
+                    {mode.button}
                   </>
                 )}
               </motion.button>
 
-              <p className="text-center text-white/20 text-xs">
-                This will open your email client with the message pre-filled
+              <p className="contact-form-note">
+                {mode.note}
               </p>
             </form>
           </motion.div>
         </div>
       </div>
-
-      {/* Corner accents */}
-      <div className="absolute bottom-8 left-6 lg:left-16 w-12 h-12 border-l border-b border-[#a8d500]/20" />
-      <div className="absolute top-32 right-6 lg:right-16 w-12 h-12 border-r border-t border-white/5" />
     </section>
   );
 }

@@ -62,7 +62,7 @@ export default function App() {
                   <Skills />
                   <Experience />
                   <Additional />
-                  <Contact />
+                  <Contact path="tech" />
                 </>
               ) : (
                 <>
@@ -70,7 +70,7 @@ export default function App() {
                   <Journey />
                   <ResearchSpotlight />
                   <Additional />
-                  <Contact />
+                  <Contact path="impact" />
                 </>
               )}
               <Footer path={portfolioPath} />
