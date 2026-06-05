@@ -125,7 +125,8 @@ export function Hero({ onReadStory }: HeroProps) {
           transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
         >
           <div className="tech-hero-portrait">
-            <img src="/tanya-portrait.jpg" alt="Tanya Chisepo" />
+            <img src="/tanya-portrait.jpg" alt="Portrait of Tanya Chisepo" />
+            <span className="tech-hero-portrait-label">Tanya Chisepo</span>
           </div>
 
           <motion.div
