@@ -23,10 +23,68 @@
 
 .portfolio-shell-tech {
   --portfolio-accent: #a8d500;
+  --portfolio-display-weight: 800;
+  --portfolio-title-sweep: linear-gradient(90deg, #a8d500 0%, #00d4ff 36%, #e589ff 68%, #a8d500 100%);
 }
 
 .portfolio-shell-impact {
   --portfolio-accent: #e589ff;
+  --portfolio-title-sweep: linear-gradient(90deg, #e589ff 0%, #f43f8f 34%, #c2f036 68%, #e589ff 100%);
+}
+
+.portfolio-shell-tech .font-black {
+  font-weight: var(--portfolio-display-weight);
+}
+
+.portfolio-shell-tech :is(
+  .tech-hero-name,
+  .tech-profile-title,
+  .coursework-title,
+  .tech-case-title,
+  .tech-skills-title,
+  .tech-experience-title,
+  .recognition-title,
+  .contact-backdrop span
+) {
+  font-weight: var(--portfolio-display-weight);
+  letter-spacing: -0.075em;
+}
+
+.portfolio-shell-tech :is(
+  .tech-scroll-card-footer h4,
+  .tech-scroll-copy-title h4,
+  .contact-art-card p
+) {
+  font-weight: var(--portfolio-display-weight);
+  letter-spacing: -0.06em;
+}
+
+.portfolio-shell :is(
+  .tech-hero-name,
+  .tech-profile-title,
+  .coursework-title,
+  .tech-projects-title,
+  .tech-skills-title,
+  .tech-experience-title,
+  .recognition-title,
+  .impact-display,
+  .journey-title,
+  .journey-impact-title,
+  .research-spotlight-header h2,
+  .contact-title
+) > span {
+  color: transparent;
+  background: var(--portfolio-title-sweep);
+  background-size: 220% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: portfolioTitleSweep 4.5s linear infinite;
+}
+
+@keyframes portfolioTitleSweep {
+  to {
+    background-position: -220% center;
+  }
 }
 
 .editorial-eyebrow {
@@ -48,4 +106,23 @@
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-shell :is(
+    .tech-hero-name,
+    .tech-profile-title,
+    .coursework-title,
+    .tech-projects-title,
+    .tech-skills-title,
+    .tech-experience-title,
+    .recognition-title,
+    .impact-display,
+    .journey-title,
+    .journey-impact-title,
+    .research-spotlight-header h2,
+    .contact-title
+  ) > span {
+    animation: none;
+  }
 }

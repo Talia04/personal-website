@@ -256,7 +256,7 @@ export function Projects() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white font-black leading-[0.95] tracking-tight"
+              className="tech-projects-title text-white font-black leading-[0.95] tracking-tight"
               style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
             >
               Selected
