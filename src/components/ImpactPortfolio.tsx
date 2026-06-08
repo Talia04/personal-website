@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, Image, Images, Sparkles, Stars } from "lucide-react";
+import { ArrowDown, Image, Images } from "lucide-react";
 import { useRef } from "react";
 import "./ImpactPortfolio.css";
 
@@ -211,7 +211,6 @@ export function ImpactPortfolio() {
               viewport={{ once: true }}
               className="impact-gallery-tile impact-statement"
             >
-              <Sparkles size={20} />
               <p className="mt-5">Build things. Open doors. Leave the path wider.</p>
             </motion.article>
           </motion.div>
@@ -236,7 +235,6 @@ export function ImpactPortfolio() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.65, delay: 0.12 }}
           >
-            <Stars size={19} className="impact-accent mb-4" />
             <p className="impact-interlude-copy">
               Every chapter added another layer: exposure became curiosity,
               curiosity became service, and service became the reason to build.

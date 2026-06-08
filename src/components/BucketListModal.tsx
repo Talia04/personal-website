@@ -7,7 +7,6 @@ import {
   HeartPulse,
   Languages,
   PartyPopper,
-  Sparkles,
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -152,7 +151,7 @@ export function BucketListModal({ open, onClose }: BucketListModalProps) {
             <div className="bucket-glow bucket-glow-lime" aria-hidden="true" />
 
             <header className="bucket-header">
-              <span className="bucket-kicker"><Sparkles size={13} /> A living list</span>
+              <span className="bucket-kicker">A living list</span>
               <h2 id="bucket-title">Checked &amp; <em>unchecked.</em></h2>
               <p>Dreams in motion, experiments worth trying, and promises I am making to my future self.</p>
               <button type="button" className="bucket-close" onClick={onClose}>

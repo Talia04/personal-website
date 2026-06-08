@@ -1,5 +1,5 @@
 import { motion, useInView, useScroll, useSpring } from "motion/react";
-import { Image, MapPin, Play, Sparkles } from "lucide-react";
+import { Image, MapPin, Play } from "lucide-react";
 import { useRef } from "react";
 import { impactAreas, journeyEvents, type JourneyMedia } from "../data/journey";
 import "./Journey.css";
@@ -181,7 +181,6 @@ export function Journey() {
                 The work matters when it <span>creates a path for someone else.</span>
               </h3>
             </div>
-            <Sparkles className="impact-accent hidden md:block" size={28} />
           </div>
 
           <div className="journey-impact-grid">

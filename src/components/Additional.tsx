@@ -1,5 +1,5 @@
 import { motion, useInView } from "motion/react";
-import { Award, Sparkles } from "lucide-react";
+import { Award } from "lucide-react";
 import { useRef } from "react";
 import "./Additional.css";
 
@@ -116,7 +116,6 @@ export function Additional() {
               <span>{stat.label}</span>
             </motion.div>
           ))}
-          <Sparkles className="ml-auto hidden self-center text-[color:var(--portfolio-accent)] md:block" size={18} />
         </div>
       </div>
     </section>

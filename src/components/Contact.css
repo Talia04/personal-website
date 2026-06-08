@@ -219,22 +219,6 @@
   line-height: 0.8;
 }
 
-.contact-section-impact .contact-art-card::after {
-  content: "*";
-  font-family: Georgia, "Times New Roman", serif;
-}
-
-.contact-art-orbit {
-  display: flex;
-  width: 2.6rem;
-  height: 2.6rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid color-mix(in srgb, var(--portfolio-accent) 24%, transparent);
-  border-radius: 999px;
-  color: var(--portfolio-accent);
-}
-
 .contact-art-card p {
   position: relative;
   z-index: 2;

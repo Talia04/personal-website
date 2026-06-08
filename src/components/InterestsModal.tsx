@@ -6,7 +6,6 @@ import {
   GraduationCap,
   Microscope,
   Palette,
-  Sparkles,
   X,
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
@@ -140,7 +139,6 @@ export function InterestsModal({ open, onClose }: InterestsModalProps) {
             <header className="interests-header">
               <div>
                 <span className="interests-kicker">
-                  <Sparkles size={14} />
                   Beyond the resume
                 </span>
                 <h2 id="interests-title">

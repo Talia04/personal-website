@@ -9,7 +9,6 @@ import {
   MessageCircle,
   Phone,
   Send,
-  Sparkles,
 } from "lucide-react";
 import type { PortfolioPath } from "./PortfolioFork";
 import "./Contact.css";
@@ -216,9 +215,6 @@ export function Contact({ path }: ContactProps) {
             className="contact-card-shell"
           >
             <motion.div style={{ rotate }} className="contact-art-card">
-              <div className="contact-art-orbit">
-                <Sparkles size={18} />
-              </div>
               <p>{mode.signal}</p>
               <span>{path === "tech" ? "Recruiter-friendly route" : "Story-forward route"}</span>
             </motion.div>
