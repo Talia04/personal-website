@@ -41,6 +41,31 @@ const metaRoles = [
   },
 ];
 
+const bcuRoles = [
+  {
+    dates: "September 2024–December 2025",
+    title: "CS Teaching Assistant",
+    description:
+      "Mentored students through programming fundamentals, weekly coding challenges, and the confidence required to keep learning.",
+    highlights: [
+      "Supported 15+ students through weekly technical guidance",
+      "Provided one-on-one explanations for complex CS concepts",
+      "Developed a teaching practice grounded in patience and clarity",
+    ],
+  },
+  {
+    dates: "February 2022–May 2024",
+    title: "Math ATP Tutor",
+    description:
+      "Helped Bethune-Cookman students strengthen their understanding of mathematics concepts ranging from Algebra to Calculus.",
+    highlights: [
+      "Adapted explanations to different learning styles and skill levels",
+      "Guided students through problem-solving strategies and practice",
+      "Built students' confidence with foundational and advanced concepts",
+    ],
+  },
+];
+
 const summary = [
   { value: "3×", label: "Meta internships" },
   { value: "3", label: "Engineering domains" },
@@ -73,7 +98,8 @@ export function Experience() {
           >
             My internship progression moved from full-stack product work to backend
             infrastructure and then cross-platform mobile engineering. Alongside
-            that work, teaching has made me a stronger technical communicator.
+            that work, teaching and tutoring have made me a stronger technical
+            communicator.
           </motion.p>
         </div>
 
@@ -137,20 +163,24 @@ export function Experience() {
               <div>
                 <p className="text-sm font-bold text-white">Bethune-Cookman</p>
                 <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/35">
-                  February 2024–December 2025
+                  Academic support / 2022–2025
                 </p>
               </div>
             </div>
-            <h3>CS Teaching Assistant</h3>
-            <p>
-              Mentoring students through programming fundamentals, weekly coding
-              challenges, and the confidence required to keep learning.
-            </p>
-            <ul className="tech-mentor-list">
-              <li>15+ students supported through weekly technical guidance</li>
-              <li>One-on-one explanations for complex CS concepts</li>
-              <li>A teaching practice grounded in patience and clarity</li>
-            </ul>
+            <div className="tech-mentor-roles">
+              {bcuRoles.map((role) => (
+                <article key={role.title} className="tech-mentor-role">
+                  <p className="tech-mentor-dates">{role.dates}</p>
+                  <h3>{role.title}</h3>
+                  <p>{role.description}</p>
+                  <ul className="tech-mentor-list">
+                    {role.highlights.map((highlight) => (
+                      <li key={highlight}>{highlight}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </motion.aside>
         </div>
 
