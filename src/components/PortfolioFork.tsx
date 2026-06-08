@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowUpRight, Binary, Sparkles } from "lucide-react";
+import { ArrowUpRight, Binary, BookOpen } from "lucide-react";
 import "./PortfolioFork.css";
 
 export type PortfolioPath = "tech" | "impact";
@@ -23,7 +23,7 @@ const paths = [
     title: "The Story",
     description:
       "A visual archive of the places, people, and turning points behind the engineer. An expressive route through the why.",
-    icon: Sparkles,
+    icon: BookOpen,
   },
 ];
 

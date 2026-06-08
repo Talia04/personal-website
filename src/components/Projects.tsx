@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "motion/react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { ArrowRight, ArrowUpRight, Briefcase, Mic, Code2, Sparkles, Regex, Calendar, Shield } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Briefcase, Mic, Code2, Palette, Regex, Calendar, Shield } from "lucide-react";
 import { SiTypescript, SiPython, SiPostgresql, SiDeno, SiReact, SiExpo, SiNextdotjs, SiCloudflare, SiOpenai, SiSupabase, SiGmail, SiGooglecloud, SiGithubactions } from "react-icons/si";
 import { ProjectData } from "./ui/progressive-blur-modal";
 import "./Projects.css";
@@ -150,7 +150,7 @@ export function Projects() {
       title: "Virtual Makeup",
       subtitle: "AI Beauty Tech",
       period: "2025",
-      icon: Sparkles,
+      icon: Palette,
       color: "#c084fc",
       description:
         "An AI-driven virtual makeup application with 20+ styles, improving realism through a custom dataset of diverse skin tones.",
