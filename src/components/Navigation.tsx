@@ -82,42 +82,13 @@ export function Navigation({ path, onSwitch }: NavigationProps) {
   return (
     <>
       <nav
-        className="fixed left-1/2 z-[100] -translate-x-1/2"
-        style={{
-          top: "clamp(1rem, 3vw, 3rem)",
-          width: "min(37rem, calc(100vw - 1.25rem))",
-        }}
+        className="liquid-nav"
         aria-label={`${path === "tech" ? "Tech" : "Story"} portfolio navigation`}
       >
-        <div
-          className="relative flex w-full items-center justify-center overflow-hidden rounded-full border"
-          style={{
-            background:
-              "linear-gradient(180deg, rgba(52,52,56,0.78) 0%, rgba(33,33,37,0.84) 100%)",
-            borderColor: "rgba(255,255,255,0.1)",
-            boxShadow:
-              "inset 0 1px 0 rgba(255,255,255,0.16), inset 0 -1px 0 rgba(255,255,255,0.04), 0 12px 30px rgba(0,0,0,0.24), 0 0 0 1px rgba(255,255,255,0.04)",
-            backdropFilter: "blur(28px) saturate(155%)",
-            WebkitBackdropFilter: "blur(28px) saturate(155%)",
-            gap: "clamp(0.09rem, 0.36vw, 0.45rem)",
-            padding: "clamp(0.18rem, 0.45vw, 0.4rem)",
-          }}
-        >
-          <div
-            className="pointer-events-none absolute inset-0 rounded-full"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03) 42%, rgba(255,255,255,0.01) 100%)",
-            }}
-          />
-          <div
-            className="pointer-events-none absolute left-8 top-[4px] h-[4px] w-14 rounded-full"
-            style={{
-              background:
-                "linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.95), rgba(255,255,255,0.08))",
-              filter: "blur(0.6px)",
-            }}
-          />
+        <div className="liquid-nav-shell">
+          <span className="liquid-nav-glow liquid-nav-glow-lime" aria-hidden="true" />
+          <span className="liquid-nav-glow liquid-nav-glow-purple" aria-hidden="true" />
+          <span className="liquid-nav-shine" aria-hidden="true" />
 
           {currentItems.map((item) => {
             const isActive = hoveredItem === item.href || activeItem === item.href;
@@ -131,24 +102,9 @@ export function Navigation({ path, onSwitch }: NavigationProps) {
                 onMouseLeave={() => setHoveredItem(null)}
                 onFocus={() => setHoveredItem(item.href)}
                 onBlur={() => setHoveredItem(null)}
-                className="relative z-10 min-w-0 flex-1 cursor-pointer rounded-full border font-medium tracking-[-0.02em] whitespace-nowrap"
-                style={{
-                  borderColor: isActive ? "rgba(255, 255, 255, 0.08)" : "transparent",
-                  background: isActive
-                    ? "linear-gradient(180deg, rgba(96,96,102,0.96) 0%, rgba(76,76,82,0.92) 100%)"
-                    : "transparent",
-                  color: isActive ? "#f5f4f7" : "rgba(245,244,247,0.78)",
-                  boxShadow: isActive
-                    ? "inset 0 1px 0 rgba(255,255,255,0.16), 0 8px 18px rgba(0,0,0,0.18)"
-                    : "none",
-                  transform: isActive ? "translateY(-1px)" : "translateY(0)",
-                  fontSize: "clamp(0.58rem, 1.15vw, 0.74rem)",
-                  padding: "clamp(0.32rem, 0.45vw, 0.45rem) clamp(0.29rem, 0.8vw, 0.9rem)",
-                  transition:
-                    "transform 220ms ease, background 220ms ease, color 220ms ease, box-shadow 220ms ease, border-color 220ms ease",
-                }}
+                className={`liquid-nav-item ${isActive ? "is-active" : ""}`}
               >
-                {item.label}
+                <span>{item.label}</span>
               </button>
             );
           })}

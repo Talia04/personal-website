@@ -1,42 +1,243 @@
+.liquid-nav {
+  position: fixed;
+  top: clamp(1rem, 2.4vw, 2.2rem);
+  left: 50%;
+  z-index: 100;
+  width: min(45rem, calc(100vw - 1.25rem));
+  transform: translateX(-50%);
+}
+
+.liquid-nav-shell {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.15rem, 0.45vw, 0.55rem);
+  overflow: hidden;
+  padding: clamp(0.35rem, 0.55vw, 0.52rem);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035) 46%, rgba(0, 0, 0, 0.1)),
+    rgba(20, 18, 25, 0.62);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    0 20px 55px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(34px) saturate(180%);
+  -webkit-backdrop-filter: blur(34px) saturate(180%);
+  isolation: isolate;
+}
+
+.liquid-nav-shell::before {
+  position: absolute;
+  inset: 1px;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 18% -20%, rgba(255, 255, 255, 0.28), transparent 30%),
+    linear-gradient(100deg, rgba(168, 213, 0, 0.045), transparent 38%, rgba(168, 85, 247, 0.06));
+  content: "";
+  pointer-events: none;
+}
+
+.liquid-nav-shine {
+  position: absolute;
+  top: 0.25rem;
+  left: 8%;
+  width: 24%;
+  height: 0.18rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.78), transparent);
+  filter: blur(0.3px);
+  opacity: 0.7;
+  animation: liquidNavShine 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.liquid-nav-glow {
+  position: absolute;
+  width: 8rem;
+  height: 3rem;
+  border-radius: 50%;
+  filter: blur(24px);
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.liquid-nav-glow-lime {
+  left: 5%;
+  background: #a8d500;
+  animation: liquidNavLime 7s ease-in-out infinite;
+}
+
+.liquid-nav-glow-purple {
+  right: 5%;
+  background: #a855f7;
+  animation: liquidNavPurple 8s ease-in-out infinite;
+}
+
+.liquid-nav-item {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  flex: 1;
+  cursor: pointer;
+  overflow: hidden;
+  padding: clamp(0.62rem, 0.8vw, 0.78rem) clamp(0.45rem, 1vw, 1rem);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(245, 244, 247, 0.68);
+  font-size: clamp(0.62rem, 1.1vw, 0.78rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition:
+    transform 300ms var(--portfolio-ease),
+    background 300ms ease,
+    color 300ms ease,
+    box-shadow 300ms ease,
+    border-color 300ms ease;
+}
+
+.liquid-nav-item::before {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.04)),
+    radial-gradient(circle at 50% 120%, rgba(168, 213, 0, 0.16), transparent 55%);
+  content: "";
+  opacity: 0;
+  transform: scale(0.82);
+  transition: opacity 300ms ease, transform 380ms var(--portfolio-ease);
+}
+
+.liquid-nav-item span {
+  position: relative;
+  z-index: 1;
+}
+
+.liquid-nav-item:hover,
+.liquid-nav-item:focus-visible,
+.liquid-nav-item.is-active {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.13);
+  color: #ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 8px 22px rgba(0, 0, 0, 0.18),
+    0 0 20px rgba(168, 213, 0, 0.05);
+  outline: none;
+}
+
+.liquid-nav-item:hover::before,
+.liquid-nav-item:focus-visible::before,
+.liquid-nav-item.is-active::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .mode-switch {
   position: fixed;
-  top: 5rem;
+  top: 5.6rem;
   right: 1rem;
   z-index: 100;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--portfolio-border);
+  padding: 0.68rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  background: rgba(33, 27, 39, 0.8);
-  color: var(--portfolio-muted);
-  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.22);
-  font-size: 0.5625rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.035)),
+    rgba(24, 21, 29, 0.68);
+  color: rgba(243, 239, 253, 0.66);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 14px 32px rgba(0, 0, 0, 0.25);
+  font-size: 0.6rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  backdrop-filter: blur(20px);
-  transition: color 220ms ease, border-color 220ms ease, transform 220ms ease;
+  backdrop-filter: blur(28px) saturate(170%);
+  transition: color 260ms ease, border-color 260ms ease, transform 260ms var(--portfolio-ease), box-shadow 260ms ease;
 }
 
 .mode-switch:hover {
-  transform: translateY(-2px);
-  border-color: var(--portfolio-accent);
-  color: var(--portfolio-accent);
+  transform: translateY(-3px) scale(1.02);
+  border-color: rgba(168, 213, 0, 0.42);
+  color: #c4ef25;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 18px 38px rgba(0, 0, 0, 0.3),
+    0 0 24px rgba(168, 213, 0, 0.08);
+}
+
+@keyframes liquidNavShine {
+  50% {
+    left: 68%;
+    opacity: 0.35;
+  }
+}
+
+@keyframes liquidNavLime {
+  50% {
+    left: 54%;
+    opacity: 0.24;
+  }
+}
+
+@keyframes liquidNavPurple {
+  50% {
+    right: 52%;
+    opacity: 0.22;
+  }
 }
 
 @media (min-width: 768px) {
   .mode-switch {
-    top: 2rem;
-    right: 2rem;
+    top: 1.75rem;
+    right: 1.5rem;
   }
 }
 
 @media (max-width: 520px) {
+  .liquid-nav {
+    top: 0.65rem;
+    width: calc(100vw - 0.8rem);
+  }
+
+  .liquid-nav-shell {
+    gap: 0.08rem;
+    padding: 0.24rem;
+  }
+
+  .liquid-nav-item {
+    padding: 0.55rem 0.18rem;
+    font-size: 0.53rem;
+    letter-spacing: -0.025em;
+  }
+
   .mode-switch {
     top: auto;
     right: 0.75rem;
     bottom: 0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-nav-shine,
+  .liquid-nav-glow {
+    animation: none;
+  }
+
+  .liquid-nav-item,
+  .liquid-nav-item::before,
+  .mode-switch {
+    transition-duration: 0.01ms;
   }
 }
