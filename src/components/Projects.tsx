@@ -11,6 +11,33 @@ type ProjectShowcaseItem = ProjectData & {
   visualImages?: string[];
 };
 
+const basafyStackGroups = [
+  {
+    category: "Languages & runtime",
+    items: ["TypeScript", "Python", "SQL", "Deno"],
+  },
+  {
+    category: "Mobile",
+    items: ["React Native 0.81", "Expo SDK 54", "EAS Build"],
+  },
+  {
+    category: "Web",
+    items: ["Next.js 14", "Cloudflare Pages"],
+  },
+  {
+    category: "Backend & AI",
+    items: ["Supabase", "PostgreSQL RLS", "OpenAI GPT-4o-mini", "Regex Engine"],
+  },
+  {
+    category: "APIs & services",
+    items: ["Gmail API", "Google Pub/Sub", "Google Calendar API"],
+  },
+  {
+    category: "DevOps",
+    items: ["GitHub Actions"],
+  },
+];
+
 export function Projects() {
   const ref = useRef<HTMLElement>(null);
   const showcaseRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -38,7 +65,7 @@ export function Projects() {
       "Gmail API real-time auto-sync",
       "Live product with real users",
     ],
-    tech: ["React Native", "Python", "Supabase", "OpenAI", "Google APIs", "Regex"],
+    tech: basafyStackGroups.flatMap((group) => group.items),
     demo: "https://basafy.com",
     techDetails: [
       // Languages & Runtime
@@ -292,6 +319,22 @@ export function Projects() {
                           <span className="tech-system-node">{node}</span>
                           {index < 3 && <ArrowRight className="tech-system-arrow" size={13} />}
                         </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="tech-case-stack">
+                    <p className="editorial-eyebrow">Full tech stack</p>
+                    <div className="tech-case-stack-groups">
+                      {basafyStackGroups.map((group) => (
+                        <div key={group.category} className="tech-case-stack-group">
+                          <p>{group.category}</p>
+                          <div>
+                            {group.items.map((item) => (
+                              <span key={item}>{item}</span>
+                            ))}
+                          </div>
+                        </div>
                       ))}
                     </div>
                   </div>

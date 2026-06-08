@@ -126,6 +126,48 @@
   display: contents;
 }
 
+.tech-case-stack {
+  margin-top: 1.7rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+.tech-case-stack-groups {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+
+.tech-case-stack-group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.tech-case-stack-group > p {
+  color: rgba(243, 239, 253, 0.38);
+  font-size: 0.57rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.tech-case-stack-group > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tech-case-stack-group span {
+  padding: 0.45rem 0.58rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(243, 239, 253, 0.62);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
 .tech-case-actions {
   display: flex;
   flex-wrap: wrap;
