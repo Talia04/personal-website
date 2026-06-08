@@ -5,7 +5,7 @@ import "./ImpactPortfolio.css";
 
 const galleryItems = [
   {
-    src: "/tanya-portrait.jpg",
+    src: "/tanya-story-profile.png",
     eyebrow: "Portrait 01",
     title: "Rooted in Zimbabwe",
     type: "photo",
@@ -140,7 +140,7 @@ export function ImpactPortfolio() {
             animate={{ opacity: 1, rotate: 2, x: 0 }}
             transition={{ duration: 1, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
           >
-            <img src="/tanya-portrait.jpg" alt="Portrait of Tanya Chisepo" />
+            <img src="/tanya-story-profile.png" alt="Portrait of Tanya Chisepo" />
           </motion.div>
         </motion.div>
       </section>
