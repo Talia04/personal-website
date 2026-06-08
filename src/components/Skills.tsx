@@ -1,5 +1,5 @@
 import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { useRef, type CSSProperties, type MouseEvent } from "react";
 import "./Skills.css";
 
 const skillGroups = [
@@ -7,21 +7,25 @@ const skillGroups = [
     title: "Product engineering",
     description: "Interfaces and product flows that stay thoughtful across web and mobile.",
     items: ["React", "React Native", "TypeScript", "Next.js", "Expo"],
+    color: "#a8d500",
   },
   {
     title: "Backend & data",
     description: "APIs, schemas, and data systems designed for reliable product behavior.",
     items: ["Python", "Node.js", "GraphQL", "PostgreSQL", "Supabase"],
+    color: "#a78bfa",
   },
   {
     title: "Applied intelligence",
     description: "Practical AI pipelines where model output is only one part of the system.",
     items: ["OpenAI", "LLMs", "Regex", "TensorFlow", "Computer Vision"],
+    color: "#d946ef",
   },
   {
     title: "Engineering practice",
     description: "The tooling and habits that make software easier to ship and maintain.",
     items: ["Git", "Testing", "CI/CD", "Docker", "Cloudflare"],
+    color: "#c4ef25",
   },
 ];
 
@@ -43,8 +47,18 @@ export function Skills() {
   const isInView = useInView(ref, { once: true, amount: 0.18 });
   const railItems = [...tools, ...tools];
 
+  const handlePointerMove = (event: MouseEvent<HTMLElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty("--skills-x", `${event.clientX - rect.left}px`);
+    event.currentTarget.style.setProperty("--skills-y", `${event.clientY - rect.top}px`);
+  };
+
   return (
-    <section id="skills" ref={ref} className="tech-skills">
+    <section id="skills" ref={ref} className="tech-skills" onMouseMove={handlePointerMove}>
+      <div className="tech-skills-texture" aria-hidden="true" />
+      <div className="tech-skills-aurora tech-skills-aurora-lime" aria-hidden="true" />
+      <div className="tech-skills-aurora tech-skills-aurora-purple" aria-hidden="true" />
+
       <div className="tech-skills-inner">
         <div className="tech-skills-header">
           <motion.div
@@ -77,16 +91,25 @@ export function Skills() {
               initial={{ opacity: 0, y: 25 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.18 + index * 0.08 }}
+              whileHover={{ y: -10, scale: 1.018 }}
               className="tech-skill-card"
+              style={{ "--skill-color": group.color } as CSSProperties}
             >
+              <span className="tech-skill-card-glow" aria-hidden="true" />
               <span className="tech-skill-number">0{index + 1}</span>
               <h3>{group.title}</h3>
               <p>{group.description}</p>
               <div className="tech-skill-list">
-                {group.items.map((item) => (
-                  <span key={item} className="tech-skill-pill">
+                {group.items.map((item, itemIndex) => (
+                  <motion.span
+                    key={item}
+                    className="tech-skill-pill"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.35, delay: 0.35 + index * 0.08 + itemIndex * 0.035 }}
+                  >
                     {item}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.article>
