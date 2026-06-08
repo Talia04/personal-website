@@ -13,6 +13,8 @@ import { Additional } from "./components/Additional";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { LoadingScreen } from "./components/LoadingScreen";
+import { InterestsModal } from "./components/InterestsModal";
+import { BucketListModal } from "./components/BucketListModal";
 import { ThemeProvider } from "./utils/theme";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -21,6 +23,8 @@ import "./styles/editorial-system.css";
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [portfolioPath, setPortfolioPath] = useState<PortfolioPath | null>(null);
+  const [isInterestsOpen, setIsInterestsOpen] = useState(false);
+  const [isBucketListOpen, setIsBucketListOpen] = useState(false);
 
   useEffect(() => {
     // Smooth scroll behavior
@@ -42,7 +46,27 @@ export default function App() {
         <>
           <Navigation
             path={portfolioPath}
-            onSwitch={() => setPortfolioPath(portfolioPath === "tech" ? "impact" : "tech")}
+            onOpenInterests={() => {
+              setIsBucketListOpen(false);
+              setIsInterestsOpen(true);
+            }}
+            onOpenBucketList={() => {
+              setIsInterestsOpen(false);
+              setIsBucketListOpen(true);
+            }}
+            onSwitch={() => {
+              setIsInterestsOpen(false);
+              setIsBucketListOpen(false);
+              setPortfolioPath(portfolioPath === "tech" ? "impact" : "tech");
+            }}
+          />
+          <InterestsModal
+            open={portfolioPath === "impact" && isInterestsOpen}
+            onClose={() => setIsInterestsOpen(false)}
+          />
+          <BucketListModal
+            open={portfolioPath === "impact" && isBucketListOpen}
+            onClose={() => setIsBucketListOpen(false)}
           />
           <AnimatePresence mode="wait">
             <motion.div

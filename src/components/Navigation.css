@@ -121,6 +121,285 @@
   z-index: 1;
 }
 
+.liquid-nav-more-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.liquid-nav-more-trigger svg {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  transition: transform 300ms var(--portfolio-ease);
+}
+
+.liquid-nav-more-trigger.is-active svg {
+  transform: rotate(180deg);
+}
+
+.liquid-more-panel {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  left: 50%;
+  width: min(70rem, calc(100vw - 1.25rem));
+  overflow: hidden;
+  padding: clamp(0.65rem, 1.4vw, 1rem);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: clamp(1.5rem, 3vw, 2.5rem);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.025) 48%),
+    rgba(13, 11, 18, 0.88);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 24px 65px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(34px) saturate(185%);
+  -webkit-backdrop-filter: blur(34px) saturate(185%);
+  transform: translateX(-50%);
+  isolation: isolate;
+}
+
+.liquid-more-panel::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(194, 240, 54, 0.12), transparent 35%),
+    radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.13), transparent 42%);
+  content: "";
+}
+
+.liquid-more-glow {
+  position: absolute;
+  top: -4rem;
+  right: 10%;
+  width: 9rem;
+  height: 7rem;
+  border-radius: 50%;
+  background: #a855f7;
+  filter: blur(48px);
+  opacity: 0.13;
+  pointer-events: none;
+}
+
+.liquid-more-heading {
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.35rem 0.5rem 0.9rem;
+  color: #fff;
+}
+
+.liquid-more-heading span {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.liquid-more-heading small {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.62rem;
+  line-height: 1.4;
+}
+
+.liquid-more-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.9fr) minmax(15rem, 0.8fr);
+  gap: 0.75rem;
+}
+
+.liquid-more-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.liquid-more-feature {
+  position: relative;
+  display: block;
+  min-height: 18rem;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  text-align: left;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.13);
+  isolation: isolate;
+}
+
+.liquid-more-feature img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.03);
+  filter: saturate(0.82) contrast(1.06);
+  transition: transform 750ms var(--portfolio-ease), filter 500ms ease;
+}
+
+.liquid-more-feature:first-child img {
+  object-position: center 48%;
+}
+
+.liquid-more-feature-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(7, 6, 10, 0.04) 15%, rgba(7, 6, 10, 0.38) 50%, rgba(7, 6, 10, 0.96) 100%),
+    linear-gradient(135deg, rgba(168, 85, 247, 0.12), transparent 45%);
+  transition: background 400ms ease;
+}
+
+.liquid-more-feature-copy {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.liquid-more-feature-copy small {
+  color: #c2f036;
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.liquid-more-feature-copy strong {
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  letter-spacing: -0.04em;
+}
+
+.liquid-more-feature-copy > span {
+  max-width: 27ch;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.67rem;
+  line-height: 1.5;
+}
+
+.liquid-more-feature-arrow {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(10, 9, 14, 0.38);
+  color: #c2f036;
+  backdrop-filter: blur(12px);
+  transition: transform 350ms var(--portfolio-ease), background 350ms ease;
+}
+
+.liquid-more-feature:hover,
+.liquid-more-feature:focus-visible {
+  border-color: rgba(194, 240, 54, 0.34);
+  outline: none;
+}
+
+.liquid-more-feature:hover img,
+.liquid-more-feature:focus-visible img {
+  transform: scale(1.1);
+  filter: saturate(1.05) contrast(1.08);
+}
+
+.liquid-more-feature:hover .liquid-more-feature-arrow {
+  transform: translate(3px, -3px);
+  background: rgba(194, 240, 54, 0.12);
+}
+
+.liquid-more-feature-bucket img {
+  object-position: center 50%;
+  filter: saturate(0.86) contrast(1.08);
+}
+
+.liquid-more-shortcuts {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.liquid-more-shortcuts button {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 1.25rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.025)),
+    rgba(255, 255, 255, 0.025);
+  color: #fff;
+  text-align: left;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 280ms var(--portfolio-ease), border-color 280ms ease, background 280ms ease;
+}
+
+.liquid-more-shortcuts button:hover,
+.liquid-more-shortcuts button:focus-visible {
+  transform: translateX(-4px);
+  border-color: rgba(194, 240, 54, 0.32);
+  background:
+    linear-gradient(145deg, rgba(194, 240, 54, 0.09), rgba(168, 85, 247, 0.06)),
+    rgba(255, 255, 255, 0.04);
+  outline: none;
+}
+
+.liquid-more-shortcuts button > span:nth-child(2) {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.liquid-more-shortcuts strong {
+  font-size: 0.8rem;
+}
+
+.liquid-more-shortcuts button > span:first-child {
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border: 1px solid rgba(194, 240, 54, 0.2);
+  border-radius: 50%;
+  background: rgba(194, 240, 54, 0.08);
+  color: #c2f036;
+}
+
+.liquid-more-shortcuts small {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.58rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.liquid-more-shortcuts i {
+  color: #c2f036;
+  font-size: 1rem;
+  font-style: normal;
+  transition: transform 280ms var(--portfolio-ease);
+}
+
+.liquid-more-shortcuts button:hover i {
+  transform: translate(2px, -2px);
+}
+
 .liquid-nav-item:hover,
 .liquid-nav-item:focus-visible,
 .liquid-nav-item.is-active {
@@ -218,8 +497,37 @@
 
   .liquid-nav-item {
     padding: 0.55rem 0.18rem;
-    font-size: 0.53rem;
+    font-size: 0.49rem;
     letter-spacing: -0.025em;
+  }
+
+  .liquid-nav-more-trigger {
+    gap: 0.08rem;
+  }
+
+  .liquid-nav-more-trigger svg {
+    width: 9px;
+  }
+
+  .liquid-more-panel {
+    left: 50%;
+    width: 100%;
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+    border-radius: 1.3rem;
+  }
+
+  .liquid-more-layout,
+  .liquid-more-features {
+    grid-template-columns: 1fr;
+  }
+
+  .liquid-more-feature {
+    min-height: 13rem;
+  }
+
+  .liquid-more-shortcuts {
+    grid-template-rows: none;
   }
 
   .mode-switch {
