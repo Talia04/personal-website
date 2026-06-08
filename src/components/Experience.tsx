@@ -137,7 +137,7 @@ export function Experience() {
               <div>
                 <p className="text-sm font-bold text-white">Bethune-Cookman</p>
                 <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/35">
-                  February 2024–present
+                  February 2024–December 2025
                 </p>
               </div>
             </div>
