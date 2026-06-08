@@ -1,0 +1,444 @@
+.interests-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  overflow-y: auto;
+  padding: clamp(0.7rem, 2vw, 1.5rem);
+  background: rgba(4, 3, 7, 0.76);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+.interests-room {
+  position: relative;
+  width: min(92rem, 100%);
+  min-height: calc(100vh - clamp(1.4rem, 4vw, 3rem));
+  margin: 0 auto;
+  overflow: hidden;
+  padding: clamp(1.2rem, 3.5vw, 3.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: clamp(1.6rem, 4vw, 3.5rem);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), transparent 35%),
+    rgba(9, 8, 13, 0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 40px 100px rgba(0, 0, 0, 0.58);
+  color: #f8f7fa;
+  isolation: isolate;
+}
+
+.interests-room::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(194, 240, 54, 0.08), transparent 28%),
+    radial-gradient(circle at 92% 42%, rgba(168, 85, 247, 0.1), transparent 32%);
+  content: "";
+  pointer-events: none;
+}
+
+.interests-aurora {
+  position: absolute;
+  z-index: -1;
+  width: clamp(18rem, 40vw, 42rem);
+  height: clamp(18rem, 40vw, 42rem);
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.12;
+  pointer-events: none;
+  animation: interestsFloat 11s ease-in-out infinite alternate;
+}
+
+.interests-aurora-lime {
+  top: -20%;
+  left: -12%;
+  background: #c2f036;
+}
+
+.interests-aurora-purple {
+  right: -10%;
+  bottom: -22%;
+  background: #a855f7;
+  animation-delay: -5s;
+}
+
+.interests-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+}
+
+.interests-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 75rem;
+}
+
+.interests-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  color: #c2f036;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.interests-header h2 {
+  max-width: 14ch;
+  margin: 0;
+  font-size: clamp(2.65rem, 7vw, 7.2rem);
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+}
+
+.interests-header h2 em {
+  color: #b882f8;
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.interests-header p {
+  max-width: 39rem;
+  margin: clamp(1.4rem, 3vw, 2.4rem) 0 0;
+  color: rgba(248, 247, 250, 0.57);
+  font-size: clamp(0.9rem, 1.4vw, 1.08rem);
+  line-height: 1.7;
+}
+
+.interests-close {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(20px);
+  transition: transform 260ms ease, color 260ms ease, background 260ms ease;
+}
+
+.interests-close:hover {
+  transform: rotate(-2deg) scale(1.04);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.interests-marquee {
+  position: relative;
+  z-index: 2;
+  width: calc(100% + clamp(2.4rem, 7vw, 7rem));
+  margin: clamp(2rem, 5vw, 4.5rem) 0 clamp(1.2rem, 3vw, 2.2rem) calc(clamp(1.2rem, 3.5vw, 3.5rem) * -1);
+  overflow: hidden;
+  border-block: 1px solid rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.interests-marquee div {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.75rem 0;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.interests-marquee i {
+  width: 0.32rem;
+  height: 0.32rem;
+  border-radius: 50%;
+  background: #c2f036;
+  box-shadow: 0 0 12px rgba(194, 240, 54, 0.7);
+}
+
+.interests-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  max-width: 78rem;
+  margin: 0 auto;
+  grid-auto-flow: dense;
+  grid-auto-rows: 6rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(0.7rem, 1.5vw, 1.2rem);
+}
+
+.interests-journal-label {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  max-width: 78rem;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 auto 0.8rem;
+  padding-inline: 0.2rem;
+}
+
+.interests-journal-label span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.interests-journal-label small {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.55rem;
+}
+
+.interest-card {
+  position: relative;
+  display: flex;
+  min-height: 0;
+  grid-column: span 1;
+  grid-row: span 3;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: clamp(1.25rem, 2vw, 1.8rem);
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: clamp(1.2rem, 2.2vw, 2rem);
+  background:
+    rgba(255, 255, 255, 0.018);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  cursor: default;
+  transition: border-color 300ms ease;
+  isolation: isolate;
+}
+
+.interest-card-wide {
+  grid-column: span 2;
+}
+
+.interest-card-tall {
+  grid-row: span 4;
+}
+
+.interest-card > img {
+  position: absolute;
+  inset: -2%;
+  z-index: -3;
+  width: 104%;
+  height: 104%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.07) brightness(0.78);
+  transition: filter 450ms ease;
+}
+
+.interest-card-shade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, rgba(6, 5, 9, 0.03) 18%, rgba(6, 5, 9, 0.38) 52%, rgba(6, 5, 9, 0.98) 100%),
+    linear-gradient(135deg, rgba(168, 85, 247, 0.08), transparent 48%);
+  transition: background 400ms ease;
+}
+
+.interest-card::after {
+  position: absolute;
+  right: -20%;
+  bottom: -42%;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  content: "";
+  filter: blur(45px);
+  opacity: 0.08;
+  transition: opacity 300ms ease, transform 500ms ease;
+}
+
+.interest-card-lime::after {
+  background: #c2f036;
+}
+
+.interest-card-purple::after {
+  background: #a855f7;
+}
+
+.interest-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.interest-card:hover > img {
+  filter: saturate(0.94) contrast(1.08) brightness(0.84);
+}
+
+.interest-card:hover .interest-card-shade {
+  background:
+    linear-gradient(180deg, rgba(6, 5, 9, 0.02) 15%, rgba(6, 5, 9, 0.34) 52%, rgba(6, 5, 9, 0.98) 100%),
+    linear-gradient(135deg, rgba(194, 240, 54, 0.04), transparent 48%);
+}
+
+.interest-card:hover::after {
+  opacity: 0.12;
+  transform: translate(-8%, -7%) scale(1.06);
+}
+
+.interest-card-top {
+  position: absolute;
+  top: clamp(1rem, 2vw, 1.5rem);
+  right: clamp(1rem, 2vw, 1.5rem);
+  left: clamp(1rem, 2vw, 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.interest-icon {
+  display: grid;
+  width: 2.8rem;
+  height: 2.8rem;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.interest-card-lime .interest-icon {
+  color: #c2f036;
+}
+
+.interest-card-purple .interest-icon {
+  color: #c88bff;
+}
+
+.interest-number {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.interest-card h3 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  letter-spacing: -0.045em;
+}
+
+.interest-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.4rem;
+}
+
+.interest-tags span {
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.56rem;
+  font-weight: 700;
+}
+
+@keyframes interestsFloat {
+  to {
+    transform: translate(12%, 8%) scale(1.12);
+  }
+}
+
+@media (max-width: 900px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .interests-overlay {
+    padding: 0.35rem;
+  }
+
+  .interests-room {
+    min-height: calc(100vh - 0.7rem);
+    padding: 1.15rem;
+    border-radius: 1.5rem;
+  }
+
+  .interests-header {
+    gap: 1rem;
+  }
+
+  .interests-header h2 {
+    font-size: clamp(2.6rem, 15vw, 4.4rem);
+  }
+
+  .interests-header p {
+    font-size: 0.78rem;
+  }
+
+  .interests-close span {
+    display: none;
+  }
+
+  .interests-close {
+    padding: 0.7rem;
+  }
+
+  .interests-marquee {
+    width: calc(100% + 2.3rem);
+    margin-left: -1.15rem;
+  }
+
+  .interests-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 6.5rem;
+  }
+
+  .interests-journal-label small {
+    display: none;
+  }
+
+  .interest-card {
+    grid-column: span 1;
+    grid-row: span 3;
+  }
+
+  .interest-card-tall {
+    grid-row: span 4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interests-aurora {
+    animation: none;
+  }
+
+  .interest-card > img {
+    animation: none;
+  }
+}
