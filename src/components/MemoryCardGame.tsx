@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Brain, RefreshCw, Trophy, Timer, Star, Zap } from "lucide-react";
+import { Brain, RefreshCw, Trophy, Timer, Grid2X2, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 
 // Tech icons/emojis for cards
@@ -167,7 +167,7 @@ export function MemoryCardGame() {
         {[
           { icon: Timer, label: "Time", value: formatTime(timer), color: "#00d4ff" },
           { icon: Zap, label: "Moves", value: moves, color: "#ff6b6b" },
-          { icon: Star, label: "Pairs", value: `${matchedPairs}/${CARD_ICONS.length}`, color: "#c084fc" },
+          { icon: Grid2X2, label: "Pairs", value: `${matchedPairs}/${CARD_ICONS.length}`, color: "#c084fc" },
           { icon: Trophy, label: "Best", value: bestMoves ? `${bestMoves}m` : "-", color: "#a8d500" },
         ].map((stat) => (
           <div

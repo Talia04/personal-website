@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Sparkles, Flame, Copy, RefreshCw, Loader2, Check } from "lucide-react";
+import { MessageCircle, Flame, Copy, RefreshCw, Loader2, Check } from "lucide-react";
 import { Slider } from "./ui/slider";
 
 type Mode = "rizz" | "roast";
@@ -149,7 +149,7 @@ Generate a HIGHLY PERSONALIZED roast for ${name} using everything you know about
       const fallbackTemplates = mode === "rizz"
         ? [
           `Hey ${name}, are you a perfectly optimized algorithm? Because you're running through my mind at O(1) complexity. ${intensity[0] > 7 ? "🔥 Let's merge our branches and create something beautiful." : "💫"}`,
-          `${name}, if you were a framework, you'd be the one everyone wants to learn but nobody can truly master. ${intensity[0] > 6 ? "Lucky for you, I'm willing to read all the documentation. ✨" : "💙"}`,
+          `${name}, if you were a framework, you'd be the one everyone wants to learn but nobody can truly master. ${intensity[0] > 6 ? "Lucky for you, I'm willing to read all the documentation." : "💙"}`,
           `I'd refactor my entire codebase for you, ${name}. ${intensity[0] > 7 ? "And trust me, that's saying something because I NEVER refactor. 🚀" : "That's commitment right there. 💖"}`,
         ]
         : [
@@ -190,7 +190,7 @@ Generate a HIGHLY PERSONALIZED roast for ${name} using everything you know about
               {mode === "rizz" && (
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#c084fc]" />
               )}
-              <Sparkles className={`mx-auto mb-2 ${mode === "rizz" ? 'text-[#c084fc]' : 'text-white/40'}`} size={24} />
+              <MessageCircle className={`mx-auto mb-2 ${mode === "rizz" ? 'text-[#c084fc]' : 'text-white/40'}`} size={24} />
               <span className={`block text-sm font-medium ${mode === "rizz" ? 'text-[#c084fc]' : 'text-white/60'}`}>
                 Rizz Mode
               </span>
@@ -269,7 +269,7 @@ Generate a HIGHLY PERSONALIZED roast for ${name} using everything you know about
               </>
             ) : (
               <>
-                {mode === "rizz" ? <Sparkles size={18} /> : <Flame size={18} />}
+                {mode === "rizz" ? <MessageCircle size={18} /> : <Flame size={18} />}
                 Generate {mode === "rizz" ? "Rizz" : "Roast"}
               </>
             )}
@@ -371,10 +371,10 @@ Generate a HIGHLY PERSONALIZED roast for ${name} using everything you know about
                   transition={{ duration: 3, repeat: Infinity }}
                   className={mode === "rizz" ? "text-[#c084fc]/30" : "text-[#ff6b6b]/30"}
                 >
-                  {mode === "rizz" ? <Sparkles size={48} /> : <Flame size={48} />}
+                  {mode === "rizz" ? <MessageCircle size={48} /> : <Flame size={48} />}
                 </motion.div>
                 <p className="text-white/30 text-sm">
-                  Enter a name and generate {mode === "rizz" ? "personalized rizz ✨" : "a custom roast 🔥"}
+                  Enter a name and generate {mode === "rizz" ? "personalized rizz" : "a custom roast 🔥"}
                 </p>
               </motion.div>
             )}

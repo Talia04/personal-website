@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { Keyboard, Brain, Bug, Sparkles } from "lucide-react";
+import { Keyboard, Brain, Bug, MessageCircle } from "lucide-react";
 import { BugSmasher } from "./BugSmasher";
 import { RizzRoastGenerator } from "./RizzRoastGenerator";
 import { TypingSpeedTest } from "./TypingSpeedTest";
@@ -11,7 +11,7 @@ const tabs = [
   { id: "typing", label: "Typing Test", icon: Keyboard, color: "#a8d500" },
   { id: "memory", label: "Memory Game", icon: Brain, color: "#00d4ff" },
   { id: "bugsmasher", label: "Bug Smasher", icon: Bug, color: "#ff6b6b" },
-  { id: "rizzroast", label: "Rizz or Roast", icon: Sparkles, color: "#c084fc" },
+  { id: "rizzroast", label: "Rizz or Roast", icon: MessageCircle, color: "#c084fc" },
 ];
 
 export function Games() {
