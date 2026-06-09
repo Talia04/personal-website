@@ -6,7 +6,7 @@ import "./Navigation.css";
 
 const navItems: Record<PortfolioPath, { label: string; href: string }[]> = {
   tech: [
-    { label: "Profile", href: "#about" },
+    { label: "About", href: "#about" },
     { label: "Education", href: "#coursework" },
     { label: "Work", href: "#projects" },
     { label: "Expertise", href: "#skills" },
