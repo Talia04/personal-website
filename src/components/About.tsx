@@ -1,113 +1,160 @@
 import { motion, useInView } from "motion/react";
-import { ArrowDownRight, Blocks, BrainCircuit, UsersRound } from "lucide-react";
-import { useRef } from "react";
-import bcuLogo from "../assets/bcu-logo.png";
+import { ArrowDownRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import graduationPhoto from "../assets/about-graduation.jpg";
+import metaPhoto from "../assets/about-meta.jpg";
+import universalPhoto from "../assets/about-universal.jpg";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import "./About.css";
 
-const strengths = [
+const moments = [
   {
-    icon: Blocks,
-    title: "Product engineering",
-    description:
-      "I move across frontend, mobile, backend, and infrastructure to ship complete user-facing experiences.",
+    src: graduationPhoto,
+    alt: "Tanya Chisepo celebrating her college graduation",
+    caption: "Recent summa cum laude computer science graduate",
+    position: "center center",
   },
   {
-    icon: BrainCircuit,
-    title: "Systems thinking",
-    description:
-      "I care about the architecture behind the interface: data flow, maintainability, testing, and operational details.",
+    src: metaPhoto,
+    alt: "Tanya Chisepo at Meta Hacker Way",
+    caption: "Three-time software engineer intern at Meta",
+    position: "52% 62%",
   },
   {
-    icon: UsersRound,
-    title: "Technical leadership",
-    description:
-      "Teaching and mentoring make me a clearer collaborator. I explain complex ideas and help teams move with context.",
+    src: universalPhoto,
+    alt: "Tanya Chisepo visiting Universal Studios",
+    caption: "I love traveling and trying new experiences",
+    position: "center center",
   },
-];
-
-const stats = [
-  { value: "3×", label: "Meta intern" },
-  { value: "10+", label: "Projects built" },
-  { value: "15+", label: "Students mentored" },
 ];
 
 export function About() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.18 });
+  const [activeMoment, setActiveMoment] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveMoment((current) => (current + 1) % moments.length);
+    }, 5000);
+
+    return () => window.clearInterval(timer);
+  }, [activeMoment]);
+
+  const momentPosition = (index: number) => {
+    const offset = (index - activeMoment + moments.length) % moments.length;
+    if (offset === 0) return "is-main";
+    if (offset === 1) return "is-right";
+    return "is-left";
+  };
 
   return (
     <section id="about" ref={ref} className="tech-profile">
+      <span className="tech-profile-glow" aria-hidden="true" />
       <div className="tech-profile-inner">
-        <div className="tech-profile-intro">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7 }}
-          >
-            <p className="editorial-eyebrow">Profile / How I work</p>
-            <h2 className="tech-profile-title">
-              Engineering with range, <span>clarity,</span> and follow-through.
-            </h2>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.65, delay: 0.15 }}
-            className="tech-profile-copy"
-          >
-            My best work sits where technical depth meets practical usefulness.
-            I enjoy owning a problem end to end, understanding the system around
-            it, and turning ambiguity into something people can use.
-          </motion.p>
-        </div>
+        <motion.div
+          className="tech-profile-copy-column"
+          initial={{ opacity: 0, y: 28 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="editorial-eyebrow">About</p>
+          <h2 className="tech-profile-title">
+            I&apos;m Tanya, a product-focused <span>engineer.</span>
+          </h2>
 
-        <div className="tech-profile-grid">
-          {strengths.map((strength, index) => {
-            const Icon = strength.icon;
-            return (
-              <motion.article
-                key={strength.title}
-                initial={{ opacity: 0, y: 25 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 + index * 0.09 }}
-                className="tech-profile-card"
-              >
-                <div className="tech-profile-icon">
-                  <Icon size={18} />
-                </div>
-                <h3>{strength.title}</h3>
-                <p>{strength.description}</p>
-              </motion.article>
-            );
-          })}
-        </div>
-
-        <div className="tech-profile-footer">
-          <div className="tech-profile-stat-row">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p className="tech-profile-stat-value">{stat.value}</p>
-                <p className="tech-profile-stat-label">{stat.label}</p>
-              </div>
-            ))}
+          <div className="tech-profile-story">
+            <p>
+              Ever since I discovered technology, I have loved using it to solve
+              problems I care about. I build with a user-first mindset, combining
+              empathy and engineering to create products that feel thoughtful,
+              useful, and worth returning to.
+            </p>
+            <p>
+              I am always turning over new ideas. Not every idea becomes a
+              product, but that curiosity keeps me asking better questions,
+              exploring possibilities, and finding practical ways to make an
+              impact.
+            </p>
+            <p>
+              Across three Meta internships on different teams, I learned to
+              navigate complex systems, ramp up quickly, and deliver with
+              context. As a recent summa cum laude computer science graduate, I
+              bring that range into every end-to-end product I build.
+            </p>
           </div>
 
-          <div className="tech-profile-education">
-            <div className="tech-profile-education-logo">
-              <img src={bcuLogo} alt="Bethune-Cookman University" />
-            </div>
-            <div className="tech-profile-education-copy">
-              <p className="text-sm font-semibold text-white">Bethune-Cookman University</p>
-              <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-white/35">
-                B.S. Computer Science / May 2026
-              </p>
-              <a className="tech-profile-course-link" href="#coursework">
-                Explore coursework
-                <ArrowDownRight size={13} />
+          <div className="tech-profile-footer">
+            <div className="tech-profile-socials" aria-label="Tanya's professional profiles">
+              <a
+                className="tech-profile-social tech-profile-social-linkedin"
+                href="https://www.linkedin.com/in/tanyaradzwa-chisepo/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open Tanya Chisepo's LinkedIn profile"
+              >
+                <FaLinkedinIn aria-hidden="true" />
+              </a>
+              <a
+                className="tech-profile-social tech-profile-social-github"
+                href="https://github.com/Talia04"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open Tanya Chisepo's GitHub profile"
+              >
+                <FaGithub aria-hidden="true" />
               </a>
             </div>
+
+            <a className="tech-profile-course-link" href="#coursework">
+              Explore my foundation
+              <ArrowDownRight size={13} />
+            </a>
           </div>
-        </div>
+        </motion.div>
+
+        <motion.div
+          className="tech-profile-visual"
+          initial={{ opacity: 0, x: 35, scale: 0.97 }}
+          animate={isInView ? { opacity: 1, x: 0, scale: 1 } : {}}
+          transition={{ duration: 0.85, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {moments.map((moment, index) => (
+            <button
+              key={moment.caption}
+              type="button"
+              className={`tech-profile-photo ${momentPosition(index)}`}
+              onClick={() => setActiveMoment(index)}
+              aria-label={`Show: ${moment.caption}`}
+              aria-current={activeMoment === index}
+            >
+              <img
+                src={moment.src}
+                alt={activeMoment === index ? moment.alt : ""}
+                style={{ objectPosition: moment.position }}
+              />
+            </button>
+          ))}
+          <div className="tech-profile-moment-copy" aria-live="polite">
+            <span>{String(activeMoment + 1).padStart(2, "0")} / 03</span>
+            <p>{moments[activeMoment].caption}</p>
+          </div>
+          <div className="tech-profile-moment-dots" aria-label="Choose a moment">
+            {moments.map((moment, index) => (
+              <button
+                key={moment.caption}
+                type="button"
+                className={activeMoment === index ? "is-active" : ""}
+                onClick={() => setActiveMoment(index)}
+                aria-label={`Show ${moment.caption}`}
+              />
+            ))}
+          </div>
+          <span className="tech-profile-visual-orbit" aria-hidden="true" />
+          <span className="tech-profile-visual-note" aria-hidden="true">
+            Empathy → clarity → useful software
+          </span>
+        </motion.div>
       </div>
     </section>
   );

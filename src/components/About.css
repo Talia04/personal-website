@@ -1,153 +1,172 @@
 .tech-profile {
   position: relative;
   overflow: hidden;
-  padding: 7rem 1.5rem;
+  padding: 5.5rem 1.5rem;
+  border-top: 1px solid var(--portfolio-border);
   background:
-    radial-gradient(circle at 88% 42%, rgba(168, 213, 0, 0.08), transparent 24rem),
-    var(--portfolio-bg);
+    linear-gradient(135deg, rgba(255, 255, 255, 0.018), transparent 34%),
+    radial-gradient(circle at 78% 46%, rgba(166, 105, 220, 0.12), transparent 27rem),
+    var(--portfolio-bg-deep);
+}
+
+.tech-profile::before,
+.tech-profile::after {
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  width: 2.7rem;
+  opacity: 0.22;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.13) 0,
+    rgba(255, 255, 255, 0.13) 1px,
+    transparent 1px,
+    transparent 5px
+  );
+  content: "";
+  pointer-events: none;
+}
+
+.tech-profile::before {
+  left: 0;
+}
+
+.tech-profile::after {
+  right: 0;
+}
+
+.tech-profile-glow {
+  position: absolute;
+  right: 15%;
+  bottom: 6%;
+  width: 20rem;
+  height: 20rem;
+  border-radius: 50%;
+  background: rgba(168, 213, 0, 0.055);
+  filter: blur(80px);
+  pointer-events: none;
 }
 
 .tech-profile-inner {
   position: relative;
   z-index: 2;
+  display: grid;
   max-width: 80rem;
   margin: 0 auto;
+  gap: 4rem;
 }
 
-.tech-profile-intro {
-  display: grid;
-  gap: 1.5rem;
+.tech-profile-copy-column {
+  max-width: 44rem;
 }
 
 .tech-profile-title {
-  max-width: 48rem;
-  margin-top: 1rem;
+  max-width: 43rem;
+  margin-top: 1.2rem;
   color: var(--portfolio-text);
-  font-size: clamp(2.7rem, 6vw, 5.2rem);
-  font-weight: 900;
-  letter-spacing: -0.085em;
-  line-height: 0.9;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.45rem, 5.2vw, 4.8rem);
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  line-height: 0.94;
+}
+
+.portfolio-shell-tech .tech-profile .tech-profile-title {
+  font-weight: 400;
+  letter-spacing: -0.075em;
 }
 
 .tech-profile-title span {
-  color: var(--portfolio-accent);
+  display: inline-block;
+  font-style: italic;
+  font-weight: 400;
 }
 
-.tech-profile-copy {
-  max-width: 34rem;
-  color: var(--portfolio-muted);
-  font-size: 0.95rem;
-  line-height: 1.75;
-}
-
-.tech-profile-grid {
+.tech-profile-story {
   display: grid;
-  gap: 0.8rem;
-  margin-top: 2.7rem;
+  max-width: 40rem;
+  gap: 0.9rem;
+  margin-top: 2rem;
 }
 
-.tech-profile-card {
-  padding: 1.2rem;
-  border: 1px solid var(--portfolio-border);
-  border-radius: var(--portfolio-radius-sm);
-  background: var(--portfolio-panel);
-  transition: transform 320ms var(--portfolio-ease), border-color 320ms ease, background 320ms ease;
+.tech-profile-story p {
+  color: rgba(243, 239, 253, 0.58);
+  font-size: clamp(0.9rem, 1.4vw, 1.02rem);
+  line-height: 1.85;
 }
 
-.tech-profile-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(168, 213, 0, 0.35);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.tech-profile-icon {
-  display: flex;
-  width: 2.5rem;
-  height: 2.5rem;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(168, 213, 0, 0.2);
-  border-radius: 0.8rem;
-  background: rgba(168, 213, 0, 0.07);
-  color: var(--portfolio-accent);
-}
-
-.tech-profile-card h3 {
-  margin-top: 1.5rem;
-  color: var(--portfolio-text);
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
-.tech-profile-card p {
-  margin-top: 0.6rem;
-  color: var(--portfolio-muted);
-  font-size: 0.79rem;
-  line-height: 1.7;
+.tech-profile-story p:first-child {
+  color: rgba(243, 239, 253, 0.78);
 }
 
 .tech-profile-footer {
   display: grid;
-  gap: 1rem;
-  margin-top: 3rem;
-  padding-top: 1.3rem;
+  gap: 1.2rem;
+  margin-top: 1.6rem;
+  padding-top: 1.1rem;
   border-top: 1px solid var(--portfolio-border);
 }
 
-.tech-profile-stat-row {
+.tech-profile-socials {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.4rem;
+  gap: 0.75rem;
 }
 
-.tech-profile-stat-value {
-  color: var(--portfolio-text);
-  font-size: 1.7rem;
-  font-weight: 900;
-  letter-spacing: -0.06em;
-}
-
-.tech-profile-stat-label {
-  color: var(--portfolio-dim);
-  font-size: 0.57rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-.tech-profile-education {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.tech-profile-education-logo {
-  display: flex;
-  width: 2.9rem;
-  height: 2.9rem;
+.tech-profile-social {
+  position: relative;
+  display: inline-flex;
+  width: 3.1rem;
+  height: 3.1rem;
   align-items: center;
   justify-content: center;
-  padding: 0.4rem;
-  border: 1px solid var(--portfolio-border);
-  border-radius: 0.75rem;
-  background: var(--portfolio-panel);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 1rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.02));
+  color: #fff;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.1), 0 14px 28px rgba(0, 0, 0, 0.2);
+  transition: transform 260ms var(--portfolio-ease), border-color 260ms ease, box-shadow 260ms ease;
 }
 
-.tech-profile-education-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.tech-profile-social::before {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.16), transparent 50%);
+  content: "";
+  opacity: 0.35;
 }
 
-.tech-profile-education-copy {
-  min-width: 0;
+.tech-profile-social svg {
+  position: relative;
+  z-index: 1;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.tech-profile-social:hover,
+.tech-profile-social:focus-visible {
+  transform: translateY(-4px);
+  outline: none;
+}
+
+.tech-profile-social-linkedin:hover,
+.tech-profile-social-linkedin:focus-visible {
+  border-color: rgba(229, 137, 255, 0.72);
+  box-shadow: 0 0 0 3px rgba(229, 137, 255, 0.1), 0 16px 34px rgba(166, 105, 220, 0.2);
+}
+
+.tech-profile-social-github:hover,
+.tech-profile-social-github:focus-visible {
+  border-color: rgba(168, 213, 0, 0.72);
+  box-shadow: 0 0 0 3px rgba(168, 213, 0, 0.1), 0 16px 34px rgba(168, 213, 0, 0.16);
 }
 
 .tech-profile-course-link {
   display: inline-flex;
+  width: fit-content;
   align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.55rem;
+  gap: 0.4rem;
   color: var(--portfolio-accent);
   font-size: 0.58rem;
   font-weight: 700;
@@ -157,37 +176,241 @@
 }
 
 .tech-profile-course-link:hover {
-  gap: 0.55rem;
+  gap: 0.65rem;
   color: var(--portfolio-text);
+}
+
+.tech-profile-visual {
+  position: relative;
+  width: min(100%, 27rem);
+  min-height: 26rem;
+  margin-inline: auto;
+  isolation: isolate;
+}
+
+.tech-profile-photo {
+  position: absolute;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.5rem;
+  background: #17121d;
+  box-shadow: 0 28px 65px rgba(0, 0, 0, 0.38);
+  cursor: pointer;
+  transition:
+    inset 850ms var(--portfolio-ease),
+    width 850ms var(--portfolio-ease),
+    transform 850ms var(--portfolio-ease),
+    filter 650ms ease,
+    opacity 650ms ease,
+    border-color 300ms ease;
+}
+
+.tech-profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 800ms var(--portfolio-ease), filter 500ms ease;
+}
+
+.tech-profile-photo.is-main {
+  inset: 2rem 17% 0.75rem;
+  z-index: 3;
+  width: auto;
+  opacity: 1;
+  filter: none;
+  transform: rotate(0deg);
+}
+
+.tech-profile-photo.is-main img {
+  object-position: center;
+}
+
+.tech-profile-photo.is-main:hover img {
+  filter: saturate(1.06);
+  transform: scale(1.025);
+}
+
+.tech-profile-photo.is-left {
+  top: 4.6rem;
+  right: auto;
+  bottom: 2rem;
+  left: 4%;
+  z-index: 1;
+  width: 27%;
+  opacity: 0.72;
+  filter: grayscale(1) brightness(0.54);
+  transform: rotate(-5deg);
+}
+
+.tech-profile-photo.is-left img {
+  object-position: center;
+}
+
+.tech-profile-photo.is-right {
+  top: 4.8rem;
+  right: 4%;
+  bottom: 2.2rem;
+  left: auto;
+  z-index: 1;
+  width: 26%;
+  opacity: 0.68;
+  filter: grayscale(1) brightness(0.45);
+  transform: rotate(6deg);
+}
+
+.tech-profile-photo.is-right img {
+  object-position: center;
+}
+
+.tech-profile-moment-copy,
+.tech-profile-visual-note {
+  position: absolute;
+  z-index: 5;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  background: rgba(10, 8, 16, 0.74);
+  color: rgba(243, 239, 253, 0.7);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.52rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+}
+
+.tech-profile-moment-copy {
+  right: 20%;
+  bottom: 1.4rem;
+  left: 20%;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.9rem;
+  text-align: left;
+}
+
+.tech-profile-moment-copy span {
+  color: var(--portfolio-accent);
+}
+
+.tech-profile-moment-copy p {
+  color: rgba(243, 239, 253, 0.78);
+  font-family: inherit;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+}
+
+.tech-profile-moment-dots {
+  position: absolute;
+  bottom: -1.7rem;
+  left: 50%;
+  z-index: 6;
+  display: flex;
+  gap: 0.45rem;
+  transform: translateX(-50%);
+}
+
+.tech-profile-moment-dots button {
+  width: 1.6rem;
+  height: 0.18rem;
+  border-radius: 999px;
+  background: rgba(243, 239, 253, 0.18);
+  transition: width 280ms ease, background 280ms ease;
+}
+
+.tech-profile-moment-dots button.is-active {
+  width: 2.8rem;
+  background: var(--portfolio-accent);
+}
+
+.tech-profile-visual-note {
+  top: 0.25rem;
+  left: 50%;
+  padding: 0.55rem 0.75rem;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+.tech-profile-visual-orbit {
+  position: absolute;
+  inset: 0.5rem 12% 1rem;
+  z-index: -1;
+  border: 1px solid rgba(229, 137, 255, 0.13);
+  border-radius: 48%;
+  transform: rotate(-8deg);
 }
 
 @media (min-width: 768px) {
   .tech-profile {
-    padding: 8rem 4rem;
-  }
-
-  .tech-profile-intro {
-    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
-    align-items: end;
-  }
-
-  .tech-profile-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .tech-profile-card {
-    min-height: 15rem;
-    padding: 1.5rem;
+    padding: 6rem 4rem;
   }
 
   .tech-profile-footer {
     grid-template-columns: minmax(0, 1fr) auto;
-    align-items: center;
+    align-items: end;
+  }
+
+  .tech-profile-visual {
+    min-height: 30rem;
   }
 }
 
 @media (min-width: 1024px) {
   .tech-profile {
-    padding: 9rem 5rem;
+    min-height: 100svh;
+    padding: 5.5rem 5rem;
+  }
+
+  .tech-profile-inner {
+    grid-template-columns: minmax(0, 1.08fr) minmax(25rem, 0.92fr);
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .tech-profile-visual {
+    min-height: 32rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .tech-profile::before,
+  .tech-profile::after {
+    display: none;
+  }
+
+  .tech-profile {
+    padding-inline: 1rem;
+  }
+
+  .tech-profile-story {
+    margin-top: 2rem;
+  }
+
+  .tech-profile-visual {
+    width: min(100%, 21rem);
+    min-height: 21rem;
+  }
+
+  .tech-profile-photo.is-main {
+    inset: 1.8rem 15% 0.6rem;
+  }
+
+  .tech-profile-photo.is-left,
+  .tech-profile-photo.is-right {
+    top: 4rem;
+    bottom: 1.6rem;
+  }
+
+  .tech-profile-visual-note {
+    font-size: 0.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-profile-photo,
+  .tech-profile-photo img {
+    transition: none;
   }
 }
