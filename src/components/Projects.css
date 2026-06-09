@@ -224,10 +224,10 @@
   position: relative;
   display: flex;
   min-height: 30rem;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: center;
   overflow: hidden;
-  padding: 8rem 1rem 0;
+  padding: 7rem 1rem 0;
   border-top: 1px solid var(--portfolio-border);
   background:
     radial-gradient(circle at 82% 22%, rgba(229, 137, 255, 0.2), transparent 18rem),
@@ -285,19 +285,55 @@
   z-index: 2;
   width: min(100%, 42rem);
   height: 24rem;
+  transform: translateY(-1.75rem);
   outline: none;
   perspective: 1200px;
 }
 
 .tech-screen-slot {
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 50%;
   width: 11rem;
   height: 24rem;
   transform-origin: center bottom;
   transition: transform 650ms var(--portfolio-ease);
   will-change: transform;
+}
+
+.tech-screen-platform {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 1;
+  min-height: 7rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.055), transparent 54%),
+    rgba(11, 9, 17, 0.94);
+  box-shadow:
+    0 24px 54px rgba(0, 0, 0, 0.34),
+    inset 0 1px rgba(255, 255, 255, 0.07);
+}
+
+.tech-screen-platform span {
+  color: var(--portfolio-accent);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.tech-screen-platform p {
+  margin-top: 0.3rem;
+  color: rgba(243, 239, 253, 0.42);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .tech-screen {
@@ -1013,7 +1049,7 @@
     min-height: 100%;
     border-top: 0;
     border-left: 1px solid var(--portfolio-border);
-    padding-top: 7rem;
+    padding-top: 6rem;
   }
 
   .tech-screen-stage-copy {
@@ -1022,10 +1058,19 @@
 
   .tech-screen-stack {
     height: 25rem;
+    transform: translateY(-1.25rem);
   }
 
   .tech-screen-slot {
+    top: 38%;
     height: 22rem;
+  }
+
+  .tech-screen-platform {
+    right: 1.5rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    min-height: 8rem;
   }
 
   .tech-index-heading {
