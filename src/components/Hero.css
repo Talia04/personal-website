@@ -2,7 +2,7 @@
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  padding: 9rem 1.5rem 4rem;
+  padding: 7rem 1.5rem 4rem;
   background:
     radial-gradient(circle at 12% 16%, rgba(168, 213, 0, 0.12), transparent 24rem),
     radial-gradient(circle at 88% 24%, rgba(110, 231, 183, 0.09), transparent 25rem),
@@ -253,18 +253,20 @@
   .tech-hero {
     display: flex;
     align-items: center;
-    padding: 10rem 5rem 5rem;
+    padding: 7rem 5rem 5rem;
   }
 
   .tech-hero-inner {
     width: 100%;
     grid-template-columns: minmax(0, 1.28fr) minmax(22rem, 0.72fr);
-    align-items: center;
+    align-items: start;
     gap: 2rem;
   }
 
   .tech-hero-visual {
+    align-self: start;
     min-height: 38rem;
+    margin-top: -4rem;
   }
 
   .interactive-avatar {
