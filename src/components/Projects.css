@@ -2,7 +2,7 @@
   position: relative;
   overflow-x: clip;
   overflow-y: visible;
-  padding: 8rem 1.5rem;
+  padding: 5.5rem 1.5rem;
   background:
     radial-gradient(circle at 7% 18%, rgba(168, 213, 0, 0.1), transparent 24rem),
     var(--portfolio-bg);
@@ -13,6 +13,19 @@
   z-index: 2;
   max-width: 80rem;
   margin: 0 auto;
+}
+
+.tech-work-header {
+  margin-bottom: 2.5rem;
+}
+
+.tech-work-eyebrow {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: var(--portfolio-accent);
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
 }
 
 .tech-case {
@@ -222,7 +235,8 @@
 }
 
 .tech-screen-stage:has(.tech-screen-stack:hover),
-.tech-screen-stage:has(.tech-screen-stack:focus-visible) {
+.tech-screen-stage:has(.tech-screen-stack:focus-visible),
+.tech-screen-stage:has(.tech-screen-stack.is-scroll-spread) {
   z-index: 10;
   overflow: visible;
 }
@@ -313,23 +327,27 @@
 }
 
 .tech-screen-stack:hover .tech-screen,
-.tech-screen-stack:focus-visible .tech-screen {
+.tech-screen-stack:focus-visible .tech-screen,
+.tech-screen-stack.is-scroll-spread .tech-screen {
   border-color: rgba(168, 213, 0, 0.38);
   box-shadow: 0 30px 68px rgba(0, 0, 0, 0.42);
 }
 
 .tech-screen-stack:hover .tech-screen-slot:nth-child(1),
-.tech-screen-stack:focus-visible .tech-screen-slot:nth-child(1) {
+.tech-screen-stack:focus-visible .tech-screen-slot:nth-child(1),
+.tech-screen-stack.is-scroll-spread .tech-screen-slot:nth-child(1) {
   transform: translate(-126%, -28%) rotate(-1deg) scale(0.9);
 }
 
 .tech-screen-stack:hover .tech-screen-slot:nth-child(2),
-.tech-screen-stack:focus-visible .tech-screen-slot:nth-child(2) {
+.tech-screen-stack:focus-visible .tech-screen-slot:nth-child(2),
+.tech-screen-stack.is-scroll-spread .tech-screen-slot:nth-child(2) {
   transform: translate(-50%, -36%) rotate(0deg) scale(0.96);
 }
 
 .tech-screen-stack:hover .tech-screen-slot:nth-child(3),
-.tech-screen-stack:focus-visible .tech-screen-slot:nth-child(3) {
+.tech-screen-stack:focus-visible .tech-screen-slot:nth-child(3),
+.tech-screen-stack.is-scroll-spread .tech-screen-slot:nth-child(3) {
   transform: translate(26%, -28%) rotate(1deg) scale(0.9);
 }
 
@@ -874,6 +892,10 @@
 }
 
 @media (min-width: 640px) {
+  .tech-projects-title {
+    white-space: nowrap;
+  }
+
   .tech-case-copy {
     padding: 2.25rem;
   }
@@ -902,7 +924,15 @@
 
 @media (min-width: 1024px) {
   .tech-work {
-    padding: 9rem 5rem;
+    padding: 6rem 5rem;
+  }
+
+  .tech-work-header {
+    margin-bottom: 2rem;
+  }
+
+  .tech-work-header > div {
+    gap: 2rem;
   }
 
   .tech-case-layout {
@@ -910,7 +940,7 @@
   }
 
   .tech-case-copy {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   .tech-case-title {
@@ -919,9 +949,9 @@
   }
 
   .tech-case-description {
-    margin-top: 1rem;
+    margin-top: 0.8rem;
     font-size: 0.82rem;
-    line-height: 1.6;
+    line-height: 1.55;
   }
 
   .tech-case-proof {
@@ -939,8 +969,8 @@
 
   .tech-system,
   .tech-case-stack {
-    margin-top: 1.1rem;
-    padding-top: 0.85rem;
+    margin-top: 0.85rem;
+    padding-top: 0.7rem;
   }
 
   .tech-system-flow {
@@ -971,7 +1001,7 @@
 
   .tech-case-actions {
     gap: 0.5rem;
-    margin-top: 1.2rem;
+    margin-top: 0.9rem;
   }
 
   .tech-case-link {
@@ -983,7 +1013,19 @@
     min-height: 100%;
     border-top: 0;
     border-left: 1px solid var(--portfolio-border);
-    padding-top: 8.5rem;
+    padding-top: 7rem;
+  }
+
+  .tech-screen-stage-copy {
+    top: 1.5rem;
+  }
+
+  .tech-screen-stack {
+    height: 25rem;
+  }
+
+  .tech-screen-slot {
+    height: 22rem;
   }
 
   .tech-index-heading {

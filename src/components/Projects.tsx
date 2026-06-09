@@ -40,9 +40,11 @@ const basafyStackGroups = [
 
 export function Projects() {
   const ref = useRef<HTMLElement>(null);
+  const screenStageRef = useRef<HTMLDivElement>(null);
   const showcaseRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const isScreenStageInView = useInView(screenStageRef, { amount: 0.55 });
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -241,12 +243,12 @@ export function Projects() {
 
       <div className="tech-work-inner">
         {/* Section header */}
-        <div className="mb-20">
+        <div className="tech-work-header">
           <motion.span
             initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-[10px] uppercase tracking-[0.3em] text-[#a8d500] block mb-6"
+            className="tech-work-eyebrow"
           >
             Work — Projects
           </motion.span>
@@ -259,9 +261,7 @@ export function Projects() {
               className="tech-projects-title text-white font-black leading-[0.95] tracking-tight"
               style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
             >
-              Selected
-              <br />
-              <span className="text-[#a8d500]">projects.</span>
+              Selected <span className="text-[#a8d500]">projects.</span>
             </motion.h2>
 
             <motion.p
@@ -359,12 +359,16 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div className="tech-screen-stage">
+                <div ref={screenStageRef} className="tech-screen-stage">
                   <div className="tech-screen-stage-copy">
                     <p>Mobile companion for turning scattered job-search activity into an organized pipeline.</p>
-                    <span>Hover to spread the screens</span>
+                    <span>Scroll or hover to spread</span>
                   </div>
-                  <div className="tech-screen-stack" tabIndex={0} aria-label="Basafy product screens">
+                  <div
+                    className={`tech-screen-stack${isScreenStageInView ? " is-scroll-spread" : ""}`}
+                    tabIndex={0}
+                    aria-label="Basafy product screens"
+                  >
                     {[
                       "/basafy/16-onboarding-gmail.png",
                       "/basafy/01-home-dashboard.png",
