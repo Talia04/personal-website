@@ -1,0 +1,156 @@
+.interactive-avatar {
+  position: relative; z-index: 1;
+  width: min(88vw, 25rem); aspect-ratio: 0.84;
+  isolation: isolate;
+  filter: drop-shadow(0 34px 45px rgba(0,0,0,.34));
+  transform: perspective(900px) rotateX(var(--avatar-tilt-x,0deg)) rotateY(var(--avatar-tilt-y,0deg));
+  transition: filter 300ms ease; will-change: transform;
+}
+.interactive-avatar::before {
+  position: absolute; inset: 7% 4% 2%; z-index: -2;
+  border-radius: 45% 45% 8% 8%;
+  background: radial-gradient(circle at center, rgba(166,105,220,.16), transparent 54%);
+  content: ""; filter: blur(28px);
+}
+.interactive-avatar-glow {
+  position: absolute; inset: 13% 15% 11%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(circle, rgba(166,105,220,.16), transparent 68%);
+  filter: blur(28px);
+  transform: translate(var(--avatar-glow-x,0), var(--avatar-glow-y,0));
+}
+.interactive-avatar svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.avatar-frame { fill: none; stroke: url("#avatar-frame"); stroke-width: 2; }
+.avatar-backdrop { fill: #6f4495; fill-opacity: .22; }
+.avatar-orb { opacity: .16; filter: url("#avatar-soft-glow"); }
+.avatar-orb-one { fill: #a66adc; transform: translate(var(--avatar-back-x,0), var(--avatar-back-y,0)); }
+.avatar-orb-two { fill: #a66adc; transform: translate(var(--avatar-foreground-x,0), var(--avatar-foreground-y,0)); }
+.avatar-grid-line { fill: none; stroke: rgba(255,255,255,.035); stroke-width: 1; }
+.avatar-layer { transform-box: fill-box; transform-origin: center; will-change: transform; }
+
+.avatar-hair-group {
+  transform: translate(var(--avatar-hair-x,0), var(--avatar-hair-y,0));
+  transform-box: fill-box; transform-origin: center; will-change: transform;
+}
+.avatar-hair-mass { fill: url("#avatar-hair-ombre"); stroke: #251820; stroke-width: 2; }
+.avatar-hair-sheen { fill: none; stroke: rgba(200,130,255,.065); stroke-linecap: round; stroke-width: 3; }
+.avatar-braid-lines {
+  fill: none;
+  stroke: rgba(198,145,103,.32);
+  stroke-linecap: round;
+  stroke-width: 2.5;
+}
+.avatar-body {
+  transform: translate(var(--avatar-body-x,0), var(--avatar-body-y,0)) scaleY(var(--avatar-breathe,1));
+  transform-origin: 270px 640px;
+}
+.avatar-shirt { fill: url("#avatar-shirt"); }
+.avatar-shirt-shadow { fill: rgba(111,105,130,.2); }
+.avatar-neck, .avatar-ear, .avatar-face { fill: url("#avatar-skin"); stroke: #3e1a1e; stroke-width: 3; }
+.avatar-neck-shadow { fill: rgba(60,18,22,.22); }
+.avatar-head {
+  transform: translate(var(--avatar-head-x,0), var(--avatar-head-y,0))
+    rotate(var(--avatar-head-rotate,0deg)) translateY(var(--avatar-head-drift,0px));
+}
+.avatar-face-shadow { fill: rgba(65,15,22,.13); }
+.avatar-cheek { fill: #d96040; opacity: .10; }
+.avatar-features { transform: translate(var(--avatar-features-x,0), var(--avatar-features-y,0)); }
+
+/* Brows */
+.avatar-brow {
+  fill: none; stroke: #1a1018; stroke-width: 9; stroke-linecap: round;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+.avatar-brow-left {
+  transform: translateY(var(--avatar-brow-left-y,0px)) rotate(var(--avatar-brow-left-rotate,0deg));
+}
+.avatar-brow-right {
+  transform: translateY(var(--avatar-brow-right-y,0px)) rotate(var(--avatar-brow-right-rotate,0deg));
+}
+
+/* Eyes — white interiors track as a pair but remain clipped inside each eye. */
+.avatar-eye-circle { fill: #151013; }
+.avatar-eye-inner {
+  fill: #fff; opacity: .92;
+  transform: translate(var(--avatar-eye-x,0px), var(--avatar-eye-y,0px));
+}
+
+/* Upper eyelids hinge down from the brow line for a natural blink. */
+.avatar-lid {
+  fill: url("#avatar-skin");
+  transform-box: fill-box;
+  transform-origin: center top;
+  will-change: transform;
+}
+.avatar-lid-left {
+  transform: scaleY(var(--avatar-blink-l,0.02));
+}
+.avatar-lid-right {
+  transform: scaleY(var(--avatar-blink-r,0));
+}
+.avatar-lid-crease {
+  fill: none;
+  stroke: rgba(62,26,30,.62);
+  stroke-linecap: round;
+  stroke-width: 1.6;
+  transform-box: fill-box;
+  transform-origin: center top;
+  will-change: transform;
+}
+.avatar-lid-crease-left {
+  opacity: var(--avatar-blink-l,0);
+  transform: scaleY(var(--avatar-blink-l,0));
+}
+.avatar-lid-crease-right {
+  opacity: var(--avatar-blink-r,0);
+  transform: scaleY(var(--avatar-blink-r,0));
+}
+
+.avatar-nose { fill: none; stroke: rgba(50,15,15,.45); stroke-width: 3.5; stroke-linecap: round; }
+.avatar-mouth {
+  fill: none; stroke: #1a0d12; stroke-width: 5; stroke-linecap: round;
+  transform: translateY(var(--avatar-mouth-y,0px)) rotate(var(--avatar-mouth-rotate,0deg)) scaleX(var(--avatar-mouth-scale,1));
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+.avatar-foreground-light {
+  fill: rgba(255,255,255,.03); stroke: rgba(166,105,220,.14); stroke-width: 2;
+  transform: translate(var(--avatar-foreground-x,0), var(--avatar-foreground-y,0));
+}
+.avatar-hover-photo {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 500ms cubic-bezier(.22,.8,.3,1);
+}
+.interactive-avatar-label, .interactive-avatar-status {
+  position: absolute; z-index: 5;
+  border: 1px solid rgba(255,255,255,.12); border-radius: 999px;
+  background: rgba(8,7,11,.68); color: rgba(243,239,253,.62);
+  font-family: ui-monospace, Menlo, monospace; font-size: .52rem;
+  font-weight: 700; letter-spacing: .12em; line-height: 1;
+  text-transform: uppercase; backdrop-filter: blur(14px);
+}
+.interactive-avatar-label { right: 2%; bottom: 4%; padding: .58rem .7rem; }
+.interactive-avatar-status {
+  top: 12%; left: 2%; display: inline-flex; align-items: center; gap: .4rem;
+  padding: .48rem .6rem;
+  transform: translate(var(--avatar-status-x,0), var(--avatar-status-y,0));
+}
+.interactive-avatar-status i {
+  width: .38rem; height: .38rem; border-radius: 50%;
+  background: #a8d500; box-shadow: 0 0 12px rgba(168,213,0,.8);
+}
+.interactive-avatar:hover {
+  filter: drop-shadow(0 40px 55px rgba(0,0,0,.42)) drop-shadow(0 0 32px rgba(166,105,220,.14));
+}
+.interactive-avatar.is-photo-visible .avatar-hover-photo {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .interactive-avatar, .avatar-layer, .avatar-hair-group, .avatar-orb,
+  .avatar-eye-inner, .avatar-brow, .avatar-mouth, .interactive-avatar-status { transform: none !important; }
+  .avatar-lid-left, .avatar-lid-right, .avatar-lid-crease { transform: scaleY(0) !important; }
+  .avatar-hover-photo { transition: none; }
+}
