@@ -386,10 +386,6 @@ export function Projects() {
                       </div>
                     ))}
                   </div>
-                  <div className="tech-screen-platform" aria-hidden="true">
-                    <span>Basafy</span>
-                    <p>Mobile product surface</p>
-                  </div>
                 </div>
               </div>
             </article>
