@@ -8,6 +8,7 @@ import {
   Rocket,
   Terminal,
 } from "lucide-react";
+import { InteractiveAvatar } from "./InteractiveAvatar";
 import "./Hero.css";
 
 interface HeroProps {
@@ -124,10 +125,7 @@ export function Hero({ onReadStory }: HeroProps) {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="tech-hero-portrait">
-            <img src="/tanya-portrait.jpg" alt="Portrait of Tanya Chisepo" />
-            <span className="tech-hero-portrait-label">Tanya Chisepo</span>
-          </div>
+          <InteractiveAvatar />
 
           <motion.div
             className="tech-hero-console"

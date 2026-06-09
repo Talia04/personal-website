@@ -209,84 +209,6 @@
   justify-content: center;
 }
 
-.tech-hero-portrait {
-  position: relative;
-  z-index: 1;
-  width: min(82vw, 21rem);
-  height: 29rem;
-  overflow: hidden;
-  border: 1px solid var(--portfolio-border-strong);
-  border-radius: 11rem 11rem 1.5rem 1.5rem;
-  background: #18131c;
-  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.35);
-}
-
-.tech-hero-portrait::before {
-  position: absolute;
-  inset: 1rem;
-  z-index: 3;
-  border: 1px solid rgba(243, 239, 253, 0.1);
-  border-radius: 10rem 10rem 1rem 1rem;
-  content: "";
-  pointer-events: none;
-}
-
-.tech-hero-portrait::after {
-  position: absolute;
-  inset: auto 1.5rem 1.4rem;
-  z-index: 2;
-  height: 7rem;
-  background: linear-gradient(to top, rgba(5, 6, 8, 0.9), transparent);
-  content: "";
-  pointer-events: none;
-}
-
-.tech-hero-portrait img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  filter: saturate(1.02) contrast(1.02);
-  transform: scale(1.01);
-  transition: transform 900ms var(--portfolio-ease), filter 600ms ease;
-}
-
-.tech-hero-portrait:hover img {
-  filter: saturate(1.08) contrast(1.04);
-  transform: scale(1.045) translateY(-0.35rem);
-}
-
-.tech-hero-portrait:hover {
-  border-color: rgba(168, 213, 0, 0.34);
-  box-shadow: 0 42px 88px rgba(0, 0, 0, 0.42), 0 0 38px rgba(168, 213, 0, 0.08);
-}
-
-.tech-hero-portrait-label {
-  position: absolute;
-  right: 1.6rem;
-  bottom: 1.4rem;
-  z-index: 6;
-  max-width: 10rem;
-  padding: 0.5rem 0.65rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  background: rgba(5, 6, 8, 0.58);
-  color: rgba(243, 239, 253, 0.76);
-  font-size: 0.56rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-  line-height: 1.5;
-  text-align: right;
-  text-transform: uppercase;
-  backdrop-filter: blur(14px);
-  pointer-events: none;
-}
-
-.tech-hero-portrait img {
-  z-index: 1;
-  position: relative;
-}
-
 .tech-hero-console {
   position: absolute;
   right: 0;
@@ -345,9 +267,8 @@
     min-height: 38rem;
   }
 
-  .tech-hero-portrait {
-    width: 24rem;
-    height: 36rem;
+  .interactive-avatar {
+    width: min(28rem, 35vw);
   }
 
   .tech-hero-console {
