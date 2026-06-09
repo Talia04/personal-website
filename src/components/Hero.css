@@ -30,53 +30,34 @@
   max-width: 48rem;
 }
 
-.tech-availability {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.55rem 0.8rem;
-  border: 1px solid rgba(168, 213, 0, 0.2);
-  border-radius: 999px;
-  background: rgba(168, 213, 0, 0.055);
-  color: rgba(216, 255, 78, 0.78);
-  font-size: 0.61rem;
-  font-weight: 700;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-}
-
-.tech-availability-dot {
-  position: relative;
-  width: 0.48rem;
-  height: 0.48rem;
-  border-radius: 999px;
-  background: var(--portfolio-accent);
-  box-shadow: 0 0 18px rgba(168, 213, 0, 0.7);
-}
-
 .tech-hero-name {
-  margin-top: 1.5rem;
+  max-width: 42rem;
   color: var(--portfolio-text);
-  font-size: clamp(4.2rem, 11vw, 10rem);
-  font-weight: 900;
-  letter-spacing: -0.12em;
-  line-height: 0.78;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 9vw, 8.5rem);
+  font-weight: 400;
+  letter-spacing: -0.075em;
+  line-height: 0.82;
+}
+
+.portfolio-shell-tech .tech-hero-name {
+  font-weight: 400;
+  letter-spacing: -0.075em;
 }
 
 .tech-hero-name span {
   display: block;
   margin-left: clamp(1.7rem, 7vw, 5.2rem);
   color: var(--portfolio-accent);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.62em;
+  font-size: 0.72em;
   font-style: italic;
   font-weight: 400;
-  letter-spacing: -0.095em;
+  letter-spacing: -0.075em;
 }
 
 .tech-hero-position {
   max-width: 43rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   color: var(--portfolio-text);
   font-size: clamp(1.35rem, 3.2vw, 2.25rem);
   font-weight: 700;
@@ -132,109 +113,12 @@
   box-shadow: none;
 }
 
-.tech-hero-proof {
-  display: grid;
-  gap: 0.7rem;
-  margin-top: 2.4rem;
-}
-
-.tech-hero-proof-item {
-  padding: 0.8rem 0;
-  border-top: 1px solid var(--portfolio-border);
-}
-
-.tech-hero-proof-value {
-  color: var(--portfolio-text);
-  font-size: 1.65rem;
-  font-weight: 900;
-  letter-spacing: -0.06em;
-}
-
-.tech-hero-proof-label {
-  margin-top: 0.18rem;
-  color: var(--portfolio-dim);
-  font-size: 0.58rem;
-  letter-spacing: 0.17em;
-  text-transform: uppercase;
-}
-
-.tech-hero-signals {
-  display: grid;
-  gap: 0.65rem;
-  margin-top: 0.9rem;
-}
-
-.tech-hero-signal-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  padding: 0.85rem;
-  border: 1px solid var(--portfolio-border);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.025);
-  transition: transform 260ms var(--portfolio-ease), border-color 260ms ease, background 260ms ease;
-}
-
-.tech-hero-signal-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(168, 213, 0, 0.28);
-  background: rgba(168, 213, 0, 0.045);
-}
-
-.tech-hero-signal-card svg {
-  flex: 0 0 auto;
-  margin-top: 0.12rem;
-  color: var(--portfolio-accent);
-}
-
-.tech-hero-signal-card h2 {
-  color: var(--portfolio-text);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
-.tech-hero-signal-card p {
-  margin-top: 0.28rem;
-  color: var(--portfolio-muted);
-  font-size: 0.68rem;
-  line-height: 1.55;
-}
-
 .tech-hero-visual {
   position: relative;
   display: flex;
   min-height: 29rem;
   align-items: center;
   justify-content: center;
-}
-
-.tech-hero-console {
-  position: absolute;
-  right: 0;
-  bottom: 0.75rem;
-  z-index: 8;
-  width: min(86vw, 20rem);
-  padding: 1rem;
-  border: 1px solid var(--portfolio-border);
-  border-radius: 1rem;
-  background: rgba(12, 11, 16, 0.82);
-  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(20px);
-}
-
-.tech-hero-console-row {
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-  color: rgba(243, 239, 253, 0.53);
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 0.66rem;
-  line-height: 1.7;
-}
-
-.tech-hero-console-key {
-  color: var(--portfolio-accent);
 }
 
 @media (max-width: 639px) {
@@ -266,24 +150,8 @@
     width: min(10.5rem, 43vw);
   }
 
-  .tech-hero-console {
-    display: none;
-  }
-
   .tech-hero-position {
     margin-top: 4.5rem;
-  }
-}
-
-@media (min-width: 640px) {
-  .tech-hero-proof {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 27rem;
-  }
-
-  .tech-hero-signals {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 41rem;
   }
 }
 
@@ -303,16 +171,11 @@
 
   .tech-hero-visual {
     align-self: start;
-    min-height: 38rem;
-    margin-top: -4rem;
+    min-height: 34rem;
+    margin-top: -2.5rem;
   }
 
   .interactive-avatar {
     width: min(28rem, 35vw);
-  }
-
-  .tech-hero-console {
-    right: -0.5rem;
-    bottom: 1rem;
   }
 }
