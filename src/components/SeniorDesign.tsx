@@ -1,19 +1,25 @@
-import { motion, useInView, useScroll, useTransform } from "motion/react";
+import { AnimatePresence, motion, useInView, useScroll, useTransform } from "motion/react";
 import {
   ArrowUpRight,
   Bot,
   BrainCircuit,
   CircleDot,
+  Download,
+  ExternalLink,
+  FileText,
   FlaskConical,
   Network,
   Route,
+  X,
 } from "lucide-react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { seniorDesign } from "../data/seniorDesign";
 import "./SeniorDesign.css";
 
 const gridCells = Array.from({ length: 25 }, (_, index) => index);
 const routeCells = new Set([20, 15, 16, 11, 12, 7, 8, 3, 4]);
+const reportPath = "/documents/q-learning-report/tanya-chisepo-q-learning-report.pdf";
 
 function GridWorldVisual({ expressive = false }: { expressive?: boolean }) {
   return (
@@ -55,7 +61,83 @@ function GridWorldVisual({ expressive = false }: { expressive?: boolean }) {
   );
 }
 
-export function SeniorDesignHighlight() {
+function ResearchPaperModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  useEffect(() => {
+    if (!open) return;
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open, onClose]);
+
+  if (typeof document === "undefined") return null;
+
+  return createPortal(
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="research-paper-overlay"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) onClose();
+          }}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="research-paper-title"
+        >
+          <motion.section
+            className="research-paper-modal"
+            initial={{ opacity: 0, y: 30, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.98 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <header className="research-paper-modal-header">
+              <div>
+                <span>Senior design report</span>
+                <h2 id="research-paper-title">Q-Learning for Robotic Grid-World Navigation</h2>
+              </div>
+              <div className="research-paper-modal-actions">
+                <a href={reportPath} target="_blank" rel="noreferrer" aria-label="Open paper in a new tab">
+                  <ExternalLink size={16} />
+                </a>
+                <a href={reportPath} download aria-label="Download the PDF report">
+                  <Download size={16} />
+                </a>
+                <button type="button" className="research-paper-exit" onClick={onClose}>
+                  <X size={17} />
+                  <span>Exit</span>
+                </button>
+              </div>
+            </header>
+            <div className="research-paper-frame">
+              <object data={reportPath} type="application/pdf" aria-label="Q-learning senior design report">
+                <p>
+                  This browser cannot display the PDF.
+                  <a href={reportPath} target="_blank" rel="noreferrer">Open the report in a new tab.</a>
+                </p>
+              </object>
+            </div>
+          </motion.section>
+        </motion.div>
+      )}
+    </AnimatePresence>,
+    document.body,
+  );
+}
+
+export function SeniorDesignHighlight({ onViewResearch }: { onViewResearch?: () => void }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -86,6 +168,18 @@ export function SeniorDesignHighlight() {
             <span>Python</span>
             <span>CoppeliaSim</span>
           </div>
+          <a
+            href="/story/research/paper"
+            className="senior-design-report-link"
+            onClick={(event) => {
+              if (!onViewResearch) return;
+              event.preventDefault();
+              onViewResearch();
+            }}
+          >
+            View the full report on the story side
+            <ArrowUpRight size={14} />
+          </a>
         </div>
 
         <GridWorldVisual />
@@ -119,9 +213,22 @@ export function SeniorDesignHighlight() {
   );
 }
 
-export function ResearchSpotlight() {
+export function ResearchSpotlight({
+  openPaper = false,
+  onPaperOpen,
+  onPaperClose,
+}: {
+  openPaper?: boolean;
+  onPaperOpen?: () => void;
+  onPaperClose?: () => void;
+}) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.08 });
+  const [isPaperOpen, setIsPaperOpen] = useState(false);
+
+  useEffect(() => {
+    setIsPaperOpen(openPaper);
+  }, [openPaper]);
 
   return (
     <section id="research" ref={ref} className="research-spotlight">
@@ -158,6 +265,26 @@ export function ResearchSpotlight() {
           <p className="research-eyebrow">The question</p>
           <p>{seniorDesign.question}</p>
         </motion.div>
+
+        <motion.a
+          href="/story/research/paper"
+          className="research-paper-card"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.65, delay: 0.14 }}
+          onClick={(event) => {
+            event.preventDefault();
+            setIsPaperOpen(true);
+            onPaperOpen?.();
+          }}
+        >
+          <span className="research-paper-card-icon"><FileText size={19} /></span>
+          <span>
+            <strong>View the report here</strong>
+            <small>Open a scrollable report preview with page controls</small>
+          </span>
+          <ArrowUpRight size={17} />
+        </motion.a>
 
         <div className="research-feature-grid">
           <motion.div
@@ -229,6 +356,13 @@ export function ResearchSpotlight() {
           </div>
         </div>
       </div>
+      <ResearchPaperModal
+        open={isPaperOpen}
+        onClose={() => {
+          setIsPaperOpen(false);
+          onPaperClose?.();
+        }}
+      />
     </section>
   );
 }

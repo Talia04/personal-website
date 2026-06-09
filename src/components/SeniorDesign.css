@@ -98,6 +98,25 @@
   text-transform: uppercase;
 }
 
+.senior-design-report-link {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  color: var(--portfolio-accent);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: gap 220ms ease, color 220ms ease;
+}
+
+.senior-design-report-link:hover {
+  gap: 0.65rem;
+  color: var(--portfolio-text);
+}
+
 .senior-design-compact-notes {
   display: grid;
   gap: 0.85rem;
@@ -318,6 +337,175 @@
   font-style: italic;
   letter-spacing: -0.045em;
   line-height: 1.03;
+}
+
+.research-paper-card {
+  display: grid;
+  width: 100%;
+  max-width: 42rem;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(229, 137, 255, 0.25);
+  border-radius: var(--portfolio-radius-sm);
+  background: rgba(229, 137, 255, 0.055);
+  color: var(--portfolio-text);
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  text-align: left;
+  transition: transform 260ms var(--portfolio-ease), border-color 260ms ease, background 260ms ease;
+}
+
+.research-paper-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(229, 137, 255, 0.52);
+  background: rgba(229, 137, 255, 0.09);
+}
+
+.research-paper-card-icon {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border: 1px solid rgba(229, 137, 255, 0.25);
+  border-radius: 0.8rem;
+  color: var(--portfolio-story-accent);
+}
+
+.research-paper-card strong,
+.research-paper-card small {
+  display: block;
+}
+
+.research-paper-card strong {
+  font-size: 0.78rem;
+}
+
+.research-paper-card small {
+  margin-top: 0.2rem;
+  color: rgba(243, 239, 253, 0.42);
+  font-size: 0.62rem;
+}
+
+.research-paper-card > svg {
+  color: var(--portfolio-story-accent);
+}
+
+.research-paper-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100dvh;
+  padding: 1rem;
+  background: rgba(5, 4, 8, 0.88);
+  backdrop-filter: blur(18px);
+}
+
+.research-paper-modal {
+  display: grid;
+  width: min(100%, 72rem);
+  height: min(92svh, 58rem);
+  overflow: hidden;
+  border: 1px solid rgba(229, 137, 255, 0.3);
+  border-radius: 1.4rem;
+  background: #100c16;
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.55);
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.research-paper-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--portfolio-border);
+}
+
+.research-paper-modal-header span {
+  color: var(--portfolio-story-accent);
+  font-size: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.research-paper-modal-header h2 {
+  margin-top: 0.18rem;
+  color: var(--portfolio-text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
+  font-weight: 400;
+}
+
+.research-paper-modal-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.35rem;
+}
+
+.research-paper-modal-actions button,
+.research-paper-modal-actions a {
+  display: grid;
+  width: 2.35rem;
+  height: 2.35rem;
+  place-items: center;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(243, 239, 253, 0.68);
+  transition: border-color 220ms ease, color 220ms ease, background 220ms ease;
+}
+
+.research-paper-modal-actions button:hover,
+.research-paper-modal-actions a:hover {
+  border-color: rgba(229, 137, 255, 0.45);
+  background: rgba(229, 137, 255, 0.08);
+  color: var(--portfolio-story-accent);
+}
+
+.research-paper-modal-actions .research-paper-exit {
+  display: inline-flex;
+  width: auto;
+  gap: 0.35rem;
+  padding-inline: 0.7rem;
+  color: var(--portfolio-text);
+}
+
+.research-paper-exit span {
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.research-paper-frame {
+  position: relative;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: #26212b;
+}
+
+.research-paper-frame object {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #fff;
+}
+
+.research-paper-frame object p {
+  padding: 1rem;
+  color: var(--portfolio-text);
+}
+
+.research-paper-frame object a {
+  margin-left: 0.3rem;
+  color: var(--portfolio-story-accent);
 }
 
 .research-feature-grid {
