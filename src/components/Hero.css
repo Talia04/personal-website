@@ -237,6 +237,44 @@
   color: var(--portfolio-accent);
 }
 
+@media (max-width: 639px) {
+  .tech-hero {
+    padding-inline: 1rem;
+  }
+
+  .tech-hero-inner {
+    gap: 0;
+  }
+
+  .tech-hero-name {
+    max-width: calc(100% - 7.5rem);
+    font-size: clamp(3.35rem, 17vw, 4.2rem);
+  }
+
+  .tech-hero-name span {
+    margin-left: 0.8rem;
+  }
+
+  .tech-hero-visual {
+    position: absolute;
+    top: 3.65rem;
+    right: -1.25rem;
+    min-height: 0;
+  }
+
+  .tech-hero-visual .interactive-avatar {
+    width: min(10.5rem, 43vw);
+  }
+
+  .tech-hero-console {
+    display: none;
+  }
+
+  .tech-hero-position {
+    margin-top: 4.5rem;
+  }
+}
+
 @media (min-width: 640px) {
   .tech-hero-proof {
     grid-template-columns: repeat(3, minmax(0, 1fr));
