@@ -17,7 +17,6 @@ interface HeroProps {
 
 const proofPoints = [
   { value: "3×", label: "Meta internships" },
-  { value: "4.0", label: "Computer science GPA" },
   { value: "Live", label: "Founder-built product" },
 ];
 

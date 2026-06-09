@@ -277,8 +277,8 @@
 
 @media (min-width: 640px) {
   .tech-hero-proof {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    max-width: 41rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 27rem;
   }
 
   .tech-hero-signals {
