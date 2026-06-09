@@ -2,12 +2,15 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { Linkedin, Mail, Github, ArrowUp, Phone } from "lucide-react";
 import { useRef } from "react";
 import type { PortfolioPath } from "./PortfolioFork";
+import { portfolioRouteHref } from "../utils/routes";
 
 interface FooterProps {
   path: PortfolioPath;
+  onNavigate: (section: string) => void;
+  onNavigateTop: () => void;
 }
 
-export function Footer({ path }: FooterProps) {
+export function Footer({ path, onNavigate, onNavigateTop }: FooterProps) {
   const footerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: footerRef,
@@ -16,10 +19,6 @@ export function Footer({ path }: FooterProps) {
 
   const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const links = path === "tech"
     ? [
@@ -129,7 +128,11 @@ export function Footer({ path }: FooterProps) {
                   viewport={{ once: true }}
                 >
                   <a
-                    href={link.href}
+                    href={portfolioRouteHref(path, link.href.slice(1))}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      onNavigate(link.href.slice(1));
+                    }}
                     className="text-white/50 hover:text-[#a8d500] transition-colors duration-300 text-sm"
                   >
                     {link.label}
@@ -199,7 +202,7 @@ export function Footer({ path }: FooterProps) {
             </motion.p>
 
             <motion.button
-              onClick={scrollToTop}
+              onClick={onNavigateTop}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}

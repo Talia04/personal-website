@@ -65,7 +65,7 @@ const courseGroups = [
   },
 ];
 
-export function Coursework() {
+export function Coursework({ onViewResearch }: { onViewResearch?: () => void }) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.12 });
   const [isDiplomaOpen, setIsDiplomaOpen] = useState(false);
@@ -202,7 +202,7 @@ export function Coursework() {
           })}
         </div>
 
-        <SeniorDesignHighlight />
+        <SeniorDesignHighlight onViewResearch={onViewResearch} />
       </div>
     </section>
   );

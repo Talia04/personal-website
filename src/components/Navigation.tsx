@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowLeftRight, Award, ChevronDown, Images, Microscope } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import type { PortfolioPath } from "./PortfolioFork";
+import { portfolioRouteHref } from "../utils/routes";
 import "./Navigation.css";
 
 const navItems: Record<PortfolioPath, { label: string; href: string }[]> = {
@@ -24,11 +25,12 @@ const navItems: Record<PortfolioPath, { label: string; href: string }[]> = {
 interface NavigationProps {
   path: PortfolioPath;
   onSwitch: () => void;
+  onNavigate: (section: string) => void;
   onOpenInterests: () => void;
   onOpenBucketList: () => void;
 }
 
-export function Navigation({ path, onSwitch, onOpenInterests, onOpenBucketList }: NavigationProps) {
+export function Navigation({ path, onSwitch, onNavigate, onOpenInterests, onOpenBucketList }: NavigationProps) {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
@@ -130,7 +132,7 @@ export function Navigation({ path, onSwitch, onOpenInterests, onOpenBucketList }
 
   const scrollToSection = (href: string) => {
     setActiveItem(href);
-    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+    onNavigate(href.slice(1));
   };
 
   return (
@@ -149,10 +151,13 @@ export function Navigation({ path, onSwitch, onOpenInterests, onOpenBucketList }
             const isActive = hoveredItem === item.href || activeItem === item.href;
 
             return (
-              <button
+              <a
                 key={item.href}
-                type="button"
-                onClick={() => scrollToSection(item.href)}
+                href={portfolioRouteHref(path, item.href.slice(1))}
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection(item.href);
+                }}
                 onMouseEnter={() => setHoveredItem(item.href)}
                 onMouseLeave={() => setHoveredItem(null)}
                 onFocus={() => setHoveredItem(item.href)}
@@ -160,7 +165,7 @@ export function Navigation({ path, onSwitch, onOpenInterests, onOpenBucketList }
                 className={`liquid-nav-item ${isActive ? "is-active" : ""}`}
               >
                 <span>{item.label}</span>
-              </button>
+              </a>
             );
           })}
 

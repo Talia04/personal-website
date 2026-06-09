@@ -28,7 +28,7 @@ const moments = [
   },
 ];
 
-export function About() {
+export function About({ onExploreFoundation }: { onExploreFoundation?: () => void }) {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.18 });
   const [activeMoment, setActiveMoment] = useState(0);
@@ -106,7 +106,15 @@ export function About() {
               </a>
             </div>
 
-            <a className="tech-profile-course-link" href="#coursework">
+            <a
+              className="tech-profile-course-link"
+              href="/tech/education"
+              onClick={(event) => {
+                if (!onExploreFoundation) return;
+                event.preventDefault();
+                onExploreFoundation();
+              }}
+            >
               Explore my foundation
               <ArrowDownRight size={13} />
             </a>

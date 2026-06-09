@@ -73,7 +73,7 @@ const galleryItems = [
   },
 ];
 
-export function ImpactPortfolio() {
+export function ImpactPortfolio({ onBeginStory }: { onBeginStory?: () => void }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -82,10 +82,6 @@ export function ImpactPortfolio() {
   const portraitY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const titleY = useTransform(scrollYProgress, [0, 1], [0, 75]);
   const galleryFloatY = useTransform(scrollYProgress, [0, 1], [35, -35]);
-
-  const scrollToGallery = () => {
-    document.querySelector("#gallery")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <>
@@ -122,7 +118,7 @@ export function ImpactPortfolio() {
             </motion.p>
             <motion.button
               type="button"
-              onClick={scrollToGallery}
+              onClick={onBeginStory}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45 }}

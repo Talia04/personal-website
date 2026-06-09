@@ -5,13 +5,10 @@ import "./Hero.css";
 
 interface HeroProps {
   onReadStory?: () => void;
+  onExploreWork?: () => void;
 }
 
-export function Hero({ onReadStory }: HeroProps) {
-  const scrollToProjects = () => {
-    document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-  };
-
+export function Hero({ onReadStory, onExploreWork }: HeroProps) {
   return (
     <section className="tech-hero">
       <div className="tech-hero-grid editorial-grid" />
@@ -38,7 +35,7 @@ export function Hero({ onReadStory }: HeroProps) {
           </p>
 
           <div className="tech-hero-actions">
-            <button type="button" onClick={scrollToProjects} className="tech-hero-action">
+            <button type="button" onClick={onExploreWork} className="tech-hero-action">
               Explore selected work <ArrowDownRight size={15} />
             </button>
             <button
