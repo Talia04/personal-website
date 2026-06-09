@@ -40,13 +40,14 @@
   .tech-hero-name,
   .tech-profile-title,
   .coursework-title,
-  .tech-case-title,
+  .tech-projects-title,
   .tech-skills-title,
   .tech-experience-title,
   .recognition-title,
-  .contact-backdrop span
+  .contact-title
 ) {
-  font-weight: var(--portfolio-display-weight);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
   letter-spacing: -0.075em;
 }
 
