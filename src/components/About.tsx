@@ -1,10 +1,11 @@
 import { motion, useInView } from "motion/react";
-import { ArrowDownRight } from "lucide-react";
+import { ArrowDownRight, Download, FileText } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import graduationPhoto from "../assets/about-graduation.jpg";
 import metaPhoto from "../assets/about-meta.jpg";
 import universalPhoto from "../assets/about-universal.jpg";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { ResumeModal, resumePath } from "./ResumeModal";
 import "./About.css";
 
 const moments = [
@@ -32,6 +33,7 @@ export function About({ onExploreFoundation }: { onExploreFoundation?: () => voi
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.18 });
   const [activeMoment, setActiveMoment] = useState(0);
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -85,7 +87,7 @@ export function About({ onExploreFoundation }: { onExploreFoundation?: () => voi
           </div>
 
           <div className="tech-profile-footer">
-            <div className="tech-profile-socials" aria-label="Tanya's professional profiles">
+            <div className="tech-profile-socials" aria-label="Tanya's professional profiles and resume">
               <a
                 className="tech-profile-social tech-profile-social-linkedin"
                 href="https://www.linkedin.com/in/tanyaradzwa-chisepo/"
@@ -103,6 +105,22 @@ export function About({ onExploreFoundation }: { onExploreFoundation?: () => voi
                 aria-label="Open Tanya Chisepo's GitHub profile"
               >
                 <FaGithub aria-hidden="true" />
+              </a>
+              <button
+                type="button"
+                className="tech-profile-social tech-profile-social-resume"
+                onClick={() => setIsResumeOpen(true)}
+                aria-label="View Tanya Chisepo's resume"
+              >
+                <FileText aria-hidden="true" />
+              </button>
+              <a
+                className="tech-profile-social tech-profile-social-download"
+                href={resumePath}
+                download
+                aria-label="Download Tanya Chisepo's resume"
+              >
+                <Download aria-hidden="true" />
               </a>
             </div>
 
@@ -164,6 +182,7 @@ export function About({ onExploreFoundation }: { onExploreFoundation?: () => voi
           </span>
         </motion.div>
       </div>
+      <ResumeModal open={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </section>
   );
 }

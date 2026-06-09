@@ -162,6 +162,18 @@
   box-shadow: 0 0 0 3px rgba(168, 213, 0, 0.1), 0 16px 34px rgba(168, 213, 0, 0.16);
 }
 
+.tech-profile-social-resume:hover,
+.tech-profile-social-resume:focus-visible,
+.tech-profile-social-download:hover,
+.tech-profile-social-download:focus-visible {
+  border-color: rgba(229, 137, 255, 0.72);
+  box-shadow: 0 0 0 3px rgba(229, 137, 255, 0.1), 0 16px 34px rgba(166, 105, 220, 0.2);
+}
+
+.tech-profile-social-download {
+  color: var(--portfolio-accent);
+}
+
 .tech-profile-course-link {
   display: inline-flex;
   width: fit-content;
@@ -406,6 +418,7 @@
   .tech-profile-visual-note {
     font-size: 0.45rem;
   }
+
 }
 
 @media (prefers-reduced-motion: reduce) {

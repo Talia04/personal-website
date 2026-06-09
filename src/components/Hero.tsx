@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
-import { ArrowDownRight, BookOpen } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, BookOpen, FileText } from "lucide-react";
+import { useState } from "react";
 import { InteractiveAvatar } from "./InteractiveAvatar";
+import { ResumeModal } from "./ResumeModal";
 import "./Hero.css";
 
 interface HeroProps {
@@ -9,6 +11,8 @@ interface HeroProps {
 }
 
 export function Hero({ onReadStory, onExploreWork }: HeroProps) {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   return (
     <section className="tech-hero">
       <div className="tech-hero-grid editorial-grid" />
@@ -34,6 +38,24 @@ export function Hero({ onReadStory, onExploreWork }: HeroProps) {
             foundations and a bias toward shipping.
           </p>
 
+          <motion.button
+            type="button"
+            className="tech-hero-resume-cta"
+            onClick={() => setIsResumeOpen(true)}
+            initial={{ opacity: 0, x: -18 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.65, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <span className="tech-hero-resume-icon" aria-hidden="true">
+              <FileText size={18} />
+            </span>
+            <span className="tech-hero-resume-copy">
+              <span><i aria-hidden="true" /> Resume 2026</span>
+              <strong>View my resume</strong>
+            </span>
+            <ArrowUpRight className="tech-hero-resume-arrow" size={19} aria-hidden="true" />
+          </motion.button>
+
           <div className="tech-hero-actions">
             <button type="button" onClick={onExploreWork} className="tech-hero-action">
               Explore selected work <ArrowDownRight size={15} />
@@ -57,6 +79,7 @@ export function Hero({ onReadStory, onExploreWork }: HeroProps) {
           <InteractiveAvatar />
         </motion.div>
       </div>
+      <ResumeModal open={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </section>
   );
 }

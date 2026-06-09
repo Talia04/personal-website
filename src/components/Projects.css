@@ -388,15 +388,6 @@
   margin-top: 2rem;
 }
 
-.tech-index-heading {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  margin-top: 6rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid var(--portfolio-border);
-}
-
 .tech-project-rail {
   display: grid;
   gap: 0.65rem;
@@ -445,7 +436,7 @@
 .tech-scroll-showcase {
   display: grid;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 3.5rem;
 }
 
 .tech-scroll-visuals {
@@ -1026,12 +1017,6 @@
 
   .tech-screen-slot {
     height: 22rem;
-  }
-
-  .tech-index-heading {
-    flex-direction: row;
-    align-items: end;
-    justify-content: space-between;
   }
 
   .tech-project-rail {

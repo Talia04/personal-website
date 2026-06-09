@@ -392,19 +392,6 @@ export function Projects() {
           </motion.div>
         </div>
 
-        <div className="tech-index-heading">
-          <div>
-            <p className="editorial-eyebrow">Project overview / 02</p>
-            <h3 className="mt-3 text-3xl font-black tracking-tight text-white md:text-4xl">
-              Scroll the builds. Keep the context.
-            </h3>
-          </div>
-          <p className="max-w-sm text-sm leading-relaxed text-white/35">
-            The left side becomes the visual portfolio. The right side stays fixed
-            long enough to explain the engineering decisions, impact, and stack.
-          </p>
-        </div>
-
         <div className="tech-scroll-showcase">
           <div className="tech-scroll-visuals" aria-label="Project visuals">
             {projectShowcase.map((project, index) => {
