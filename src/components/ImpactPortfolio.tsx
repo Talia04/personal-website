@@ -1,75 +1,92 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, Image, Images } from "lucide-react";
+import { ArrowDown, Image } from "lucide-react";
 import { useRef } from "react";
 import "./ImpactPortfolio.css";
 
 const galleryItems = [
   {
-    src: "/tanya-story-profile.png",
-    eyebrow: "Portrait 01",
-    title: "Rooted in Zimbabwe",
+    src: "/gallery/graduation-beach.jpg",
+    eyebrow: "Milestone 01",
+    title: "Closing one chapter, ready for the next",
     type: "photo",
+    position: "center center",
   },
   {
-    src: "/basafy/14-splash.png",
-    eyebrow: "Building 02",
-    title: "Basafy in motion",
-    type: "product",
-  },
-  {
-    eyebrow: "Archive 03",
-    title: "USAP community",
+    src: "/gallery/meta-hacker-way.jpg",
+    eyebrow: "Internship 02",
+    title: "Building at Meta",
     type: "archive",
+    position: "center center",
   },
   {
-    eyebrow: "Archive 04",
-    title: "Robotics and EcoCAR",
+    src: "/gallery/robotics-build.jpg",
+    eyebrow: "Building 03",
+    title: "Hands-on robotics",
     type: "archive",
+    position: "center center",
   },
   {
-    src: "/basafy/01-home-dashboard.png",
-    eyebrow: "Product 05",
-    title: "Technology for opportunity",
-    type: "product",
-  },
-  {
-    eyebrow: "Archive 06",
-    title: "Graduation and Meta",
+    src: "/gallery/hackathon-team.jpg",
+    eyebrow: "Teamwork 04",
+    title: "Ideas become stronger together",
     type: "archive",
+    position: "center center",
   },
   {
-    src: "/basafy/16-onboarding-gmail.png",
-    eyebrow: "Product 07",
-    title: "Turning inbox chaos into signal",
-    type: "product",
+    src: "/gallery/machine-learning-presentation.jpg",
+    eyebrow: "Teaching 05",
+    title: "Making machine learning approachable",
+    type: "archive",
+    position: "center center",
   },
   {
-    src: "/tanya-portrait-cutout-cropped.png",
-    eyebrow: "Portrait 08",
-    title: "Engineer with a story",
+    src: "/gallery/meta-ai-event.jpg",
+    eyebrow: "Community 06",
+    title: "Exploring AI with the Meta community",
+    type: "archive",
+    position: "center center",
+  },
+  {
+    src: "/gallery/coding-workshop.jpg",
+    eyebrow: "Focus 07",
+    title: "Deep in the build",
+    type: "archive",
+    position: "center center",
+  },
+  {
+    src: "/gallery/conference-portrait.jpg",
+    eyebrow: "Journey 08",
+    title: "Learning beyond the classroom",
     type: "photo",
+    position: "center center",
   },
   {
-    eyebrow: "Archive 09",
-    title: "Zimbabwe beginnings",
+    src: "/gallery/bcu-hackathon.jpg",
+    eyebrow: "Hackathon 09",
+    title: "Representing Bethune-Cookman",
     type: "archive",
+    position: "center center",
   },
   {
-    src: "/basafy/11-insights.png",
-    eyebrow: "Product 10",
-    title: "Patterns, progress, reflection",
-    type: "product",
-  },
-  {
-    eyebrow: "Archive 11",
-    title: "Conferences and community",
+    src: "/gallery/meta-summer.jpg",
+    eyebrow: "Internship 10",
+    title: "Another summer at Hacker Way",
     type: "archive",
+    position: "center center",
   },
   {
-    src: "/basafy/08-pipeline-applied.png",
-    eyebrow: "Product 12",
-    title: "Building for career access",
-    type: "product",
+    src: "/gallery/hackathon-focus.jpg",
+    eyebrow: "Hackathon 11",
+    title: "Shipping under pressure",
+    type: "archive",
+    position: "center center",
+  },
+  {
+    src: "/gallery/hello-world.jpg",
+    eyebrow: "Creative 12",
+    title: "Hello, world",
+    type: "art",
+    position: "center center",
   },
 ];
 
@@ -172,32 +189,24 @@ export function ImpactPortfolio({ onBeginStory }: { onBeginStory?: () => void })
                 viewport={{ once: true, amount: 0.18 }}
                 transition={{ duration: 0.65, delay: index * 0.045 }}
                 whileHover={{ y: -8, rotate: index % 2 === 0 ? -1.4 : 1.4 }}
-                className={`impact-gallery-tile impact-gallery-${item.type} ${item.src ? "" : "impact-gallery-placeholder"}`}
+                className={`impact-gallery-tile impact-gallery-${item.type}`}
               >
-                {item.src ? (
-                  <>
-                    <div className="impact-photo-layers" aria-hidden="true">
-                      <span />
-                      <span />
-                    </div>
-                    <img src={item.src} alt={item.title} />
-                    <div className="impact-gallery-caption">
-                      <p className="impact-accent text-[9px] uppercase tracking-[0.24em]">
-                        {item.eyebrow}
-                      </p>
-                      <h3 className="mt-1 text-base font-bold text-white">{item.title}</h3>
-                    </div>
-                  </>
-                ) : (
-                  <div>
-                    <Images size={18} className="impact-accent mb-3" />
-                    <p className="impact-accent text-[9px] uppercase tracking-[0.24em]">
-                      {item.eyebrow}
-                    </p>
-                    <h3 className="mt-1 max-w-xs text-base font-bold text-white/75">{item.title}</h3>
-                    <p className="impact-placeholder-copy">Drop a real photo here later.</p>
-                  </div>
-                )}
+                <div className="impact-photo-layers" aria-hidden="true">
+                  <span />
+                  <span />
+                </div>
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  loading="lazy"
+                  style={{ objectPosition: item.position }}
+                />
+                <div className="impact-gallery-caption">
+                  <p className="impact-accent text-[9px] uppercase tracking-[0.24em]">
+                    {item.eyebrow}
+                  </p>
+                  <h3 className="mt-1 text-base font-bold text-white">{item.title}</h3>
+                </div>
               </motion.article>
             ))}
 
