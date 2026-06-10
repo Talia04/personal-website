@@ -3,6 +3,7 @@ import { Linkedin, Mail, Github, ArrowUp, Phone } from "lucide-react";
 import { useRef } from "react";
 import type { PortfolioPath } from "./PortfolioFork";
 import { portfolioRouteHref } from "../utils/routes";
+import { contactInfo, getMailtoLink } from "../utils/contact";
 
 interface FooterProps {
   path: PortfolioPath;
@@ -35,10 +36,10 @@ export function Footer({ path, onNavigate, onNavigateTop }: FooterProps) {
       ];
 
   const socials = [
-    { icon: Github, href: "https://github.com/tanyachisepo", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/tanyaradzwa-chisepo/", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:tanyachisepo04@gmail.com", label: "Email" },
-    { icon: Phone, href: "tel:+13864044609", label: "Phone" },
+    { icon: Github, href: contactInfo.github, label: "GitHub" },
+    { icon: Linkedin, href: contactInfo.linkedIn, label: "LinkedIn" },
+    { icon: Mail, href: getMailtoLink(), label: "Email" },
+    { icon: Phone, href: `tel:${contactInfo.phone}`, label: "Phone" },
   ];
 
   return (
@@ -90,7 +91,7 @@ export function Footer({ path, onNavigate, onNavigateTop }: FooterProps) {
               Let's create impactful digital experiences together.
             </motion.p>
             <motion.a
-              href="mailto:tanyachisepo04@gmail.com"
+              href={getMailtoLink("Portfolio inquiry")}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}

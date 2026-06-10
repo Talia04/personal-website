@@ -5,6 +5,7 @@ import graduationPhoto from "../assets/about-graduation.jpg";
 import metaPhoto from "../assets/about-meta.jpg";
 import universalPhoto from "../assets/about-universal.jpg";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { contactInfo } from "../utils/contact";
 import { ResumeModal, resumePath } from "./ResumeModal";
 import "./About.css";
 
@@ -90,7 +91,7 @@ export function About({ onExploreFoundation }: { onExploreFoundation?: () => voi
             <div className="tech-profile-socials" aria-label="Tanya's professional profiles and resume">
               <a
                 className="tech-profile-social tech-profile-social-linkedin"
-                href="https://www.linkedin.com/in/tanyaradzwa-chisepo/"
+                href={contactInfo.linkedIn}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Open Tanya Chisepo's LinkedIn profile"
@@ -99,7 +100,7 @@ export function About({ onExploreFoundation }: { onExploreFoundation?: () => voi
               </a>
               <a
                 className="tech-profile-social tech-profile-social-github"
-                href="https://github.com/Talia04"
+                href={contactInfo.github}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Open Tanya Chisepo's GitHub profile"

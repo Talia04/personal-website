@@ -11,6 +11,7 @@ import {
   Send,
 } from "lucide-react";
 import type { PortfolioPath } from "./PortfolioFork";
+import { contactInfo, getMailtoLink } from "../utils/contact";
 import "./Contact.css";
 
 interface ContactProps {
@@ -67,26 +68,26 @@ export function Contact({ path }: ContactProps) {
     {
       icon: Mail,
       label: "Inbox",
-      value: "tanyachisepo04@gmail.com",
-      href: "mailto:tanyachisepo04@gmail.com",
+      value: contactInfo.email,
+      href: getMailtoLink(),
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "/in/tanyaradzwa-chisepo",
-      href: "https://www.linkedin.com/in/tanyaradzwa-chisepo/",
+      value: contactInfo.linkedInDisplay,
+      href: contactInfo.linkedIn,
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "@tanyachisepo",
-      href: "https://github.com/tanyachisepo",
+      value: contactInfo.githubDisplay,
+      href: contactInfo.github,
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (386) 404-4609",
-      href: "tel:+13864044609",
+      value: contactInfo.phoneDisplay,
+      href: `tel:${contactInfo.phone}`,
     },
   ];
 
@@ -97,7 +98,7 @@ export function Contact({ path }: ContactProps) {
     // Open email client with pre-filled info
     const subject = `Portfolio Contact from ${formState.name}`;
     const body = `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`;
-    window.location.href = `mailto:tanyachisepo04@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = getMailtoLink(subject, body);
 
     setTimeout(() => {
       setIsSubmitting(false);

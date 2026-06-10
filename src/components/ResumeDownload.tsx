@@ -1,19 +1,18 @@
 import { motion, AnimatePresence } from "motion/react";
 import { Download, X, Eye, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { resumePath } from "./ResumeModal";
 
 export function ResumeDownload() {
   const [showPreview, setShowPreview] = useState(false);
 
   const hasPDF = true;
-  const resumeFileName = "src/public/resume/Tanya.Chisepo_Resume_2025 (3).pdf";
-
   const handleDownload = () => {
     if (hasPDF) {
       // Download the PDF directly
       const link = document.createElement('a');
-      link.href = `/${resumeFileName}`;
-      link.download = "Tanya.Chisepo_Resume_2025.pdf";
+      link.href = resumePath;
+      link.download = "Tanya-Chisepo-Resume-2026.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -26,7 +25,7 @@ export function ResumeDownload() {
 
   const handleOpenNewTab = () => {
     if (hasPDF) {
-      window.open(`/${resumeFileName}`, '_blank');
+      window.open(resumePath, '_blank', 'noopener,noreferrer');
     } else {
       window.open('/resume.html', '_blank');
     }
@@ -113,7 +112,7 @@ export function ResumeDownload() {
               <div className="overflow-y-auto max-h-[calc(90vh-100px)] bg-gray-100">
                 {hasPDF ? (
                   <iframe
-                    src={`/${resumeFileName}#toolbar=0`}
+                    src={`${resumePath}#toolbar=0`}
                     className="w-full h-[800px] bg-white"
                     title="Resume Preview"
                   />

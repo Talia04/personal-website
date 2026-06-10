@@ -1,37 +1,36 @@
-export const getContactInfo = () => {
-  // Email
-  const emailParts = ['tanyachisepo04', 'gmail', 'com'];
-  const email = `${emailParts[0]}@${emailParts[1]}.${emailParts[2]}`;
+export const contactInfo = {
+  email: "tanyachisepo04@gmail.com",
+  phone: "+13864044609",
+  phoneDisplay: "+1 (386) 404-4609",
+  linkedIn: "https://www.linkedin.com/in/tanyaradzwa-chisepo/",
+  linkedInDisplay: "/in/tanyaradzwa-chisepo",
+  github: "https://github.com/Talia04",
+  githubDisplay: "@Talia04",
+} as const;
 
-  // Phone
-  const phoneParts = ['1', '386', '383', '1436'];
-  const phone = `+${phoneParts[0]}${phoneParts[1]}${phoneParts[2]}${phoneParts[3]}`;
+export function getMailtoLink(subject?: string, body?: string) {
+  const params = new URLSearchParams();
+  if (subject) params.set("subject", subject);
+  if (body) params.set("body", body);
+  const query = params.toString();
 
-  // LinkedIn
-  const linkedInUsername = 'tanyaradzwa-chisepo';
-  const linkedIn = `https://www.linkedin.com/in/${linkedInUsername}/`;
+  return `mailto:${contactInfo.email}${query ? `?${query}` : ""}`;
+}
 
-  return {
-    email,
-    phone,
-    linkedIn,
-    getMailtoLink: () => `mailto:${email}`,
-    getTelLink: () => `tel:${phone}`,
-  };
-};
+export const getContactInfo = () => ({
+  ...contactInfo,
+  getMailtoLink: () => getMailtoLink(),
+  getTelLink: () => `tel:${contactInfo.phone}`,
+});
 
-// Additional protection: Use these functions in onClick handlers
 export const openEmail = () => {
-  const { email } = getContactInfo();
-  window.location.href = `mailto:${email}`;
+  window.location.href = getMailtoLink();
 };
 
 export const openPhone = () => {
-  const { phone } = getContactInfo();
-  window.location.href = `tel:${phone}`;
+  window.location.href = `tel:${contactInfo.phone}`;
 };
 
 export const openLinkedIn = () => {
-  const { linkedIn } = getContactInfo();
-  window.open(linkedIn, '_blank', 'noopener,noreferrer');
+  window.open(contactInfo.linkedIn, "_blank", "noopener,noreferrer");
 };
