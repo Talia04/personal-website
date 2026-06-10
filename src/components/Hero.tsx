@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowDownRight, ArrowUpRight, BookOpen, FileText } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, BookOpen, FileText, MapPin } from "lucide-react";
 import { useState } from "react";
 import { InteractiveAvatar } from "./InteractiveAvatar";
 import { ResumeModal } from "./ResumeModal";
@@ -28,6 +28,16 @@ export function Hero({ onReadStory, onExploreWork }: HeroProps) {
             Tanya
             <span>Chisepo</span>
           </h1>
+
+          <motion.p
+            className="tech-hero-location"
+            initial={{ opacity: 0, x: -14 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.34 }}
+          >
+            <MapPin size={13} aria-hidden="true" />
+            Houston, TX, USA
+          </motion.p>
 
           <p className="tech-hero-position">
             Software engineer building useful systems across product, mobile, and backend.

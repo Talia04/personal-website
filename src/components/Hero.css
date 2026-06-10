@@ -55,9 +55,30 @@
   letter-spacing: -0.075em;
 }
 
+.tech-hero-location {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.42rem;
+  margin-top: 1.35rem;
+  padding: 0.42rem 0.65rem;
+  border: 1px solid rgba(168, 213, 0, 0.24);
+  border-radius: 999px;
+  background: rgba(168, 213, 0, 0.055);
+  color: rgba(243, 239, 253, 0.66);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tech-hero-location svg {
+  color: var(--portfolio-accent);
+}
+
 .tech-hero-position {
   max-width: 43rem;
-  margin-top: 2.5rem;
+  margin-top: 1.4rem;
   color: var(--portfolio-text);
   font-size: clamp(1.35rem, 3.2vw, 2.25rem);
   font-weight: 700;
@@ -247,7 +268,11 @@
   }
 
   .tech-hero-position {
-    margin-top: 4.5rem;
+    margin-top: 3.5rem;
+  }
+
+  .tech-hero-location {
+    margin-top: 0.9rem;
   }
 }
 
