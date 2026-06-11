@@ -7,7 +7,7 @@ import "./Journey.css";
 function MediaTile({ media }: { media: JourneyMedia }) {
   if (media.src) {
     return (
-      <figure className="journey-media group relative">
+      <figure className={`journey-media group relative${media.fit === "contain" ? " journey-media-contain" : ""}`}>
         {media.type === "video" ? (
           <video
             src={media.src}
@@ -21,6 +21,7 @@ function MediaTile({ media }: { media: JourneyMedia }) {
             src={media.src}
             alt={media.alt}
             className="journey-media-image"
+            loading="lazy"
           />
         )}
         <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#0f0b16] to-transparent px-4 pb-4 pt-12 text-xs text-white/70">
@@ -123,7 +124,7 @@ export function Journey() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.18 }}
                   transition={{ duration: 0.7, delay: 0.06 }}
-                  className="journey-event"
+                  className={`journey-event${event.media.length === 0 ? " journey-event-no-media" : ""}`}
                 >
                   <div className="journey-story">
                     <div className="journey-card">
@@ -156,11 +157,13 @@ export function Journey() {
                     </div>
                   </div>
 
-                  <div className="journey-media-grid">
-                    {event.media.map((media) => (
-                      <MediaTile key={`${event.year}-${media.caption}`} media={media} />
-                    ))}
-                  </div>
+                  {event.media.length > 0 && (
+                    <div className="journey-media-grid">
+                      {event.media.map((media) => (
+                        <MediaTile key={`${event.year}-${media.caption}`} media={media} />
+                      ))}
+                    </div>
+                  )}
 
                   <div className="journey-node">
                     <Icon size={15} />

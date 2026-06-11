@@ -14,6 +14,7 @@ export interface JourneyMedia {
   src?: string;
   alt: string;
   caption: string;
+  fit?: "cover" | "contain";
 }
 
 export interface TimelineEvent {
@@ -43,8 +44,10 @@ export const journeyEvents: TimelineEvent[] = [
     media: [
       {
         type: "image",
+        src: "/journey/taungana-stem-expo.jpg",
         alt: "Tanya at the Taungana Africa STEM Exposition",
-        caption: "Add an exposition photo",
+        caption: "Presenting at the Taungana Africa STEM Exposition",
+        fit: "contain",
       },
     ],
     icon: Lightbulb,
@@ -61,13 +64,7 @@ export const journeyEvents: TimelineEvent[] = [
       "Built relationships across cultures",
       "Strengthened a service-first view of leadership",
     ],
-    media: [
-      {
-        type: "image",
-        alt: "Tanya at World Youth Day in Panama",
-        caption: "Add a Panama photo",
-      },
-    ],
+    media: [],
     icon: Users,
   },
   {
@@ -111,8 +108,10 @@ export const journeyEvents: TimelineEvent[] = [
     media: [
       {
         type: "image",
+        src: "/journey/usap-community-school.jpg",
         alt: "Tanya with students at USAP Community School",
-        caption: "Add a USAP community photo",
+        caption: "Learning and growing alongside the USAP Community School community",
+        fit: "contain",
       },
     ],
     icon: BookOpen,
@@ -133,8 +132,10 @@ export const journeyEvents: TimelineEvent[] = [
     media: [
       {
         type: "image",
-        alt: "Tanya at Bethune-Cookman University graduation",
-        caption: "Add a graduation or robotics photo",
+        src: "/journey/bethune-cookman-ecocar.jpg",
+        alt: "Tanya representing EcoCAR at Bethune-Cookman University",
+        caption: "Sharing EcoCAR engineering work with the Bethune-Cookman community",
+        fit: "contain",
       },
     ],
     icon: GraduationCap,
@@ -154,8 +155,10 @@ export const journeyEvents: TimelineEvent[] = [
     media: [
       {
         type: "image",
+        src: "/journey/meta-hacker-way.jpg",
         alt: "Tanya during a Meta internship",
-        caption: "Add a Meta internship photo",
+        caption: "Three summers of engineering growth at Meta",
+        fit: "contain",
       },
     ],
     icon: BriefcaseBusiness,
