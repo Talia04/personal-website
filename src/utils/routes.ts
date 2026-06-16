@@ -4,6 +4,7 @@ export type PortfolioRoute = {
   path: PortfolioPath | null;
   section: string | null;
   paper: boolean;
+  projectSlug: string | null;
 };
 
 const sectionRoutes: Record<PortfolioPath, Record<string, string>> = {
@@ -38,12 +39,15 @@ export function parsePortfolioRoute(pathname = window.location.pathname): Portfo
   const segments = (recoveredPath ?? pathname).split("/").filter(Boolean);
   const path = segments[0] === "tech" ? "tech" : segments[0] === "story" ? "impact" : null;
 
-  if (!path) return { path: null, section: null, paper: false };
+  if (!path) return { path: null, section: null, paper: false, projectSlug: null };
+
+  const isProjectDetail = path === "tech" && segments[1] === "projects" && Boolean(segments[2]);
 
   return {
     path,
-    section: sectionRoutes[path][segments[1]] ?? null,
+    section: isProjectDetail ? "projects" : sectionRoutes[path][segments[1]] ?? null,
     paper: path === "impact" && segments[1] === "research" && segments[2] === "paper",
+    projectSlug: isProjectDetail ? segments[2] : null,
   };
 }
 
@@ -53,4 +57,8 @@ export function portfolioRouteHref(path: PortfolioPath, section?: string | null,
 
   const slug = sectionSlugs[path][section] ?? section;
   return `${base}/${slug}${paper ? "/paper" : ""}`;
+}
+
+export function projectRouteHref(projectSlug: string) {
+  return `/tech/projects/${projectSlug}`;
 }

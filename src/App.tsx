@@ -8,7 +8,7 @@ import { ImpactPortfolio } from "./components/ImpactPortfolio";
 import { PortfolioFork, type PortfolioPath } from "./components/PortfolioFork";
 import { Skills } from "./components/Skills";
 import { Experience } from "./components/Experience";
-import { Projects } from "./components/Projects";
+import { ProjectDetailsPage, Projects, projectShowcaseItems } from "./components/Projects";
 import { Additional } from "./components/Additional";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
@@ -18,13 +18,14 @@ import { BucketListModal } from "./components/BucketListModal";
 import { ThemeProvider } from "./utils/theme";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { parsePortfolioRoute, portfolioRouteHref, type PortfolioRoute } from "./utils/routes";
+import { parsePortfolioRoute, portfolioRouteHref, projectRouteHref, type PortfolioRoute } from "./utils/routes";
 import "./styles/editorial-system.css";
 
 export default function App() {
   const [route, setRoute] = useState<PortfolioRoute>(() => parsePortfolioRoute());
   const [isLoading, setIsLoading] = useState(() => route.path === null);
   const portfolioPath = route.path;
+  const projectSlug = route.projectSlug;
   const [isInterestsOpen, setIsInterestsOpen] = useState(false);
   const [isBucketListOpen, setIsBucketListOpen] = useState(false);
 
@@ -60,7 +61,12 @@ export default function App() {
   const navigate = (path: PortfolioPath | null, section: string | null = null, paper = false) => {
     const href = path ? portfolioRouteHref(path, section, paper) : "/";
     window.history.pushState({}, "", href);
-    setRoute({ path, section, paper });
+    setRoute({ path, section, paper, projectSlug: null });
+  };
+
+  const navigateProjectDetails = (slug: string) => {
+    window.history.pushState({}, "", projectRouteHref(slug));
+    setRoute({ path: "tech", section: "projects", paper: false, projectSlug: slug });
   };
 
   return (
@@ -110,7 +116,14 @@ export default function App() {
               exit={{ opacity: 0, filter: "blur(14px)", scale: 0.99 }}
               transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
-              {portfolioPath === "tech" ? (
+              {portfolioPath === "tech" && projectSlug ? (
+                <ProjectDetailsPage
+                  projects={projectShowcaseItems}
+                  activeSlug={projectSlug}
+                  onBack={() => navigate("tech", "projects")}
+                  onJumpToProject={navigateProjectDetails}
+                />
+              ) : portfolioPath === "tech" ? (
                 <>
                   <Hero
                     onExploreWork={() => navigate("tech", "projects")}
@@ -118,7 +131,7 @@ export default function App() {
                   />
                   <About onExploreFoundation={() => navigate("tech", "coursework")} />
                   <Coursework onViewResearch={() => navigate("impact", "research", true)} />
-                  <Projects />
+                  <Projects onOpenProjectDetails={navigateProjectDetails} />
                   <Skills />
                   <Experience />
                   <Additional />
