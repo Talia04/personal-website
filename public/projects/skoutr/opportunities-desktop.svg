@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img">
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <linearGradient id="chrome" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#11161b"/>
+      <stop offset="1" stop-color="#07090b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="74%" cy="0%" r="60%">
+      <stop offset="0" stop-color="#7694ff" stop-opacity="0.12"/>
+      <stop offset="0.7" stop-color="#7694ff" stop-opacity="0"/>
+    </radialGradient>
+    
+  </defs>
+  <rect width="100%" height="100%" fill="#08090b"/>
+  <rect width="100%" height="100%" fill="url(#glow)"/>
+  <g filter="url(#softShadow)">
+    <rect x="20" y="20" width="1560" height="900" rx="16" fill="url(#chrome)" stroke="#242a30"/>
+    <rect x="20" y="20" width="1560" height="48" rx="16" fill="#090b0e" stroke="#1a2026"/>
+    <circle cx="42" cy="44" r="6" fill="#ff5f57"/>
+    <circle cx="62" cy="44" r="6" fill="#febc2e"/>
+    <circle cx="82" cy="44" r="6" fill="#28c840"/>
+    <rect x="118" y="32" width="520" height="24" rx="8" fill="#05070a" stroke="#242a30"/>
+    <text x="134" y="49" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">app.skoutr.dev/opportunities</text>
+    <text x="1484" y="49" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Portfolio mockup</text>
+    <g clip-path="url(#clip-20-20)">
+    <rect x="20" y="68" width="210" height="852" fill="#080b0e" stroke="#1a2026"/>
+    <rect x="42" y="94" width="36" height="36" rx="8" fill="#a3ff12"/>
+    <text x="60" y="118" text-anchor="middle" fill="#0b0d08" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="13" font-weight="800">SK</text>
+    <text x="92" y="118" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">Skoutr</text><rect x="30" y="162" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="186" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">⌂</text>
+      <text x="74" y="185" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Dashboard</text><rect x="30" y="202" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="226" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">▦</text>
+      <text x="74" y="225" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Companies</text><rect x="30" y="242" width="190" height="36" rx="7" fill="#151a20" stroke="#1a2026"/>
+      <rect x="30" y="242" width="3" height="36" rx="2" fill="#a3ff12"/>
+      <text x="48" y="266" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">▣</text>
+      <text x="74" y="265" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">Opportunities</text><rect x="30" y="298" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="322" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">◇</text>
+      <text x="74" y="321" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Discover</text><rect x="30" y="338" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="362" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">▷</text>
+      <text x="74" y="361" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Runs</text><rect x="30" y="394" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="418" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">☆</text>
+      <text x="74" y="417" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Shortlist</text><rect x="30" y="434" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="458" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">⚙</text>
+      <text x="74" y="457" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Settings</text><rect x="34" y="832" width="182" height="58" rx="8" fill="#0d1115" stroke="#242a30"/>
+    <circle cx="54" cy="862" r="4" fill="#a3ff12"/>
+    <text x="68" y="859" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12" font-weight="650">All systems local</text>
+    <text x="68" y="877" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Data stays on your machine</text>
+    <text x="270" y="124" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="30" font-weight="800">Opportunities</text>
+    <text x="270" y="154" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="17">Searchable roles with explainable match and visa evidence.</text>
+    <rect x="270" y="186" width="170" height="570" rx="10" fill="#0c0f12" stroke="#242a30"/>
+      <text x="288" y="218" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">Filters</text>
+      <text x="288" y="256" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Status</text>
+    <rect x="288" y="266" width="132" height="32" rx="7" fill="#090c10" stroke="#242a30"/>
+    <text x="300" y="287" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Saved</text>
+      <text x="288" y="306" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Visa</text>
+    <rect x="288" y="316" width="132" height="32" rx="7" fill="#090c10" stroke="#242a30"/>
+    <text x="300" y="337" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Likely sponsors</text>
+      <text x="288" y="356" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Location</text>
+    <rect x="288" y="366" width="132" height="32" rx="7" fill="#090c10" stroke="#242a30"/>
+    <text x="300" y="387" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Remote</text>
+      <text x="288" y="406" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Score</text>
+    <rect x="288" y="416" width="132" height="32" rx="7" fill="#090c10" stroke="#242a30"/>
+    <text x="300" y="437" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">75+</text>
+      <rect x="288" y="450" width="104.5" height="24" rx="7" fill="rgba(255,255,255,0.035)" stroke="#a1a1aa" stroke-opacity="0.22"/>
+    <text x="298" y="466" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Clear filters</text>
+    
+    <g transform="translate(460,186)">
+      <rect x="0" y="0" width="630" height="46" rx="8" fill="#090c10" stroke="#242a30"/>
+    <text x="18" y="29" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">⌕</text>
+    <text x="42" y="29" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">Search roles, companies, locations, keywords...</text>
+      <rect x="0" y="74" width="630" height="116" rx="10" fill="#0c0f12" stroke="#242a30"/>
+    <rect x="0" y="74" width="4" height="116" rx="2" fill="#a3ff12"/>
+    <text x="22" y="106" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="17" font-weight="750">Backend Software Engineer, New Grad</text>
+    <text x="22" y="131" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Databricks • San Francisco / Remote</text>
+    <rect x="22" y="150" width="117.5" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#a3ff12" stroke-opacity="0.22"/>
+    <text x="32" y="166" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">likely sponsors</text>
+    <text x="534" y="116" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="34">96</text>
+    <text x="532" y="140" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="10">match</text>
+  
+      <rect x="0" y="210" width="630" height="116" rx="10" fill="#0c0f12" stroke="#242a30"/>
+    
+    <text x="22" y="242" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="17" font-weight="750">AI Infrastructure Engineer</text>
+    <text x="22" y="267" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Anthropic • Remote - US</text>
+    <rect x="22" y="286" width="130.5" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#d9a400" stroke-opacity="0.22"/>
+    <text x="32" y="302" fill="#d9a400" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">historical signal</text>
+    <text x="534" y="252" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="34">92</text>
+    <text x="532" y="276" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="10">match</text>
+  
+      <rect x="0" y="346" width="630" height="116" rx="10" fill="#0c0f12" stroke="#242a30"/>
+    
+    <text x="22" y="378" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="17" font-weight="750">Platform Engineer</text>
+    <text x="22" y="403" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Cursor • New York, NY</text>
+    <rect x="22" y="422" width="65.5" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#d9a400" stroke-opacity="0.22"/>
+    <text x="32" y="438" fill="#d9a400" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">unclear</text>
+    <text x="534" y="388" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="34">88</text>
+    <text x="532" y="412" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="10">match</text>
+  
+      <rect x="0" y="482" width="630" height="116" rx="10" fill="#0c0f12" stroke="#242a30"/>
+    
+    <text x="22" y="514" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="17" font-weight="750">Developer Productivity Engineer</text>
+    <text x="22" y="539" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Runway • Remote</text>
+    <rect x="22" y="558" width="104.5" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#d9a400" stroke-opacity="0.22"/>
+    <text x="32" y="574" fill="#d9a400" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">not mentioned</text>
+    <text x="534" y="524" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="34">84</text>
+    <text x="532" y="548" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="10">match</text>
+  
+    </g>
+    <rect x="1120" y="186" width="310" height="570" rx="10" fill="#0c0f12" stroke="#242a30"/>
+      <text x="1146" y="226" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="18" font-weight="750">Backend Software Engineer</text>
+      <text x="1146" y="250" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Databricks • San Francisco / Remote</text>
+      <text x="1146" y="318" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="52">96</text>
+      <text x="1218" y="306" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Match score</text>
+      <rect x="1314" y="290" width="52.5" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#a3ff12" stroke-opacity="0.22"/>
+    <text x="1324" y="306" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Saved</text>
+      <line x1="1146" y1="352" x2="1404" y2="352" stroke="#242a30"/>
+      <text x="1146" y="392" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">Why it matched</text>
+      <circle cx="1152" cy="422" r="6" fill="rgba(163,255,18,0.08)" stroke="#a3ff12"/>
+    <path d="M1148 422 L1151 425 L1157 418" fill="none" stroke="#a3ff12" stroke-width="1.5"/>
+    <text x="1168" y="426" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Backend systems and APIs</text>
+      <circle cx="1152" cy="454" r="6" fill="rgba(163,255,18,0.08)" stroke="#a3ff12"/>
+    <path d="M1148 454 L1151 457 L1157 450" fill="none" stroke="#a3ff12" stroke-width="1.5"/>
+    <text x="1168" y="458" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">New grad friendly language</text>
+      <circle cx="1152" cy="486" r="6" fill="rgba(163,255,18,0.08)" stroke="#a3ff12"/>
+    <path d="M1148 486 L1151 489 L1157 482" fill="none" stroke="#a3ff12" stroke-width="1.5"/>
+    <text x="1168" y="490" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Remote or hybrid acceptable</text>
+      <text x="1146" y="546" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">Visa evidence</text>
+      <text x="1146" y="576" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Job text mentions sponsorship support for qualified applicants.</text>
+      <rect x="1146" y="662" width="258" height="42" rx="8" fill="#a3ff12"/>
+      <text x="1275" y="689" text-anchor="middle" fill="#0b0d08" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800">Open role detail</text>
+    
+  </g>
+    <clipPath id="clip-20-20"><rect x="20" y="68" width="1560" height="852" rx="0"/></clipPath>
+  </g>
+</svg>

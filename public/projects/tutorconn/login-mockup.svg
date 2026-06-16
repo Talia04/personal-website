@@ -1,0 +1,42 @@
+<svg width="720" height="960" viewBox="0 0 720 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#2b101a" flood-opacity="0.22"/>
+    </filter>
+    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#421022" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#620625"/>
+      <stop offset="1" stop-color="#7C304A"/>
+    </linearGradient>
+    <linearGradient id="pageGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffafb"/>
+      <stop offset="1" stop-color="#f4e2e8"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="720" height="960" rx="42" fill="url(#pageGrad)"/>
+  <circle cx="642" cy="86" r="174" fill="#AE7F8F" opacity=".14"/>
+  <circle cx="80" cy="878" r="190" fill="#620625" opacity=".08"/> <g transform="translate(139 148) scale(1)" filter="url(#shadow)">
+    <rect x="0" y="0" width="330" height="680" rx="42" fill="#171116"/>
+    <rect x="12" y="12" width="306" height="656" rx="34" fill="#fffafb"/>
+    <rect x="116" y="26" width="98" height="10" rx="5" fill="#2a2027" opacity=".85"/>
+    <clipPath id="clip-139-148"><rect x="12" y="12" width="306" height="656" rx="34"/></clipPath>
+    <g clip-path="url(#clip-139-148)">
+    <rect x="12" y="12" width="306" height="656" fill="#fffafb"/>
+    <circle cx="165" cy="128" r="74" fill="#f8eef2"/>
+    <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFsAAAB3CAYAAABsWDzUAAAACXBIWXMAAAsSAAALEgHS3X78AAAFRElEQVR4nO2dPXbjNhRGP+vkRCU9DVuRRdTaOxjOCsazAivRAuKsYOgVxLMAncgriLOCSCsYuVVDqmUTo1TlFIR8ZNqONCDwAcG828kSCZwr+BE/D9DJ4+Mj2ORpUgAo9MsawKpq1IpeETInTNla8hzA6JW3lwDKqlELWoXI0GTnaTIB8McRH/25atTcbW38QJGdp0kGYAUgOfKST1Wj7tzVyA8DUjlXOF40AMzzNDl1VRlfsGQX3/j5BO0XFBUs2WcG10xsV8I3zmXnaXJueOmox7VBwmjZfWKvyCaS+a6ATUKXXfiugE1Clx0VIpuIyCYisomIbCKhy45qjjt02Q++K2CT0GVHhcgmwpBdE8r4X+BcdtWousflmaVqBEHoYSTzXQGbhC77fUzLYyzZyx7XXlirhWdYsvv0l0tblfANS3afkeAoT5O5rYr45Ie33pgOx+doF13P0S5tHVq0vUfbgu8AzGfb9X5r7jvsvtSx+6pn78YrL5J0psPxBYAbvJ4idiwKQDHbrlfAU5JO1eN++2zw3333+sD7K18JQE+yp8PxKVrJl5buvZlt19nuRZ4mNfp9gTZRaPMKb5iF7sfsO9gTDQCj6XA86dw/FBIAv7OfBQMAmA7HJYD3Du6/n9U0d3D/vlzmaULrWp788uNPGezF09d4t3tY5mmygll2lEvuq0ZR8lMGcD9o2L8/NUYeyZl+gDuHKlvnXW8cl2dCxihkAPcpXh91T2fHxHF5JhSMQgb4trxpU54elHobxy2hzOCgJcN3WvcV2hFnKCwYhQzQdvBd8yy5vWrUA9p/3VCE14xCBiB9qwA+6/kWAEEJv2fNtwzAHdnd7YeTqlEPuo/7hViHLiWroJ1sVndsBGDRid+oGnUF4AP6LTKYcMuclBro0R1zs9AZXmlNVaMWVaMKtNJv4fZZogBcV42aOCzjBfuzfhMctynUCrPt+uTQZ/SemnP0G3Qsun/wtYv42Xy2Fn4DQt/7GNmx8ayfPduu52hb0W9wFz+Vvv93h7Pt1NPhOMPLf/96tl3Xx95Dh5EMdqcUFkGEEd/odcYJ2v73R4dFbdCuZ1IXNIKQrac4S9hdKToG6gkQXmXrllwC+NVbJYAPrLDiLf1ML0fV8CsaII4gvbTsPE1KAJ/pBb/NOz1X4xR6y9Yr2iGJBkh75KmytWj2QzAYaLJ16AhVNGVXGuuMqALA384LMmOpJ8Ccwzjc5RRhZUN1KVkFMcJICc6isglfmEN3p2HEcvaqTbwM19/Mz7ZEaek+S9hbK41vIkrH6n963uYWbWpv3b9G/nHZsvuktSkAF7Gdyxqq7CLGU4dd9kZM56OvYxQNOIrZeoXlq8Glm6pRmeXqBIOrlp0ZXhfy4Kc3rmSbzqKJbBax9T66BCU7dkQ2EZFNRGQTEdlERDYRkU1EZBMR2USCkq1X4aPFlWzTKdKofr2jiyvZteF10f3q0j5OZPeY/B/laRKtcJcx+y/D68rYfnlph0vZpnPTCYBFjMJDlA20wr/maVLGdBar64yoOexkrkqSziEk/ew5Tgc1OpPJ54kLbzEC8GeeJtQDwpznZ+uYWyPcTNZ4dovpjUEhn4FdsgqizI3olnPNKMsA2unztImoqlElwj31LL7dYvowlVCFO4c+xaqFhxZSKImcXuazdUj5BM4xd4dYMnb3Ah4XD/SAIoP/fnjJKkiOwPhejsDoIoe7eESOLRKMCWp1PXZENhGRTURkExHZREQ2EZFNRGQTEdlERDYRkU1EZBMR2URENhGRTURkExHZREQ2EZFNRGQT+RfgpbZFxnhufgAAAABJRU5ErkJggg==" x="122" y="70" width="86" height="112" preserveAspectRatio="xMidYMid meet"/>
+    <text x="165" y="230" text-anchor="middle" fill="#21161b" font-size="26" font-weight="900" font-family="Inter, Arial, sans-serif">Welcome Back</text>
+    <text x="165" y="255" text-anchor="middle" fill="#766872" font-size="13" font-family="Inter, Arial, sans-serif">Sign in to continue tutoring</text>
+    <rect x="34" y="298" width="262" height="58" rx="17" fill="#fff" stroke="#ead9df"/>
+    <text x="58" y="334" fill="#766872" font-size="14" font-family="Inter, Arial, sans-serif">Email address</text>
+    <rect x="34" y="374" width="262" height="58" rx="17" fill="#fff" stroke="#ead9df"/>
+    <text x="58" y="410" fill="#766872" font-size="14" font-family="Inter, Arial, sans-serif">Password</text>
+    <text x="296" y="460" text-anchor="end" fill="#620625" font-size="12" font-weight="800" font-family="Inter, Arial, sans-serif">Forgot password?</text>
+    <rect x="34" y="490" width="262" height="54" rx="18" fill="url(#brandGrad)"/>
+    <text x="165" y="524" text-anchor="middle" fill="#fff" font-size="15" font-weight="900" font-family="Inter, Arial, sans-serif">SIGN IN</text>
+    <text x="165" y="584" text-anchor="middle" fill="#766872" font-size="13" font-family="Inter, Arial, sans-serif">No account yet?  </text>
+    <text x="211" y="584" fill="#620625" font-size="13" font-weight="900" font-family="Inter, Arial, sans-serif">Sign up</text></g>
+  </g>
+</svg>

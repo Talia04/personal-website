@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img">
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <linearGradient id="chrome" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#11161b"/>
+      <stop offset="1" stop-color="#07090b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="74%" cy="0%" r="60%">
+      <stop offset="0" stop-color="#7694ff" stop-opacity="0.12"/>
+      <stop offset="0.7" stop-color="#7694ff" stop-opacity="0"/>
+    </radialGradient>
+    
+  </defs>
+  <rect width="100%" height="100%" fill="#08090b"/>
+  <rect width="100%" height="100%" fill="url(#glow)"/>
+  <g filter="url(#softShadow)">
+    <rect x="20" y="20" width="1560" height="900" rx="16" fill="url(#chrome)" stroke="#242a30"/>
+    <rect x="20" y="20" width="1560" height="48" rx="16" fill="#090b0e" stroke="#1a2026"/>
+    <circle cx="42" cy="44" r="6" fill="#ff5f57"/>
+    <circle cx="62" cy="44" r="6" fill="#febc2e"/>
+    <circle cx="82" cy="44" r="6" fill="#28c840"/>
+    <rect x="118" y="32" width="520" height="24" rx="8" fill="#05070a" stroke="#242a30"/>
+    <text x="134" y="49" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">app.skoutr.dev/intelligence/companies</text>
+    <text x="1484" y="49" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Portfolio mockup</text>
+    <g clip-path="url(#clip-20-20)">
+    <rect x="20" y="68" width="210" height="852" fill="#080b0e" stroke="#1a2026"/>
+    <rect x="42" y="94" width="36" height="36" rx="8" fill="#a3ff12"/>
+    <text x="60" y="118" text-anchor="middle" fill="#0b0d08" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="13" font-weight="800">SK</text>
+    <text x="92" y="118" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="20" font-weight="800">Skoutr</text><rect x="30" y="162" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="186" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">⌂</text>
+      <text x="74" y="185" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Dashboard</text><rect x="30" y="202" width="190" height="36" rx="7" fill="#151a20" stroke="#1a2026"/>
+      <rect x="30" y="202" width="3" height="36" rx="2" fill="#a3ff12"/>
+      <text x="48" y="226" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">▦</text>
+      <text x="74" y="225" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">Companies</text><rect x="30" y="242" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="266" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">▣</text>
+      <text x="74" y="265" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Opportunities</text><rect x="30" y="298" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="322" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">◇</text>
+      <text x="74" y="321" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Discover</text><rect x="30" y="338" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="362" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">▷</text>
+      <text x="74" y="361" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Runs</text><rect x="30" y="394" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="418" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">☆</text>
+      <text x="74" y="417" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Shortlist</text><rect x="30" y="434" width="190" height="36" rx="7" fill="transparent" stroke="transparent"/>
+      
+      <text x="48" y="458" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">⚙</text>
+      <text x="74" y="457" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500">Settings</text><rect x="34" y="832" width="182" height="58" rx="8" fill="#0d1115" stroke="#242a30"/>
+    <circle cx="54" cy="862" r="4" fill="#a3ff12"/>
+    <text x="68" y="859" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12" font-weight="650">All systems local</text>
+    <text x="68" y="877" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Data stays on your machine</text>
+    <text x="270" y="124" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="30" font-weight="800">Company intelligence</text>
+    <text x="270" y="154" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="17">Verified companies ranked by evidence, hiring velocity, and relevance.</text>
+    <rect x="270" y="180" width="270" height="96" rx="10" fill="#0c0f12" stroke="#242a30"/>
+    <text x="288" y="210" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Raw candidates</text>
+    <text x="288" y="246" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="30">1,204</text>
+    <text x="288" y="264" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Across all sources</text>
+    <text x="498" y="236" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="32">▧</text>
+  
+    <rect x="562" y="180" width="270" height="96" rx="10" fill="#0c0f12" stroke="#242a30"/>
+    <text x="580" y="210" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Canonical entities</text>
+    <text x="580" y="246" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="30">782</text>
+    <text x="580" y="264" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">After deduplication</text>
+    <text x="790" y="236" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="32">◍</text>
+  
+    <rect x="854" y="180" width="270" height="96" rx="10" fill="#0c0f12" stroke="#242a30"/>
+    <text x="872" y="210" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Verified</text>
+    <text x="872" y="246" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="30">691</text>
+    <text x="872" y="264" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">High-confidence matches</text>
+    <text x="1082" y="236" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="32">◇</text>
+  
+    <rect x="1146" y="180" width="270" height="96" rx="10" fill="#0c0f12" stroke="#242a30"/>
+    <text x="1164" y="210" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Average confidence</text>
+    <text x="1164" y="246" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="30">88%</text>
+    <text x="1164" y="264" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Across verified companies</text>
+    <text x="1374" y="236" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="32">⌁</text>
+  
+    <rect x="270" y="304" width="310" height="46" rx="8" fill="#090c10" stroke="#242a30"/>
+    <text x="288" y="333" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">⌕</text>
+    <text x="312" y="333" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13">Search companies...</text>
+    <rect x="598" y="304" width="150" height="46" rx="8" fill="#0c0f12" stroke="#242a30"/><text x="616" y="333" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Platform</text><text x="692" y="333" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">All⌄</text>
+    <rect x="764" y="304" width="160" height="46" rx="8" fill="#0c0f12" stroke="#242a30"/><text x="782" y="333" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Verification</text><text x="878" y="333" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">All⌄</text>
+    <rect x="270" y="370" width="792" height="454" rx="10" fill="#0c0f12" stroke="#242a30"/>
+      <line x1="270" y1="422" x2="1062" y2="422" stroke="#1a2026"/>
+      <text x="290" y="405" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Company</text><text x="510" y="405" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Platform(s)</text><text x="658" y="405" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Intel score ↓</text><text x="796" y="405" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Relevant jobs</text><text x="922" y="405" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Total jobs</text><text x="1032" y="405" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Verification</text>
+      <rect x="270" y="424" width="792" height="64" fill="#10180e" stroke="#a3ff12" stroke-width="1.5"/>
+    <rect x="290" y="437" width="38" height="38" rx="7" fill="#f7f7f4" stroke="#242a30"/>
+    <text x="309" y="462" text-anchor="middle" fill="#111" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="15" font-weight="850">AI</text>
+    <text x="346" y="451" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650">Anthropic</text>
+    <text x="346" y="471" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">anthropic.com</text><rect x="510" y="444" width="52.5" height="24" rx="7" fill="rgba(151,120,255,0.10)" stroke="#b9a7ff" stroke-opacity="0.22"/>
+    <text x="520" y="460" fill="#b9a7ff" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Ashby</text><text x="640" y="464" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="20">94</text>
+    <text x="780" y="464" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">12</text>
+    <text x="894" y="464" fill="#f4f4f5" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">31</text>
+    <rect x="970" y="444" width="72" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#a3ff12" stroke-opacity="0.22"/>
+    <text x="980" y="460" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Verified</text>
+      <rect x="270" y="488" width="792" height="64" fill="transparent" stroke="#1a2026" stroke-width="1"/>
+    <rect x="290" y="501" width="38" height="38" rx="7" fill="#f7f7f4" stroke="#242a30"/>
+    <text x="309" y="526" text-anchor="middle" fill="#111" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="15" font-weight="850">DB</text>
+    <text x="346" y="515" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650">Databricks</text>
+    <text x="346" y="535" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">databricks.com</text><rect x="510" y="508" width="85" height="24" rx="7" fill="rgba(34,197,94,0.08)" stroke="#34d399" stroke-opacity="0.22"/>
+    <text x="520" y="524" fill="#34d399" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Greenhouse</text><rect x="603" y="508" width="52.5" height="24" rx="7" fill="rgba(34,197,94,0.08)" stroke="#34d399" stroke-opacity="0.22"/>
+    <text x="613" y="524" fill="#34d399" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Lever</text><text x="640" y="528" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="20">92</text>
+    <text x="780" y="528" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">18</text>
+    <text x="894" y="528" fill="#f4f4f5" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">47</text>
+    <rect x="970" y="508" width="72" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#a3ff12" stroke-opacity="0.22"/>
+    <text x="980" y="524" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Verified</text>
+      <rect x="270" y="552" width="792" height="64" fill="transparent" stroke="#1a2026" stroke-width="1"/>
+    <rect x="290" y="565" width="38" height="38" rx="7" fill="#f7f7f4" stroke="#242a30"/>
+    <text x="309" y="590" text-anchor="middle" fill="#111" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="15" font-weight="850">S</text>
+    <text x="346" y="579" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650">Scale AI</text>
+    <text x="346" y="599" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">scale.com</text><rect x="510" y="572" width="85" height="24" rx="7" fill="rgba(34,197,94,0.08)" stroke="#34d399" stroke-opacity="0.22"/>
+    <text x="520" y="588" fill="#34d399" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Greenhouse</text><rect x="603" y="572" width="52.5" height="24" rx="7" fill="rgba(34,197,94,0.08)" stroke="#34d399" stroke-opacity="0.22"/>
+    <text x="613" y="588" fill="#34d399" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Lever</text><text x="640" y="592" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="20">89</text>
+    <text x="780" y="592" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">9</text>
+    <text x="894" y="592" fill="#f4f4f5" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">26</text>
+    <rect x="970" y="572" width="72" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#a3ff12" stroke-opacity="0.22"/>
+    <text x="980" y="588" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Verified</text>
+      <rect x="270" y="616" width="792" height="64" fill="transparent" stroke="#1a2026" stroke-width="1"/>
+    <rect x="290" y="629" width="38" height="38" rx="7" fill="#f7f7f4" stroke="#242a30"/>
+    <text x="309" y="654" text-anchor="middle" fill="#111" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="15" font-weight="850">C</text>
+    <text x="346" y="643" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650">Cursor</text>
+    <text x="346" y="663" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">cursor.com</text><rect x="510" y="636" width="52.5" height="24" rx="7" fill="rgba(151,120,255,0.10)" stroke="#b9a7ff" stroke-opacity="0.22"/>
+    <text x="520" y="652" fill="#b9a7ff" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Ashby</text><text x="640" y="656" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="20">87</text>
+    <text x="780" y="656" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">7</text>
+    <text x="894" y="656" fill="#f4f4f5" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">19</text>
+    <rect x="970" y="636" width="72" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#a3ff12" stroke-opacity="0.22"/>
+    <text x="980" y="652" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Verified</text>
+      <rect x="270" y="680" width="792" height="64" fill="transparent" stroke="#1a2026" stroke-width="1"/>
+    <rect x="290" y="693" width="38" height="38" rx="7" fill="#f7f7f4" stroke="#242a30"/>
+    <text x="309" y="718" text-anchor="middle" fill="#111" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="15" font-weight="850">R</text>
+    <text x="346" y="707" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650">Runway</text>
+    <text x="346" y="727" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">runwayml.com</text><rect x="510" y="700" width="85" height="24" rx="7" fill="rgba(34,197,94,0.08)" stroke="#34d399" stroke-opacity="0.22"/>
+    <text x="520" y="716" fill="#34d399" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Greenhouse</text><text x="640" y="720" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="20">84</text>
+    <text x="780" y="720" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">11</text>
+    <text x="894" y="720" fill="#f4f4f5" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="16">28</text>
+    <rect x="970" y="700" width="59" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#d9a400" stroke-opacity="0.22"/>
+    <text x="980" y="716" fill="#d9a400" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Likely</text>
+      <text x="290" y="800" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Showing 1 to 5 of 691 companies</text>
+    
+    <rect x="1100" y="370" width="330" height="454" rx="10" fill="#0c0f12" stroke="#242a30"/>
+      <text x="1126" y="424" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="20" font-weight="750">Anthropic</text>
+      <text x="1126" y="446" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">anthropic.com</text>
+      <text x="1126" y="510" fill="#a3ff12" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="44">94</text>
+      <text x="1186" y="502" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Intelligence score</text>
+      <rect x="1330" y="478" width="72" height="24" rx="7" fill="rgba(163,255,18,0.08)" stroke="#a3ff12" stroke-opacity="0.22"/>
+    <text x="1340" y="494" fill="#a3ff12" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11" font-weight="650">Verified</text>
+      <line x1="1126" y1="540" x2="1404" y2="540" stroke="#242a30"/>
+      <text x="1126" y="580" fill="#f4f4f5" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="21">12</text>
+    <text x="1126" y="601" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Relevant jobs</text>
+      <text x="1236" y="580" fill="#f4f4f5" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="21">31</text>
+    <text x="1236" y="601" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Total jobs</text>
+      <text x="1342" y="580" fill="#f4f4f5" font-family="SFMono-Regular, Consolas, Menlo, monospace" font-size="21">3</text>
+    <text x="1342" y="601" fill="#5f6670" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="11">Sources</text>
+      <text x="1126" y="648" fill="#f4f4f5" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="650">Key signals</text>
+      <circle cx="1132" cy="678" r="6" fill="rgba(163,255,18,0.08)" stroke="#a3ff12"/>
+    <path d="M1128 678 L1131 681 L1137 674" fill="none" stroke="#a3ff12" stroke-width="1.5"/>
+    <text x="1148" y="682" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Strong engineering hiring velocity</text>
+      <circle cx="1132" cy="710" r="6" fill="rgba(163,255,18,0.08)" stroke="#a3ff12"/>
+    <path d="M1128 710 L1131 713 L1137 706" fill="none" stroke="#a3ff12" stroke-width="1.5"/>
+    <text x="1148" y="714" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Historical sponsorship record</text>
+      <circle cx="1132" cy="742" r="6" fill="rgba(163,255,18,0.08)" stroke="#a3ff12"/>
+    <path d="M1128 742 L1131 745 L1137 738" fill="none" stroke="#a3ff12" stroke-width="1.5"/>
+    <text x="1148" y="746" fill="#a1a1aa" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="12">Recent leadership growth</text>
+      <rect x="1126" y="778" width="278" height="42" rx="8" fill="#a3ff12"/>
+      <text x="1265" y="805" text-anchor="middle" fill="#0b0d08" font-family="Inter, SF Pro Text, Segoe UI, Arial, sans-serif" font-size="13" font-weight="800">Open company workspace</text>
+    
+  </g>
+    <clipPath id="clip-20-20"><rect x="20" y="68" width="1560" height="852" rx="0"/></clipPath>
+  </g>
+</svg>

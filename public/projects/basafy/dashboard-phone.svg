@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" role="img" aria-label="Basafy product mockup">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#080D1A"/>
+      <stop offset="0.52" stop-color="#101A32"/>
+      <stop offset="1" stop-color="#0A0E1A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4A8CFF"/>
+      <stop offset="0.55" stop-color="#F38FA9"/>
+      <stop offset="1" stop-color="#5AEFD5"/>
+    </linearGradient>
+    <linearGradient id="nav" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#101A31" stop-opacity="0.94"/>
+      <stop offset="1" stop-color="#0F1628" stop-opacity="0.92"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="30" stdDeviation="32" flood-color="#000000" flood-opacity="0.42"/>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000000" flood-opacity="0.24"/>
+    </filter>
+    <clipPath id="phoneClip"><rect x="10" y="10" width="370" height="824" rx="50"/></clipPath>
+  </defs>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+    <circle cx="126.00000000000001" cy="198" r="170" fill="#4A8CFF" opacity="0.10"/>
+    <circle cx="756" cy="220" r="210" fill="#F38FA9" opacity="0.08"/>
+    <circle cx="693" cy="924" r="260" fill="#5AEFD5" opacity="0.07"/>
+    <text x="90" y="112" fill="#F4F6FA" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="54" font-weight="850" letter-spacing="0" >Dashboard</text><text x="94" y="154" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="20" font-weight="650" letter-spacing="0" >A focused command center for interviews, tasks, and synced Gmail activity.</text>
+    <g transform="translate(255 180) rotate(0 163.79999999999998 354.47999999999996) scale(0.84)" filter="url(#shadow)">
+    <rect x="0" y="0" width="390" height="844" rx="58" fill="#040812"/>
+    <rect x="10" y="10" width="370" height="824" rx="50" fill="#0A0E1A" stroke="rgba(255,255,255,0.18)" stroke-width="1.2"/>
+    <rect x="145" y="25" width="100" height="28" rx="14" fill="#050914"/>
+    <g clip-path="url(#phoneClip)">
+    <rect x="10" y="10" width="370" height="824" fill="#0A0E1A"/>
+    <circle cx="320" cy="120" r="106" fill="#4A8CFF" opacity="0.10"/>
+    <circle cx="55" cy="270" r="80" fill="#5AEFD5" opacity="0.08"/>
+    <rect x="28" y="76" width="334" height="126" rx="26" fill="rgba(74,140,255,0.13)" stroke="rgba(74,140,255,0.24)"/>
+    <text x="48" y="116" fill="#F4F6FA" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0" >Welcome back, Tanya</text>
+    <text x="48" y="145" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="0" >Your job search is moving.</text>
+    <rect x="48" y="162" width="128" height="26" rx="13" fill="rgba(90,239,213,0.14)" /><text x="60" y="180" fill="#5AEFD5" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >Gmail sync active</text>
+    <rect x="286" y="105" width="46" height="46" rx="16" fill="rgba(90,239,213,0.14)" />
+    <text x="309" y="135" fill="#5AEFD5" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0" text-anchor="middle">✓</text>
+
+    <rect x="28" y="222" width="102" height="104" rx="22" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.09)"/>
+          <text x="44" y="262" fill="#4A8CFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="0" >18</text>
+          <text x="44" y="291" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >Applications</text>
+          <text x="44" y="307" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >Active</text><rect x="140" y="222" width="102" height="104" rx="22" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.09)"/>
+          <text x="156" y="262" fill="#5AEFD5" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="0" >3</text>
+          <text x="156" y="291" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >Interviews</text>
+          <text x="156" y="307" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >This Week</text><rect x="252" y="222" width="102" height="104" rx="22" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.09)"/>
+          <text x="268" y="262" fill="#FDBA74" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="30" font-weight="800" letter-spacing="0" >7</text>
+          <text x="268" y="291" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >Pending</text>
+          <text x="268" y="307" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >Actions</text>
+
+    <text x="30" y="366" fill="#F4F6FA" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="0" >Upcoming</text>
+    <rect x="28" y="386" width="334" height="64" rx="18" fill="#111827" stroke="rgba(255,255,255,0.10)"/>
+          <circle cx="58" cy="418" r="18" fill="rgba(74,140,255,0.16)"/><text x="58" y="424" fill="#5AEFD5" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="0" text-anchor="middle">M</text>
+          <text x="88" y="413" fill="#F4F6FA" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="0" >Meta</text>
+          <text x="88" y="433" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="0" >Product Design Intern</text>
+          <rect x="257" y="405" width="88" height="26" rx="13" fill="rgba(255,255,255,0.06)" /><text x="269" y="423" fill="#E6EDFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >Today 2:00 PM</text><rect x="28" y="464" width="334" height="64" rx="18" fill="#111827" stroke="rgba(255,255,255,0.10)"/>
+          <circle cx="58" cy="496" r="18" fill="rgba(74,140,255,0.16)"/><text x="58" y="502" fill="#4A8CFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="0" text-anchor="middle">S</text>
+          <text x="88" y="491" fill="#F4F6FA" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="15" font-weight="800" letter-spacing="0" >Stripe</text>
+          <text x="88" y="511" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="0" >Frontend Engineer</text>
+          <rect x="257" y="483" width="88" height="26" rx="13" fill="rgba(255,255,255,0.06)" /><text x="269" y="501" fill="#E6EDFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="0" >Thu 10:30 AM</text>
+
+    <text x="30" y="568" fill="#F4F6FA" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="0" >Action Items</text>
+    <rect x="28" y="590" width="334" height="34" rx="13" fill="rgba(255,255,255,0.035)" />
+          <circle cx="48" cy="607" r="7" fill="none" stroke="#FDE68A" stroke-width="2"/>
+          <text x="66" y="612" fill="#E6EDFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="12" font-weight="650" letter-spacing="0" >Follow up with Greenhouse recruiter</text><rect x="28" y="635" width="334" height="34" rx="13" fill="rgba(255,255,255,0.035)" />
+          <circle cx="48" cy="652" r="7" fill="none" stroke="#4A8CFF" stroke-width="2"/>
+          <text x="66" y="657" fill="#E6EDFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="12" font-weight="650" letter-spacing="0" >Send portfolio link to Dropbox</text><rect x="28" y="680" width="334" height="34" rx="13" fill="rgba(255,255,255,0.035)" />
+          <circle cx="48" cy="697" r="7" fill="none" stroke="#F38FA9" stroke-width="2"/>
+          <text x="66" y="702" fill="#E6EDFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="12" font-weight="650" letter-spacing="0" >Prep behavioral notes for Ramp</text>
+    <rect x="38" y="748" width="314" height="64" rx="22" fill="url(#nav)" stroke="rgba(255,255,255,0.16)"/>
+    <circle cx="78" cy="780" r="19" fill="rgba(74,140,255,0.16)"/>
+          <text x="78" y="786" fill="#4A8CFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="0" text-anchor="middle">⌂</text>
+          <text x="136" y="786" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="0" text-anchor="middle">▦</text>
+          <text x="194" y="786" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="0" text-anchor="middle">▤</text>
+          <text x="252" y="786" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="0" text-anchor="middle">◔</text>
+          <text x="310" y="786" fill="#A3B0C0" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="0" text-anchor="middle">◌</text></g>
+  </g>
+    <text x="450" y="1014" fill="#E6EDFF" font-family="Inter, Space Grotesk, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="0" text-anchor="middle">Basafy</text>
+</svg>

@@ -1,0 +1,66 @@
+<svg width="720" height="960" viewBox="0 0 720 960" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#2b101a" flood-opacity="0.22"/>
+    </filter>
+    <filter id="softShadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#421022" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#620625"/>
+      <stop offset="1" stop-color="#7C304A"/>
+    </linearGradient>
+    <linearGradient id="pageGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffafb"/>
+      <stop offset="1" stop-color="#f4e2e8"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="720" height="960" rx="42" fill="url(#pageGrad)"/>
+  <circle cx="642" cy="86" r="174" fill="#AE7F8F" opacity=".14"/>
+  <circle cx="80" cy="878" r="190" fill="#620625" opacity=".08"/> <g transform="translate(195 150) scale(1)" filter="url(#shadow)">
+    <rect x="0" y="0" width="330" height="680" rx="42" fill="#171116"/>
+    <rect x="12" y="12" width="306" height="656" rx="34" fill="#fffafb"/>
+    <rect x="116" y="26" width="98" height="10" rx="5" fill="#2a2027" opacity=".85"/>
+    <clipPath id="clip-195-150"><rect x="12" y="12" width="306" height="656" rx="34"/></clipPath>
+    <g clip-path="url(#clip-195-150)">
+    <rect x="12" y="12" width="306" height="656" fill="#fffafb"/>
+    <rect x="12" y="12" width="306" height="112" fill="url(#brandGrad)"/>
+  <circle cx="278" cy="66" r="18" fill="#fff" opacity=".18"/>
+  <circle cx="52" cy="66" r="18" fill="#fff" opacity=".18"/>
+  <text x="32" y="74" fill="#fff" font-size="22" font-weight="800" font-family="Inter, Arial, sans-serif">Find tutors</text>
+  
+    <rect x="28" y="146" width="274" height="52" rx="17" fill="#fff" stroke="#ead9df"/>
+    <text x="52" y="179" fill="#21161b" font-size="14" font-weight="800" font-family="Inter, Arial, sans-serif">Grade 12 Mathematics</text>
+    <text x="282" y="179" text-anchor="end" fill="#620625" font-size="16" font-weight="900" font-family="Inter, Arial, sans-serif">⌄</text>
+    <rect x="28" y="218" width="105" height="28" rx="14" fill="#f8eef2"/>
+  <text x="42" y="237" fill="#620625" font-size="12" font-weight="700" font-family="Inter, Arial, sans-serif">Recommended</text>
+    <rect x="154" y="218" width="84" height="28" rx="14" fill="#f1e5ea"/>
+  <text x="168" y="237" fill="#766872" font-size="12" font-weight="700" font-family="Inter, Arial, sans-serif">Near you</text>
+    <rect x="28" y="266" width="274" height="122" rx="18" fill="#fff" filter="url(#softShadow)"/>
+  <circle cx="76" cy="310" r="30" fill="#f8eef2"/>
+  <text x="76" y="319" text-anchor="middle" fill="#620625" font-size="22" font-weight="900" font-family="Inter, Arial, sans-serif">T</text>
+  <text x="122" y="303" fill="#21161b" font-size="17" font-weight="900" font-family="Inter, Arial, sans-serif">Thandi M.</text>
+  <text x="122" y="326" fill="#766872" font-size="12" font-family="Inter, Arial, sans-serif">Mathematics · Chemistry</text>
+  <text x="122" y="354" fill="#21161b" font-size="13" font-weight="800" font-family="Inter, Arial, sans-serif">$12 / week</text>
+  <text x="282" y="300" text-anchor="end" fill="#d9a441" font-size="12" font-weight="900" font-family="Inter, Arial, sans-serif">★ 4.9</text>
+  <circle cx="276" cy="354" r="15" fill="#11805f"/>
+  <text x="276" y="359" text-anchor="middle" fill="#fff" font-size="12" font-weight="900" font-family="Inter, Arial, sans-serif">WA</text>
+    <rect x="28" y="406" width="274" height="122" rx="18" fill="#fff" filter="url(#softShadow)"/>
+  <circle cx="76" cy="450" r="30" fill="#f8eef2"/>
+  <text x="76" y="459" text-anchor="middle" fill="#7C304A" font-size="22" font-weight="900" font-family="Inter, Arial, sans-serif">L</text>
+  <text x="122" y="443" fill="#21161b" font-size="17" font-weight="900" font-family="Inter, Arial, sans-serif">Leo K.</text>
+  <text x="122" y="466" fill="#766872" font-size="12" font-family="Inter, Arial, sans-serif">Physics · Exam prep</text>
+  <text x="122" y="494" fill="#21161b" font-size="13" font-weight="800" font-family="Inter, Arial, sans-serif">$10 / week</text>
+  <text x="282" y="440" text-anchor="end" fill="#d9a441" font-size="12" font-weight="900" font-family="Inter, Arial, sans-serif">★ 4.8</text>
+  <circle cx="276" cy="494" r="15" fill="#11805f"/>
+  <text x="276" y="499" text-anchor="middle" fill="#fff" font-size="12" font-weight="900" font-family="Inter, Arial, sans-serif">WA</text>
+    <rect x="12" y="604" width="306" height="64" fill="#fff"/>
+  <line x1="12" y1="604" x2="318" y2="604" stroke="#ead9df"/>
+  <circle cx="48" cy="628" r="10" fill="#d9c5cd"/>
+      <text x="48" y="652" text-anchor="middle" fill="#766872" font-size="10" font-weight="600" font-family="Inter, Arial, sans-serif">Home</text><circle cx="124" cy="628" r="10" fill="#620625"/>
+      <text x="124" y="652" text-anchor="middle" fill="#620625" font-size="10" font-weight="800" font-family="Inter, Arial, sans-serif">Search</text><circle cx="202" cy="628" r="10" fill="#d9c5cd"/>
+      <text x="202" y="652" text-anchor="middle" fill="#766872" font-size="10" font-weight="600" font-family="Inter, Arial, sans-serif">Saved</text><circle cx="270" cy="628" r="10" fill="#d9c5cd"/>
+      <text x="270" y="652" text-anchor="middle" fill="#766872" font-size="10" font-weight="600" font-family="Inter, Arial, sans-serif">Profile</text></g>
+  </g>
+</svg>
