@@ -82,7 +82,11 @@
 .liquid-nav-item {
   position: relative;
   z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 0;
+  min-height: clamp(2.35rem, 3.1vw, 2.95rem);
   flex: 1;
   cursor: pointer;
   overflow: hidden;
@@ -94,6 +98,8 @@
   font-size: clamp(0.62rem, 1.1vw, 0.78rem);
   font-weight: 700;
   letter-spacing: -0.01em;
+  line-height: 1;
+  text-align: center;
   white-space: nowrap;
   transition:
     transform 300ms var(--portfolio-ease),
@@ -105,7 +111,7 @@
 
 .liquid-nav-item::before {
   position: absolute;
-  inset: 0;
+  inset: 0.04rem;
   border-radius: inherit;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.04)),
@@ -119,6 +125,11 @@
 .liquid-nav-item span {
   position: relative;
   z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1em;
+  line-height: 1;
 }
 
 .liquid-nav-more-trigger {

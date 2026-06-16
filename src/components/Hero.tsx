@@ -12,6 +12,7 @@ interface HeroProps {
 
 export function Hero({ onReadStory, onExploreWork }: HeroProps) {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isAvatarNoteOpen, setIsAvatarNoteOpen] = useState(false);
 
   return (
     <section className="tech-hero">
@@ -87,6 +88,27 @@ export function Hero({ onReadStory, onExploreWork }: HeroProps) {
           transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
         >
           <InteractiveAvatar />
+          <div className={`tech-avatar-note${isAvatarNoteOpen ? " is-open" : ""}`}>
+            <button
+              type="button"
+              className="tech-avatar-note-trigger"
+              aria-expanded={isAvatarNoteOpen}
+              aria-controls="avatar-build-note"
+              onClick={() => setIsAvatarNoteOpen((current) => !current)}
+            >
+              Built from scratch
+            </button>
+            <div id="avatar-build-note" className="tech-avatar-note-panel">
+              <p>I built this interactive avatar from scratch as SVG and React, with cursor-reactive motion, idle animation, blinking, layered hair, and a hover photo reveal.</p>
+              <div>
+                <span>React</span>
+                <span>TypeScript</span>
+                <span>SVG</span>
+                <span>CSS variables</span>
+                <span>Pointer events</span>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
       <ResumeModal open={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
