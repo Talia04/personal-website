@@ -20,10 +20,13 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { parsePortfolioRoute, portfolioRouteHref, projectRouteHref, type PortfolioRoute } from "./utils/routes";
 import "./styles/editorial-system.css";
+import { DigitalContactCard } from "./components/DigitalContactCard";
 
 export default function App() {
+  const recoveredRoute = new URLSearchParams(window.location.search).get("route");
+  const isDigitalCard = window.location.pathname.replace(/\/$/, "") === "/card" || recoveredRoute?.replace(/\/$/, "") === "/card";
   const [route, setRoute] = useState<PortfolioRoute>(() => parsePortfolioRoute());
-  const [isLoading, setIsLoading] = useState(() => route.path === null);
+  const [isLoading, setIsLoading] = useState(() => !isDigitalCard && route.path === null);
   const portfolioPath = route.path;
   const projectSlug = route.projectSlug;
   const [isInterestsOpen, setIsInterestsOpen] = useState(false);
@@ -32,6 +35,10 @@ export default function App() {
   useEffect(() => {
     // Smooth scroll behavior
     document.documentElement.style.scrollBehavior = "smooth";
+
+    if (isDigitalCard && recoveredRoute) {
+      window.history.replaceState({}, "", "/card");
+    }
 
     if (new URLSearchParams(window.location.search).has("route") && route.path) {
       window.history.replaceState({}, "", portfolioRouteHref(route.path, route.section, route.paper));
@@ -71,16 +78,17 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      {isDigitalCard && <DigitalContactCard />}
       <AnimatePresence mode="wait">
-        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+        {!isDigitalCard && isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
       </AnimatePresence>
       <AnimatePresence mode="wait">
-        {!isLoading && !portfolioPath && (
+        {!isDigitalCard && !isLoading && !portfolioPath && (
           <PortfolioFork key="portfolio-fork" onSelect={(path) => navigate(path)} />
         )}
       </AnimatePresence>
 
-      {!isLoading && portfolioPath && (
+      {!isDigitalCard && !isLoading && portfolioPath && (
         <>
           <Navigation
             path={portfolioPath}
