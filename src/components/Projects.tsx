@@ -65,12 +65,13 @@ export const projectShowcaseItems: ProjectShowcaseItem[] = [
     mainImage: "/projects/basafy/portfolio-hero.svg",
     mainImageAlt: "Basafy product overview",
     description:
-      "Job searching is already stressful. Tracking it shouldn't be. Basafy came from my own frustration managing recruiter emails, interview invitations, portals, and follow-up deadlines, so I built a system that turns scattered Gmail activity into an organized application pipeline.",
+      "Job searching is already stressful. Tracking it shouldn't be. Basafy came from my own frustration managing recruiter emails, interview invitations, portals, and follow-up deadlines, so I built a system that turns scattered Gmail activity into an organized application pipeline. In its first 15 weeks, Basafy reached 21 downloaded units.",
     highlights: [
       "Built Gmail synchronization pipelines for application-related emails.",
       "Modeled applications, tasks, reminders, and email associations in PostgreSQL.",
       "Implemented Google OAuth, token management, APNs reminders, and iOS deep links.",
       "Published and maintained a production mobile application.",
+      "Reached 21 downloaded units in 15 weeks.",
     ],
     tech: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "Gmail API", "Google OAuth", "APNs"],
     learned:
@@ -335,7 +336,7 @@ export function Projects({ onOpenProjectDetails }: { onOpenProjectDetails: (slug
                     {[
                       { value: "Solo", label: "Product ownership" },
                       { value: "Live", label: "App Store product" },
-                      { value: "Gmail", label: "API-driven workflow" },
+                      { value: "21", label: "Units downloaded in 15 weeks" },
                     ].map((proof) => (
                       <div key={proof.label} className="tech-proof-item">
                         <p className="tech-proof-value">{proof.value}</p>
