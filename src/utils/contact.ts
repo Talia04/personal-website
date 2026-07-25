@@ -6,6 +6,10 @@ export const contactInfo = {
   linkedInDisplay: "/in/tanyaradzwa-chisepo",
   github: "https://github.com/Talia04",
   githubDisplay: "@Talia04",
+  website: "https://tanyachisepo.dev",
+  websiteDisplay: "tanyachisepo.dev",
+  location: "Florida, USA",
+  locationHref: "https://www.google.com/maps/search/?api=1&query=Florida%2C%20USA",
 } as const;
 
 export function getMailtoLink(subject?: string, body?: string) {

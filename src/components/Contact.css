@@ -135,6 +135,7 @@
   display: grid;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
   padding: 0.85rem;
   border: 1px solid var(--portfolio-border);
   border-radius: 1rem;
@@ -143,9 +144,11 @@
   transition: border-color 240ms ease, background 240ms ease, transform 240ms var(--portfolio-ease);
 }
 
-.contact-link-card:hover {
+.contact-link-card:hover,
+.contact-link-card:focus-visible {
   border-color: color-mix(in srgb, var(--portfolio-accent) 34%, transparent);
   background: rgba(255, 255, 255, 0.052);
+  outline: none;
 }
 
 .contact-link-icon {
@@ -169,11 +172,11 @@
 .contact-link-card span {
   display: block;
   margin-top: 0.15rem;
-  overflow: hidden;
+  overflow: visible;
   color: var(--portfolio-muted);
   font-size: 0.72rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .contact-link-card > svg {
@@ -181,12 +184,20 @@
 }
 
 .contact-location {
-  display: flex;
+  display: inline-flex;
+  width: fit-content;
   align-items: center;
   gap: 0.5rem;
   margin-top: 1.4rem;
   color: var(--portfolio-dim);
   font-size: 0.72rem;
+  transition: color 200ms ease;
+}
+
+.contact-location:hover,
+.contact-location:focus-visible {
+  color: var(--portfolio-accent);
+  outline: none;
 }
 
 .contact-card-shell {
@@ -197,6 +208,7 @@
 
 .contact-art-card {
   position: relative;
+  display: block;
   overflow: hidden;
   min-height: 10rem;
   padding: 1.3rem;
@@ -206,6 +218,16 @@
     linear-gradient(135deg, color-mix(in srgb, var(--portfolio-accent) 12%, transparent), transparent 60%),
     rgba(255, 255, 255, 0.035);
   transform-origin: center;
+  transition: border-color 240ms ease, background 240ms ease, transform 240ms var(--portfolio-ease);
+}
+
+.contact-art-card:hover,
+.contact-art-card:focus-visible {
+  border-color: color-mix(in srgb, var(--portfolio-accent) 52%, transparent);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--portfolio-accent) 18%, transparent), transparent 60%),
+    rgba(255, 255, 255, 0.052);
+  outline: none;
 }
 
 .contact-art-card::after {
@@ -358,6 +380,20 @@
   font-size: 0.68rem;
   line-height: 1.55;
   text-align: center;
+}
+
+.contact-form-note a {
+  color: var(--portfolio-accent);
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22rem;
+}
+
+.contact-form-note a:hover,
+.contact-form-note a:focus-visible {
+  color: var(--portfolio-text);
+  outline: none;
 }
 
 @media (min-width: 640px) {

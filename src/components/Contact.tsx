@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import {
   ArrowUpRight,
   Github,
+  Globe2,
   Linkedin,
   Mail,
   MapPin,
@@ -89,20 +90,40 @@ export function Contact({ path }: ContactProps) {
       value: contactInfo.phoneDisplay,
       href: `tel:${contactInfo.phone}`,
     },
+    {
+      icon: Globe2,
+      label: "Website",
+      value: contactInfo.websiteDisplay,
+      href: contactInfo.website,
+    },
+    {
+      icon: MapPin,
+      label: "Location",
+      value: `${contactInfo.location} / Remote`,
+      href: contactInfo.locationHref,
+    },
   ];
+
+  const emailSubject = formState.name.trim()
+    ? `Portfolio Contact from ${formState.name.trim()}`
+    : "Portfolio Contact";
+  const emailBody = [
+    `Name: ${formState.name || ""}`,
+    `Email: ${formState.email || ""}`,
+    "",
+    "Message:",
+    formState.message || "",
+  ].join("\n");
+  const draftHref = getMailtoLink(emailSubject, emailBody);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Open email client with pre-filled info
-    const subject = `Portfolio Contact from ${formState.name}`;
-    const body = `Name: ${formState.name}\nEmail: ${formState.email}\n\nMessage:\n${formState.message}`;
-    window.location.href = getMailtoLink(subject, body);
+    window.location.assign(draftHref);
 
     setTimeout(() => {
       setIsSubmitting(false);
-      setFormState({ name: "", email: "", message: "" });
     }, 1000);
   };
 
@@ -185,6 +206,7 @@ export function Contact({ path }: ContactProps) {
                   transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                   whileHover={{ x: 8 }}
                   className="contact-link-card"
+                  aria-label={`Open ${contact.label}: ${contact.value}`}
                 >
                   <div className="contact-link-icon">
                     <contact.icon size={18} />
@@ -198,15 +220,20 @@ export function Contact({ path }: ContactProps) {
               ))}
             </div>
 
-            <motion.div
+            <motion.a
+              href={contactInfo.locationHref}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.7 }}
               className="contact-location"
+              aria-label={`Open location: ${contactInfo.location}`}
             >
               <MapPin size={14} />
-              <span>Florida, USA / Open to remote</span>
-            </motion.div>
+              <span>{contactInfo.location} / Open to remote</span>
+              <ArrowUpRight size={12} />
+            </motion.a>
           </div>
 
           <motion.div
@@ -215,12 +242,17 @@ export function Contact({ path }: ContactProps) {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="contact-card-shell"
           >
-            <motion.div style={{ rotate }} className="contact-art-card">
+            <motion.a
+              href={getMailtoLink("Portfolio inquiry")}
+              style={{ rotate }}
+              className="contact-art-card"
+              aria-label="Open email for portfolio inquiry"
+            >
               <p>{mode.signal}</p>
-              <span>{path === "tech" ? "Recruiter-friendly route" : "Story-forward route"}</span>
-            </motion.div>
+              <span>{path === "tech" ? "Recruiter-friendly route" : "Story-forward route"} / Open email</span>
+            </motion.a>
 
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form onSubmit={handleSubmit} className="contact-form" action={draftHref}>
               <div className="contact-form-heading">
                 <MessageCircle size={18} />
                 <div>
@@ -287,7 +319,7 @@ export function Contact({ path }: ContactProps) {
               </motion.button>
 
               <p className="contact-form-note">
-                {mode.note}
+                {mode.note} <a href={draftHref}>Open this draft directly.</a>
               </p>
             </form>
           </motion.div>
