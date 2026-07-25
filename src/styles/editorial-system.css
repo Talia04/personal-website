@@ -43,12 +43,33 @@
   .tech-projects-title,
   .tech-skills-title,
   .tech-experience-title,
+  .notable-work-title,
   .recognition-title,
   .contact-title
 ) {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
   letter-spacing: -0.075em;
+}
+
+.portfolio-shell :is(
+  .tech-hero-name,
+  .tech-profile-title,
+  .coursework-title,
+  .tech-projects-title,
+  .tech-skills-title,
+  .tech-experience-title,
+  .notable-work-title,
+  .recognition-title,
+  .impact-display,
+  .journey-title,
+  .journey-impact-title,
+  .research-spotlight-header h2,
+  .contact-title
+) {
+  overflow: visible;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
 }
 
 .portfolio-shell-tech :is(
@@ -67,6 +88,7 @@
   .tech-projects-title,
   .tech-skills-title,
   .tech-experience-title,
+  .notable-work-title,
   .recognition-title,
   .impact-display,
   .journey-title,
@@ -75,6 +97,9 @@
   .contact-title
 ) > span {
   color: transparent;
+  overflow: visible;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
   background: var(--portfolio-title-sweep);
   background-size: 220% 100%;
   background-clip: text;
@@ -117,6 +142,7 @@
     .tech-projects-title,
     .tech-skills-title,
     .tech-experience-title,
+    .notable-work-title,
     .recognition-title,
     .impact-display,
     .journey-title,

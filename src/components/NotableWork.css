@@ -1,0 +1,292 @@
+.notable-work {
+  position: relative;
+  overflow: hidden;
+  padding: 6.5rem 1.5rem;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(8, 102, 255, 0.18), transparent 24rem),
+    radial-gradient(circle at 88% 64%, rgba(168, 213, 0, 0.08), transparent 24rem),
+    var(--portfolio-bg);
+}
+
+.notable-work::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 78%, transparent);
+}
+
+.notable-work-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  max-width: 80rem;
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.notable-work-copy {
+  position: relative;
+  max-width: 43rem;
+}
+
+.notable-brand-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 1.9rem;
+  margin-bottom: 0.5rem;
+  isolation: isolate;
+}
+
+.notable-brand-header::before {
+  position: absolute;
+  inset: -0.35rem -0.5rem;
+  z-index: -1;
+  border-radius: 999px;
+  background:
+    linear-gradient(120deg, rgba(8, 102, 255, 0.14), rgba(255, 255, 255, 0.015) 56%, transparent),
+    rgba(3, 5, 12, 0.12);
+  content: "";
+}
+
+.notable-meta-logo {
+  width: clamp(2.8rem, 5vw, 4rem);
+  height: auto;
+  opacity: 0.92;
+  filter: drop-shadow(0 8px 18px rgba(8, 102, 255, 0.24));
+}
+
+.notable-facebook-mark {
+  display: grid;
+  width: clamp(1.45rem, 2.1vw, 1.8rem);
+  height: clamp(1.45rem, 2.1vw, 1.8rem);
+  place-items: center;
+  border: 1px solid rgba(8, 102, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(8, 102, 255, 0.12);
+  box-shadow: 0 8px 18px rgba(8, 102, 255, 0.18);
+}
+
+.notable-facebook-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.notable-work-title {
+  margin-top: 1rem;
+  color: var(--portfolio-text);
+  font-size: clamp(2.7rem, 6vw, 5.75rem);
+  line-height: 0.88;
+  overflow-wrap: anywhere;
+}
+
+.notable-work-copy > p:not(.editorial-eyebrow) {
+  max-width: 39rem;
+  margin-top: 1.15rem;
+  color: rgba(243, 239, 253, 0.66);
+  font-size: 0.94rem;
+  line-height: 1.8;
+}
+
+.notable-work-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 0.85rem;
+  margin-top: 1.6rem;
+}
+
+.notable-work-stats div {
+  min-width: 0;
+  min-height: 7.25rem;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.65rem;
+  background:
+    linear-gradient(135deg, rgba(8, 102, 255, 0.16), rgba(255, 255, 255, 0.025)),
+    rgba(255, 255, 255, 0.025);
+}
+
+.notable-work-stats strong {
+  display: block;
+  color: #ffffff;
+  font-size: clamp(1.25rem, 2vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  hyphens: none;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.notable-work-stats span {
+  display: block;
+  margin-top: 0.4rem;
+  color: rgba(243, 239, 253, 0.48);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.notable-work-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.3rem;
+}
+
+.notable-work-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.3rem;
+  padding: 0.62rem 0.78rem;
+  border: 1px solid rgba(8, 102, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(8, 102, 255, 0.11);
+  color: rgba(243, 239, 253, 0.78);
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.notable-work-step svg {
+  color: #75a7ff;
+}
+
+.notable-work-step i {
+  display: none;
+}
+
+.notable-phone-stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  min-width: 0;
+  padding: 1.4rem 0.25rem 2rem;
+}
+
+.notable-phone-stage::before {
+  position: absolute;
+  right: 0;
+  bottom: 10%;
+  width: 88%;
+  height: 46%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(8, 102, 255, 0.28), transparent 66%);
+  filter: blur(18px);
+  content: "";
+}
+
+.notable-phone {
+  position: relative;
+  width: 100%;
+  max-width: 14.25rem;
+  margin: 0;
+  justify-self: center;
+  filter: drop-shadow(0 34px 48px rgba(0, 0, 0, 0.42));
+  transform-origin: center bottom;
+  transition: transform 320ms var(--portfolio-ease), filter 320ms ease;
+}
+
+.notable-phone:hover {
+  filter: drop-shadow(0 42px 64px rgba(0, 0, 0, 0.5));
+}
+
+.notable-phone svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.notable-phone figcaption {
+  width: fit-content;
+  max-width: calc(100% - 1rem);
+  margin: -1.05rem auto 0;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 999px;
+  background: rgba(6, 8, 14, 0.72);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.58rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  backdrop-filter: blur(18px);
+}
+
+.notable-phone-1 {
+  z-index: 1;
+  margin-top: 2.4rem;
+}
+
+.notable-phone-2 {
+  z-index: 3;
+  max-width: 15.65rem;
+}
+
+.notable-phone-3 {
+  z-index: 2;
+  margin-top: 3.4rem;
+}
+
+@media (min-width: 768px) {
+  .notable-work {
+    padding: 8rem 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .notable-work {
+    padding: 9rem 5rem;
+  }
+
+  .notable-work-inner {
+    grid-template-columns: minmax(0, 0.92fr) minmax(30rem, 1.08fr);
+    align-items: center;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .notable-brand-header {
+    align-items: center;
+  }
+
+  .notable-meta-logo {
+    width: 3rem;
+  }
+
+  .notable-phone-stage {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+    margin-inline: 0;
+  }
+
+  .notable-phone {
+    max-width: 16.5rem;
+  }
+
+  .notable-phone-1,
+  .notable-phone-3 {
+    margin-top: 0;
+  }
+
+  .notable-phone figcaption {
+    font-size: 0.5rem;
+  }
+}

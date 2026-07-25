@@ -9,6 +9,7 @@ import { PortfolioFork, type PortfolioPath } from "./components/PortfolioFork";
 import { Skills } from "./components/Skills";
 import { Experience } from "./components/Experience";
 import { ProjectDetailsPage, Projects, projectShowcaseItems } from "./components/Projects";
+import { NotableWork } from "./components/NotableWork";
 import { Additional } from "./components/Additional";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
@@ -142,6 +143,7 @@ export default function App() {
                   <Projects onOpenProjectDetails={navigateProjectDetails} />
                   <Skills />
                   <Experience />
+                  <NotableWork />
                   <Additional />
                   <Contact path="tech" />
                 </>
