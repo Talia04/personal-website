@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { Linkedin, Mail, Github, ArrowUp, Phone } from "lucide-react";
+import { Linkedin, Mail, Github, ArrowUp, Phone, Globe2 } from "lucide-react";
 import { useRef } from "react";
 import type { PortfolioPath } from "./PortfolioFork";
 import { portfolioRouteHref } from "../utils/routes";
@@ -27,6 +27,7 @@ export function Footer({ path, onNavigate, onNavigateTop }: FooterProps) {
         { label: "Education", href: "#coursework" },
         { label: "Work", href: "#projects" },
         { label: "Experience", href: "#experience" },
+        { label: "Notable work", href: "#notable-work" },
       ]
     : [
         { label: "Gallery", href: "#gallery" },
@@ -40,6 +41,7 @@ export function Footer({ path, onNavigate, onNavigateTop }: FooterProps) {
     { icon: Linkedin, href: contactInfo.linkedIn, label: "LinkedIn" },
     { icon: Mail, href: getMailtoLink(), label: "Email" },
     { icon: Phone, href: `tel:${contactInfo.phone}`, label: "Phone" },
+    { icon: Globe2, href: contactInfo.website, label: "Website" },
   ];
 
   return (

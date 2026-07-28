@@ -128,12 +128,13 @@
   display: block;
   margin-top: 0.4rem;
   color: rgba(243, 239, 253, 0.48);
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   font-weight: 800;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.08em;
   line-height: 1.45;
   text-transform: uppercase;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .notable-work-flow {
@@ -259,7 +260,6 @@
     grid-template-columns: minmax(0, 0.92fr) minmax(30rem, 1.08fr);
     align-items: center;
   }
-
 }
 
 @media (max-width: 520px) {

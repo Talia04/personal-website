@@ -12,6 +12,7 @@ const navItems: Record<PortfolioPath, { label: string; href: string }[]> = {
     { label: "Work", href: "#projects" },
     { label: "Expertise", href: "#skills" },
     { label: "Experience", href: "#experience" },
+    { label: "Notable", href: "#notable-work" },
   ],
   impact: [
     { label: "Gallery", href: "#gallery" },

@@ -24,9 +24,9 @@ const savedCollectionScreens = [
 ];
 
 const impactStats = [
-  { value: "Production", label: "Shipped inside Facebook" },
-  { value: "Billions", label: "Available on a global-scale surface" },
-  { value: "Bulk add", label: "New collection-management workflow" },
+  { value: "Live", label: "Shipped in Facebook production" },
+  { value: "Global", label: "Built for a billions-scale surface" },
+  { value: "Bulk add", label: "New collection management flow" },
 ];
 
 const workflow = [
