@@ -594,13 +594,26 @@
 }
 
 .project-detail-stack span {
-  padding: 0.48rem 0.68rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.035);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.18rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: rgba(243, 239, 253, 0.58);
   font-size: 0.68rem;
   font-weight: 800;
+  cursor: default;
+}
+
+.project-detail-stack span::before {
+  width: 0.28rem;
+  height: 0.28rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--project-color) 58%, rgba(255, 255, 255, 0.28));
+  content: "";
 }
 
 .project-detail-actions {
@@ -1201,15 +1214,28 @@
 }
 
 .tech-case-stack-group span {
-  padding: 0.3rem 0.45rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.025);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  padding: 0.12rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: rgba(243, 239, 253, 0.62);
   font-size: 0.54rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   line-height: 1.25;
+  cursor: default;
+}
+
+.tech-case-stack-group span::before {
+  width: 0.24rem;
+  height: 0.24rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: rgba(243, 239, 253, 0.26);
+  content: "";
 }
 
 .tech-case-actions {
@@ -1970,15 +1996,28 @@
 }
 
 .tech-scroll-copy-stack span {
-  padding: 0.5rem 0.65rem;
-  border: 1px solid color-mix(in srgb, var(--project-color) 18%, rgba(255, 255, 255, 0.08));
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--project-color) 8%, transparent);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  padding: 0.16rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: rgba(243, 239, 253, 0.62);
   font-size: 0.62rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  cursor: default;
+}
+
+.tech-scroll-copy-stack span::before {
+  width: 0.28rem;
+  height: 0.28rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--project-color) 58%, rgba(255, 255, 255, 0.28));
+  content: "";
 }
 
 .tech-scroll-copy-actions a,

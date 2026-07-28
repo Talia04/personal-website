@@ -211,22 +211,27 @@
 }
 
 .tech-skill-pill {
-  padding: 0.42rem 0.56rem;
-  border: 1px solid color-mix(in srgb, var(--skill-color) 14%, var(--portfolio-border));
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.018);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  padding: 0.16rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: rgba(243, 239, 253, 0.63);
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  transition: color 260ms ease, border-color 260ms ease, background 260ms ease, transform 260ms var(--portfolio-ease);
+  cursor: default;
 }
 
-.tech-skill-pill:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--skill-color) 45%, transparent);
-  background: color-mix(in srgb, var(--skill-color) 9%, transparent);
-  color: color-mix(in srgb, var(--skill-color) 62%, white);
+.tech-skill-pill::before {
+  width: 0.28rem;
+  height: 0.28rem;
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--skill-color) 55%, rgba(255, 255, 255, 0.28));
+  content: "";
 }
 
 .tech-tool-rail {
@@ -277,12 +282,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   white-space: nowrap;
-  transition: color 260ms ease, transform 260ms var(--portfolio-ease);
-}
-
-.tech-tool-item:hover {
-  transform: translateY(-2px);
-  color: rgba(243, 239, 253, 0.88);
+  cursor: default;
 }
 
 .tech-tool-dot {
